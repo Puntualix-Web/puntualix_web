@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PuntualiX | Listado de Fichas</title>
+
+    <link rel="icon" type="image/png" href="../../src/assets/img/favico/favicon_positivo.png">
+
+    <link rel="stylesheet" href="../../src/styles/base.css">
+    <link rel="stylesheet" href="../../src/styles/tokens.css">
+    <link rel="stylesheet" href="../../src/styles/fonts.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../../src/styles/estilos.css">
+</head>
+<body>
+    <div class="pantalla-dashboard-admin">
+
+        <!-- Barra de navegación superior (componente compartido) -->
+        <div id="barra-navegacion" data-pagina-activa="fichas" data-usuario-nombre="Andres Ramirez" data-usuario-rol="administrador"></div>
+
+        <main class="contenido-dashboard">
+
+            <!-- Migas de pan -->
+            <nav class="migas-pan" aria-label="Ruta de navegación">
+                <a href="dashboard.html">Inicio</a>
+                <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+                <span>Fichas</span>
+            </nav>
+
+            <h1 class="titulo-pagina">Listado de Fichas</h1>
+
+            <!-- Panel con filtros, búsqueda y tabla -->
+            <section class="panel-listado">
+
+                <div class="barra-herramientas-listado">
+                    <div class="grupo-filtro">
+                        <label for="filtro-sede">Filtrar por sede</label>
+                        <select id="filtro-sede" class="selector-filtro">
+                            <option value="todos">Todas</option>
+                            <option value="cinaf">CINAF</option>
+                            <option value="ciaa">CIAA-Zona Franca</option>
+                        </select>
+                    </div>
+
+                    <div class="grupo-busqueda">
+                        <input type="text" placeholder="Buscar ficha" class="campo-busqueda-ficha" />
+                        <button type="button" class="boton-buscar-ficha" aria-label="Buscar">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <table class="tabla-listado-fichas">
+                    <thead>
+                        <tr>
+                            <th>Número</th>
+                            <th>Programa</th>
+                            <th>Jornada</th>
+                            <th>Estado</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>301002</td>
+                            <td>Analisis y Desarrollo de Software</td>
+                            <td>Mañana</td>
+                            <td><span class="etiqueta-estado etiqueta-estado-activo">Activo</span></td>
+                            <td><a href="detalleFicha.html" class="boton-ver-mas">Ver mas</a></td>
+                        </tr>
+                        <tr>
+                            <td>325694</td>
+                            <td>Automatizacion Industrial</td>
+                            <td>Tarde</td>
+                            <td><span class="etiqueta-estado etiqueta-estado-activo">Activo</span></td>
+                            <td><a href="detalle-ficha.html" class="boton-ver-mas">Ver mas</a></td>
+                        </tr>
+                        <tr>
+                            <td>364433</td>
+                            <td>Gestion Empresarial</td>
+                            <td>Mañana</td>
+                            <td><span class="etiqueta-estado etiqueta-estado-inactivo">Inactivo</span></td>
+                            <td><a href="detalle-ficha.html" class="boton-ver-mas">Ver mas</a></td>
+                        </tr>
+                        <tr>
+                            <td>301032</td>
+                            <td>Electromecanica</td>
+                            <td>Mañana</td>
+                            <td><span class="etiqueta-estado etiqueta-estado-activo">Activo</span></td>
+                            <td><a href="detalle-ficha.html" class="boton-ver-mas">Ver mas</a></td>
+                        </tr>
+                        <tr>
+                            <td>246801</td>
+                            <td>Automatizacion Industrial</td>
+                            <td>Noche</td>
+                            <td><span class="etiqueta-estado etiqueta-estado-activo">Activo</span></td>
+                            <td><a href="detalle-ficha.html" class="boton-ver-mas">Ver mas</a></td>
+                        </tr>
+                        <tr>
+                            <td>249102</td>
+                            <td>Gestion Empresarial</td>
+                            <td>Tarde</td>
+                            <td><span class="etiqueta-estado etiqueta-estado-inactivo">Inactivo</span></td>
+                            <td><a href="detalle-ficha.html" class="boton-ver-mas">Ver mas</a></td>
+                        </tr>
+                        <tr>
+                            <td>253003</td>
+                            <td>Electromecanica</td>
+                            <td>Mañana</td>
+                            <td><span class="etiqueta-estado etiqueta-estado-activo">Activo</span></td>
+                            <td><a href="detalle-ficha.html" class="boton-ver-mas">Ver mas</a></td>
+                        </tr>
+                        <tr>
+                            <td>255404</td>
+                            <td>Automatizacion Industrial</td>
+                            <td>Mañana</td>
+                            <td><span class="etiqueta-estado etiqueta-estado-inactivo">Inactivo</span></td>
+                            <td><a href="detalle-ficha.html" class="boton-ver-mas">Ver mas</a></td>
+                        </tr>
+                        <tr>
+                            <td>3267541</td>
+                            <td>Analisis y Desarrollo de Software</td>
+                            <td>Mañana</td>
+                            <td><span class="etiqueta-estado etiqueta-estado-activo">Activo</span></td>
+                            <td><a href="detalle-ficha.html" class="boton-ver-mas">Ver mas</a></td>
+                        </tr>
+                        <tr>
+                            <td>2639720</td>
+                            <td>Analisis y Desarrollo de Software</td>
+                            <td>Tarde</td>
+                            <td><span class="etiqueta-estado etiqueta-estado-activo">Activo</span></td>
+                            <td><a href="detalle-ficha.html" class="boton-ver-mas">Ver mas</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="pie-listado">
+                    <div class="fila-superior-pie">
+                        <p class="texto-conteo-listado">Mostrando 10 fichas de 54 Fichas</p>
+
+                        <nav class="paginacion" aria-label="Paginación de fichas">
+                            <button type="button" class="boton-pagina boton-pagina-activo">1</button>
+                            <button type="button" class="boton-pagina">2</button>
+                            <button type="button" class="boton-pagina">3</button>
+                            <button type="button" class="boton-pagina-siguiente" aria-label="Página siguiente">
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </button>
+                        </nav>
+                    </div>
+
+                    <button type="button" id="boton-nuevo-usuario" class="boton-nuevo-usuario">
+                        <i class="fa-solid fa-plus"></i>
+                        Registrar nueva ficha
+                    </button>
+                </div>
+
+            </section>
+
+        </main>
+
+        <!-- Pie de página (componente compartido) -->
+        <div id="pie-dashboard"></div>
+    </div>
+
+    <script src="../../src/js/main.js"></script>
+</body>
+</html>

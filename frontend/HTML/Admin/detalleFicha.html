@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PuntualiX | Detalles de Ficha</title>
+
+    <link rel="icon" type="image/png" href="../../src/assets/img/favico/favicon_positivo.png">
+
+    <link rel="stylesheet" href="../../src/styles/base.css">
+    <link rel="stylesheet" href="../../src/styles/tokens.css">
+    <link rel="stylesheet" href="../../src/styles/fonts.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../../src/styles/estilos.css">
+</head>
+<body>
+    <div class="pantalla-dashboard-admin">
+
+        <!-- Barra de navegación superior (componente compartido) -->
+        <div id="barra-navegacion" data-pagina-activa="fichas" data-usuario-nombre="Andres Ramirez" data-usuario-rol="administrador"></div>
+
+        <main class="contenido-dashboard">
+
+            <!-- Migas de pan -->
+            <nav class="migas-pan" aria-label="Ruta de navegación">
+                <a href="fichas.html">Fichas</a>
+                <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+                <span>Detalles de ficha</span>
+            </nav>
+
+            <!-- Encabezado: título + estado + acciones -->
+            <div class="encabezado-detalle-ficha">
+                <div class="titulo-estado-ficha">
+                    <h1 class="titulo-pagina">Ficha 301002</h1>
+                    <span class="etiqueta-estado etiqueta-estado-activo">Activa</span>
+                </div>
+
+                <div class="acciones-detalle-ficha">
+                    <button type="button" class="boton-modificar-ficha">Modificar Información</button>
+                    <button type="button" class="boton-desactivar-ficha">Desactivar ficha</button>
+                </div>
+            </div>
+
+            <!-- Cuerpo: franja + información a la izquierda, estadísticas a la derecha -->
+            <section class="cuerpo-detalle-ficha">
+
+                <div class="columna-info-ficha">
+
+                    <!-- Franja de datos generales (programa, sede, ambiente, modalidad) -->
+                    <section class="franja-datos-generales">
+                        <div class="dato-general">
+                            <i class="fa-solid fa-clipboard-list"></i>
+                            <div>
+                                <p class="etiqueta-dato-general">Programa</p>
+                                <p class="valor-dato-general">Analisis y Desarrollo de software</p>
+                            </div>
+                        </div>
+
+                        <div class="dato-general">
+                            <i class="fa-solid fa-building"></i>
+                            <div>
+                                <p class="etiqueta-dato-general">Sede</p>
+                                <p class="valor-dato-general">CIAA-Zona Franca</p>
+                            </div>
+                        </div>
+
+                        <div class="dato-general">
+                            <i class="fa-solid fa-display"></i>
+                            <div>
+                                <p class="etiqueta-dato-general">Ambiente</p>
+                                <p class="valor-dato-general">Electromecánica-2</p>
+                            </div>
+                        </div>
+
+                        <div class="dato-general">
+                            <i class="fa-solid fa-graduation-cap"></i>
+                            <div>
+                                <p class="etiqueta-dato-general">Modalidad</p>
+                                <p class="valor-dato-general">Presencial</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <div class="panel-informacion-ficha">
+                        <!-- Pestañas -->
+                        <nav class="pestanas-ficha" aria-label="Secciones de la ficha">
+                            <button type="button" class="pestana-ficha pestana-ficha-activa">Información general</button>
+                            <button type="button" class="pestana-ficha">Instructores</button>
+                            <button type="button" class="pestana-ficha">Aprendices</button>
+                            <button type="button" class="pestana-ficha">Competencias</button>
+                        </nav>
+
+                        <!-- Contenido de la pestaña "Información general" -->
+                        <div class="contenido-pestana-ficha">
+                            <div class="grid-info-ficha">
+                                <p><strong>Número de ficha:</strong> 301002</p>
+                                <p><strong>Lider de ficha:</strong> Andres Ramirez</p>
+                                <p><strong>Área:</strong> Desarrollo de software</p>
+                                <p><strong>Área:</strong> Desarrollo de software</p>
+                                <p><strong>Fecha de inicio:</strong> 10/03/2026</p>
+                                <p><strong>Duración (meses):</strong> 12</p>
+                                <p><strong>Fecha fin:</strong> 10/02/2027</p>
+                                <p><strong>Jornada:</strong> Mañana</p>
+                            </div>
+
+                            <div class="caja-descripcion-ficha">
+                                <h3>Descripción</h3>
+                                <p>
+                                    Formación orientada al desarrollo de competencias para el
+                                    desarollo y diseño de aplicativos y páginas web
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Panel lateral de estadísticas -->
+                <aside class="panel-estadisticas-ficha">
+                    <div class="fila-estadistica-ficha">
+                        <div class="dato-estadistica-ficha">
+                            <p class="titulo-estadistica-ficha">Aprendices</p>
+                            <p class="valor-estadistica-ficha">24</p>
+                            <p class="subtitulo-estadistica-ficha">Activos</p>
+                        </div>
+
+                        <div class="dato-estadistica-ficha">
+                            <p class="titulo-estadistica-ficha">Asistencia promedio</p>
+                            <p class="valor-estadistica-ficha">84%</p>
+                            <p class="subtitulo-estadistica-ficha">Programa</p>
+                        </div>
+                    </div>
+
+                    <div class="fila-estadistica-ficha">
+                        <div class="dato-estadistica-ficha">
+                            <p class="titulo-estadistica-ficha titulo-riesgo-moderado">Riesgo moderado</p>
+                            <p class="valor-estadistica-ficha">5</p>
+                            <p class="subtitulo-estadistica-ficha">4.8%</p>
+                        </div>
+
+                        <div class="dato-estadistica-ficha">
+                            <p class="titulo-estadistica-ficha titulo-riesgo-critico">Riesgo crítico</p>
+                            <p class="valor-estadistica-ficha">2</p>
+                            <p class="subtitulo-estadistica-ficha">8%</p>
+                        </div>
+                    </div>
+
+                    <div class="onda-decorativa-ficha" aria-hidden="true"></div>
+                </aside>
+
+            </section>
+
+        </main>
+
+        <!-- Pie de página (componente compartido) -->
+        <div id="pie-dashboard"></div>
+    </div>
+
+    <script src="../../src/js/main.js"></script>
+</body>
+</html>
