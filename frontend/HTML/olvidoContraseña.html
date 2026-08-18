@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PuntualiX | Recuperar contraseña</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../src/styles/base.css">
+    <link rel="stylesheet" href="../src/styles/tokens.css">
+    <link rel="stylesheet" href="../src/styles/fonts.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../src/styles/estilos.css">
+</head>
+<body>
+
+    <main class="pantalla-olvido-password">
+        <!-- Fondo institucional decorativo (foto SENA) -->
+        <div class="fondo-institucional" aria-hidden="true"></div>
+
+        <!-- ==========================================================
+            ESTADO 1: Solicitar correo o usuario
+            Visible por defecto. Se oculta con JS al enviar el formulario.
+            ========================================================== -->
+        <article class="tarjeta-flotante" id="estado-solicitar-correo">
+            <header>
+                <div class="icono-marca" aria-hidden="true">
+                    <img src="../src/assets/img/favico/favicon_positivo.png" alt="" />
+                </div>
+                <h2 id="titulo-olvido-password">¿Has olvidado tu contraseña?</h2>
+                <p>
+                    Ingresa tu correo electrónico o tu usuario y te enviaremos
+                    un enlace que te permita establecer una nueva contraseña.
+                </p>
+            </header>
+
+            <form id="formulario-solicitar-correo">
+                <div class="formulario-agrupado">
+                    <label for="correo-recuperacion">Usuario o correo institucional</label>
+                    <input
+                        id="correo-recuperacion"
+                        name="correo-recuperacion"
+                        type="text"
+                        placeholder="Usuario o correo institucional"
+                        required
+                    />
+                    <!-- Error: usuario/correo no registrado en el sistema -->
+                    <p class="mensaje-error oculto">
+                        El correo ingresado, no se encuentra registrado en el sistema
+                    </p>
+                </div>
+
+                <button type="submit" class="boton-enviar-recuperacion">
+                    Envíar método de recuperación
+                </button>
+            </form>
+
+            <aside class="ayuda-cuenta">
+                <p><a href="">¿Tienes problemas con tu cuenta?</a></p>
+                <p><a href="InicioSesion.html">Volver al <span class="volver-inicio">inicio</span></a></p>
+            </aside>
+        </article>
+
+        <!-- ==========================================================
+            ESTADO 2: Email enviado (con cuenta regresiva activa)
+            Oculto por defecto. En fase de JS: temporizador de 30:00;
+            si llega a 00:00, pasa al Estado 3 (modal) y luego al Estado 4.
+            ==========================================================
+        <article class="tarjeta-flotante oculto" id="estado-email-enviado">
+            <header>
+                <div class="icono-marca" aria-hidden="true">
+                    <img src="../src/assets/img/favico/favicon_positivo.png" alt="" />
+                </div>
+                <div class="icono-confirmacion" aria-hidden="true">
+                    <i class="fa-solid fa-envelope-circle-check"></i>
+                </div>
+                <h2>Email Enviado</h2>
+                <p>
+                    Te hemos enviado un correo electrónico con un enlace
+                    que te permite establecer una nueva contraseña.
+                </p>
+                <p class="tiempo-expiracion">
+                    El enlace expira en <span class="tiempo-restante" id="contador-tiempo">30:00</span>
+                </p>
+            </header>
+
+            <aside class="ayuda-cuenta">
+                <p><a href="InicioSesion.html">Volver al <span class="volver-inicio">inicio</span></a></p>
+                <p><a href="">¿Tienes problemas con tu cuenta?</a></p>
+            </aside>
+        </article>
+        -->
+
+        <!-- ==========================================================
+            ESTADO 3: Modal temporal de "enlace expirado"
+            Oculto por defecto. En fase de JS: aparece cuando el
+            temporizador llega a 00:00, y se autooculta unos segundos
+            después con setTimeout, dejando ver el Estado 4 debajo.
+            ==========================================================
+        <div class="modal-overlay oculto" id="modal-enlace-expirado">
+            <div class="modal-alerta" role="alertdialog" aria-live="assertive">
+                <div class="modal-icono" aria-hidden="true">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                </div>
+                <p class="modal-mensaje">
+                    El enlace de recuperación ha expirado, solicite uno nuevo
+                </p>
+            </div>
+        </div>
+        -->
+
+        <!-- ==========================================================
+            ESTADO 4: Tarjeta limpia tras cerrarse el modal de expiración
+            Oculto por defecto. Mismo layout del Estado 2, pero con
+            viso de expiración + botón para reenviar en vez del contador.
+            ==========================================================
+        <article class="tarjeta-flotante oculto" id="estado-enlace-expirado">
+            <header>
+                <div class="icono-marca" aria-hidden="true">
+                    <img src="../src/assets/img/favico/favicon_positivo.png" alt="" />
+                </div>
+                <h2>Email Enviado</h2>
+                <p>
+                    Te hemos enviado un correo electrónico con un enlace
+                    que te permite establecer una nueva contraseña.
+                </p>
+                <p class="mensaje-error">
+                    El enlace de recuperación ha expirado, solicite uno.
+                </p>
+            </header>
+
+            <button type="button" class="boton-enviar-recuperacion" id="boton-reenviar-enlace">
+                Envíar método de recuperación
+            </button>
+
+            <aside class="ayuda-cuenta">
+                <p><a href="InicioSesion.html">Volver al <span class="volver-inicio">inicio</span></a></p>
+                <p><a href="">¿Tienes problemas con tu cuenta?</a></p>
+            </aside>
+        </article>
+        -->
+
+        <!-- ==========================================================
+            ESTADO 5: Establecer nueva contraseña
+            Oculto por defecto. Cubre el estado normal y dos flujos
+            alternativos: confirmación no coincide, requisitos no cumplidos.
+            ==========================================================
+        <article class="tarjeta-flotante oculto" id="estado-establecer-password">
+            <header>
+                <div class="icono-marca" aria-hidden="true">
+                    <img src="../src/assets/img/favico/favicon_positivo.png" alt="" />
+                </div>
+                <h2>Establecer nueva contraseña</h2>
+            </header>
+
+            <form id="formulario-establecer-password">
+                <div class="formulario-agrupado">
+                    <label for="nueva-password">Contraseña</label>
+                    <div class="campo-password">
+                        <input
+                            id="nueva-password"
+                            name="nueva-password"
+                            type="password"
+                            placeholder="Contraseña"
+                            required
+                        />
+                        <button type="button" class="boton-mostrar-password" aria-label="Mostrar contraseña">
+                            <i class="fa-solid fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="formulario-agrupado">
+                    <label for="confirmar-password">Confirmar contraseña</label>
+                    <div class="campo-password">
+                        <input
+                            id="confirmar-password"
+                            name="confirmar-password"
+                            type="password"
+                            placeholder="Confirmar contraseña"
+                            required
+                        />
+                        <button type="button" class="boton-mostrar-password" aria-label="Mostrar contraseña">
+                            <i class="fa-solid fa-eye"></i>
+                        </button>
+                    </div>
+                    <p class="mensaje-error oculto" id="error-no-coincide">
+                        La contraseña ingresada no coincide
+                    </p>
+                    <p class="mensaje-error oculto" id="error-requisitos-seguridad">
+                        La nueva contraseña no cumple con los requisitos mínimos de seguridad
+                    </p>
+                </div>
+
+                <button type="submit" class="boton-establecer-password">
+                    Establecer contraseña
+                </button>
+            </form>
+
+            <aside class="ayuda-cuenta">
+                <p><a href="InicioSesion.html">Volver al <span class="volver-inicio">inicio</span></a></p>
+                <p><a href="">¿Tienes problemas con tu cuenta?</a></p>
+            </aside>
+        </article>
+        -->
+
+        <!-- Pie de página: igual que en inicio-sesion.html -->
+        <footer>
+            <section class="info-seguridad">
+                <i class="fa-solid fa-shield-halved" aria-hidden="true"></i>
+                <small>
+                    Tu información está protegida con los más altos estándares de seguridad.
+                </small>
+            </section>
+
+<div class="grupo-marca-footer">
+                <section class="copyright">
+                    <small>
+                        © 2026 PuntualiX. Todos los derechos reservados.
+                        <span class="separador-footer" aria-hidden="true">|</span>
+                        <img src="../src/assets/img/LogoSena/SenaSobreBlanco.png" alt="SENA">
+                    </small>
+                </section>
+            </div>
+        </footer>
+    </main>
+
+    <script src="../src/js/main.js"></script>
+</body>
+</html>

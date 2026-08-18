@@ -1,0 +1,63 @@
+:root {
+  
+  /* Verde oscuro — header, botones primarios, acentos de marca */
+  --color-primario: #3D593D;
+
+  /* Verde oliva — estados activos, indicadores de presencia */
+  --color-estado-activo: #808000; 
+
+  /* COLORES DE ESTADO (apoyo) */
+
+  --color-confirmacion: #2E7D32;   /* Confirmaciones, estados aprobados */
+  --color-advertencia: #F9A825;    /* Advertencias, estados pendientes */
+  --color-informacion: #1976D2;    /* Información, enlaces secundarios */
+  --color-error: #FF0000;          /* Errores del sistema (uso restrictivo) */
+  --color-alerta-critica: #D32F2F; /* Alertas de riesgo crítico */
+
+  /* FONDOS */
+
+  --color-fondo-principal: #FFFFFF;         /* Fondo general de la app */
+  --color-fondo-tarjeta: #FFFFFF;           /* Fondo de tarjetas */
+  --color-fondo-seccion-alterna: #F8F9FA;   /* Secciones alternas */
+  --color-fondo-tarjeta-suave: #E9ECEF;     /* Tarjetas con fondo suave */
+
+  /* BORDES */
+
+  --color-borde: #DEE2E6;   /* Bordes y divisores */
+
+  /* TEXTO */
+
+  --color-texto-principal: #212529;      /* Texto principal / cuerpo fuerte */
+  --color-texto-cuerpo: #343A40;         /* Texto de cuerpo general */
+  --color-texto-apoyo: #495057;          /* Texto de apoyo */
+  --color-texto-secundario: #6C757D;     /* Texto secundario */
+  --color-texto-deshabilitado: #ADB5BD;  /* Texto deshabilitado */
+  --color-negro-puro: #000000;
+  --color-blanco: #FFFFFF;
+
+  /* TIPOGRAFÍA — FAMILIAS */
+
+  --fuente-titulos: 'Poppins', sans-serif;    /* Títulos, encabezados, métricas */
+  --fuente-contenido: 'Nunito', sans-serif;   /* Párrafos, tablas, contenido */
+
+  /* TIPOGRAFÍA — TAMAÑOS (Poppins) */
+
+  --texto-h1: 56px;
+  --texto-h2: 36px;
+  --texto-h3: 24px;
+  --texto-metrica: 64px;
+
+  /* TIPOGRAFÍA — TAMAÑOS (Nunito) */
+
+  --texto-cuerpo: 16px;
+  --texto-caption: 13px;
+  --texto-label: 14px;
+
+  /* TIPOGRAFÍA — PESOS */
+
+  --peso-regular: 400;
+  --peso-medium: 500;
+  --peso-semibold: 600;
+  --peso-bold: 700;
+  --peso-extrabold: 800;
+}

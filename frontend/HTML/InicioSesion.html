@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PuntualiX | Iniciar sesión</title>
+    <link rel="icon" type="image/png" href="../src/assets/img/favico/favicon_positivo.png">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../src/styles/base.css">
+    <link rel="stylesheet" href="../src/styles/tokens.css">
+    <link rel="stylesheet" href="../src/styles/fonts.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../src/styles/estilos.css">
+</head>
+<body>
+
+    <main class="pantalla-inicio-sesion">
+        <!-- Fondo institucional decorativo (foto SENA) — aria-hidden porque no aporta información para lectores de pantalla -->
+        <div class="fondo-institucional" aria-hidden="true"></div>
+
+        <!-- Sección de presentación de PuntualiX a la izquierda -->
+        <section class="hero">
+            <header class="marca">
+                <!-- Logo de PuntualiX, enlaza al inicio -->
+                <a href="InicioSesion.html">
+                    <img src="../src/assets/img/LogoPositivo/positivo_sin_eslogan_transparente.png" alt="Logo PuntualiX" class="logo-puntualix" />
+                </a>
+
+                <h1>Organización, seguimiento y control en un solo lugar</h1>
+                <p>
+                    Gestión de asistencia, seguimiento académico y visualización de métricas en tiempo real.
+                </p>
+            </header>
+        </section>
+
+        <!-- Tarjeta de autenticación -->
+        <article class="tarjeta-flotante">
+            <header>
+                <div class="icono-candado" aria-hidden="true">
+                    <i class="fa-solid fa-lock"></i>
+                </div>
+                <h2 id="titulo-inicio-sesion">Iniciar sesión</h2>
+                <p>Accede a tu cuenta para iniciar</p>
+            </header>
+
+            <form id="formulario-login">
+                <div class="formulario-agrupado">
+                    <label for="nombre-usuario">Usuario</label>
+                    <input
+                        id="nombre-usuario"
+                        name="nombre-usuario"
+                        type="text"
+                        placeholder="Usuario o correo institucional"
+                        required
+                    />
+                    <p class="mensaje-error oculto">
+                        El usuario ingresado no existe en el sistema
+                    </p>
+                </div>
+
+                <div class="formulario-agrupado">
+                    <label for="password">Contraseña</label>
+
+                    <div class="campo-password">
+                        <input
+                            id="password"
+                            name="password"
+                            type="password"
+                            placeholder="Contraseña"
+                            required
+                        />
+
+                        <button type="button" class="boton-mostrar-password" aria-label="Mostrar contraseña">
+                            <i class="fa-solid fa-eye"></i>
+                        </button>
+                    </div>
+
+                    <p class="mensaje-error oculto">
+                        Contraseña incorrecta, intente nuevamente
+                    </p>
+                </div>
+
+                <p class="olvido-password">
+                    <a href="olvidoContraseña.html">¿Olvidaste tu contraseña?</a>
+                </p>
+
+                <button type="submit" class="boton-iniciar-sesion">
+                    Iniciar sesión
+                </button>
+            </form>
+
+            <aside class="ayuda-cuenta">
+                <p><a href="">¿Tienes problemas con tu cuenta?</a></p>
+            </aside>
+        </article>
+
+        <!--
+        <div class="modal-overlay oculto" id="modal-cuenta-desactivada">
+            <div class="modal-alerta" role="alertdialog" aria-live="assertive">
+                <div class="modal-icono" aria-hidden="true">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                </div>
+                <p class="modal-mensaje">
+                    Su cuenta se encuentra desactivada, contacte al administrador
+                </p>
+            </div>
+        </div>
+        -->
+
+<footer>
+            <section class="info-seguridad">
+                <i class="fa-solid fa-shield-halved" aria-hidden="true"></i>
+                <small>
+                    Tu información está protegida con los más altos estándares de seguridad.
+                </small>
+            </section>
+
+            <div class="grupo-marca-footer">
+                <section class="copyright">
+                    <small>
+                        © 2026 PuntualiX. Todos los derechos reservados.
+                        <span class="separador-footer" aria-hidden="true">|</span>
+                        <img src="../src/assets/img/LogoSena/SenaSobreBlanco.png" alt="SENA">
+                    </small>
+                </section>
+            </div>
+        </footer>
+    </main>
+
+    <script src="../src/js/main.js"></script>
+</body>
+</html>

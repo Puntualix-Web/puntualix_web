@@ -1,0 +1,62 @@
+<!-- Barra de navegación superior compartida -->
+<header class="barra-navegacion">
+    <div class="marca-navegacion">
+        <img src="../../src/assets/img/LogoNegativo/negativo_sin_eslogan_transparente.png" alt="Logo Puntualix">
+    </div>
+
+    <nav class="menu-navegacion">
+        <a href="dashboard.html" class="enlace-nav" data-pagina="dashboard" data-roles="administrador,instructor,aprendiz">
+            <i class="fa-solid fa-house"></i> Dashboard
+        </a>
+        <a href="fichas.html" class="enlace-nav" data-pagina="fichas" data-roles="administrador,instructor">
+            <i class="fa-solid fa-file-lines"></i> Fichas
+        </a>
+        <a href="" class="enlace-nav" data-pagina="asistencias" data-roles="administrador,instructor,aprendiz">
+            <i class="fa-solid fa-calendar-check"></i> Asistencias
+        </a>
+        <a href="" class="enlace-nav" data-pagina="reportes" data-roles="administrador,instructor">
+            <i class="fa-solid fa-chart-bar"></i> Reportes
+        </a>
+        <a href="" class="enlace-nav" data-pagina="bitacora" data-roles="administrador">
+            <i class="fa-solid fa-clock-rotate-left"></i> Bitácora
+        </a>
+        <a href="" class="enlace-nav" data-pagina="descargar" data-roles="administrador">
+            <i class="fa-solid fa-download"></i> Descargar
+        </a>
+    </nav>
+
+    <div class="area-usuario">
+        <span class="separador-nav" aria-hidden="true"></span>
+
+        <button type="button" class="boton-notificaciones" aria-label="Notificaciones">
+            <i class="fa-solid fa-bell"></i>
+        </button>
+
+        <div class="tarjeta-usuario" id="boton-menu-usuario">
+            <div class="avatar-usuario" aria-hidden="true"></div>
+            <div class="datos-usuario">
+                <span class="nombre-usuario">Andres Ramirez</span>
+                <span class="rol-usuario">Administrador</span>
+            </div>
+            <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+        </div>
+
+        <div class="menu-desplegable-usuario oculto" id="menu-usuario">
+            <a href="" class="item-menu-usuario" data-roles="administrador,instructor,aprendiz">
+                <i class="fa-solid fa-circle-user"></i> Ver perfil
+            </a>
+            <a href="" class="item-menu-usuario" data-roles="administrador,instructor,aprendiz">
+                <i class="fa-solid fa-bookmark"></i> Ver competencias
+            </a>
+            <a href="" class="item-menu-usuario" data-roles="administrador,instructor,aprendiz">
+                <i class="fa-solid fa-file-circle-check"></i> Ver justificaciones
+            </a>
+            <a href="" class="item-menu-usuario" data-roles="administrador">
+                <i class="fa-solid fa-chart-line"></i> Ver estadísticas
+            </a>
+            <a href="../InicioSesion.html" class="item-menu-usuario item-menu-cerrar-sesion" data-roles="administrador,instructor,aprendiz">
+                <i class="fa-solid fa-right-from-bracket"></i> Cerrar sesión
+            </a>
+        </div>
+    </div>
+</header>
