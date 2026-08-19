@@ -63,6 +63,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 // (Por ahora solo queda oculto vía CSS. La lógica de
                 // mostrar/ocultar se implementa en la fase de JS.)
                 // ==================================================
+
+                // Una vez inyectado el navbar, ya no se recalcula el
+                // overlay "Actualizar ficha" porque quedó desactivado
+                // (ver bloque comentado al final).
             })
             .catch(function () {
                 console.error('No se pudo cargar el navbar. Abre el sitio con un servidor local.');
@@ -76,6 +80,9 @@ document.addEventListener('DOMContentLoaded', function () {
             .then(function (respuesta) { return respuesta.text(); })
             .then(function (html) {
                 contenedorPiePagina.outerHTML = html;
+
+                // Tras inyectar el pie, ya no se recalcula el
+                // overlay "Actualizar ficha" (está desactivado).
             })
             .catch(function () {
                 console.error('No se pudo cargar el pie de página. Abre el sitio con un servidor local.');
@@ -153,4 +160,75 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-}); // fin DOMContentLoaded
+    // ==========================================================
+    // PESTAÑAS — Detalles de ficha (detalleFicha.html)
+    // Cada botón .pestana-ficha muestra el panel #pestana-<data-pestana>
+    // ==========================================================
+    const pestanasFicha = document.querySelectorAll('.pestana-ficha');
+    const panelesPestana = document.querySelectorAll('.contenido-pestana-ficha');
+
+    pestanasFicha.forEach(function (pestana) {
+        pestana.addEventListener('click', function () {
+            pestanasFicha.forEach(function (p) { p.classList.remove('pestana-ficha-activa'); });
+            pestana.classList.add('pestana-ficha-activa');
+
+            panelesPestana.forEach(function (panel) { panel.classList.add('oculto'); });
+
+            const panelActual = document.querySelector('#pestana-' + pestana.dataset.pestana);
+            if (panelActual) {
+                panelActual.classList.remove('oculto');
+            }
+        });
+    });
+
+    // ==========================================================
+    // OVERLAY: ACTUALIZAR FICHA (detalleFicha.html)
+    // Desactivado por ahora. Se dejó en comentario; si se
+    // necesita de nuevo, se restaura descomentando el bloque.
+    // ==========================================================
+    /*
+    const overlayActualizar = document.querySelector('#overlay-actualizar-ficha');
+    const botonModificar = document.querySelector('.boton-modificar-ficha');
+    const botonCancelar = document.querySelector('#boton-cancelar-actualizar');
+
+    function ajustarLimitesOverlay() {
+        if (!overlayActualizar) return;
+
+        const barraNavegacion = document.querySelector('.barra-navegacion');
+
+        const inicioSuperior = barraNavegacion ? barraNavegacion.offsetHeight : 0;
+
+        overlayActualizar.style.top = inicioSuperior + 'px';
+    }
+
+    function mostrarOverlayActualizar() {
+        if (!overlayActualizar) return;
+
+        ajustarLimitesOverlay();
+        overlayActualizar.classList.remove('oculto');
+        overlayActualizar.setAttribute('aria-hidden', 'false');
+    }
+
+    function ocultarOverlayActualizar() {
+        if (!overlayActualizar) return;
+
+        overlayActualizar.classList.add('oculto');
+        overlayActualizar.setAttribute('aria-hidden', 'true');
+    }
+
+    if (overlayActualizar && botonModificar) {
+        botonModificar.addEventListener('click', mostrarOverlayActualizar);
+    }
+
+    if (overlayActualizar && botonCancelar) {
+        botonCancelar.addEventListener('click', ocultarOverlayActualizar);
+    }
+
+    window.addEventListener('resize', function () {
+        if (overlayActualizar && !overlayActualizar.classList.contains('oculto')) {
+            ajustarLimitesOverlay();
+        }
+    });
+    */
+
+}); 
