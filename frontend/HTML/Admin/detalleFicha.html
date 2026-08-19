@@ -16,8 +16,68 @@
 <body>
     <div class="pantalla-dashboard-admin">
 
-        <!-- Barra de navegación superior (componente compartido) -->
-        <div id="barra-navegacion" data-pagina-activa="fichas" data-usuario-nombre="Andres Ramirez" data-usuario-rol="administrador"></div>
+        <!-- Barra de navegación superior (componente compartido, replicado estáticamente) -->
+        <header class="barra-navegacion">
+            <div class="marca-navegacion">
+                <img src="../../src/assets/img/LogoNegativo/negativo_sin_eslogan_transparente.png" alt="Logo Puntualix">
+            </div>
+
+            <nav class="menu-navegacion">
+                <a href="dashboard.html" class="enlace-nav" data-pagina="dashboard" data-roles="administrador,instructor,aprendiz">
+                    <i class="fa-solid fa-house"></i> Dashboard
+                </a>
+                <a href="fichas.html" class="enlace-nav enlace-nav-activo" data-pagina="fichas" data-roles="administrador,instructor">
+                    <i class="fa-solid fa-file-lines"></i> Fichas
+                </a>
+                <a href="" class="enlace-nav" data-pagina="asistencias" data-roles="administrador,instructor,aprendiz">
+                    <i class="fa-solid fa-calendar-check"></i> Asistencias
+                </a>
+                <a href="" class="enlace-nav" data-pagina="reportes" data-roles="administrador,instructor">
+                    <i class="fa-solid fa-chart-bar"></i> Reportes
+                </a>
+                <a href="" class="enlace-nav" data-pagina="bitacora" data-roles="administrador">
+                    <i class="fa-solid fa-clock-rotate-left"></i> Bitácora
+                </a>
+                <a href="" class="enlace-nav" data-pagina="descargar" data-roles="administrador">
+                    <i class="fa-solid fa-download"></i> Descargar
+                </a>
+            </nav>
+
+            <div class="area-usuario">
+                <span class="separador-nav" aria-hidden="true"></span>
+
+                <button type="button" class="boton-notificaciones" aria-label="Notificaciones">
+                    <i class="fa-solid fa-bell"></i>
+                </button>
+
+                <div class="tarjeta-usuario" id="boton-menu-usuario">
+                    <div class="avatar-usuario" aria-hidden="true"></div>
+                    <div class="datos-usuario">
+                        <span class="nombre-usuario">Andres Ramirez</span>
+                        <span class="rol-usuario">Administrador</span>
+                    </div>
+                    <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+                </div>
+
+                <div class="menu-desplegable-usuario oculto" id="menu-usuario">
+                    <a href="" class="item-menu-usuario" data-roles="administrador,instructor,aprendiz">
+                        <i class="fa-solid fa-circle-user"></i> Ver perfil
+                    </a>
+                    <a href="" class="item-menu-usuario" data-roles="administrador,instructor,aprendiz">
+                        <i class="fa-solid fa-bookmark"></i> Ver competencias
+                    </a>
+                    <a href="" class="item-menu-usuario" data-roles="administrador,instructor,aprendiz">
+                        <i class="fa-solid fa-file-circle-check"></i> Ver justificaciones
+                    </a>
+                    <a href="" class="item-menu-usuario" data-roles="administrador">
+                        <i class="fa-solid fa-chart-line"></i> Ver estadísticas
+                    </a>
+                    <a href="../InicioSesion.html" class="item-menu-usuario item-menu-cerrar-sesion" data-roles="administrador,instructor,aprendiz">
+                        <i class="fa-solid fa-right-from-bracket"></i> Cerrar sesión
+                    </a>
+                </div>
+            </div>
+        </header>
 
         <main class="contenido-dashboard">
 
@@ -113,7 +173,7 @@
                         </div>
 
                         <!-- Contenido de la pestaña "Instructores" -->
-                        <div id="pestana-instructores" class="contenido-pestana-ficha oculto">
+                        <div id="pestana-instructores" class="contenido-pestana-ficha">
                             <div class="lista-instructores-ficha lista-desplazable-ficha">
                                 <div class="indicador-desplazamiento-ficha" aria-hidden="true">
                                     <span class="indicador-desplazamiento-relleno"></span>
@@ -207,7 +267,7 @@
                         </div>
 
                         <!-- Contenido de la pestaña "Aprendices" -->
-                        <div id="pestana-aprendices" class="contenido-pestana-ficha oculto">
+                        <div id="pestana-aprendices" class="contenido-pestana-ficha">
                             <div class="lista-instructores-ficha lista-desplazable-ficha">
                                 <div class="indicador-desplazamiento-ficha" aria-hidden="true">
                                     <span class="indicador-desplazamiento-relleno"></span>
@@ -503,6 +563,114 @@
 
                             </div>
                         </div>
+
+                        <!-- Contenido de la pestaña "Competencias" -->
+                        <div id="pestana-competencias" class="contenido-pestana-ficha">
+                            <div class="lista-competencias-ficha lista-desplazable-ficha">
+                                <div class="indicador-desplazamiento-ficha" aria-hidden="true">
+                                    <span class="indicador-desplazamiento-relleno"></span>
+                                </div>
+
+                                <div class="item-competencia-ficha">
+                                    <div class="encabezado-competencia-ficha">
+                                        <span class="avatar-instructor-ficha" aria-hidden="true">MT</span>
+                                        <div>
+                                            <p class="nombre-competencia-ficha">Análisis y diseño de sistemas de información</p>
+                                            <p class="rol-instructor-ficha">Instructor: Maria Torres</p>
+                                        </div>
+                                    </div>
+                                    <div class="fechas-competencia-ficha">
+                                        <span class="fecha-competencia-ficha"><i class="fa-solid fa-calendar-day" aria-hidden="true"></i> Inicio: 10/03/2026</span>
+                                        <span class="fecha-competencia-ficha"><i class="fa-solid fa-calendar-check" aria-hidden="true"></i> Fin: 10/02/2027</span>
+                                    </div>
+                                </div>
+
+                                <div class="item-competencia-ficha">
+                                    <div class="encabezado-competencia-ficha">
+                                        <span class="avatar-instructor-ficha" aria-hidden="true">JC</span>
+                                        <div>
+                                            <p class="nombre-competencia-ficha">Construcción de bases de datos</p>
+                                            <p class="rol-instructor-ficha">Instructor: Jorge Castro</p>
+                                        </div>
+                                    </div>
+                                    <div class="fechas-competencia-ficha">
+                                        <span class="fecha-competencia-ficha"><i class="fa-solid fa-calendar-day" aria-hidden="true"></i> Inicio: 10/03/2026</span>
+                                        <span class="fecha-competencia-ficha"><i class="fa-solid fa-calendar-check" aria-hidden="true"></i> Fin: 10/02/2027</span>
+                                    </div>
+                                </div>
+
+                                <div class="item-competencia-ficha">
+                                    <div class="encabezado-competencia-ficha">
+                                        <span class="avatar-instructor-ficha" aria-hidden="true">MR</span>
+                                        <div>
+                                            <p class="nombre-competencia-ficha">Desarrollo de software en entorno web</p>
+                                            <p class="rol-instructor-ficha">Instructor: Mariana Rios</p>
+                                        </div>
+                                    </div>
+                                    <div class="fechas-competencia-ficha">
+                                        <span class="fecha-competencia-ficha"><i class="fa-solid fa-calendar-day" aria-hidden="true"></i> Inicio: 10/03/2026</span>
+                                        <span class="fecha-competencia-ficha"><i class="fa-solid fa-calendar-check" aria-hidden="true"></i> Fin: 10/02/2027</span>
+                                    </div>
+                                </div>
+
+                                <div class="item-competencia-ficha">
+                                    <div class="encabezado-competencia-ficha">
+                                        <span class="avatar-instructor-ficha" aria-hidden="true">PS</span>
+                                        <div>
+                                            <p class="nombre-competencia-ficha">Implementación de servicios web</p>
+                                            <p class="rol-instructor-ficha">Instructor: Pedro Salazar</p>
+                                        </div>
+                                    </div>
+                                    <div class="fechas-competencia-ficha">
+                                        <span class="fecha-competencia-ficha"><i class="fa-solid fa-calendar-day" aria-hidden="true"></i> Inicio: 10/03/2026</span>
+                                        <span class="fecha-competencia-ficha"><i class="fa-solid fa-calendar-check" aria-hidden="true"></i> Fin: 10/02/2027</span>
+                                    </div>
+                                </div>
+
+                                <div class="item-competencia-ficha">
+                                    <div class="encabezado-competencia-ficha">
+                                        <span class="avatar-instructor-ficha" aria-hidden="true">CG</span>
+                                        <div>
+                                            <p class="nombre-competencia-ficha">Pruebas de software</p>
+                                            <p class="rol-instructor-ficha">Instructor: Carlos Gomez</p>
+                                        </div>
+                                    </div>
+                                    <div class="fechas-competencia-ficha">
+                                        <span class="fecha-competencia-ficha"><i class="fa-solid fa-calendar-day" aria-hidden="true"></i> Inicio: 10/03/2026</span>
+                                        <span class="fecha-competencia-ficha"><i class="fa-solid fa-calendar-check" aria-hidden="true"></i> Fin: 10/02/2027</span>
+                                    </div>
+                                </div>
+
+                                <div class="item-competencia-ficha">
+                                    <div class="encabezado-competencia-ficha">
+                                        <span class="avatar-instructor-ficha" aria-hidden="true">JV</span>
+                                        <div>
+                                            <p class="nombre-competencia-ficha">Integración de componentes de software</p>
+                                            <p class="rol-instructor-ficha">Instructor: Juliana Velez</p>
+                                        </div>
+                                    </div>
+                                    <div class="fechas-competencia-ficha">
+                                        <span class="fecha-competencia-ficha"><i class="fa-solid fa-calendar-day" aria-hidden="true"></i> Inicio: 10/03/2026</span>
+                                        <span class="fecha-competencia-ficha"><i class="fa-solid fa-calendar-check" aria-hidden="true"></i> Fin: 10/02/2027</span>
+                                    </div>
+                                </div>
+
+                                <div class="item-competencia-ficha">
+                                    <div class="encabezado-competencia-ficha">
+                                        <span class="avatar-instructor-ficha" aria-hidden="true">FM</span>
+                                        <div>
+                                            <p class="nombre-competencia-ficha">Documentación de procesos y servicios</p>
+                                            <p class="rol-instructor-ficha">Instructor: Felipe Mendoza</p>
+                                        </div>
+                                    </div>
+                                    <div class="fechas-competencia-ficha">
+                                        <span class="fecha-competencia-ficha"><i class="fa-solid fa-calendar-day" aria-hidden="true"></i> Inicio: 10/03/2026</span>
+                                        <span class="fecha-competencia-ficha"><i class="fa-solid fa-calendar-check" aria-hidden="true"></i> Fin: 10/02/2027</span>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -511,13 +679,15 @@
                     <h4 class="subtitulo-panel-estadisticas">Monitoreo y métricas principales</h4>
 
                     <div class="fila-estadistica-ficha">
-                        <div class="dato-estadistica-ficha">
+                        <div class="dato-estadistica-ficha dato-estadistica-aprendices">
+                            <span class="icono-estadistica-ficha" aria-hidden="true"><i class="fa-solid fa-users"></i></span>
                             <p class="titulo-estadistica-ficha">Aprendices</p>
                             <p class="valor-estadistica-ficha">24</p>
                             <p class="subtitulo-estadistica-ficha">Activos</p>
                         </div>
 
-                        <div class="dato-estadistica-ficha">
+                        <div class="dato-estadistica-ficha dato-estadistica-asistencia">
+                            <span class="icono-estadistica-ficha" aria-hidden="true"><i class="fa-solid fa-user-check"></i></span>
                             <p class="titulo-estadistica-ficha">Asistencia promedio</p>
                             <p class="valor-estadistica-ficha">84%</p>
                             <p class="subtitulo-estadistica-ficha">Programa</p>
@@ -525,14 +695,16 @@
                     </div>
 
                     <div class="fila-estadistica-ficha">
-                        <div class="dato-estadistica-ficha">
-                            <p class="titulo-estadistica-ficha titulo-riesgo-moderado">Riesgo moderado</p>
+                        <div class="dato-estadistica-ficha dato-estadistica-moderado">
+                            <span class="icono-estadistica-ficha" aria-hidden="true"><i class="fa-solid fa-triangle-exclamation"></i></span>
+                            <p class="titulo-estadistica-ficha">Riesgo moderado</p>
                             <p class="valor-estadistica-ficha">5</p>
                             <p class="subtitulo-estadistica-ficha">4.8%</p>
                         </div>
 
-                        <div class="dato-estadistica-ficha">
-                            <p class="titulo-estadistica-ficha titulo-riesgo-critico">Riesgo crítico</p>
+                        <div class="dato-estadistica-ficha dato-estadistica-critico">
+                            <span class="icono-estadistica-ficha" aria-hidden="true"><i class="fa-solid fa-circle-exclamation"></i></span>
+                            <p class="titulo-estadistica-ficha">Riesgo crítico</p>
                             <p class="valor-estadistica-ficha">2</p>
                             <p class="subtitulo-estadistica-ficha">8%</p>
                         </div>
@@ -695,8 +867,27 @@
             </footer>
         </section>
 
-        <!-- Pie de página (componente compartido) -->
-        <div id="pie-dashboard"></div>
+        <!-- Pie de página (componente compartido, replicado estáticamente) -->
+        <footer class="pie-dashboard">
+            <div class="marca-pie">
+                <img src="../../src/assets/img/LogoNegativo/negativo_con_eslogan_transparente.png" alt="Logo PuntualiX" class="logo-puntualix-pie" />
+                <div class="texto-marca-pie">
+                    <p>Desarrollado en el marco del proyecto de formación SENA · 2026</p>
+                    <p class="copyright-pie">
+                        <i class="fa-regular fa-copyright" aria-hidden="true"></i>
+                        2026 Puntualix. Todos los derechos reservados
+                    </p>
+                </div>
+            </div>
+
+            <div class="info-programa-pie">
+                <img src="../../src/assets/img/LogoSena/SenaSobreVerde.png" alt="SENA" class="logo-sena-pie" />
+                <p>
+                    Programa: Análisis y desarrollo de Software<br />
+                    Ficha: 3267541
+                </p>
+            </div>
+        </footer>
     </div>
 
     <script src="../../src/js/main.js"></script>
