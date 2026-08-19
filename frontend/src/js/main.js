@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }
 
             // Todo correcto -> redirige al dashboard
-            window.location.href = 'admin/dashboard.html';
+            window.location.href = 'Admin/dashboard.html';
         });
     }
 
