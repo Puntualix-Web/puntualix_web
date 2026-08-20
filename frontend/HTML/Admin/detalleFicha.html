@@ -29,8 +29,8 @@
                 <a href="fichas.html" class="enlace-nav enlace-nav-activo" data-pagina="fichas" data-roles="administrador,instructor">
                     <i class="fa-solid fa-file-lines"></i> Fichas
                 </a>
-                <a href="" class="enlace-nav" data-pagina="asistencias" data-roles="administrador,instructor,aprendiz">
-                    <i class="fa-solid fa-calendar-check"></i> Asistencias
+                <a href="panel.html" class="enlace-nav" data-pagina="panel" data-roles="administrador,instructor">
+                    <i class="fa-solid fa-gauge"></i> Instructores
                 </a>
                 <a href="" class="enlace-nav" data-pagina="reportes" data-roles="administrador,instructor">
                     <i class="fa-solid fa-chart-bar"></i> Reportes
@@ -38,8 +38,8 @@
                 <a href="" class="enlace-nav" data-pagina="bitacora" data-roles="administrador">
                     <i class="fa-solid fa-clock-rotate-left"></i> Bitácora
                 </a>
-                <a href="" class="enlace-nav" data-pagina="descargar" data-roles="administrador">
-                    <i class="fa-solid fa-download"></i> Descargar
+                <a href="" class="enlace-nav" data-pagina="estadisticas" data-roles="administrador">
+                    <i class="fa-solid fa-chart-line"></i> Estadísticas
                 </a>
             </nav>
 
@@ -179,6 +179,13 @@
                                     <span class="indicador-desplazamiento-relleno"></span>
                                 </div>
 
+                                <div class="buscador-lista-ficha">
+                                    <input type="text" placeholder="Buscar instructor..." class="campo-buscar-lista-ficha" />
+                                    <button type="button" class="boton-buscar-lista-ficha" aria-label="Buscar">
+                                        <i class="fa-solid fa-magnifying-glass"></i>
+                                    </button>
+                                </div>
+
                                 <div class="item-instructor-ficha">
                                     <span class="avatar-instructor-ficha" aria-hidden="true">MT</span>
                                     <div>
@@ -271,6 +278,13 @@
                             <div class="lista-instructores-ficha lista-desplazable-ficha">
                                 <div class="indicador-desplazamiento-ficha" aria-hidden="true">
                                     <span class="indicador-desplazamiento-relleno"></span>
+                                </div>
+
+                                <div class="buscador-lista-ficha">
+                                    <input type="text" placeholder="Buscar aprendiz..." class="campo-buscar-lista-ficha" />
+                                    <button type="button" class="boton-buscar-lista-ficha" aria-label="Buscar">
+                                        <i class="fa-solid fa-magnifying-glass"></i>
+                                    </button>
                                 </div>
 
                                 <div class="item-instructor-ficha">
@@ -569,6 +583,13 @@
                             <div class="lista-competencias-ficha lista-desplazable-ficha">
                                 <div class="indicador-desplazamiento-ficha" aria-hidden="true">
                                     <span class="indicador-desplazamiento-relleno"></span>
+                                </div>
+
+                                <div class="buscador-lista-ficha">
+                                    <input type="text" placeholder="Buscar competencia..." class="campo-buscar-lista-ficha" />
+                                    <button type="button" class="boton-buscar-lista-ficha" aria-label="Buscar">
+                                        <i class="fa-solid fa-magnifying-glass"></i>
+                                    </button>
                                 </div>
 
                                 <div class="item-competencia-ficha">

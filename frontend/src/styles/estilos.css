@@ -575,6 +575,12 @@ html {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.tarjeta-saludo:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
 }
 
 .tarjeta-saludo h1 {
@@ -607,6 +613,11 @@ html {
     grid-column: span 5;
 }
 
+/* Variante para el panel de instructores: 3 tarjetas */
+.contenedor-indicadores-panel {
+    grid-template-columns: repeat(3, 1fr);
+}
+
 .tarjeta-indicador {
     background-color: var(--color-blanco);
     border-radius: 16px;
@@ -614,6 +625,20 @@ html {
     display: flex;
     flex-direction: column;
     gap: 6px;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.tarjeta-indicador:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+}
+
+.tarjeta-indicador-alerta {
+    border-top: 4px solid var(--color-advertencia);
+}
+
+.tarjeta-indicador-critica {
+    border-top: 4px solid var(--color-alerta-critica);
 }
 
 .icono-indicador {
@@ -676,6 +701,17 @@ html {
     padding: 24px;
     display: flex;
     flex-direction: column;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.panel-asistencia-general:hover,
+.panel-alertas-recientes:hover,
+.panel-riesgo-desercion:hover,
+.panel-fichas-activas:hover,
+.panel-actividad-reciente:hover,
+.panel-estadisticas-generales:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
 }
 
 .panel-asistencia-general h2,
@@ -1295,6 +1331,16 @@ html {
     color: var(--color-alerta-critica);
 }
 
+.etiqueta-estado-pendiente {
+    background-color: rgba(237, 108, 2, 0.15);
+    color: var(--color-advertencia);
+}
+
+.etiqueta-estado-atrasado {
+    background-color: rgba(211, 47, 47, 0.15);
+    color: var(--color-alerta-critica);
+}
+
 .boton-ver-mas {
     display: inline-block;
     padding: 10px 15px;
@@ -1553,6 +1599,55 @@ html {
     max-height: 420px;
     overflow-y: auto;
     padding-right: 6px;
+}
+
+/* Buscador de cada lista: queda fijo (sticky) debajo del indicador, antes de los ítems */
+.buscador-lista-ficha {
+    position: sticky;
+    top: 12px;
+    z-index: 2;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    gap: 0;
+    margin-bottom: 6px;
+    background-color: var(--color-fondo-tarjeta);
+    padding: 8px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.campo-buscar-lista-ficha {
+    flex: 1;
+    min-width: 0;
+    padding: 10px 14px;
+    border: 1px solid var(--color-borde);
+    border-right: none;
+    border-radius: 8px 0 0 8px;
+    font-family: var(--fuente-contenido);
+    font-size: var(--texto-caption);
+    color: var(--color-texto-cuerpo);
+    background-color: var(--color-fondo-principal);
+}
+
+.campo-buscar-lista-ficha:focus {
+    outline: none;
+    border-color: var(--color-primario);
+}
+
+.boton-buscar-lista-ficha {
+    padding: 0 16px;
+    border: 1px solid var(--color-borde);
+    border-radius: 0 8px 8px 0;
+    background-color: var(--color-fondo-seccion-alterna);
+    color: var(--color-texto-apoyo);
+    cursor: pointer;
+    align-self: stretch;
+}
+
+.boton-buscar-lista-ficha:hover {
+    background-color: var(--color-fondo-tarjeta-suave);
+    color: var(--color-primario);
 }
 
 .indicador-desplazamiento-ficha {
@@ -2169,6 +2264,379 @@ html {
     fill: var(--color-primario);
 }
 
+/* ---------- Instructores: grid de tarjetas (panel) ---------- */
+
+.grid-tarjetas-instructor {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 20px;
+}
+
+.tarjeta-instructor-enlace {
+    background-color: var(--color-blanco);
+    border-radius: 16px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.tarjeta-instructor-enlace:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+}
+
+.cabecera-tarjeta-instructor {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.avatar-instructor {
+    flex-shrink: 0;
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background-color: var(--color-primario);
+    color: var(--color-blanco);
+    font-family: var(--fuente-titulos);
+    font-size: var(--texto-caption);
+    font-weight: var(--peso-semibold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nombre-tarjeta-instructor {
+    font-size: var(--texto-cuerpo);
+    font-weight: var(--peso-semibold);
+    color: var(--color-texto-principal);
+}
+
+.ficha-tarjeta-instructor {
+    font-size: var(--texto-caption);
+    color: var(--color-texto-apoyo);
+}
+
+.fila-dato-instructor {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    font-size: var(--texto-caption);
+    color: var(--color-texto-secundario);
+}
+
+.fila-dato-instructor .barra-progreso {
+    flex: 1;
+    width: auto;
+}
+
+.pie-tarjeta-instructor {
+    font-size: var(--texto-caption);
+    color: var(--color-texto-apoyo);
+    border-top: 1px solid var(--color-borde);
+    padding-top: 10px;
+}
+
+/* ---------- Instructores: tarjetas detalladas con gráfico (listado) ---------- */
+
+.grid-tarjetas-instructor-detallado {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.tarjeta-instructor-detallada {
+    background-color: var(--color-blanco);
+    border-radius: 16px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.tarjeta-instructor-detallada:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+}
+
+.cabecera-tarjeta-instructor-detallada {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.cabecera-tarjeta-instructor-detallada .etiqueta-estado {
+    margin-left: auto;
+    font-size: 13px;
+    padding: 5px 12px;
+}
+
+/* Mini gráfico de barras con CSS puro: columnas con altura según % */
+
+.grafico-mini-instructor {
+    display: flex;
+    align-items: flex-end;
+    gap: 8px;
+    height: 70px;
+    padding: 8px 4px 0;
+    background-color: var(--color-fondo-seccion-alterna);
+    border-radius: 10px;
+}
+
+.barra-mini-grafico {
+    flex: 1;
+    border-radius: 4px 4px 0 0;
+    min-height: 4px;
+}
+
+.barra-mini-grafico-bajo { background-color: var(--color-confirmacion); }
+.barra-mini-grafico-moderado { background-color: var(--color-advertencia); }
+.barra-mini-grafico-critico { background-color: var(--color-alerta-critica); }
+
+/* Detalle desplegable por instructor: fichas asignadas + cumplimiento */
+
+.detalle-instructor-resumen {
+    margin-top: 4px;
+    border-top: 1px solid var(--color-borde);
+    padding-top: 12px;
+}
+
+.detalle-instructor-resumen summary {
+    list-style: none;
+    cursor: pointer;
+    font-size: var(--texto-caption);
+    font-weight: var(--peso-semibold);
+    color: var(--color-primario);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.detalle-instructor-resumen summary::-webkit-details-marker {
+    display: none;
+}
+
+.detalle-instructor-resumen summary i {
+    transition: transform 0.2s ease;
+}
+
+.detalle-instructor-resumen[open] summary i {
+    transform: rotate(90deg);
+}
+
+.contenido-resumen-instructor {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 12px;
+}
+
+.item-ficha-asignada {
+    background-color: var(--color-fondo-seccion-alterna);
+    border-radius: 10px;
+    padding: 10px 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.item-ficha-asignada .fila-dato-instructor .barra-progreso {
+    flex: 1;
+    width: auto;
+}
+
+/* Selector de ficha destacado en el panel */
+
+.seccion-resumen-instructores {
+    background-color: var(--color-blanco);
+    border-radius: 16px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.seccion-resumen-instructores h2 {
+    font-size: var(--texto-label);
+    color: var(--color-texto-principal);
+}
+
+.chips-ficha {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.chip-ficha {
+    padding: 8px 16px;
+    border-radius: 999px;
+    background-color: var(--color-fondo-seccion-alterna);
+    color: var(--color-texto-secundario);
+    font-size: var(--texto-caption);
+    font-weight: var(--peso-semibold);
+    border: 1px solid var(--color-borde);
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.chip-ficha:hover {
+    background-color: var(--color-primario);
+    color: var(--color-blanco);
+}
+
+.chip-ficha-activo {
+    background-color: var(--color-primario);
+    color: var(--color-blanco);
+}
+
+/* ---------- Tarjeta de perfil de instructor (modal CSS puro con :target) ---------- */
+
+.perfil-instructor-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.55);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.perfil-instructor-overlay:target {
+    display: flex;
+}
+
+.perfil-instructor-fondo {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+}
+
+.tarjeta-perfil-instructor {
+    position: relative;
+    z-index: 2;
+    background-color: var(--color-blanco);
+    border-radius: 16px;
+    padding: 28px;
+    width: min(480px, 100%);
+    max-height: 85vh;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+}
+
+.boton-cerrar-perfil {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: var(--color-fondo-seccion-alterna);
+    color: var(--color-texto-secundario);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.boton-cerrar-perfil:hover {
+    background-color: var(--color-alerta-critica);
+    color: var(--color-blanco);
+}
+
+.cabecera-perfil-instructor {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.cabecera-perfil-instructor .avatar-instructor {
+    width: 64px;
+    height: 64px;
+    font-size: var(--texto-h3);
+}
+
+.rol-perfil-instructor {
+    font-size: var(--texto-caption);
+    color: var(--color-texto-apoyo);
+    margin-top: 2px;
+}
+
+.fichas-perfil-instructor {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.fichas-perfil-instructor .item-ficha-asignada {
+    background-color: var(--color-fondo-seccion-alterna);
+    border-radius: 10px;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.fichas-perfil-instructor .item-ficha-asignada .fila-dato-instructor .barra-progreso {
+    flex: 1;
+    width: auto;
+}
+
+.titulo-seccion-perfil {
+    font-size: var(--texto-label);
+    color: var(--color-texto-principal);
+    font-weight: var(--peso-semibold);
+}
+
+.boton-ver-perfil {
+    display: inline-block;
+    margin-top: 4px;
+    padding: 10px 15px;
+    border-radius: 8px;
+    background-color: var(--color-confirmacion);
+    color: var(--color-blanco);
+    font-size: var(--texto-caption);
+    font-weight: var(--peso-semibold);
+    text-decoration: none;
+    text-align: center;
+    transition: background-color 0.2s ease;
+}
+
+.boton-ver-perfil:hover {
+    background-color: #1e5f24;
+}
+
+/* Tarjeta detallada clickeable que abre el perfil */
+
+.enlace-abrir-perfil {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    text-decoration: none;
+    color: inherit;
+}
+
+.enlace-abrir-perfil:hover .cabecera-tarjeta-instructor-detallada .nombre-tarjeta-instructor {
+    color: var(--color-primario);
+}
+
+.pie-enlace-perfil {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: var(--color-primario);
+    font-weight: var(--peso-semibold);
+}
+
 @media (max-width: 900px) {
     .distribucion-actualizar {
         grid-template-columns: 1fr;
@@ -2320,6 +2788,10 @@ html {
     .franja-datos-generales {
         grid-template-columns: 1fr 1fr;
     }
+
+    .grid-tarjetas-instructor {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 @media (max-width: 900px) {
@@ -2470,6 +2942,15 @@ html {
 
     .marca-navegacion img {
         height: 44px;
+    }
+
+    .grid-tarjetas-instructor,
+    .grid-tarjetas-instructor-detallado {
+        grid-template-columns: 1fr;
+    }
+
+    .contenedor-indicadores-panel {
+        grid-template-columns: 1fr;
     }
 }
 
