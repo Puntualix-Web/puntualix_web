@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PuntualiX | Detalles de Ficha</title>
+
+    <link rel="icon" type="image/png" href="../../../src/assets/img/favico/favicon_positivo.png">
+
+    <link rel="stylesheet" href="../../../src/styles/base.css">
+    <link rel="stylesheet" href="../../../src/styles/tokens.css">
+    <link rel="stylesheet" href="../../../src/styles/fonts.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../../../src/styles/estilos.css">
+</head>
+<body>
+    <div class="pantalla-dashboard-admin">
+
+        <!-- Barra de navegación superior (componente compartido, replicado estáticamente) -->
+        <header class="barra-navegacion">
+            <div class="marca-navegacion">
+                <img src="../../../src/assets/img/LogoNegativo/negativo_sin_eslogan_transparente.png" alt="Logo Puntualix">
+            </div>
+
+            <nav class="menu-navegacion">
+                <a href="../dashboard.html" class="enlace-nav" data-pagina="dashboard" data-roles="administrador,instructor,aprendiz">
+                    <i class="fa-solid fa-house"></i> Dashboard
+                </a>
+                <a href="fichas.html" class="enlace-nav enlace-nav-activo" data-pagina="fichas" data-roles="administrador,instructor">
+                    <i class="fa-solid fa-file-lines"></i> Fichas
+                </a>
+                <a href="../instructores/panel.html" class="enlace-nav" data-pagina="panel" data-roles="administrador,instructor">
+                    <i class="fa-solid fa-chalkboard-user"></i> Instructores
+                </a>
+                <a href="../bitacora/bitacora.html" class="enlace-nav" data-pagina="bitacora" data-roles="administrador">
+                    <i class="fa-solid fa-clock-rotate-left"></i> Bitácora
+                </a>
+                <a href="../estadisticas/estadisticas.html" class="enlace-nav" data-pagina="estadisticas" data-roles="administrador">
+                    <i class="fa-solid fa-chart-line"></i> Estadísticas
+                </a>
+                <a href="" class="enlace-nav" data-pagina="reportes" data-roles="administrador,instructor">
+                    <i class="fa-solid fa-chart-bar"></i> Reportes
+                </a>
+            </nav>
+
+            <div class="area-usuario">
+                <span class="separador-nav" aria-hidden="true"></span>
+
+                <button type="button" class="boton-notificaciones" aria-label="Notificaciones">
+                    <i class="fa-solid fa-bell"></i>
+                </button>
+
+                <div class="tarjeta-usuario" id="boton-menu-usuario">
+                    <div class="avatar-usuario" aria-hidden="true"></div>
+                    <div class="datos-usuario">
+                        <span class="nombre-usuario">Andres Ramirez</span>
+                        <span class="rol-usuario">Administrador</span>
+                    </div>
+                    <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+                </div>
+
+                <div class="menu-desplegable-usuario oculto" id="menu-usuario">
+                    <a href="" class="item-menu-usuario" data-roles="administrador,instructor,aprendiz">
+                        <i class="fa-solid fa-circle-user"></i> Ver perfil
+                    </a>
+                    <a href="" class="item-menu-usuario" data-roles="administrador,instructor,aprendiz">
+                        <i class="fa-solid fa-bookmark"></i> Ver competencias
+                    </a>
+                    <a href="" class="item-menu-usuario" data-roles="administrador,instructor,aprendiz">
+                        <i class="fa-solid fa-file-circle-check"></i> Ver justificaciones
+                    </a>
+                    <a href="../estadisticas/estadisticas.html" class="item-menu-usuario" data-roles="administrador">
+                        <i class="fa-solid fa-chart-line"></i> Ver estadísticas
+                    </a>
+                    <a href="../../InicioSesion.html" class="item-menu-usuario item-menu-cerrar-sesion" data-roles="administrador,instructor,aprendiz">
+                        <i class="fa-solid fa-right-from-bracket"></i> Cerrar sesión
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <main class="contenido-dashboard">
+
+            <!-- Migas de pan -->
+            <nav class="migas-pan" aria-label="Ruta de navegación">
+                <a href="../dashboard.html">Inicio</a>
+                <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+                <a href="fichas.html">Fichas</a>
+                <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+                <span>Detalles de ficha</span>
+            </nav>
+
+            <!-- Encabezado: título + estado + acciones -->
+            <div class="encabezado-detalle-ficha">
+                <div class="titulo-estado-ficha">
+                    <h1 class="titulo-pagina">Ficha 301002</h1>
+                    <span class="etiqueta-estado etiqueta-estado-activo">Activa</span>
+                </div>
+
+                <div class="acciones-detalle-ficha">
+                    <button type="button" class="boton-modificar-ficha">Modificar Información</button>
+                    <button type="button" class="boton-desactivar-ficha">Desactivar ficha</button>
+                </div>
+            </div>
+
+            <!-- Cuerpo: franja + información a la izquierda, estadísticas a la derecha -->
+            <section class="cuerpo-detalle-ficha">
+
+                <div class="columna-info-ficha">
+
+                    <!-- Franja de datos generales (programa, sede, ambiente, modalidad) -->
+                    <section class="franja-datos-generales">
+                        <div class="dato-general">
+                            <i class="fa-solid fa-clipboard-list"></i>
+                            <div>
+                                <p class="etiqueta-dato-general">Programa</p>
+                                <p class="valor-dato-general">Análisis y Desarrollo de Software</p>
+                            </div>
+                        </div>
+
+                        <div class="dato-general">
+                            <i class="fa-solid fa-building"></i>
+                            <div>
+                                <p class="etiqueta-dato-general">Sede</p>
+                                <p class="valor-dato-general">CIAA</p>
+                            </div>
+                        </div>
+
+                        <div class="dato-general">
+                            <i class="fa-solid fa-display"></i>
+                            <div>
+                                <p class="etiqueta-dato-general">Ambiente</p>
+                                <p class="valor-dato-general">Electromecánica-2</p>
+                            </div>
+                        </div>
+
+                        <div class="dato-general">
+                            <i class="fa-solid fa-graduation-cap"></i>
+                            <div>
+                                <p class="etiqueta-dato-general">Modalidad</p>
+                                <p class="valor-dato-general">Presencial</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <div class="panel-informacion-ficha">
+                        <!-- Pestañas -->
+                        <nav class="pestanas-ficha" aria-label="Secciones de la ficha">
+                            <button type="button" class="pestana-ficha pestana-ficha-activa" data-pestana="informacion">Información general</button>
+                            <button type="button" class="pestana-ficha" data-pestana="instructores">Instructores</button>
+                            <button type="button" class="pestana-ficha" data-pestana="aprendices">Aprendices</button>
+                            <button type="button" class="pestana-ficha" data-pestana="competencias">Competencias</button>
+                        </nav>
+
+                        <!-- Contenido de la pestaña "Información general" -->
+                        <div id="pestana-informacion" class="contenido-pestana-ficha">
+                            <div class="grid-info-ficha">
+                                <p><strong>Número de ficha:</strong> 301002</p>
+                                <p><strong>Instructor líder:</strong> Maria Torres</p>
+                                <p><strong>Vocero:</strong> Luisa Martinez</p>
+                                <p><strong>Área:</strong> Desarrollo de software</p>
+                                <p><strong>Fecha de inicio:</strong> 10/03/2026</p>
+                                <p><strong>Duración (meses):</strong> 12</p>
+                                <p><strong>Fecha fin:</strong> 10/02/2027</p>
+                                <p><strong>Jornada:</strong> Mañana</p>
+                            </div>
+
+                            <div class="caja-descripcion-ficha">
+                                <h3>Descripción</h3>
+                                <p>
+                                    Formación orientada al desarrollo de competencias para el
+                                    desarrollo y diseño de aplicativos y páginas web
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Contenido de la pestaña "Instructores" -->
+                        <div id="pestana-instructores" class="contenido-pestana-ficha">
+                            <div class="lista-instructores-ficha lista-desplazable-ficha">
+                                <div class="indicador-desplazamiento-ficha" aria-hidden="true">
+                                    <span class="indicador-desplazamiento-relleno"></span>
+                                </div>
+
+                                <div class="buscador-lista-ficha">
+                                    <input type="text" placeholder="Buscar instructor..." class="campo-buscar-lista-ficha" />
+                                    <button type="button" class="boton-buscar-lista-ficha" aria-label="Buscar">
+                                        <i class="fa-solid fa-magnifying-glass"></i>
+                                    </button>
+                                </div>
+
+                                <div class="item-instructor-ficha">
+                                    <span class="avatar-instructor-ficha" aria-hidden="true">MT</span>
+                                    <div>
+                                        <p class="nombre-instructor-ficha">Maria Torres <span class="etiqueta-instructor-lider">Instructor líder</span></p>
+                                        <p class="rol-instructor-ficha">Instructora de bases de datos</p>
+                                    </div>
+                                    <div class="contenedor-contacto-instructor-ficha">
+                                        <span class="icono-contacto-ficha" title="Correo electrónico" aria-hidden="true"><i class="fa-solid fa-envelope"></i></span>
+                                        <span class="icono-contacto-ficha" title="Teléfono" aria-hidden="true"><i class="fa-solid fa-phone"></i></span>
+                                    </div>
+                                </div>
+
+                                <div class="item-instructor-ficha">
+                                    <span class="avatar-instructor-ficha" aria-hidden="true">CG</span>
+                                    <div>
+                                        <p class="nombre-instructor-ficha">Carlos Gomez</p>
+                                        <p class="rol-instructor-ficha">Instructor de análisis de software</p>
+                                    </div>
+                                    <div class="contenedor-contacto-instructor-ficha">
+                                        <span class="icono-contacto-ficha" title="Correo electrónico" aria-hidden="true"><i class="fa-solid fa-envelope"></i></span>
+                                        <span class="icono-contacto-ficha" title="Teléfono" aria-hidden="true"><i class="fa-solid fa-phone"></i></span>
+                                    </div>
+                                </div>
+
+                                 <div class="item-instructor-ficha">
+                                    <span class="avatar-instructor-ficha" aria-hidden="true">JP</span>
+                                    <div>
+                                        <p class="nombre-instructor-ficha">Juan Perez</p>
+                                        <p class="rol-instructor-ficha">Instructor de front-end</p>
+                                    </div>
+                                    <div class="contenedor-contacto-instructor-ficha">
+                                        <span class="icono-contacto-ficha" title="Correo electrónico" aria-hidden="true"><i class="fa-solid fa-envelope"></i></span>
+                                        <span class="icono-contacto-ficha" title="Teléfono" aria-hidden="true"><i class="fa-solid fa-phone"></i></span>
+                                    </div>
+                                </div>
+
+                                <div class="item-instructor-ficha">
+                                    <span class="avatar-instructor-ficha" aria-hidden="true">LD</span>
+                                    <div>
+                                        <p class="nombre-instructor-ficha">Laura Diaz</p>
+                                        <p class="rol-instructor-ficha">Instructora de back-end</p>
+                                    </div>
+                                    <div class="contenedor-contacto-instructor-ficha">
+                                        <span class="icono-contacto-ficha" title="Correo electrónico" aria-hidden="true"><i class="fa-solid fa-envelope"></i></span>
+                                        <span class="icono-contacto-ficha" title="Teléfono" aria-hidden="true"><i class="fa-solid fa-phone"></i></span>
+                                    </div>
+                                </div>
+
+                                <div class="item-instructor-ficha">
+                                    <span class="avatar-instructor-ficha" aria-hidden="true">PM</span>
+                                    <div>
+                                        <p class="nombre-instructor-ficha">Pedro Martinez</p>
+                                        <p class="rol-instructor-ficha">Instructor de calidad de software</p>
+                                    </div>
+                                    <div class="contenedor-contacto-instructor-ficha">
+                                        <span class="icono-contacto-ficha" title="Correo electrónico" aria-hidden="true"><i class="fa-solid fa-envelope"></i></span>
+                                        <span class="icono-contacto-ficha" title="Teléfono" aria-hidden="true"><i class="fa-solid fa-phone"></i></span>
+                                    </div>
+                                </div>
+
+                                <div class="item-instructor-ficha">
+                                    <span class="avatar-instructor-ficha" aria-hidden="true">SR</span>
+                                    <div>
+                                        <p class="nombre-instructor-ficha">Sofia Ramirez</p>
+                                        <p class="rol-instructor-ficha">Instructora de diseño</p>
+                                    </div>
+                                    <div class="contenedor-contacto-instructor-ficha">
+                                        <span class="icono-contacto-ficha" title="Correo electrónico" aria-hidden="true"><i class="fa-solid fa-envelope"></i></span>
+                                        <span class="icono-contacto-ficha" title="Teléfono" aria-hidden="true"><i class="fa-solid fa-phone"></i></span>
+                                    </div>
+                                </div>
+
+                                <div class="item-instructor-ficha">
+                                    <span class="avatar-instructor-ficha" aria-hidden="true">NR</span>
+                                    <div>
+                                        <p class="nombre-instructor-ficha">Natalia Rojas</p>
+                                        <p class="rol-instructor-ficha">Instructora de inglés</p>
+                                    </div>
+                                    <div class="contenedor-contacto-instructor-ficha">
+                                        <span class="icono-contacto-ficha" title="Correo electrónico" aria-hidden="true"><i class="fa-solid fa-envelope"></i></span>
+                                        <span class="icono-contacto-ficha" title="Teléfono" aria-hidden="true"><i class="fa-solid fa-phone"></i></span>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <!-- Contenido de la pestaña "Aprendices" -->
+                        <div id="pestana-aprendices" class="contenido-pestana-ficha">
+                            <div class="lista-instructores-ficha lista-desplazable-ficha">
+                                <div class="indicador-desplazamiento-ficha" aria-hidden="true">
+                                    <span class="indicador-desplazamiento-relleno"></span>
+                                </div>
+
+                                <div class="buscador-lista-ficha">
+                                    <input type="text" placeholder="Buscar aprendiz..." class="campo-buscar-lista-ficha" />
+                                    <button type="button" class="boton-buscar-lista-ficha" aria-label="Buscar">
+                                        <i class="fa-solid fa-magnifying-glass"></i>
+                                    </button>
+                                </div>
+
+                                <div class="item-instructor-ficha">
+                                    <span class="avatar-instructor-ficha" aria-hidden="true">LM</span>
+                                    <div>
+                                        <p class="nombre-instructor-ficha">Luisa Martinez <span class="etiqueta-vocero-ficha">Vocero</span></p>
+                                        <p class="rol-instructor-ficha">C.C. 1005234567</p>
+                                    </div>
+                                    <div class="contenedor-contacto-instructor-ficha">
+                                        <span class="icono-contacto-ficha" title="Correo electrónico" aria-hidden="true"><i class="fa-solid fa-envelope"></i></span>
+                                        <span class="icono-contacto-ficha" title="Teléfono" aria-hidden="true"><i class="fa-solid fa-phone"></i></span>
+                                    </div>
+                                </div>
+
+                                <div class="item-instructor-ficha">
+                                    <span class="avatar-instructor-ficha" aria-hidden="true">JP</span>
+                                    <div>
+                                        <p class="nombre-instructor-ficha">Jorge Perez</p>
+                                        <p class="rol-instructor-ficha">C.C. 1020456789</p>
+                                    </div>
+                                    <div class="contenedor-contacto-instructor-ficha">
+                                        <span class="icono-contacto-ficha" title="Correo electrónico" aria-hidden="true"><i class="fa-solid fa-envelope"></i></span>
+                                        <span class="icono-contacto-ficha" title="Teléfono" aria-hidden="true"><i class="fa-solid fa-phone"></i></span>
+                                    </div>
+                                </div>
+
+                                <div class="item-instructor-ficha">
+                                    <span class="avatar-instructor-ficha" aria-hidden="true">AG</span>
+                                    <div>
+                                        <p class="nombre-instructor-ficha">Ana Gomez</p>
+                                        <p class="rol-instructor-ficha">T.I. 1012345678</p>
+                                    </div>
+                                    <div class="contenedor-contacto-instructor-ficha">
+                                        <span class="icono-contacto-ficha" title="Correo electrónico" aria-hidden="true"><i class="fa-solid fa-envelope"></i></span>
+                                        <span class="icono-contacto-ficha" title="Teléfono" aria-hidden="true"><i class="fa-solid fa-phone"></i></span>
+                                    </div>
+                                </div>
+
+                                <div class="item-instructor-ficha">
+                                    <span class="avatar-instructor-ficha" aria-hidden="true">LR</span>
+                                    <div>
+                                        <p class="nombre-instructor-ficha">Luis Rodriguez</p>
+                                        <p class="rol-instructor-ficha">C.C. 1056789345</p>
+                                    </div>
+                                    <div class="contenedor-contacto-instructor-ficha">
+                                        <span class="icono-contacto-ficha" title="Correo electrónico" aria-hidden="true"><i class="fa-solid fa-envelope"></i></span>
+                                        <span class="icono-contacto-ficha" title="Teléfono" aria-hidden="true"><i class="fa-solid fa-phone"></i></span>
+                                    </div>
+                                </div>
+
+                                <div class="item-instructor-ficha">
+                                    <span class="avatar-instructor-ficha" aria-hidden="true">CF</span>
+                                    <div>
+                                        <p class="nombre-instructor-ficha">Camila Fernandez</p>
+                                        <p class="rol-instructor-ficha">T.I. 1098765432</p>
+                                    </div>
+                                    <div class="contenedor-contacto-instructor-ficha">
+                                        <span class="icono-contacto-ficha" title="Correo electrónico" aria-hidden="true"><i class="fa-solid fa-envelope"></i></span>
+                                        <span class="icono-contacto-ficha" title="Teléfono" aria-hidden="true"><i class="fa-solid fa-phone"></i></span>
+                                    </div>
+                                </div>
+
+                                <div class="item-instructor-ficha">
+                                    <span class="avatar-instructor-ficha" aria-hidden="true">DM</span>
+                                    <div>
+                                        <p class="nombre-instructor-ficha">Daniel Moreno</p>
+                                        <p class="rol-instructor-ficha">C.C. 1009876543</p>
+                                    </div>
+                                    <div class="contenedor-contacto-instructor-ficha">
+                                        <span class="icono-contacto-ficha" title="Correo electrónico" aria-hidden="true"><i class="fa-solid fa-envelope"></i></span>
+                                        <span class="icono-contacto-ficha" title="Teléfono" aria-hidden="true"><i class="fa-solid fa-phone"></i></span>
+                                    </div>
+                                </div>
+
+                                <div class="item-instructor-ficha">
+                                    <span class="avatar-instructor-ficha" aria-hidden="true">VR</span>
+                                    <div>
+                                        <p class="nombre-instructor-ficha">Valentina Rojas</p>
+                                        <p class="rol-instructor-ficha">T.I. 1029384756</p>
+                                    </div>
+                                    <div class="contenedor-contacto-instructor-ficha">
+                                        <span class="icono-contacto-ficha" title="Correo electrónico" aria-hidden="true"><i class="fa-solid fa-envelope"></i></span>
+                                        <span class="icono-contacto-ficha" title="Teléfono" aria-hidden="true"><i class="fa-solid fa-phone"></i></span>
+                                    </div>
+                                </div>
+
+                                <div class="item-instructor-ficha">
+                                    <span class="avatar-instructor-ficha" aria-hidden="true">SC</span>
+                                    <div>
+                                        <p class="nombre-instructor-ficha">Santiago Castro</p>
+                                        <p class="rol-instructor-ficha">C.C. 1034567890</p>
+                                    </div>
+                                    <div class="contenedor-contacto-instructor-ficha">
+                                        <span class="icono-contacto-ficha" title="Correo electrónico" aria-hidden="true"><i class="fa-solid fa-envelope"></i></span>
+                                        <span class="icono-contacto-ficha" title="Teléfono" aria-hidden="true"><i class="fa-solid fa-phone"></i></span>
+                                    </div>
+                                </div>
+
+                                <div class="item-instructor-ficha">
+                                    <span class="avatar-instructor-ficha" aria-hidden="true">GT</span>
+                                    <div>
+                                        <p class="nombre-instructor-ficha">Gabriela Torres</p>
+                                        <p class="rol-instructor-ficha">T.I. 1076543210</p>
+                                    </div>
+                                    <div class="contenedor-contacto-instructor-ficha">
+                                        <span class="icono-contacto-ficha" title="Correo electrónico" aria-hidden="true"><i class="fa-solid fa-envelope"></i></span>
+                                        <span class="icono-contacto-ficha" title="Teléfono" aria-hidden="true"><i class="fa-solid fa-phone"></i></span>
+                                    </div>
+                                </div>
+
+                                <div class="item-instructor-ficha">
+                                    <span class="avatar-instructor-ficha" aria-hidden="true">FS</span>
+                                    <div>
+                                        <p class="nombre-instructor-ficha">Felipe Sanchez</p>
+                                        <p class="rol-instructor-ficha">C.C. 1067890123</p>
+                                    </div>
+                                    <div class="contenedor-contacto-instructor-ficha">
+                                        <span class="icono-contacto-ficha" title="Correo electrónico" aria-hidden="true"><i class="fa-solid fa-envelope"></i></span>
+                                        <span class="icono-contacto-ficha" title="Teléfono" aria-hidden="true"><i class="fa-solid fa-phone"></i></span>
+                                    </div>
+                                </div>
+
+                                <div class="item-instructor-ficha">
+                                    <span class="avatar-instructor-ficha" aria-hidden="true">IH</span>
+                                    <div>
+                                        <p class="nombre-instructor-ficha">Isabella Herrera</p>
+                                        <p class="rol-instructor-ficha">T.I. 1010101010</p>
+                                    </div>
+                                    <div class="contenedor-contacto-instructor-ficha">
+                                        <span class="icono-contacto-ficha" title="Correo electrónico" aria-hidden="true"><i class="fa-solid fa-envelope"></i></span>
+                                        <span class="icono-contacto-ficha" title="Teléfono" aria-hidden="true"><i class="fa-solid fa-phone"></i></span>
+                                    </div>
+                                </div>
+
+                                <div class="item-instructor-ficha">
+                                    <span class="avatar-instructor-ficha" aria-hidden="true">NR</span>
+                                    <div>
+                                        <p class="nombre-instructor-ficha">Nicolas Ramirez</p>
+                                        <p class="rol-instructor-ficha">C.C. 1045678901</p>
+                                    </div>
+                                    <div class="contenedor-contacto-instructor-ficha">
+                                        <span class="icono-contacto-ficha" title="Correo electrónico" aria-hidden="true"><i class="fa-solid fa-envelope"></i></span>
+                                        <span class="icono-contacto-ficha" title="Teléfono" aria-hidden="true"><i class="fa-solid fa-phone"></i></span>
+                                    </div>
+                                </div>
+
+                                <div class="item-instructor-ficha">
+                                    <span class="avatar-instructor-ficha" aria-hidden="true">JO</span>
+                                    <div>
+                                        <p class="nombre-instructor-ficha">Juliana Ortiz</p>
+                                        <p class="rol-instructor-ficha">T.I. 1022223333</p>
+                                    </div>
+                                    <div class="contenedor-contacto-instructor-ficha">
+                                        <span class="icono-contacto-ficha" title="Correo electrónico" aria-hidden="true"><i class="fa-solid fa-envelope"></i></span>
+                                        <span class="icono-contacto-ficha" title="Teléfono" aria-hidden="true"><i class="fa-solid fa-phone"></i></span>
+                                    </div>
+                                </div>
+
+                                <div class="item-instructor-ficha">
+                                    <span class="avatar-instructor-ficha" aria-hidden="true">SV</span>
+                                    <div>
+                                        <p class="nombre-instructor-ficha">Sebastian Vargas</p>
+                                        <p class="rol-instructor-ficha">C.C. 1088889999</p>
+                                    </div>
+                                    <div class="contenedor-contacto-instructor-ficha">
+                                        <span class="icono-contacto-ficha" title="Correo electrónico" aria-hidden="true"><i class="fa-solid fa-envelope"></i></span>
+                                        <span class="icono-contacto-ficha" title="Teléfono" aria-hidden="true"><i class="fa-solid fa-phone"></i></span>
+                                    </div>
+                                </div>
+
+                                <div class="item-instructor-ficha">
+                                    <span class="avatar-instructor-ficha" aria-hidden="true">DM</span>
+                                    <div>
+                                        <p class="nombre-instructor-ficha">Daniela Mendoza</p>
+                                        <p class="rol-instructor-ficha">T.I. 1011112222</p>
+                                    </div>
+                                    <div class="contenedor-contacto-instructor-ficha">
+                                        <span class="icono-contacto-ficha" title="Correo electrónico" aria-hidden="true"><i class="fa-solid fa-envelope"></i></span>
+                                        <span class="icono-contacto-ficha" title="Teléfono" aria-hidden="true"><i class="fa-solid fa-phone"></i></span>
+                                    </div>
+                                </div>
+
+                                <div class="item-instructor-ficha">
+                                    <span class="avatar-instructor-ficha" aria-hidden="true">AP</span>
+                                    <div>
+                                        <p class="nombre-instructor-ficha">Andres Pineda</p>
+                                        <p class="rol-instructor-ficha">C.C. 1099990000</p>
+                                    </div>
+                                    <div class="contenedor-contacto-instructor-ficha">
+                                        <span class="icono-contacto-ficha" title="Correo electrónico" aria-hidden="true"><i class="fa-solid fa-envelope"></i></span>
+                                        <span class="icono-contacto-ficha" title="Teléfono" aria-hidden="true"><i class="fa-solid fa-phone"></i></span>
+                                    </div>
+                                </div>
+
+                                <div class="item-instructor-ficha">
+                                    <span class="avatar-instructor-ficha" aria-hidden="true">MS</span>
+                                    <div>
+                                        <p class="nombre-instructor-ficha">Mariana Suarez</p>
+                                        <p class="rol-instructor-ficha">T.I. 1023334444</p>
+                                    </div>
+                                    <div class="contenedor-contacto-instructor-ficha">
+                                        <span class="icono-contacto-ficha" title="Correo electrónico" aria-hidden="true"><i class="fa-solid fa-envelope"></i></span>
+                                        <span class="icono-contacto-ficha" title="Teléfono" aria-hidden="true"><i class="fa-solid fa-phone"></i></span>
+                                    </div>
+                                </div>
+
+                                <div class="item-instructor-ficha">
+                                    <span class="avatar-instructor-ficha" aria-hidden="true">CD</span>
+                                    <div>
+                                        <p class="nombre-instructor-ficha">Camilo Duarte</p>
+                                        <p class="rol-instructor-ficha">C.C. 1055556666</p>
+                                    </div>
+                                    <div class="contenedor-contacto-instructor-ficha">
+                                        <span class="icono-contacto-ficha" title="Correo electrónico" aria-hidden="true"><i class="fa-solid fa-envelope"></i></span>
+                                        <span class="icono-contacto-ficha" title="Teléfono" aria-hidden="true"><i class="fa-solid fa-phone"></i></span>
+                                    </div>
+                                </div>
+
+                                <div class="item-instructor-ficha">
+                                    <span class="avatar-instructor-ficha" aria-hidden="true">SP</span>
+                                    <div>
+                                        <p class="nombre-instructor-ficha">Sara Peña</p>
+                                        <p class="rol-instructor-ficha">T.I. 1033334444</p>
+                                    </div>
+                                    <div class="contenedor-contacto-instructor-ficha">
+                                        <span class="icono-contacto-ficha" title="Correo electrónico" aria-hidden="true"><i class="fa-solid fa-envelope"></i></span>
+                                        <span class="icono-contacto-ficha" title="Teléfono" aria-hidden="true"><i class="fa-solid fa-phone"></i></span>
+                                    </div>
+                                </div>
+
+                                <div class="item-instructor-ficha">
+                                    <span class="avatar-instructor-ficha" aria-hidden="true">MG</span>
+                                    <div>
+                                        <p class="nombre-instructor-ficha">Mateo Guzman</p>
+                                        <p class="rol-instructor-ficha">C.C. 1044445555</p>
+                                    </div>
+                                    <div class="contenedor-contacto-instructor-ficha">
+                                        <span class="icono-contacto-ficha" title="Correo electrónico" aria-hidden="true"><i class="fa-solid fa-envelope"></i></span>
+                                        <span class="icono-contacto-ficha" title="Teléfono" aria-hidden="true"><i class="fa-solid fa-phone"></i></span>
+                                    </div>
+                                </div>
+
+                                <div class="item-instructor-ficha">
+                                    <span class="avatar-instructor-ficha" aria-hidden="true">VP</span>
+                                    <div>
+                                        <p class="nombre-instructor-ficha">Valeria Pardo</p>
+                                        <p class="rol-instructor-ficha">T.I. 1024445555</p>
+                                    </div>
+                                    <div class="contenedor-contacto-instructor-ficha">
+                                        <span class="icono-contacto-ficha" title="Correo electrónico" aria-hidden="true"><i class="fa-solid fa-envelope"></i></span>
+                                        <span class="icono-contacto-ficha" title="Teléfono" aria-hidden="true"><i class="fa-solid fa-phone"></i></span>
+                                    </div>
+                                </div>
+
+                                <div class="item-instructor-ficha">
+                                    <span class="avatar-instructor-ficha" aria-hidden="true">JR</span>
+                                    <div>
+                                        <p class="nombre-instructor-ficha">Juan David Rios</p>
+                                        <p class="rol-instructor-ficha">C.C. 1066667777</p>
+                                    </div>
+                                    <div class="contenedor-contacto-instructor-ficha">
+                                        <span class="icono-contacto-ficha" title="Correo electrónico" aria-hidden="true"><i class="fa-solid fa-envelope"></i></span>
+                                        <span class="icono-contacto-ficha" title="Teléfono" aria-hidden="true"><i class="fa-solid fa-phone"></i></span>
+                                    </div>
+                                </div>
+
+                                <div class="item-instructor-ficha">
+                                    <span class="avatar-instructor-ficha" aria-hidden="true">LQ</span>
+                                    <div>
+                                        <p class="nombre-instructor-ficha">Laura Quintero</p>
+                                        <p class="rol-instructor-ficha">T.I. 1037778888</p>
+                                    </div>
+                                    <div class="contenedor-contacto-instructor-ficha">
+                                        <span class="icono-contacto-ficha" title="Correo electrónico" aria-hidden="true"><i class="fa-solid fa-envelope"></i></span>
+                                        <span class="icono-contacto-ficha" title="Teléfono" aria-hidden="true"><i class="fa-solid fa-phone"></i></span>
+                                    </div>
+                                </div>
+
+                                <div class="item-instructor-ficha">
+                                    <span class="avatar-instructor-ficha" aria-hidden="true">DA</span>
+                                    <div>
+                                        <p class="nombre-instructor-ficha">Diego Alvarez</p>
+                                        <p class="rol-instructor-ficha">C.C. 1012223333</p>
+                                    </div>
+                                    <div class="contenedor-contacto-instructor-ficha">
+                                        <span class="icono-contacto-ficha" title="Correo electrónico" aria-hidden="true"><i class="fa-solid fa-envelope"></i></span>
+                                        <span class="icono-contacto-ficha" title="Teléfono" aria-hidden="true"><i class="fa-solid fa-phone"></i></span>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <!-- Contenido de la pestaña "Competencias" -->
+                        <div id="pestana-competencias" class="contenido-pestana-ficha">
+                            <div class="lista-competencias-ficha lista-desplazable-ficha">
+                                <div class="indicador-desplazamiento-ficha" aria-hidden="true">
+                                    <span class="indicador-desplazamiento-relleno"></span>
+                                </div>
+
+                                <div class="buscador-lista-ficha">
+                                    <input type="text" placeholder="Buscar competencia..." class="campo-buscar-lista-ficha" />
+                                    <button type="button" class="boton-buscar-lista-ficha" aria-label="Buscar">
+                                        <i class="fa-solid fa-magnifying-glass"></i>
+                                    </button>
+                                </div>
+
+                                <div class="item-competencia-ficha">
+                                    <div class="encabezado-competencia-ficha">
+                                        <span class="avatar-instructor-ficha" aria-hidden="true">MT</span>
+                                        <div>
+                                            <p class="nombre-competencia-ficha">Análisis y diseño de sistemas de información</p>
+                                            <p class="rol-instructor-ficha">Instructor: Maria Torres</p>
+                                        </div>
+                                    </div>
+                                    <div class="fechas-competencia-ficha">
+                                        <span class="fecha-competencia-ficha"><i class="fa-solid fa-calendar-day" aria-hidden="true"></i> Inicio: 10/03/2026</span>
+                                        <span class="fecha-competencia-ficha"><i class="fa-solid fa-calendar-check" aria-hidden="true"></i> Fin: 10/02/2027</span>
+                                    </div>
+                                </div>
+
+                                <div class="item-competencia-ficha">
+                                    <div class="encabezado-competencia-ficha">
+                                        <span class="avatar-instructor-ficha" aria-hidden="true">JC</span>
+                                        <div>
+                                            <p class="nombre-competencia-ficha">Construcción de bases de datos</p>
+                                            <p class="rol-instructor-ficha">Instructor: Jorge Castro</p>
+                                        </div>
+                                    </div>
+                                    <div class="fechas-competencia-ficha">
+                                        <span class="fecha-competencia-ficha"><i class="fa-solid fa-calendar-day" aria-hidden="true"></i> Inicio: 10/03/2026</span>
+                                        <span class="fecha-competencia-ficha"><i class="fa-solid fa-calendar-check" aria-hidden="true"></i> Fin: 10/02/2027</span>
+                                    </div>
+                                </div>
+
+                                <div class="item-competencia-ficha">
+                                    <div class="encabezado-competencia-ficha">
+                                        <span class="avatar-instructor-ficha" aria-hidden="true">MR</span>
+                                        <div>
+                                            <p class="nombre-competencia-ficha">Desarrollo de software en entorno web</p>
+                                            <p class="rol-instructor-ficha">Instructor: Mariana Rios</p>
+                                        </div>
+                                    </div>
+                                    <div class="fechas-competencia-ficha">
+                                        <span class="fecha-competencia-ficha"><i class="fa-solid fa-calendar-day" aria-hidden="true"></i> Inicio: 10/03/2026</span>
+                                        <span class="fecha-competencia-ficha"><i class="fa-solid fa-calendar-check" aria-hidden="true"></i> Fin: 10/02/2027</span>
+                                    </div>
+                                </div>
+
+                                <div class="item-competencia-ficha">
+                                    <div class="encabezado-competencia-ficha">
+                                        <span class="avatar-instructor-ficha" aria-hidden="true">PS</span>
+                                        <div>
+                                            <p class="nombre-competencia-ficha">Implementación de servicios web</p>
+                                            <p class="rol-instructor-ficha">Instructor: Pedro Salazar</p>
+                                        </div>
+                                    </div>
+                                    <div class="fechas-competencia-ficha">
+                                        <span class="fecha-competencia-ficha"><i class="fa-solid fa-calendar-day" aria-hidden="true"></i> Inicio: 10/03/2026</span>
+                                        <span class="fecha-competencia-ficha"><i class="fa-solid fa-calendar-check" aria-hidden="true"></i> Fin: 10/02/2027</span>
+                                    </div>
+                                </div>
+
+                                <div class="item-competencia-ficha">
+                                    <div class="encabezado-competencia-ficha">
+                                        <span class="avatar-instructor-ficha" aria-hidden="true">CG</span>
+                                        <div>
+                                            <p class="nombre-competencia-ficha">Pruebas de software</p>
+                                            <p class="rol-instructor-ficha">Instructor: Carlos Gomez</p>
+                                        </div>
+                                    </div>
+                                    <div class="fechas-competencia-ficha">
+                                        <span class="fecha-competencia-ficha"><i class="fa-solid fa-calendar-day" aria-hidden="true"></i> Inicio: 10/03/2026</span>
+                                        <span class="fecha-competencia-ficha"><i class="fa-solid fa-calendar-check" aria-hidden="true"></i> Fin: 10/02/2027</span>
+                                    </div>
+                                </div>
+
+                                <div class="item-competencia-ficha">
+                                    <div class="encabezado-competencia-ficha">
+                                        <span class="avatar-instructor-ficha" aria-hidden="true">JV</span>
+                                        <div>
+                                            <p class="nombre-competencia-ficha">Integración de componentes de software</p>
+                                            <p class="rol-instructor-ficha">Instructor: Juliana Velez</p>
+                                        </div>
+                                    </div>
+                                    <div class="fechas-competencia-ficha">
+                                        <span class="fecha-competencia-ficha"><i class="fa-solid fa-calendar-day" aria-hidden="true"></i> Inicio: 10/03/2026</span>
+                                        <span class="fecha-competencia-ficha"><i class="fa-solid fa-calendar-check" aria-hidden="true"></i> Fin: 10/02/2027</span>
+                                    </div>
+                                </div>
+
+                                <div class="item-competencia-ficha">
+                                    <div class="encabezado-competencia-ficha">
+                                        <span class="avatar-instructor-ficha" aria-hidden="true">FM</span>
+                                        <div>
+                                            <p class="nombre-competencia-ficha">Documentación de procesos y servicios</p>
+                                            <p class="rol-instructor-ficha">Instructor: Felipe Mendoza</p>
+                                        </div>
+                                    </div>
+                                    <div class="fechas-competencia-ficha">
+                                        <span class="fecha-competencia-ficha"><i class="fa-solid fa-calendar-day" aria-hidden="true"></i> Inicio: 10/03/2026</span>
+                                        <span class="fecha-competencia-ficha"><i class="fa-solid fa-calendar-check" aria-hidden="true"></i> Fin: 10/02/2027</span>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Panel lateral de estadísticas -->
+                <aside class="panel-estadisticas-ficha">
+                    <h4 class="subtitulo-panel-estadisticas">Monitoreo y métricas principales</h4>
+
+                    <div class="fila-estadistica-ficha">
+                        <div class="dato-estadistica-ficha dato-estadistica-aprendices">
+                            <span class="icono-estadistica-ficha" aria-hidden="true"><i class="fa-solid fa-users"></i></span>
+                            <p class="titulo-estadistica-ficha">Aprendices</p>
+                            <p class="valor-estadistica-ficha">24</p>
+                            <p class="subtitulo-estadistica-ficha">Activos</p>
+                        </div>
+
+                        <div class="dato-estadistica-ficha dato-estadistica-asistencia">
+                            <span class="icono-estadistica-ficha" aria-hidden="true"><i class="fa-solid fa-user-check"></i></span>
+                            <p class="titulo-estadistica-ficha">Asistencia promedio</p>
+                            <p class="valor-estadistica-ficha">84%</p>
+                            <p class="subtitulo-estadistica-ficha">Programa</p>
+                        </div>
+                    </div>
+
+                    <div class="fila-estadistica-ficha">
+                        <div class="dato-estadistica-ficha dato-estadistica-moderado">
+                            <span class="icono-estadistica-ficha" aria-hidden="true"><i class="fa-solid fa-triangle-exclamation"></i></span>
+                            <p class="titulo-estadistica-ficha">Riesgo moderado</p>
+                            <p class="valor-estadistica-ficha">5</p>
+                            <p class="subtitulo-estadistica-ficha">4.8%</p>
+                        </div>
+
+                        <div class="dato-estadistica-ficha dato-estadistica-critico">
+                            <span class="icono-estadistica-ficha" aria-hidden="true"><i class="fa-solid fa-circle-exclamation"></i></span>
+                            <p class="titulo-estadistica-ficha">Riesgo crítico</p>
+                            <p class="valor-estadistica-ficha">2</p>
+                            <p class="subtitulo-estadistica-ficha">8%</p>
+                        </div>
+                    </div>
+
+                    <div class="onda-decorativa-ficha" aria-hidden="true">
+                        <svg viewBox="0 0 260 90" preserveAspectRatio="none">
+                            <path
+                                class="onda-relleno-ficha"
+                                d="M0,38 C20,48 40,34 60,46 C80,56 95,44 115,54 C135,62 150,46 170,56 C190,64 210,50 235,36 C245,30 255,40 260,46 L260,90 L0,90 Z"
+                            />
+                            <path
+                                class="onda-linea-ficha"
+                                d="M0,38 C20,48 40,34 60,46 C80,56 95,44 115,54 C135,62 150,46 170,56 C190,64 210,50 235,36 C245,30 255,40 260,46"
+                                fill="none"
+                            />
+                        </svg>
+                    </div>
+                </aside>
+
+            </section>
+
+        </main>
+
+        <!-- ==========================================================
+            OVERLAY: Actualizar ficha
+            Oculto por defecto. Se muestra/oculta con JS al hacer
+            clic en "Modificar Información" y en "Cancelar".
+            Cubre únicamente el área entre el navbar y el footer
+            (sus límites se calculan con JS).
+            ========================================================== -->
+        <section class="overlay-actualizar-ficha oculto" id="overlay-actualizar-ficha" aria-hidden="true">
+            <div class="vista-actualizar-ficha">
+
+                <!-- 1. Subtítulo previo a las tarjetas -->
+                <p class="subtitulo-actualizar-seccion">Monitoreo y métricas generales del programa</p>
+
+                <!-- 2. Contenedor de las 4 tarjetas -->
+                <section class="tarjetas-actualizar-grid">
+                    <article class="dato-actualizar-tarjeta dato-actualizar-aprendices">
+                        <span class="icono-actualizar-tarjeta" aria-hidden="true"><i class="fa-solid fa-users"></i></span>
+                        <span class="titulo-actualizar-tarjeta">Aprendices</span>
+                        <span class="valor-actualizar-tarjeta">24</span>
+                        <span class="subtitulo-actualizar-tarjeta">Activos</span>
+                    </article>
+
+                    <article class="dato-actualizar-tarjeta dato-actualizar-asistencia">
+                        <span class="icono-actualizar-tarjeta" aria-hidden="true"><i class="fa-solid fa-user-check"></i></span>
+                        <span class="titulo-actualizar-tarjeta">Asistencia promedio</span>
+                        <span class="valor-actualizar-tarjeta">84%</span>
+                        <span class="subtitulo-actualizar-tarjeta">Programa</span>
+                    </article>
+
+                    <article class="dato-actualizar-tarjeta dato-actualizar-moderado">
+                        <span class="icono-actualizar-tarjeta" aria-hidden="true"><i class="fa-solid fa-triangle-exclamation"></i></span>
+                        <span class="titulo-actualizar-tarjeta">Riesgo moderado</span>
+                        <span class="valor-actualizar-tarjeta">5</span>
+                        <span class="subtitulo-actualizar-tarjeta">4.8%</span>
+                    </article>
+
+                    <article class="dato-actualizar-tarjeta dato-actualizar-critico">
+                        <span class="icono-actualizar-tarjeta" aria-hidden="true"><i class="fa-solid fa-circle-exclamation"></i></span>
+                        <span class="titulo-actualizar-tarjeta">Riesgo crítico</span>
+                        <span class="valor-actualizar-tarjeta">2</span>
+                        <span class="subtitulo-actualizar-tarjeta">8%</span>
+                    </article>
+                </section>
+
+                <!-- 3. Formulario + panel de confirmación -->
+                <section class="seccion-actualizar-formulario">
+                    <h3 class="titulo-actualizar-formulario">Actualizar ficha</h3>
+
+                    <div class="distribucion-actualizar">
+                        <!-- Formulario principal -->
+                        <form class="tarjeta-actualizar-formulario" id="formulario-actualizar-ficha">
+                            <div class="cuadricula-actualizar-formulario">
+                                <div class="grupo-actualizar-campo">
+                                    <label for="campo-numero-ficha">Número de ficha</label>
+                                    <input type="text" id="campo-numero-ficha" value="248273392993" readonly />
+                                </div>
+
+                                <div class="grupo-actualizar-campo">
+                                    <label for="campo-nombre-programa">Nombre del programa de formación</label>
+                                    <input type="text" id="campo-nombre-programa" value="Desarrollo de software" readonly />
+                                </div>
+
+                                <div class="grupo-actualizar-campo">
+                                    <label for="campo-sede">Sede</label>
+                                    <div class="contenedor-dato-actualizar">
+                                        <select id="campo-sede">
+                                            <option>Casa de la Convención</option>
+                                            <option selected>CIAA</option>
+                                        </select>
+                                        <i class="fa-solid fa-chevron-down icono-indicador-actualizar" aria-hidden="true"></i>
+                                    </div>
+                                </div>
+
+                                <div class="grupo-actualizar-campo">
+                                    <label for="campo-estado">Estado</label>
+                                    <div class="contenedor-dato-actualizar">
+                                        <select id="campo-estado">
+                                            <option>Activa</option>
+                                            <option>Inactiva</option>
+                                        </select>
+                                        <i class="fa-solid fa-chevron-down icono-indicador-actualizar" aria-hidden="true"></i>
+                                    </div>
+                                </div>
+
+                                <div class="grupo-actualizar-campo">
+                                    <label for="campo-fecha-inicio">Fecha de inicio</label>
+                                    <div class="contenedor-dato-actualizar">
+                                        <input type="date" id="campo-fecha-inicio" value="2026-07-26" />
+                                        <i class="fa-solid fa-calendar icono-indicador-actualizar" aria-hidden="true"></i>
+                                    </div>
+                                </div>
+
+                                <div class="grupo-actualizar-campo">
+                                    <label for="campo-fecha-fin">Fecha fin</label>
+                                    <div class="contenedor-dato-actualizar">
+                                        <input type="date" id="campo-fecha-fin" value="2027-11-30" />
+                                        <i class="fa-solid fa-calendar icono-indicador-actualizar" aria-hidden="true"></i>
+                                    </div>
+                                </div>
+
+                                <div class="grupo-actualizar-campo">
+                                    <label for="campo-modalidad">Modalidad</label>
+                                    <div class="contenedor-dato-actualizar">
+                                        <select id="campo-modalidad">
+                                            <option>Presencial</option>
+                                        </select>
+                                        <i class="fa-solid fa-chevron-down icono-indicador-actualizar" aria-hidden="true"></i>
+                                    </div>
+                                </div>
+
+                                <div class="grupo-actualizar-campo">
+                                    <label for="campo-lider-ficha">Líder de ficha</label>
+                                    <input type="text" id="campo-lider-ficha" value="Andres Ramirez" />
+                                </div>
+
+                                <div class="grupo-actualizar-campo">
+                                    <label for="campo-vocero">Vocero</label>
+                                    <input type="text" id="campo-vocero" value="Luisa Martinez" />
+                                </div>
+                            </div>
+
+                            <div class="acciones-actualizar-formulario">
+                                <button type="button" class="boton-actualizar-cancelar" id="boton-cancelar-actualizar">Cancelar</button>
+                                <button type="button" class="boton-actualizar-guardar" id="boton-guardar-actualizar">Guardar cambios</button>
+                            </div>
+                        </form>
+                    </div>
+                </section>
+
+            </div>
+
+            <!-- 4. Ola verde al fondo -->
+            <footer class="ola-actualizar-fondo" aria-hidden="true">
+                <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+                    <path d="M0,0 C150,90 350,-40 500,45 C650,130 900,10 1200,50 L1200,120 L0,120 Z"></path>
+                </svg>
+            </footer>
+        </section>
+
+        <!-- Pie de página (componente compartido, replicado estáticamente) -->
+        <footer class="pie-dashboard">
+            <div class="marca-pie">
+                <img src="../../../src/assets/img/LogoNegativo/negativo_con_eslogan_transparente.png" alt="Logo PuntualiX" class="logo-puntualix-pie" />
+                <div class="texto-marca-pie">
+                    <p>Desarrollado en el marco del proyecto de formación SENA · 2026</p>
+                    <p class="copyright-pie">
+                        <i class="fa-regular fa-copyright" aria-hidden="true"></i>
+                        2026 Puntualix. Todos los derechos reservados
+                    </p>
+                </div>
+            </div>
+
+            <div class="info-programa-pie">
+                <img src="../../../src/assets/img/LogoSena/SenaSobreVerde.png" alt="SENA" class="logo-sena-pie" />
+                <p>
+                    Programa: Análisis y desarrollo de Software<br />
+                    Ficha: 3267541
+                </p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="../../../src/js/main.js"></script>
+</body>
+</html>

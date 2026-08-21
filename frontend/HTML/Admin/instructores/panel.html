@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PuntualiX | Instructores</title>
+
+    <link rel="icon" type="image/png" href="../../../src/assets/img/favico/favicon_positivo.png">
+
+    <link rel="stylesheet" href="../../../src/styles/base.css">
+    <link rel="stylesheet" href="../../../src/styles/tokens.css">
+    <link rel="stylesheet" href="../../../src/styles/fonts.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../../../src/styles/estilos.css">
+</head>
+<body>
+    <div class="pantalla-dashboard-admin">
+
+        <!-- Definiciones compartidas de degradados para las gráficas de tendencia -->
+        <svg width="0" height="0" style="position: absolute" aria-hidden="true">
+            <defs>
+                <linearGradient id="gradiente-tendencia-verde" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#2E7D32" stop-opacity="0.35" />
+                    <stop offset="100%" stop-color="#2E7D32" stop-opacity="0" />
+                </linearGradient>
+                <linearGradient id="gradiente-tendencia-amarilla" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#F9A825" stop-opacity="0.35" />
+                    <stop offset="100%" stop-color="#F9A825" stop-opacity="0" />
+                </linearGradient>
+                <linearGradient id="gradiente-tendencia-roja" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#D32F2F" stop-opacity="0.35" />
+                    <stop offset="100%" stop-color="#D32F2F" stop-opacity="0" />
+                </linearGradient>
+            </defs>
+        </svg>
+
+        <!-- Barra de navegación superior (componente compartido, replicado estáticamente) -->
+        <header class="barra-navegacion">
+            <div class="marca-navegacion">
+                <img src="../../../src/assets/img/LogoNegativo/negativo_sin_eslogan_transparente.png" alt="Logo Puntualix">
+            </div>
+
+            <nav class="menu-navegacion">
+                <a href="../dashboard.html" class="enlace-nav" data-pagina="dashboard" data-roles="administrador,instructor,aprendiz">
+                    <i class="fa-solid fa-house"></i> Dashboard
+                </a>
+                <a href="../fichas/fichas.html" class="enlace-nav" data-pagina="fichas" data-roles="administrador,instructor">
+                    <i class="fa-solid fa-file-lines"></i> Fichas
+                </a>
+                <a href="panel.html" class="enlace-nav enlace-nav-activo" data-pagina="panel" data-roles="administrador,instructor">
+                    <i class="fa-solid fa-chalkboard-user"></i> Instructores
+                </a>
+                <a href="../bitacora/bitacora.html" class="enlace-nav" data-pagina="bitacora" data-roles="administrador">
+                    <i class="fa-solid fa-clock-rotate-left"></i> Bitácora
+                </a>
+                <a href="../estadisticas/estadisticas.html" class="enlace-nav" data-pagina="estadisticas" data-roles="administrador">
+                    <i class="fa-solid fa-chart-line"></i> Estadísticas
+                </a>
+                <a href="" class="enlace-nav" data-pagina="reportes" data-roles="administrador,instructor">
+                    <i class="fa-solid fa-chart-bar"></i> Reportes
+                </a>
+            </nav>
+
+            <div class="area-usuario">
+                <span class="separador-nav" aria-hidden="true"></span>
+
+                <button type="button" class="boton-notificaciones" aria-label="Notificaciones">
+                    <i class="fa-solid fa-bell"></i>
+                </button>
+
+                <div class="tarjeta-usuario" id="boton-menu-usuario">
+                    <div class="avatar-usuario" aria-hidden="true"></div>
+                    <div class="datos-usuario">
+                        <span class="nombre-usuario">Andres Ramirez</span>
+                        <span class="rol-usuario">Administrador</span>
+                    </div>
+                    <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+                </div>
+
+                <div class="menu-desplegable-usuario oculto" id="menu-usuario">
+                    <a href="" class="item-menu-usuario" data-roles="administrador,instructor,aprendiz">
+                        <i class="fa-solid fa-circle-user"></i> Ver perfil
+                    </a>
+                    <a href="" class="item-menu-usuario" data-roles="administrador,instructor,aprendiz">
+                        <i class="fa-solid fa-bookmark"></i> Ver competencias
+                    </a>
+                    <a href="" class="item-menu-usuario" data-roles="administrador,instructor,aprendiz">
+                        <i class="fa-solid fa-file-circle-check"></i> Ver justificaciones
+                    </a>
+                    <a href="../estadisticas/estadisticas.html" class="item-menu-usuario" data-roles="administrador">
+                        <i class="fa-solid fa-chart-line"></i> Ver estadísticas
+                    </a>
+                    <a href="../../InicioSesion.html" class="item-menu-usuario item-menu-cerrar-sesion" data-roles="administrador,instructor,aprendiz">
+                        <i class="fa-solid fa-right-from-bracket"></i> Cerrar sesión
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <main class="contenido-dashboard">
+
+            <!-- Migas de pan -->
+            <nav class="migas-pan" aria-label="Ruta de navegación">
+                <a href="../dashboard.html">Inicio</a>
+                <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+                <span>Instructores</span>
+            </nav>
+
+            <h1 class="titulo-pagina">Panel de Instructores — Desempeño General</h1>
+
+            <!-- Tarjeta destacada: estadística general del desempeño -->
+            <section class="tarjeta-desempeno-general">
+                <div class="datos-desempeno-general">
+                    <p class="titulo-indicador">Tasa de cumplimiento general</p>
+                    <p class="valor-desempeno-general">75%</p>
+                    <p class="variacion-desempeno-general">
+                        <i class="fa-solid fa-arrow-trend-up" aria-hidden="true"></i>
+                        +5% mayor al mes pasado
+                    </p>
+
+                    <div class="detalles-desempeno-general">
+                        <div class="detalle-desempeno">
+                            <span class="detalle-desempeno-valor">18</span>
+                            <span class="detalle-desempeno-etiqueta">Instructores al día</span>
+                        </div>
+                        <div class="detalle-desempeno">
+                            <span class="detalle-desempeno-valor">84%</span>
+                            <span class="detalle-desempeno-etiqueta">Asistencia alumnos</span>
+                        </div>
+                        <div class="detalle-desempeno">
+                            <span class="detalle-desempeno-valor">24</span>
+                            <span class="detalle-desempeno-etiqueta">Instructores activos</span>
+                        </div>
+                        <div class="detalle-desempeno">
+                            <span class="detalle-desempeno-valor detalle-desempeno-valor-advertencia">4</span>
+                            <span class="detalle-desempeno-etiqueta">Registros pendientes esta semana</span>
+                        </div>
+                        <div class="detalle-desempeno">
+                            <span class="detalle-desempeno-valor detalle-desempeno-valor-critico">2</span>
+                            <span class="detalle-desempeno-etiqueta">Registro atrasado</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grafico-barras-desempeno" aria-label="Tasa de cumplimiento por semana">
+                    <div class="columna-barra-desempeno">
+                        <span class="barra-valor-desempeno">70%</span>
+                        <div class="barra-desempeno"><div class="relleno-desempeno relleno-desempeno-alto" style="height: 70%"></div></div>
+                        <span class="etiqueta-mes-desempeno">Sem 1</span>
+                    </div>
+                    <div class="columna-barra-desempeno">
+                        <span class="barra-valor-desempeno">68%</span>
+                        <div class="barra-desempeno"><div class="relleno-desempeno relleno-desempeno-medio" style="height: 68%"></div></div>
+                        <span class="etiqueta-mes-desempeno">Sem 2</span>
+                    </div>
+                    <div class="columna-barra-desempeno">
+                        <span class="barra-valor-desempeno">72%</span>
+                        <div class="barra-desempeno"><div class="relleno-desempeno relleno-desempeno-alto" style="height: 72%"></div></div>
+                        <span class="etiqueta-mes-desempeno">Sem 3</span>
+                    </div>
+                    <div class="columna-barra-desempeno">
+                        <span class="barra-valor-desempeno">75%</span>
+                        <div class="barra-desempeno"><div class="relleno-desempeno relleno-desempeno-actual relleno-desempeno-alto" style="height: 75%"></div></div>
+                        <span class="etiqueta-mes-desempeno etiqueta-mes-actual">Sem 4</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Franja de alertas: aviso rápido, sin repetir el formato de tarjetas del dashboard -->
+            <div class="franja-alertas-instructor">
+                <span class="chip-alerta-instructor chip-alerta-critica">
+                    <i class="fa-solid fa-shield-halved" aria-hidden="true"></i>
+                    Jorge Perez — 58% de cumplimiento
+                </span>
+                <span class="chip-alerta-instructor chip-alerta-advertencia">
+                    <i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>
+                    Maria Gonzales — 3 días sin registrar asistencia
+                </span>
+                <span class="chip-alerta-instructor chip-alerta-informativa">
+                    <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
+                    Sofia Vargas superó el 85% de cumplimiento
+                </span>
+                <a href="" class="enlace-ver-mas">Ver todas las alertas <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+            </div>
+
+            <!-- Distribución de desempeño + ranking de instructores destacados, una sola tarjeta con dos columnas -->
+            <section class="panel-listado">
+                <div class="fila-desempeno-ranking">
+
+                    <div class="columna-distribucion-desempeno">
+                        <h2 class="titulo-seccion-perfil">Distribución de desempeño</h2>
+
+                        <div class="dona-desempeno" role="img" aria-label="Distribución del desempeño: alto 75%, medio 16%, bajo 9%">
+                            <div class="anillo-dona-desempeno">
+                                <div class="centro-dona-desempeno">
+                                    <span class="valor-dona-desempeno">75%</span>
+                                    <span class="etiqueta-dona-desempeno">Alto</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <ul class="leyenda-dona-desempeno">
+                            <li class="item-leyenda">
+                                <span class="color-leyenda color-leyenda-alto" aria-hidden="true"></span>
+                                <span>Alto desempeño</span>
+                                <strong>75%</strong>
+                            </li>
+                            <li class="item-leyenda">
+                                <span class="color-leyenda color-leyenda-medio" aria-hidden="true"></span>
+                                <span>Rendimiento medio</span>
+                                <strong>16%</strong>
+                            </li>
+                            <li class="item-leyenda">
+                                <span class="color-leyenda color-leyenda-bajo" aria-hidden="true"></span>
+                                <span>Rendimiento bajo</span>
+                                <strong>9%</strong>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="divisor-vertical-panel" aria-hidden="true"></div>
+
+                    <div class="columna-tabla-cumplimiento">
+                        <div class="encabezado-instructores-ficha">
+                            <h2>Cumplimiento por instructor</h2>
+                            <p class="texto-conteo-listado">Seguimiento mensual de los instructores con mayor tasa de cumplimiento</p>
+                        </div>
+
+                        <div class="contenedor-tabla-listado">
+                            <table class="tabla-listado-fichas">
+                                <thead>
+                                    <tr>
+                                        <th>Instructor</th>
+                                        <th>Ficha</th>
+                                        <th>Cumplimiento</th>
+                                        <th>Asistencia alumnos</th>
+                                        <th>Estado</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Andres Ramirez</td>
+                                        <td>301002</td>
+                                        <td>96%</td>
+                                        <td>93%</td>
+                                        <td><span class="etiqueta-estado etiqueta-estado-activo">Al día</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Sofia Vargas</td>
+                                        <td>301008</td>
+                                        <td>88%</td>
+                                        <td>89%</td>
+                                        <td><span class="etiqueta-estado etiqueta-estado-activo">Al día</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Ricardo Alvarez</td>
+                                        <td>301011</td>
+                                        <td>83%</td>
+                                        <td>85%</td>
+                                        <td><span class="etiqueta-estado etiqueta-estado-activo">Al día</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Laura Torres</td>
+                                        <td>301006</td>
+                                        <td>74%</td>
+                                        <td>82%</td>
+                                        <td><span class="etiqueta-estado etiqueta-estado-pendiente">En seguimiento</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Natalia Moreno</td>
+                                        <td>301010</td>
+                                        <td>66%</td>
+                                        <td>71%</td>
+                                        <td><span class="etiqueta-estado etiqueta-estado-pendiente">En seguimiento</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- Tarjeta única: filtro por ficha + instructores en una sola tarjeta blanca -->
+            <section class="tarjeta-instructores-ficha">
+
+                <div class="encabezado-instructores-ficha">
+                    <h2>Instructores en estado crítico</h2>
+                    <p class="texto-conteo-listado">Instructores con cumplimiento bajo, prioridad de atención.</p>
+                </div>
+
+                <div class="chips-ficha">
+                    <button type="button" class="chip-ficha chip-ficha-activo">Todas las fichas</button>
+                    <button type="button" class="chip-ficha">301004</button>
+                    <button type="button" class="chip-ficha">301005</button>
+                    <button type="button" class="chip-ficha">301007</button>
+                </div>
+
+                <div class="divisor-sutil" aria-hidden="true"></div>
+
+                <div class="grid-tarjetas-instructor">
+
+                    <article class="tarjeta-instructor-enlace tarjeta-instructor-destacado-critico">
+                        <a href="instructores.html" class="enlace-tarjeta-instructor">
+                            <div class="cabecera-tarjeta-instructor">
+                                <div class="avatar-instructor" aria-hidden="true">JP</div>
+                                <div>
+                                    <p class="nombre-tarjeta-instructor">Jorge Perez</p>
+                                    <p class="ficha-tarjeta-instructor">Ficha 301004</p>
+                                </div>
+                                <span class="etiqueta-estado etiqueta-estado-atrasado" style="margin-left: auto">58%</span>
+                            </div>
+                            <div class="contenedor-grafico-tendencia">
+                                <svg class="grafico-tendencia-instructor" viewBox="0 0 100 40" preserveAspectRatio="none" aria-hidden="true">
+                                    <polygon class="area-tendencia area-tendencia-roja" points="0,40 0,15.24 33.3,20.68 66.7,18.3 100,13.88 100,40" />
+                                    <polyline class="linea-tendencia linea-tendencia-roja" points="0,15.24 33.3,20.68 66.7,18.3 100,13.88" />
+                                </svg>
+                                <span class="punto-tendencia-final punto-tendencia-final-roja" style="top: 34.7%;"></span>
+                            </div>
+                            <div class="periodo-tendencia-instructor">
+                                <span>Ene</span>
+                                <span>Ago</span>
+                            </div>
+                            <p class="ficha-tarjeta-instructor">Motivo: 3 registros de asistencia pendientes</p>
+                            <div class="fila-dato-instructor">
+                                <span>Cumplimiento</span>
+                                <div class="barra-progreso">
+                                    <div class="relleno-progreso relleno-critico" style="width: 58%"></div>
+                                </div>
+                                <span>58%</span>
+                            </div>
+                            <div class="fila-dato-instructor">
+                                <span>Alumnos que asisten</span>
+                                <div class="barra-progreso">
+                                    <div class="relleno-progreso relleno-moderado" style="width: 70%"></div>
+                                </div>
+                                <span>70%</span>
+                            </div>
+                        </a>
+                        <a href="perfilInstructor.html" class="pie-enlace-perfil">Ver perfil del instructor <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+                    </article>
+
+                    <article class="tarjeta-instructor-enlace tarjeta-instructor-destacado-critico">
+                        <a href="instructores.html" class="enlace-tarjeta-instructor">
+                            <div class="cabecera-tarjeta-instructor">
+                                <div class="avatar-instructor" aria-hidden="true">PR</div>
+                                <div>
+                                    <p class="nombre-tarjeta-instructor">Pedro Ramirez</p>
+                                    <p class="ficha-tarjeta-instructor">Ficha 301005</p>
+                                </div>
+                                <span class="etiqueta-estado etiqueta-estado-atrasado" style="margin-left: auto">40%</span>
+                            </div>
+                            <div class="contenedor-grafico-tendencia">
+                                <svg class="grafico-tendencia-instructor" viewBox="0 0 100 40" preserveAspectRatio="none" aria-hidden="true">
+                                    <polygon class="area-tendencia area-tendencia-roja" points="0,40 0,23.2 33.3,26 66.7,21.2 100,24.8 100,40" />
+                                    <polyline class="linea-tendencia linea-tendencia-roja" points="0,23.2 33.3,26 66.7,21.2 100,24.8" />
+                                </svg>
+                                <span class="punto-tendencia-final punto-tendencia-final-roja" style="top: 62%;"></span>
+                            </div>
+                            <div class="periodo-tendencia-instructor">
+                                <span>Ene</span>
+                                <span>Ago</span>
+                            </div>
+                            <p class="ficha-tarjeta-instructor">Motivo: sin justificar 2 inasistencias de aprendices</p>
+                            <div class="fila-dato-instructor">
+                                <span>Cumplimiento</span>
+                                <div class="barra-progreso">
+                                    <div class="relleno-progreso relleno-critico" style="width: 40%"></div>
+                                </div>
+                                <span>40%</span>
+                            </div>
+                            <div class="fila-dato-instructor">
+                                <span>Alumnos que asisten</span>
+                                <div class="barra-progreso">
+                                    <div class="relleno-progreso relleno-critico" style="width: 65%"></div>
+                                </div>
+                                <span>65%</span>
+                            </div>
+                        </a>
+                        <a href="perfilInstructor.html" class="pie-enlace-perfil">Ver perfil del instructor <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+                    </article>
+
+                    <article class="tarjeta-instructor-enlace tarjeta-instructor-destacado-critico">
+                        <a href="instructores.html" class="enlace-tarjeta-instructor">
+                            <div class="cabecera-tarjeta-instructor">
+                                <div class="avatar-instructor" aria-hidden="true">CR</div>
+                                <div>
+                                    <p class="nombre-tarjeta-instructor">Carlos Ruiz</p>
+                                    <p class="ficha-tarjeta-instructor">Ficha 301007</p>
+                                </div>
+                                <span class="etiqueta-estado etiqueta-estado-atrasado" style="margin-left: auto">52%</span>
+                            </div>
+                            <div class="contenedor-grafico-tendencia">
+                                <svg class="grafico-tendencia-instructor" viewBox="0 0 100 40" preserveAspectRatio="none" aria-hidden="true">
+                                    <polygon class="area-tendencia area-tendencia-roja" points="0,40 0,20 33.3,18 66.7,20.8 100,12.8 100,40" />
+                                    <polyline class="linea-tendencia linea-tendencia-roja" points="0,20 33.3,18 66.7,20.8 100,12.8" />
+                                </svg>
+                                <span class="punto-tendencia-final punto-tendencia-final-roja" style="top: 32%;"></span>
+                            </div>
+                            <div class="periodo-tendencia-instructor">
+                                <span>Ene</span>
+                                <span>Ago</span>
+                            </div>
+                            <p class="ficha-tarjeta-instructor">Motivo: cumplimiento por debajo del límite 3 semanas seguidas</p>
+                            <div class="fila-dato-instructor">
+                                <span>Cumplimiento</span>
+                                <div class="barra-progreso">
+                                    <div class="relleno-progreso relleno-critico" style="width: 52%"></div>
+                                </div>
+                                <span>52%</span>
+                            </div>
+                            <div class="fila-dato-instructor">
+                                <span>Alumnos que asisten</span>
+                                <div class="barra-progreso">
+                                    <div class="relleno-progreso relleno-critico" style="width: 68%"></div>
+                                </div>
+                                <span>68%</span>
+                            </div>
+                        </a>
+                        <a href="perfilInstructor.html" class="pie-enlace-perfil">Ver perfil del instructor <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+                    </article>
+
+                </div>
+
+                <div class="pie-tarjeta-instructores-ficha">
+                    <a href="instructores.html" class="boton-ver-todos-instructores">
+                        Ver todos los instructores
+                        <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                </div>
+
+            </section>
+
+
+<!-- Tarjeta: asistencia general de aprendices por sede, área y programa -->
+            <section class="tarjeta-asistencia-aprendices">
+                <div class="cabecera-asistencia-aprendices">
+                    <div>
+                        <h2 class="titulo-seccion-perfil">Asistencia de Aprendices</h2>
+                        <p class="ficha-tarjeta-instructor">Tasa general de asistencia: 84%</p>
+                    </div>
+                    <span class="tendencia-asistencia tendencia-positiva">
+                        <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
+                        +2% respecto al mes anterior
+                    </span>
+                </div>
+
+                <div class="grupos-asistencia-aprendices">
+
+                    <div class="grupo-asistencia-aprendices">
+                        <p class="etiqueta-grupo-asistencia"><i class="fa-solid fa-building" aria-hidden="true"></i> Por sede</p>
+                        <div class="item-asistencia-aprendices">
+                            <div class="fila-dato-instructor">
+                                <span>Casa de la Convención</span>
+                                <span class="grupo-valor-asistencia">
+                                    <span class="tendencia-asistencia tendencia-positiva"><i class="fa-solid fa-arrow-up" aria-hidden="true"></i>3%</span>
+                                    <span>86%</span>
+                                </span>
+                            </div>
+                            <div class="barra-progreso">
+                                <div class="relleno-progreso relleno-bajo" style="width: 86%"></div>
+                            </div>
+                        </div>
+                        <div class="item-asistencia-aprendices">
+                            <div class="fila-dato-instructor">
+                                <span>CIAA</span>
+                                <span class="grupo-valor-asistencia">
+                                    <span class="tendencia-asistencia tendencia-positiva"><i class="fa-solid fa-arrow-up" aria-hidden="true"></i>1%</span>
+                                    <span>81%</span>
+                                </span>
+                            </div>
+                            <div class="barra-progreso">
+                                <div class="relleno-progreso relleno-bajo" style="width: 81%"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grupo-asistencia-aprendices">
+                        <p class="etiqueta-grupo-asistencia"><i class="fa-solid fa-layer-group" aria-hidden="true"></i> Por área</p>
+                        <div class="item-asistencia-aprendices">
+                            <div class="fila-dato-instructor">
+                                <span>Sistemas</span>
+                                <span class="grupo-valor-asistencia">
+                                    <span class="tendencia-asistencia tendencia-positiva"><i class="fa-solid fa-arrow-up" aria-hidden="true"></i>4%</span>
+                                    <span>87%</span>
+                                </span>
+                            </div>
+                            <div class="barra-progreso">
+                                <div class="relleno-progreso relleno-bajo" style="width: 87%"></div>
+                            </div>
+                        </div>
+                        <div class="item-asistencia-aprendices">
+                            <div class="fila-dato-instructor">
+                                <span>Diseño</span>
+                                <span class="grupo-valor-asistencia">
+                                    <span class="tendencia-asistencia tendencia-positiva"><i class="fa-solid fa-arrow-up" aria-hidden="true"></i>1%</span>
+                                    <span>82%</span>
+                                </span>
+                            </div>
+                            <div class="barra-progreso">
+                                <div class="relleno-progreso relleno-bajo" style="width: 82%"></div>
+                            </div>
+                        </div>
+                        <div class="item-asistencia-aprendices">
+                            <div class="fila-dato-instructor">
+                                <span>Administrativa</span>
+                                <span class="grupo-valor-asistencia">
+                                    <span class="tendencia-asistencia tendencia-negativa"><i class="fa-solid fa-arrow-down" aria-hidden="true"></i>3%</span>
+                                    <span>78%</span>
+                                </span>
+                            </div>
+                            <div class="barra-progreso">
+                                <div class="relleno-progreso relleno-moderado" style="width: 78%"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grupo-asistencia-aprendices">
+                        <p class="etiqueta-grupo-asistencia"><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i> Por programa</p>
+                        <div class="item-asistencia-aprendices">
+                            <div class="fila-dato-instructor">
+                                <span>Análisis y Desarrollo de Software</span>
+                                <span class="grupo-valor-asistencia">
+                                    <span class="tendencia-asistencia tendencia-positiva"><i class="fa-solid fa-arrow-up" aria-hidden="true"></i>5%</span>
+                                    <span>88%</span>
+                                </span>
+                            </div>
+                            <div class="barra-progreso">
+                                <div class="relleno-progreso relleno-bajo" style="width: 88%"></div>
+                            </div>
+                        </div>
+                        <div class="item-asistencia-aprendices">
+                            <div class="fila-dato-instructor">
+                                <span>Electromecánica</span>
+                                <span class="grupo-valor-asistencia">
+                                    <span class="tendencia-asistencia tendencia-positiva"><i class="fa-solid fa-arrow-up" aria-hidden="true"></i>2%</span>
+                                    <span>83%</span>
+                                </span>
+                            </div>
+                            <div class="barra-progreso">
+                                <div class="relleno-progreso relleno-bajo" style="width: 83%"></div>
+                            </div>
+                        </div>
+                        <div class="item-asistencia-aprendices">
+                            <div class="fila-dato-instructor">
+                                <span>Gestión Administrativa</span>
+                                <span class="grupo-valor-asistencia">
+                                    <span class="tendencia-asistencia tendencia-negativa"><i class="fa-solid fa-arrow-down" aria-hidden="true"></i>4%</span>
+                                    <span>77%</span>
+                                </span>
+                            </div>
+                            <div class="barra-progreso">
+                                <div class="relleno-progreso relleno-moderado" style="width: 77%"></div>
+                            </div>
+                        </div>
+                    </div>
+
+</div>
+            </section>
+
+        </main>
+
+        <!-- Pie de página (componente compartido, replicado estáticamente) -->
+        <footer class="pie-dashboard">
+            <div class="marca-pie">
+                <img src="../../../src/assets/img/LogoNegativo/negativo_con_eslogan_transparente.png" alt="Logo PuntualiX" class="logo-puntualix-pie" />
+                <div class="texto-marca-pie">
+                    <p>Desarrollado en el marco del proyecto de formación SENA · 2026</p>
+                    <p class="copyright-pie">
+                        <i class="fa-regular fa-copyright" aria-hidden="true"></i>
+                        2026 Puntualix. Todos los derechos reservados
+                    </p>
+                </div>
+            </div>
+
+            <div class="info-programa-pie">
+                <img src="../../../src/assets/img/LogoSena/SenaSobreVerde.png" alt="SENA" class="logo-sena-pie" />
+                <p>
+                    Programa: Análisis y desarrollo de Software<br />
+                    Ficha: 3267541
+                </p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="../../../src/js/main.js"></script>
+</body>
+</html>

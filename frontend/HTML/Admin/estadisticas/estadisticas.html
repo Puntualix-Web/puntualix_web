@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PuntualiX | Estadísticas</title>
+
+    <link rel="icon" type="image/png" href="../../../src/assets/img/favico/favicon_positivo.png">
+
+    <link rel="stylesheet" href="../../../src/styles/base.css">
+    <link rel="stylesheet" href="../../../src/styles/tokens.css">
+    <link rel="stylesheet" href="../../../src/styles/fonts.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../../../src/styles/estilos.css">
+</head>
+<body>
+    <div class="pantalla-dashboard-admin">
+
+        <!-- Barra de navegación superior (componente compartido, replicado estáticamente) -->
+        <header class="barra-navegacion">
+            <div class="marca-navegacion">
+                <img src="../../../src/assets/img/LogoNegativo/negativo_sin_eslogan_transparente.png" alt="Logo Puntualix">
+            </div>
+
+            <nav class="menu-navegacion">
+                <a href="../dashboard.html" class="enlace-nav" data-pagina="dashboard" data-roles="administrador,instructor,aprendiz">
+                    <i class="fa-solid fa-house"></i> Dashboard
+                </a>
+                <a href="../fichas/fichas.html" class="enlace-nav" data-pagina="fichas" data-roles="administrador,instructor">
+                    <i class="fa-solid fa-file-lines"></i> Fichas
+                </a>
+                <a href="../instructores/panel.html" class="enlace-nav" data-pagina="panel" data-roles="administrador,instructor">
+                    <i class="fa-solid fa-chalkboard-user"></i> Instructores
+                </a>
+                <a href="../bitacora/bitacora.html" class="enlace-nav" data-pagina="bitacora" data-roles="administrador">
+                    <i class="fa-solid fa-clock-rotate-left"></i> Bitácora
+                </a>
+                <a href="estadisticas.html" class="enlace-nav enlace-nav-activo" data-pagina="estadisticas" data-roles="administrador">
+                    <i class="fa-solid fa-chart-line"></i> Estadísticas
+                </a>
+                <a href="" class="enlace-nav" data-pagina="reportes" data-roles="administrador,instructor">
+                    <i class="fa-solid fa-chart-bar"></i> Reportes
+                </a>
+            </nav>
+
+            <div class="area-usuario">
+                <span class="separador-nav" aria-hidden="true"></span>
+
+                <button type="button" class="boton-notificaciones" aria-label="Notificaciones">
+                    <i class="fa-solid fa-bell"></i>
+                </button>
+
+                <div class="tarjeta-usuario" id="boton-menu-usuario">
+                    <div class="avatar-usuario" aria-hidden="true"></div>
+                    <div class="datos-usuario">
+                        <span class="nombre-usuario">Andres Ramirez</span>
+                        <span class="rol-usuario">Administrador</span>
+                    </div>
+                    <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+                </div>
+
+                <div class="menu-desplegable-usuario oculto" id="menu-usuario">
+                    <a href="" class="item-menu-usuario" data-roles="administrador,instructor,aprendiz">
+                        <i class="fa-solid fa-circle-user"></i> Ver perfil
+                    </a>
+                    <a href="" class="item-menu-usuario" data-roles="administrador,instructor,aprendiz">
+                        <i class="fa-solid fa-bookmark"></i> Ver competencias
+                    </a>
+                    <a href="" class="item-menu-usuario" data-roles="administrador,instructor,aprendiz">
+                        <i class="fa-solid fa-file-circle-check"></i> Ver justificaciones
+                    </a>
+                    <a href="estadisticas.html" class="item-menu-usuario" data-roles="administrador">
+                        <i class="fa-solid fa-chart-line"></i> Ver estadísticas
+                    </a>
+                    <a href="../../InicioSesion.html" class="item-menu-usuario item-menu-cerrar-sesion" data-roles="administrador,instructor,aprendiz">
+                        <i class="fa-solid fa-right-from-bracket"></i> Cerrar sesión
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <main class="contenido-dashboard">
+
+            <!-- Migas de pan -->
+            <nav class="migas-pan" aria-label="Ruta de navegación">
+                <a href="../dashboard.html">Inicio</a>
+                <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+                <span>Estadísticas</span>
+            </nav>
+
+            <h1 class="titulo-pagina">Estadísticas</h1>
+
+            <!-- Franja de resumen -->
+            <div class="franja-resumen">
+                <div class="dato-resumen">
+                    <i class="fa-solid fa-chart-pie" aria-hidden="true"></i>
+                    <div class="info-resumen">
+                        <span class="valor-resumen">84%</span>
+                        <span class="etiqueta-resumen">Asistencia promedio general</span>
+                    </div>
+                </div>
+
+                <span class="divisor-resumen" aria-hidden="true"></span>
+
+                <div class="dato-resumen dato-resumen-negativo">
+                    <i class="fa-solid fa-person-walking-arrow-right" aria-hidden="true"></i>
+                    <div class="info-resumen">
+                        <span class="valor-resumen valor-resumen-negativo">4.2%</span>
+                        <span class="etiqueta-resumen">Tasa de deserción</span>
+                    </div>
+                </div>
+
+                <span class="divisor-resumen" aria-hidden="true"></span>
+
+                <div class="dato-resumen dato-resumen-positivo">
+                    <i class="fa-solid fa-chalkboard-user" aria-hidden="true"></i>
+                    <div class="info-resumen">
+                        <span class="valor-resumen valor-resumen-positivo">75%</span>
+                        <span class="etiqueta-resumen">Cumplimiento de instructores</span>
+                    </div>
+                </div>
+
+                <span class="divisor-resumen" aria-hidden="true"></span>
+
+                <div class="dato-resumen">
+                    <i class="fa-solid fa-file-lines" aria-hidden="true"></i>
+                    <div class="info-resumen">
+                        <span class="valor-resumen">52 de 54</span>
+                        <span class="etiqueta-resumen">Fichas con datos de asistencia</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Estadísticas y comparación (CU04.1 individual + CU04.3 comparativa) -->
+            <section class="panel-listado">
+                <div class="encabezado-instructores-ficha">
+                    <h2>Estadísticas y comparación</h2>
+                    <p class="texto-conteo-listado">Consulta un elemento en detalle o compara varios entre sí (hasta 4 a la vez)</p>
+                </div>
+
+                <input type="radio" name="modo-estadisticas" id="modo-individual" class="input-modo-estadisticas" checked>
+                <input type="radio" name="modo-estadisticas" id="modo-comparar" class="input-modo-estadisticas">
+
+                <div class="selector-modo-estadisticas">
+                    <label for="modo-individual" class="boton-modo-estadisticas">
+                        <i class="fa-solid fa-eye" aria-hidden="true"></i> Ver una estadística
+                    </label>
+                    <label for="modo-comparar" class="boton-modo-estadisticas">
+                        <i class="fa-solid fa-code-compare" aria-hidden="true"></i> Comparar varios
+                    </label>
+                </div>
+
+                <!-- Modo: ver una estadística -->
+                <div class="contenido-modo-individual">
+                    <div class="barra-herramientas-listado barra-herramientas-comparar barra-herramientas-apilada">
+                        <div class="fila-filtros-comparar">
+                            <div class="grupo-herramientas-busqueda grupo-herramientas-comparar">
+                            <div class="grupo-filtro">
+                                <label for="selector-dato-individual">¿Qué estadística?</label>
+                                <select id="selector-dato-individual" class="selector-filtro">
+                                    <option selected>Asistencia</option>
+                                    <option>Registro de asistencia</option>
+                                </select>
+                            </div>
+
+                            <div class="grupo-filtro">
+                                <label for="selector-tipo-individual">¿Qué quieres consultar?</label>
+                                <select id="selector-tipo-individual" class="selector-filtro">
+                                    <option selected>Ficha</option>
+                                    <option>Sede</option>
+                                    <option>Área</option>
+                                    <option>Programa</option>
+                                    <option>Jornada</option>
+                                    <option>Competencia</option>
+                                </select>
+                            </div>
+
+                            <details class="menu-filtros-adicionales">
+                                <summary class="boton-mas-filtros">
+                                    <i class="fa-solid fa-sliders" aria-hidden="true"></i>
+                                    Más filtros
+                                </summary>
+                                <div class="panel-filtros-adicionales">
+                                    <div class="grupo-filtro">
+                                        <label for="filtro-sede-individual">Sede</label>
+                                        <select id="filtro-sede-individual" class="selector-filtro">
+                                            <option value="todas">Todas</option>
+                                            <option value="principal">Casa de la Convención</option>
+                                            <option value="industria">CIAA</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="grupo-filtro">
+                                        <label for="filtro-area-individual">Área</label>
+                                        <select id="filtro-area-individual" class="selector-filtro">
+                                            <option value="todas">Todas</option>
+                                            <option value="sistemas">Sistemas</option>
+                                            <option value="diseno">Diseño</option>
+                                            <option value="administrativa">Administrativa</option>
+                                            <option value="electromecanica">Electromecánica</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="grupo-filtro">
+                                        <label for="filtro-programa-individual">Programa</label>
+                                        <select id="filtro-programa-individual" class="selector-filtro">
+                                            <option value="todos">Todos</option>
+                                            <option value="ads">Análisis y Desarrollo de Software</option>
+                                            <option value="electromecanica">Electromecánica</option>
+                                            <option value="gestion">Gestión Administrativa</option>
+                                            <option value="redes">Redes y Telecomunicaciones</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="grupo-filtro">
+                                        <label for="filtro-jornada-individual">Jornada</label>
+                                        <select id="filtro-jornada-individual" class="selector-filtro">
+                                            <option value="todas">Todas</option>
+                                            <option value="manana">Mañana</option>
+                                            <option value="tarde">Tarde</option>
+                                            <option value="noche">Noche</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </details>
+
+                            <button type="button" class="boton-limpiar-filtros">
+                                <i class="fa-solid fa-broom" aria-hidden="true"></i>
+                                Limpiar filtros
+                            </button>
+
+                            <div class="grupo-busqueda">
+                                <input type="text" placeholder="Buscar ficha por número" class="campo-busqueda-ficha" />
+                                <button type="button" class="boton-buscar-ficha" aria-label="Buscar ficha">
+                                    <i class="fa-solid fa-magnifying-glass"></i>
+                                </button>
+                            </div>
+                            </div>
+
+                            <button type="button" class="boton-nuevo-usuario">
+                                <i class="fa-solid fa-magnifying-glass-chart"></i>
+                                Ver estadísticas
+                            </button>
+                        </div>
+
+                        <div class="fila-elementos-comparar">
+                            <div class="grupo-filtro">
+                                <label for="selector-ficha-estadisticas">Ficha</label>
+                                <select id="selector-ficha-estadisticas" class="selector-filtro">
+                                    <option value="301002" selected>301002 — Análisis y Desarrollo de Software</option>
+                                    <option value="301003">301003 — Gestión Administrativa</option>
+                                    <option value="301004">301004 — Análisis y Desarrollo de Software</option>
+                                    <option value="301005">301005 — Redes y Telecomunicaciones</option>
+                                    <option value="301006">301006 — Electromecánica</option>
+                                    <option value="301007">301007 — Mercadeo Técnica</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="divisor-sutil" aria-hidden="true"></div>
+
+                    <div class="distribucion-resumen-desempeno">
+                        <div class="dona-desempeno" role="img" aria-label="Ficha 301002: asistencia 88%, justificada 5%, sin justificar 7%">
+                            <div class="anillo-dona-desempeno">
+                                <div class="centro-dona-desempeno">
+                                    <span class="valor-dona-desempeno">88%</span>
+                                    <span class="etiqueta-dona-desempeno">Asistencia</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="leyenda-dona-desempeno">
+                            <div class="item-leyenda">
+                                <span class="color-leyenda color-leyenda-alto" aria-hidden="true"></span>
+                                <span>Asistencia</span>
+                                <strong>88%</strong>
+                            </div>
+                            <div class="item-leyenda">
+                                <span class="color-leyenda color-leyenda-medio" aria-hidden="true"></span>
+                                <span>Inasistencia justificada</span>
+                                <strong>5%</strong>
+                            </div>
+                            <div class="item-leyenda">
+                                <span class="color-leyenda color-leyenda-bajo" aria-hidden="true"></span>
+                                <span>Inasistencia sin justificar</span>
+                                <strong>7%</strong>
+                            </div>
+                        </div>
+
+                        <div class="metricas-resumen-desempeno">
+                            <div class="dato-global-perfil">
+                                <span class="detalle-desempeno-valor">24</span>
+                                <span class="detalle-desempeno-etiqueta">Aprendices en la ficha</span>
+                            </div>
+                            <div class="dato-global-perfil">
+                                <span class="detalle-desempeno-valor">18</span>
+                                <span class="detalle-desempeno-etiqueta">Sesiones registradas</span>
+                            </div>
+                            <div class="dato-global-perfil">
+                                <span class="detalle-desempeno-valor">Andres Ramirez</span>
+                                <span class="detalle-desempeno-etiqueta">Instructor líder</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modo: comparar varios -->
+                <div class="contenido-modo-comparar">
+                <div class="barra-herramientas-listado barra-herramientas-comparar barra-herramientas-apilada">
+                    <div class="fila-filtros-comparar">
+                    <div class="grupo-herramientas-busqueda grupo-herramientas-comparar">
+                        <div class="grupo-filtro">
+                            <label for="selector-dato-comparar">¿Qué estadística?</label>
+                            <select id="selector-dato-comparar" class="selector-filtro">
+                                <option selected>Asistencia</option>
+                                <option>Registro de asistencia</option>
+                            </select>
+                        </div>
+
+                        <div class="grupo-filtro">
+                            <label for="selector-tipo-comparacion">¿Qué comparar?</label>
+                            <select id="selector-tipo-comparacion" class="selector-filtro">
+                                <option selected>Fichas</option>
+                                <option>Sedes</option>
+                                <option>Áreas</option>
+                                <option>Programas</option>
+                                <option>Jornadas</option>
+                                <option>Competencias</option>
+                            </select>
+                        </div>
+
+                        <div class="grupo-filtro">
+                            <label for="selector-cantidad-comparar">Cantidad a comparar</label>
+                            <select id="selector-cantidad-comparar" class="selector-filtro">
+                                <option value="2">2 elementos</option>
+                                <option value="3" selected>3 elementos</option>
+                                <option value="4">4 elementos</option>
+                            </select>
+                        </div>
+
+                        <details class="menu-filtros-adicionales">
+                            <summary class="boton-mas-filtros">
+                                <i class="fa-solid fa-sliders" aria-hidden="true"></i>
+                                Más filtros
+                            </summary>
+                            <div class="panel-filtros-adicionales">
+                                <div class="grupo-filtro">
+                                    <label for="filtro-sede-comparar">Sede</label>
+                                    <select id="filtro-sede-comparar" class="selector-filtro">
+                                        <option value="todas">Todas</option>
+                                        <option value="principal">Casa de la Convención</option>
+                                        <option value="industria">CIAA</option>
+                                    </select>
+                                </div>
+
+                                <div class="grupo-filtro">
+                                    <label for="filtro-area-comparar">Área</label>
+                                    <select id="filtro-area-comparar" class="selector-filtro">
+                                        <option value="todas">Todas</option>
+                                        <option value="sistemas">Sistemas</option>
+                                        <option value="diseno">Diseño</option>
+                                        <option value="administrativa">Administrativa</option>
+                                        <option value="electromecanica">Electromecánica</option>
+                                    </select>
+                                </div>
+
+                                <div class="grupo-filtro">
+                                    <label for="filtro-programa-comparar">Programa</label>
+                                    <select id="filtro-programa-comparar" class="selector-filtro">
+                                        <option value="todos">Todos</option>
+                                        <option value="ads">Análisis y Desarrollo de Software</option>
+                                        <option value="electromecanica">Electromecánica</option>
+                                        <option value="gestion">Gestión Administrativa</option>
+                                        <option value="redes">Redes y Telecomunicaciones</option>
+                                    </select>
+                                </div>
+
+                                <div class="grupo-filtro">
+                                    <label for="filtro-jornada-comparar">Jornada</label>
+                                    <select id="filtro-jornada-comparar" class="selector-filtro">
+                                        <option value="todas">Todas</option>
+                                        <option value="manana">Mañana</option>
+                                        <option value="tarde">Tarde</option>
+                                        <option value="noche">Noche</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </details>
+
+                        <button type="button" class="boton-limpiar-filtros">
+                            <i class="fa-solid fa-broom" aria-hidden="true"></i>
+                            Limpiar filtros
+                        </button>
+
+                        <div class="grupo-busqueda">
+                            <input type="text" placeholder="Buscar ficha por número" class="campo-busqueda-ficha" />
+                            <button type="button" class="boton-buscar-ficha" aria-label="Buscar ficha">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <button type="button" class="boton-nuevo-usuario">
+                        <i class="fa-solid fa-code-compare"></i>
+                        Comparar
+                    </button>
+                    </div>
+
+                    <div class="fila-elementos-comparar">
+                        <div class="grupo-filtro">
+                            <label for="selector-elemento-comparar-a">Elemento A</label>
+                            <select id="selector-elemento-comparar-a" class="selector-filtro">
+                                <option value="301002" selected>301002 — Análisis y Desarrollo de Software</option>
+                                <option value="301003">301003 — Gestión Administrativa</option>
+                                <option value="301004">301004 — Análisis y Desarrollo de Software</option>
+                                <option value="301005">301005 — Redes y Telecomunicaciones</option>
+                                <option value="301006">301006 — Electromecánica</option>
+                                <option value="301007">301007 — Mercadeo Técnica</option>
+                            </select>
+                        </div>
+
+                        <div class="grupo-filtro">
+                            <label for="selector-elemento-comparar-b">Elemento B</label>
+                            <select id="selector-elemento-comparar-b" class="selector-filtro">
+                                <option value="301002">301002 — Análisis y Desarrollo de Software</option>
+                                <option value="301003">301003 — Gestión Administrativa</option>
+                                <option value="301004">301004 — Análisis y Desarrollo de Software</option>
+                                <option value="301005" selected>301005 — Redes y Telecomunicaciones</option>
+                                <option value="301006">301006 — Electromecánica</option>
+                                <option value="301007">301007 — Mercadeo Técnica</option>
+                            </select>
+                        </div>
+
+                        <div class="grupo-filtro">
+                            <label for="selector-elemento-comparar-c">Elemento C</label>
+                            <select id="selector-elemento-comparar-c" class="selector-filtro">
+                                <option value="301002">301002 — Análisis y Desarrollo de Software</option>
+                                <option value="301003">301003 — Gestión Administrativa</option>
+                                <option value="301004">301004 — Análisis y Desarrollo de Software</option>
+                                <option value="301005">301005 — Redes y Telecomunicaciones</option>
+                                <option value="301006" selected>301006 — Electromecánica</option>
+                                <option value="301007">301007 — Mercadeo Técnica</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <p class="texto-ayuda-comparacion">
+                    <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
+                    Mostrando ejemplo con 3 fichas comparadas. El máximo es 4 elementos a la vez, para mantener la comparación legible; si necesitas más, compáralos en varias tandas.
+                </p>
+
+                <div class="divisor-sutil" aria-hidden="true"></div>
+
+                <div class="grid-comparar-fichas" style="--columnas-comparar: 3;">
+
+                    <div class="tarjeta-comparar-ficha" style="--color-acento-comparar: var(--color-confirmacion);">
+                        <div class="cabecera-comparar-ficha">
+                            <h3>Ficha 301002</h3>
+                            <span class="etiqueta-estado etiqueta-estado-activo">88%</span>
+                        </div>
+                        <div class="dona-desempeno" role="img" aria-label="Ficha 301002: asistencia 88%, justificada 5%, sin justificar 7%">
+                            <div class="anillo-dona-desempeno">
+                                <div class="centro-dona-desempeno">
+                                    <span class="valor-dona-desempeno">88%</span>
+                                    <span class="etiqueta-dona-desempeno">Asistencia</span>
+                                </div>
+                            </div>
+                        </div>
+                        <ul class="leyenda-dona-desempeno">
+                            <li class="item-leyenda">
+                                <span class="color-leyenda color-leyenda-alto" aria-hidden="true"></span>
+                                <span>Asistencia</span>
+                                <strong>88%</strong>
+                            </li>
+                            <li class="item-leyenda">
+                                <span class="color-leyenda color-leyenda-medio" aria-hidden="true"></span>
+                                <span>Justificada</span>
+                                <strong>5%</strong>
+                            </li>
+                            <li class="item-leyenda">
+                                <span class="color-leyenda color-leyenda-bajo" aria-hidden="true"></span>
+                                <span>Sin justificar</span>
+                                <strong>7%</strong>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="tarjeta-comparar-ficha" style="--color-acento-comparar: var(--color-alerta-critica);">
+                        <div class="cabecera-comparar-ficha">
+                            <h3>Ficha 301005</h3>
+                            <span class="etiqueta-estado etiqueta-estado-atrasado">65%</span>
+                        </div>
+                        <div class="dona-desempeno" role="img" aria-label="Ficha 301005: asistencia 65%, justificada 12%, sin justificar 23%">
+                            <div class="anillo-dona-desempeno" style="background: conic-gradient(var(--color-confirmacion) 0% 65%, var(--color-advertencia) 65% 77%, var(--color-alerta-critica) 77% 100%);">
+                                <div class="centro-dona-desempeno">
+                                    <span class="valor-dona-desempeno">65%</span>
+                                    <span class="etiqueta-dona-desempeno">Asistencia</span>
+                                </div>
+                            </div>
+                        </div>
+                        <ul class="leyenda-dona-desempeno">
+                            <li class="item-leyenda">
+                                <span class="color-leyenda color-leyenda-alto" aria-hidden="true"></span>
+                                <span>Asistencia</span>
+                                <strong>65%</strong>
+                            </li>
+                            <li class="item-leyenda">
+                                <span class="color-leyenda color-leyenda-medio" aria-hidden="true"></span>
+                                <span>Justificada</span>
+                                <strong>12%</strong>
+                            </li>
+                            <li class="item-leyenda">
+                                <span class="color-leyenda color-leyenda-bajo" aria-hidden="true"></span>
+                                <span>Sin justificar</span>
+                                <strong>23%</strong>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="tarjeta-comparar-ficha" style="--color-acento-comparar: var(--color-advertencia);">
+                        <div class="cabecera-comparar-ficha">
+                            <h3>Ficha 301006</h3>
+                            <span class="etiqueta-estado etiqueta-estado-pendiente">79%</span>
+                        </div>
+                        <div class="dona-desempeno" role="img" aria-label="Ficha 301006: asistencia 79%, justificada 9%, sin justificar 12%">
+                            <div class="anillo-dona-desempeno" style="background: conic-gradient(var(--color-confirmacion) 0% 79%, var(--color-advertencia) 79% 88%, var(--color-alerta-critica) 88% 100%);">
+                                <div class="centro-dona-desempeno">
+                                    <span class="valor-dona-desempeno">79%</span>
+                                    <span class="etiqueta-dona-desempeno">Asistencia</span>
+                                </div>
+                            </div>
+                        </div>
+                        <ul class="leyenda-dona-desempeno">
+                            <li class="item-leyenda">
+                                <span class="color-leyenda color-leyenda-alto" aria-hidden="true"></span>
+                                <span>Asistencia</span>
+                                <strong>79%</strong>
+                            </li>
+                            <li class="item-leyenda">
+                                <span class="color-leyenda color-leyenda-medio" aria-hidden="true"></span>
+                                <span>Justificada</span>
+                                <strong>9%</strong>
+                            </li>
+                            <li class="item-leyenda">
+                                <span class="color-leyenda color-leyenda-bajo" aria-hidden="true"></span>
+                                <span>Sin justificar</span>
+                                <strong>12%</strong>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+
+                <div class="resumen-comparacion">
+                    <p class="etiqueta-grupo-asistencia"><i class="fa-solid fa-magnifying-glass-chart" aria-hidden="true"></i> Resumen de la comparación</p>
+
+                    <div class="franja-resumen franja-resumen-comparar">
+                        <div class="dato-resumen">
+                            <i class="fa-solid fa-chart-pie" aria-hidden="true"></i>
+                            <div class="info-resumen">
+                                <span class="valor-resumen">77%</span>
+                                <span class="etiqueta-resumen">Promedio entre los 3 elementos</span>
+                            </div>
+                        </div>
+
+                        <span class="divisor-resumen" aria-hidden="true"></span>
+
+                        <div class="dato-resumen dato-resumen-positivo">
+                            <i class="fa-solid fa-trophy" aria-hidden="true"></i>
+                            <div class="info-resumen">
+                                <span class="valor-resumen valor-resumen-positivo">88%</span>
+                                <span class="etiqueta-resumen">Mayor asistencia — Ficha 301002</span>
+                            </div>
+                        </div>
+
+                        <span class="divisor-resumen" aria-hidden="true"></span>
+
+                        <div class="dato-resumen dato-resumen-negativo">
+                            <i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>
+                            <div class="info-resumen">
+                                <span class="valor-resumen valor-resumen-negativo">65%</span>
+                                <span class="etiqueta-resumen">Menor asistencia — Ficha 301005</span>
+                            </div>
+                        </div>
+
+                        <span class="divisor-resumen" aria-hidden="true"></span>
+
+                        <div class="dato-resumen dato-resumen-alerta">
+                            <i class="fa-solid fa-arrows-left-right" aria-hidden="true"></i>
+                            <div class="info-resumen">
+                                <span class="valor-resumen valor-resumen-alerta">23 pts</span>
+                                <span class="etiqueta-resumen">Brecha entre el mayor y el menor</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </section>
+
+            <!-- Comparativas de asistencia -->
+            <section class="panel-listado">
+                <div class="encabezado-instructores-ficha">
+                    <h2>Comparativa de asistencia</h2>
+                    <p class="texto-conteo-listado">Porcentaje de asistencia entre sedes, áreas, programas y jornadas</p>
+                </div>
+
+                <div class="divisor-sutil" aria-hidden="true"></div>
+
+                <div class="grid-comparativas-estadisticas">
+
+                    <div class="grupo-asistencia-aprendices">
+                        <p class="etiqueta-grupo-asistencia"><i class="fa-solid fa-building" aria-hidden="true"></i> Por sede</p>
+                        <div class="item-asistencia-aprendices">
+                            <div class="fila-dato-instructor">
+                                <span>Casa de la Convención</span>
+                                <span class="grupo-valor-asistencia">
+                                    <span class="tendencia-asistencia tendencia-positiva"><i class="fa-solid fa-arrow-up" aria-hidden="true"></i>3%</span>
+                                    <span>86%</span>
+                                </span>
+                            </div>
+                            <div class="barra-progreso">
+                                <div class="relleno-progreso relleno-bajo" style="width: 86%"></div>
+                            </div>
+                        </div>
+                        <div class="item-asistencia-aprendices">
+                            <div class="fila-dato-instructor">
+                                <span>CIAA</span>
+                                <span class="grupo-valor-asistencia">
+                                    <span class="tendencia-asistencia tendencia-positiva"><i class="fa-solid fa-arrow-up" aria-hidden="true"></i>1%</span>
+                                    <span>81%</span>
+                                </span>
+                            </div>
+                            <div class="barra-progreso">
+                                <div class="relleno-progreso relleno-bajo" style="width: 81%"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grupo-asistencia-aprendices">
+                        <p class="etiqueta-grupo-asistencia"><i class="fa-solid fa-layer-group" aria-hidden="true"></i> Por área</p>
+                        <div class="item-asistencia-aprendices">
+                            <div class="fila-dato-instructor">
+                                <span>Sistemas</span>
+                                <span class="grupo-valor-asistencia">
+                                    <span class="tendencia-asistencia tendencia-positiva"><i class="fa-solid fa-arrow-up" aria-hidden="true"></i>4%</span>
+                                    <span>87%</span>
+                                </span>
+                            </div>
+                            <div class="barra-progreso">
+                                <div class="relleno-progreso relleno-bajo" style="width: 87%"></div>
+                            </div>
+                        </div>
+                        <div class="item-asistencia-aprendices">
+                            <div class="fila-dato-instructor">
+                                <span>Diseño</span>
+                                <span class="grupo-valor-asistencia">
+                                    <span class="tendencia-asistencia tendencia-positiva"><i class="fa-solid fa-arrow-up" aria-hidden="true"></i>1%</span>
+                                    <span>82%</span>
+                                </span>
+                            </div>
+                            <div class="barra-progreso">
+                                <div class="relleno-progreso relleno-bajo" style="width: 82%"></div>
+                            </div>
+                        </div>
+                        <div class="item-asistencia-aprendices">
+                            <div class="fila-dato-instructor">
+                                <span>Administrativa</span>
+                                <span class="grupo-valor-asistencia">
+                                    <span class="tendencia-asistencia tendencia-negativa"><i class="fa-solid fa-arrow-down" aria-hidden="true"></i>3%</span>
+                                    <span>78%</span>
+                                </span>
+                            </div>
+                            <div class="barra-progreso">
+                                <div class="relleno-progreso relleno-moderado" style="width: 78%"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grupo-asistencia-aprendices">
+                        <p class="etiqueta-grupo-asistencia"><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i> Por programa</p>
+                        <div class="item-asistencia-aprendices">
+                            <div class="fila-dato-instructor">
+                                <span>Análisis y Desarrollo de Software</span>
+                                <span class="grupo-valor-asistencia">
+                                    <span class="tendencia-asistencia tendencia-positiva"><i class="fa-solid fa-arrow-up" aria-hidden="true"></i>5%</span>
+                                    <span>88%</span>
+                                </span>
+                            </div>
+                            <div class="barra-progreso">
+                                <div class="relleno-progreso relleno-bajo" style="width: 88%"></div>
+                            </div>
+                        </div>
+                        <div class="item-asistencia-aprendices">
+                            <div class="fila-dato-instructor">
+                                <span>Electromecánica</span>
+                                <span class="grupo-valor-asistencia">
+                                    <span class="tendencia-asistencia tendencia-positiva"><i class="fa-solid fa-arrow-up" aria-hidden="true"></i>2%</span>
+                                    <span>83%</span>
+                                </span>
+                            </div>
+                            <div class="barra-progreso">
+                                <div class="relleno-progreso relleno-bajo" style="width: 83%"></div>
+                            </div>
+                        </div>
+                        <div class="item-asistencia-aprendices">
+                            <div class="fila-dato-instructor">
+                                <span>Gestión Administrativa</span>
+                                <span class="grupo-valor-asistencia">
+                                    <span class="tendencia-asistencia tendencia-negativa"><i class="fa-solid fa-arrow-down" aria-hidden="true"></i>4%</span>
+                                    <span>77%</span>
+                                </span>
+                            </div>
+                            <div class="barra-progreso">
+                                <div class="relleno-progreso relleno-moderado" style="width: 77%"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grupo-asistencia-aprendices">
+                        <p class="etiqueta-grupo-asistencia"><i class="fa-solid fa-clock" aria-hidden="true"></i> Por jornada</p>
+                        <div class="item-asistencia-aprendices">
+                            <div class="fila-dato-instructor">
+                                <span>Mañana</span>
+                                <span class="grupo-valor-asistencia">
+                                    <span class="tendencia-asistencia tendencia-positiva"><i class="fa-solid fa-arrow-up" aria-hidden="true"></i>2%</span>
+                                    <span>85%</span>
+                                </span>
+                            </div>
+                            <div class="barra-progreso">
+                                <div class="relleno-progreso relleno-bajo" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="item-asistencia-aprendices">
+                            <div class="fila-dato-instructor">
+                                <span>Tarde</span>
+                                <span class="grupo-valor-asistencia">
+                                    <span class="tendencia-asistencia tendencia-negativa"><i class="fa-solid fa-arrow-down" aria-hidden="true"></i>1%</span>
+                                    <span>80%</span>
+                                </span>
+                            </div>
+                            <div class="barra-progreso">
+                                <div class="relleno-progreso relleno-moderado" style="width: 80%"></div>
+                            </div>
+                        </div>
+                        <div class="item-asistencia-aprendices">
+                            <div class="fila-dato-instructor">
+                                <span>Noche</span>
+                                <span class="grupo-valor-asistencia">
+                                    <span class="tendencia-asistencia tendencia-negativa"><i class="fa-solid fa-arrow-down" aria-hidden="true"></i>3%</span>
+                                    <span>76%</span>
+                                </span>
+                            </div>
+                            <div class="barra-progreso">
+                                <div class="relleno-progreso relleno-moderado" style="width: 76%"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- Deserción de aprendices + Cumplimiento de instructores -->
+            <div class="fila-metricas-estadisticas">
+
+                <section class="panel-listado">
+                    <div class="cabecera-tarjeta-metrica">
+                        <div>
+                            <h2 class="titulo-seccion-perfil">Tasa de deserción de aprendices</h2>
+                            <p class="texto-conteo-listado">Aprendices retirados sobre el total matriculado</p>
+                        </div>
+                        <span class="tendencia-asistencia tendencia-positiva">
+                            <i class="fa-solid fa-arrow-down" aria-hidden="true"></i>
+                            0.8%
+                        </span>
+                    </div>
+
+                    <p class="valor-metrica-grande">4.2%</p>
+
+                    <div class="lista-desercion-programa">
+                        <div class="item-asistencia-aprendices">
+                            <div class="fila-dato-instructor">
+                                <span>Gestión Administrativa</span>
+                                <span>6.8%</span>
+                            </div>
+                            <div class="barra-progreso">
+                                <div class="relleno-progreso relleno-critico" style="width: 68%"></div>
+                            </div>
+                        </div>
+                        <div class="item-asistencia-aprendices">
+                            <div class="fila-dato-instructor">
+                                <span>Electromecánica</span>
+                                <span>4.1%</span>
+                            </div>
+                            <div class="barra-progreso">
+                                <div class="relleno-progreso relleno-moderado" style="width: 41%"></div>
+                            </div>
+                        </div>
+                        <div class="item-asistencia-aprendices">
+                            <div class="fila-dato-instructor">
+                                <span>Análisis y Desarrollo de Software</span>
+                                <span>2.9%</span>
+                            </div>
+                            <div class="barra-progreso">
+                                <div class="relleno-progreso relleno-bajo" style="width: 29%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="panel-listado">
+                    <div class="cabecera-tarjeta-metrica">
+                        <div>
+                            <h2 class="titulo-seccion-perfil">Cumplimiento de instructores</h2>
+                            <p class="texto-conteo-listado">Distribución del desempeño general</p>
+                        </div>
+                    </div>
+
+                    <div class="distribucion-resumen-desempeno">
+                        <div class="dona-desempeno" role="img" aria-label="Cumplimiento de instructores: alto 75%, medio 16%, bajo 9%">
+                            <div class="anillo-dona-desempeno">
+                                <div class="centro-dona-desempeno">
+                                    <span class="valor-dona-desempeno">75%</span>
+                                    <span class="etiqueta-dona-desempeno">Cumplimiento</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="leyenda-dona-desempeno">
+                            <div class="item-leyenda">
+                                <span class="color-leyenda color-leyenda-alto" aria-hidden="true"></span>
+                                <span>Alto desempeño</span>
+                                <strong>75%</strong>
+                            </div>
+                            <div class="item-leyenda">
+                                <span class="color-leyenda color-leyenda-medio" aria-hidden="true"></span>
+                                <span>Rendimiento medio</span>
+                                <strong>16%</strong>
+                            </div>
+                            <div class="item-leyenda">
+                                <span class="color-leyenda color-leyenda-bajo" aria-hidden="true"></span>
+                                <span>Rendimiento bajo</span>
+                                <strong>9%</strong>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="../instructores/panel.html" class="enlace-ver-mas">Ver panel completo de instructores <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+                </section>
+
+            </div>
+
+        </main>
+
+        <!-- Pie de página (componente compartido, replicado estáticamente) -->
+        <footer class="pie-dashboard">
+            <div class="marca-pie">
+                <img src="../../../src/assets/img/LogoNegativo/negativo_con_eslogan_transparente.png" alt="Logo PuntualiX" class="logo-puntualix-pie" />
+                <div class="texto-marca-pie">
+                    <p>Desarrollado en el marco del proyecto de formación SENA · 2026</p>
+                    <p class="copyright-pie">
+                        <i class="fa-regular fa-copyright" aria-hidden="true"></i>
+                        2026 Puntualix. Todos los derechos reservados
+                    </p>
+                </div>
+            </div>
+
+            <div class="info-programa-pie">
+                <img src="../../../src/assets/img/LogoSena/SenaSobreVerde.png" alt="SENA" class="logo-sena-pie" />
+                <p>
+                    Programa: Análisis y desarrollo de Software<br />
+                    Ficha: 3267541
+                </p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="../../../src/js/main.js"></script>
+</body>
+</html>

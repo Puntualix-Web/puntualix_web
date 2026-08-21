@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PuntualiX | Registrar Instructor</title>
+
+    <link rel="icon" type="image/png" href="../../../src/assets/img/favico/favicon_positivo.png">
+
+    <link rel="stylesheet" href="../../../src/styles/base.css">
+    <link rel="stylesheet" href="../../../src/styles/tokens.css">
+    <link rel="stylesheet" href="../../../src/styles/fonts.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../../../src/styles/estilos.css">
+</head>
+<body>
+    <div class="pantalla-dashboard-admin">
+
+        <!-- Barra de navegación superior (componente compartido, replicado estáticamente) -->
+        <header class="barra-navegacion">
+            <div class="marca-navegacion">
+                <img src="../../../src/assets/img/LogoNegativo/negativo_sin_eslogan_transparente.png" alt="Logo Puntualix">
+            </div>
+
+            <nav class="menu-navegacion">
+                <a href="../dashboard.html" class="enlace-nav" data-pagina="dashboard" data-roles="administrador,instructor,aprendiz">
+                    <i class="fa-solid fa-house"></i> Dashboard
+                </a>
+                <a href="../fichas/fichas.html" class="enlace-nav" data-pagina="fichas" data-roles="administrador,instructor">
+                    <i class="fa-solid fa-file-lines"></i> Fichas
+                </a>
+                <a href="panel.html" class="enlace-nav enlace-nav-activo" data-pagina="panel" data-roles="administrador,instructor">
+                    <i class="fa-solid fa-chalkboard-user"></i> Instructores
+                </a>
+                <a href="../bitacora/bitacora.html" class="enlace-nav" data-pagina="bitacora" data-roles="administrador">
+                    <i class="fa-solid fa-clock-rotate-left"></i> Bitácora
+                </a>
+                <a href="../estadisticas/estadisticas.html" class="enlace-nav" data-pagina="estadisticas" data-roles="administrador">
+                    <i class="fa-solid fa-chart-line"></i> Estadísticas
+                </a>
+                <a href="" class="enlace-nav" data-pagina="reportes" data-roles="administrador,instructor">
+                    <i class="fa-solid fa-chart-bar"></i> Reportes
+                </a>
+            </nav>
+
+            <div class="area-usuario">
+                <span class="separador-nav" aria-hidden="true"></span>
+
+                <button type="button" class="boton-notificaciones" aria-label="Notificaciones">
+                    <i class="fa-solid fa-bell"></i>
+                </button>
+
+                <div class="tarjeta-usuario" id="boton-menu-usuario">
+                    <div class="avatar-usuario" aria-hidden="true"></div>
+                    <div class="datos-usuario">
+                        <span class="nombre-usuario">Andres Ramirez</span>
+                        <span class="rol-usuario">Administrador</span>
+                    </div>
+                    <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+                </div>
+
+                <div class="menu-desplegable-usuario oculto" id="menu-usuario">
+                    <a href="" class="item-menu-usuario" data-roles="administrador,instructor,aprendiz">
+                        <i class="fa-solid fa-circle-user"></i> Ver perfil
+                    </a>
+                    <a href="" class="item-menu-usuario" data-roles="administrador,instructor,aprendiz">
+                        <i class="fa-solid fa-bookmark"></i> Ver competencias
+                    </a>
+                    <a href="" class="item-menu-usuario" data-roles="administrador,instructor,aprendiz">
+                        <i class="fa-solid fa-file-circle-check"></i> Ver justificaciones
+                    </a>
+                    <a href="../estadisticas/estadisticas.html" class="item-menu-usuario" data-roles="administrador">
+                        <i class="fa-solid fa-chart-line"></i> Ver estadísticas
+                    </a>
+                    <a href="../../InicioSesion.html" class="item-menu-usuario item-menu-cerrar-sesion" data-roles="administrador,instructor,aprendiz">
+                        <i class="fa-solid fa-right-from-bracket"></i> Cerrar sesión
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <main class="contenido-dashboard">
+
+            <!-- Migas de pan -->
+            <nav class="migas-pan" aria-label="Ruta de navegación">
+                <a href="../dashboard.html">Inicio</a>
+                <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+                <a href="instructores.html">Instructores</a>
+                <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+                <span>Registrar instructor</span>
+            </nav>
+
+            <h1 class="titulo-pagina">Registrar Instructor</h1>
+
+            <section class="distribucion-registro-instructor">
+
+                <!-- Formulario en dos tarjetas: datos personales + datos profesionales -->
+                <div class="columnas-formulario-instructor">
+
+                        <div class="tarjeta-formulario-registro">
+                            <div class="grupo-actualizar-campo">
+                                <label for="campo-nombres-instructor">Nombres</label>
+                                <input type="text" id="campo-nombres-instructor" value="Juan Carlos" />
+                            </div>
+
+                            <div class="grupo-actualizar-campo">
+                                <label for="campo-apellidos-instructor">Apellidos</label>
+                                <input type="text" id="campo-apellidos-instructor" value="Castillo Gomez" />
+                            </div>
+
+                            <div class="cuadricula-actualizar-formulario">
+                                <div class="grupo-actualizar-campo">
+                                    <label for="campo-tipo-documento-instructor">Tipo de documento</label>
+                                    <div class="contenedor-dato-actualizar">
+                                        <select id="campo-tipo-documento-instructor">
+                                            <option>Cédula de ciudadanía</option>
+                                            <option>Cédula de extranjería</option>
+                                        </select>
+                                        <i class="fa-solid fa-chevron-down icono-indicador-actualizar" aria-hidden="true"></i>
+                                    </div>
+                                </div>
+
+                                <div class="grupo-actualizar-campo">
+                                    <label for="campo-documento-instructor">Documento</label>
+                                    <input type="text" id="campo-documento-instructor" value="107292341892" />
+                                </div>
+                            </div>
+
+                            <div class="grupo-actualizar-campo">
+                                <label for="campo-correo-instructor">Correo electrónico</label>
+                                <input type="email" id="campo-correo-instructor" value="juanC1998@gmail.com" />
+                            </div>
+
+                            <div class="grupo-actualizar-campo">
+                                <label for="campo-telefono-instructor">Teléfono</label>
+                                <input type="text" id="campo-telefono-instructor" value="321 987 6543" />
+                            </div>
+                        </div>
+
+                        <div class="tarjeta-formulario-registro">
+                            <div class="grupo-actualizar-campo">
+                                <label for="campo-especialidad-instructor">Especialidad</label>
+                                <div class="contenedor-dato-actualizar">
+                                    <select id="campo-especialidad-instructor">
+                                        <option>Desarrollo de Software</option>
+                                        <option>Electromecánica</option>
+                                        <option>Gestión Administrativa</option>
+                                        <option>Diseño</option>
+                                    </select>
+                                    <i class="fa-solid fa-chevron-down icono-indicador-actualizar" aria-hidden="true"></i>
+                                </div>
+                            </div>
+
+                            <div class="cuadricula-actualizar-formulario">
+                                <div class="grupo-actualizar-campo">
+                                    <label for="campo-fecha-ingreso-instructor">Fecha de ingreso</label>
+                                    <div class="contenedor-dato-actualizar">
+                                        <input type="date" id="campo-fecha-ingreso-instructor" value="2026-05-02" />
+                                        <i class="fa-solid fa-calendar icono-indicador-actualizar" aria-hidden="true"></i>
+                                    </div>
+                                </div>
+
+                                <div class="grupo-actualizar-campo">
+                                    <label for="campo-estado-instructor">Estado</label>
+                                    <div class="contenedor-dato-actualizar">
+                                        <select id="campo-estado-instructor">
+                                            <option>Activo</option>
+                                            <option>Inactivo</option>
+                                        </select>
+                                        <i class="fa-solid fa-chevron-down icono-indicador-actualizar" aria-hidden="true"></i>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="grupo-actualizar-campo">
+                                <label for="campo-rol-instructor">Rol</label>
+                                <div class="contenedor-dato-actualizar">
+                                    <select id="campo-rol-instructor">
+                                        <option>Instructor</option>
+                                        <option>Instructor líder</option>
+                                    </select>
+                                    <i class="fa-solid fa-chevron-down icono-indicador-actualizar" aria-hidden="true"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                </div>
+
+                <!-- Guía previa al registro -->
+                <div class="columna-resultado-registro">
+                    <aside class="panel-guia-registro">
+                        <div class="icono-guia-registro" aria-hidden="true">
+                            <i class="fa-solid fa-circle-info"></i>
+                        </div>
+                        <h2 class="titulo-guia-registro">Antes de registrar</h2>
+                        <ul class="lista-guia-registro">
+                            <li>
+                                <i class="fa-solid fa-check" aria-hidden="true"></i>
+                                El documento y el correo electrónico deben ser únicos en el sistema.
+                            </li>
+                            <li>
+                                <i class="fa-solid fa-check" aria-hidden="true"></i>
+                                El instructor podrá iniciar sesión con estas credenciales una vez registrado.
+                            </li>
+                            <li>
+                                <i class="fa-solid fa-check" aria-hidden="true"></i>
+                                Después del registro, quedará disponible para ser asignado a una o varias fichas.
+                            </li>
+                        </ul>
+                    </aside>
+                </div>
+
+            </section>
+
+            <div class="acciones-formulario-registro">
+                <button type="button" class="boton-actualizar-cancelar">Cancelar</button>
+                <button type="button" class="boton-actualizar-guardar">Guardar Instructor</button>
+            </div>
+
+        </main>
+
+        <!-- Pie de página (componente compartido, replicado estáticamente) -->
+        <footer class="pie-dashboard">
+            <div class="marca-pie">
+                <img src="../../../src/assets/img/LogoNegativo/negativo_con_eslogan_transparente.png" alt="Logo PuntualiX" class="logo-puntualix-pie" />
+                <div class="texto-marca-pie">
+                    <p>Desarrollado en el marco del proyecto de formación SENA · 2026</p>
+                    <p class="copyright-pie">
+                        <i class="fa-regular fa-copyright" aria-hidden="true"></i>
+                        2026 Puntualix. Todos los derechos reservados
+                    </p>
+                </div>
+            </div>
+
+            <div class="info-programa-pie">
+                <img src="../../../src/assets/img/LogoSena/SenaSobreVerde.png" alt="SENA" class="logo-sena-pie" />
+                <p>
+                    Programa: Análisis y desarrollo de Software<br />
+                    Ficha: 3267541
+                </p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="../../../src/js/main.js"></script>
+</body>
+</html>

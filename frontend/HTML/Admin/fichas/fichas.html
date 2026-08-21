@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PuntualiX | Listado de Fichas</title>
+
+    <link rel="icon" type="image/png" href="../../../src/assets/img/favico/favicon_positivo.png">
+
+    <link rel="stylesheet" href="../../../src/styles/base.css">
+    <link rel="stylesheet" href="../../../src/styles/tokens.css">
+    <link rel="stylesheet" href="../../../src/styles/fonts.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../../../src/styles/estilos.css">
+</head>
+<body>
+    <div class="pantalla-dashboard-admin">
+
+        <!-- Barra de navegación superior (componente compartido, replicado estáticamente) -->
+        <header class="barra-navegacion">
+            <div class="marca-navegacion">
+                <img src="../../../src/assets/img/LogoNegativo/negativo_sin_eslogan_transparente.png" alt="Logo Puntualix">
+            </div>
+
+            <nav class="menu-navegacion">
+                <a href="../dashboard.html" class="enlace-nav" data-pagina="dashboard" data-roles="administrador,instructor,aprendiz">
+                    <i class="fa-solid fa-house"></i> Dashboard
+                </a>
+                <a href="fichas.html" class="enlace-nav enlace-nav-activo" data-pagina="fichas" data-roles="administrador,instructor">
+                    <i class="fa-solid fa-file-lines"></i> Fichas
+                </a>
+                <a href="../instructores/panel.html" class="enlace-nav" data-pagina="panel" data-roles="administrador,instructor">
+                    <i class="fa-solid fa-chalkboard-user"></i> Instructores
+                </a>
+                <a href="../bitacora/bitacora.html" class="enlace-nav" data-pagina="bitacora" data-roles="administrador">
+                    <i class="fa-solid fa-clock-rotate-left"></i> Bitácora
+                </a>
+                <a href="../estadisticas/estadisticas.html" class="enlace-nav" data-pagina="estadisticas" data-roles="administrador">
+                    <i class="fa-solid fa-chart-line"></i> Estadísticas
+                </a>
+                <a href="" class="enlace-nav" data-pagina="reportes" data-roles="administrador,instructor">
+                    <i class="fa-solid fa-chart-bar"></i> Reportes
+                </a>
+            </nav>
+
+            <div class="area-usuario">
+                <span class="separador-nav" aria-hidden="true"></span>
+
+                <button type="button" class="boton-notificaciones" aria-label="Notificaciones">
+                    <i class="fa-solid fa-bell"></i>
+                </button>
+
+                <div class="tarjeta-usuario" id="boton-menu-usuario">
+                    <div class="avatar-usuario" aria-hidden="true"></div>
+                    <div class="datos-usuario">
+                        <span class="nombre-usuario">Andres Ramirez</span>
+                        <span class="rol-usuario">Administrador</span>
+                    </div>
+                    <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+                </div>
+
+                <div class="menu-desplegable-usuario oculto" id="menu-usuario">
+                    <a href="" class="item-menu-usuario" data-roles="administrador,instructor,aprendiz">
+                        <i class="fa-solid fa-circle-user"></i> Ver perfil
+                    </a>
+                    <a href="" class="item-menu-usuario" data-roles="administrador,instructor,aprendiz">
+                        <i class="fa-solid fa-bookmark"></i> Ver competencias
+                    </a>
+                    <a href="" class="item-menu-usuario" data-roles="administrador,instructor,aprendiz">
+                        <i class="fa-solid fa-file-circle-check"></i> Ver justificaciones
+                    </a>
+                    <a href="../estadisticas/estadisticas.html" class="item-menu-usuario" data-roles="administrador">
+                        <i class="fa-solid fa-chart-line"></i> Ver estadísticas
+                    </a>
+                    <a href="../../InicioSesion.html" class="item-menu-usuario item-menu-cerrar-sesion" data-roles="administrador,instructor,aprendiz">
+                        <i class="fa-solid fa-right-from-bracket"></i> Cerrar sesión
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <main class="contenido-dashboard">
+
+            <!-- Migas de pan -->
+            <nav class="migas-pan" aria-label="Ruta de navegación">
+                <a href="../dashboard.html">Inicio</a>
+                <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+                <span>Fichas</span>
+            </nav>
+
+            <h1 class="titulo-pagina">Listado de Fichas</h1>
+
+            <!-- Franja de resumen: contexto general antes de entrar al detalle de la tabla -->
+            <div class="franja-resumen">
+                <div class="dato-resumen">
+                    <i class="fa-solid fa-file-lines" aria-hidden="true"></i>
+                    <div class="info-resumen">
+                        <span class="valor-resumen">54</span>
+                        <span class="etiqueta-resumen">Fichas registradas</span>
+                    </div>
+                </div>
+
+                <span class="divisor-resumen" aria-hidden="true"></span>
+
+                <div class="dato-resumen dato-resumen-positivo">
+                    <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
+                    <div class="info-resumen">
+                        <span class="valor-resumen valor-resumen-positivo">39</span>
+                        <span class="etiqueta-resumen">Activas</span>
+                    </div>
+                </div>
+
+                <span class="divisor-resumen" aria-hidden="true"></span>
+
+                <div class="dato-resumen dato-resumen-negativo">
+                    <i class="fa-solid fa-circle-xmark" aria-hidden="true"></i>
+                    <div class="info-resumen">
+                        <span class="valor-resumen valor-resumen-negativo">15</span>
+                        <span class="etiqueta-resumen">Inactivas</span>
+                    </div>
+                </div>
+
+                <span class="divisor-resumen" aria-hidden="true"></span>
+
+                <div class="dato-resumen">
+                    <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+                    <div class="info-resumen">
+                        <span class="valor-resumen">2</span>
+                        <span class="etiqueta-resumen">Sedes</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Panel con filtros, búsqueda y tabla -->
+            <section class="panel-listado">
+
+                <div class="barra-herramientas-listado">
+                    <a href="registrarFicha.html" id="boton-nuevo-usuario" class="boton-nuevo-usuario">
+                        <i class="fa-solid fa-plus"></i>
+                        Registrar nueva ficha
+                    </a>
+
+                    <div class="grupo-herramientas-busqueda">
+                        <div class="grupo-filtro">
+                            <label for="filtro-sede">Sede</label>
+                            <select id="filtro-sede" class="selector-filtro">
+                                <option value="todos">Todas</option>
+                                <option value="principal">Casa de la Convención</option>
+                                <option value="industria">CIAA</option>
+                            </select>
+                        </div>
+
+                        <div class="grupo-filtro">
+                            <label for="filtro-programa">Programa</label>
+                            <select id="filtro-programa" class="selector-filtro">
+                                <option value="todos">Todos</option>
+                                <option value="ads">Análisis y Desarrollo de Software</option>
+                                <option value="automatizacion">Automatización Industrial</option>
+                                <option value="gestion">Gestión Empresarial</option>
+                                <option value="electromecanica">Electromecánica</option>
+                            </select>
+                        </div>
+
+                        <div class="grupo-filtro">
+                            <label for="filtro-jornada">Jornada</label>
+                            <select id="filtro-jornada" class="selector-filtro">
+                                <option value="todos">Todas</option>
+                                <option value="manana">Mañana</option>
+                                <option value="tarde">Tarde</option>
+                                <option value="noche">Noche</option>
+                            </select>
+                        </div>
+
+                        <div class="grupo-filtro">
+                            <label for="filtro-estado-ficha">Estado</label>
+                            <select id="filtro-estado-ficha" class="selector-filtro">
+                                <option value="todos">Todos</option>
+                                <option value="activa">Activa</option>
+                                <option value="inactiva">Inactiva</option>
+                            </select>
+                        </div>
+
+                        <button type="button" class="boton-limpiar-filtros">
+                            <i class="fa-solid fa-broom" aria-hidden="true"></i>
+                            Limpiar filtros
+                        </button>
+
+                        <div class="grupo-busqueda">
+                            <input type="text" placeholder="Buscar ficha" class="campo-busqueda-ficha" />
+                            <button type="button" class="boton-buscar-ficha" aria-label="Buscar">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contenedor-tabla-listado">
+                    <div class="indicador-desplazamiento-ficha" aria-hidden="true">
+                        <span class="indicador-desplazamiento-relleno"></span>
+                    </div>
+
+                    <table class="tabla-listado-fichas">
+                    <thead>
+                        <tr>
+                            <th>Número</th>
+                            <th>Programa</th>
+                            <th>Jornada</th>
+                            <th>Estado</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>301002</td>
+                            <td>Análisis y Desarrollo de Software</td>
+                            <td>Mañana</td>
+                            <td><span class="etiqueta-estado etiqueta-estado-activo">Activo</span></td>
+                            <td><a href="detalleFicha.html" class="boton-ver-mas">Ver mas</a></td>
+                        </tr>
+                        <tr>
+                            <td>325694</td>
+                            <td>Automatización Industrial</td>
+                            <td>Tarde</td>
+                            <td><span class="etiqueta-estado etiqueta-estado-activo">Activo</span></td>
+                            <td><a href="detalleFicha.html" class="boton-ver-mas">Ver mas</a></td>
+                        </tr>
+                        <tr>
+                            <td>364433</td>
+                            <td>Gestión Empresarial</td>
+                            <td>Mañana</td>
+                            <td><span class="etiqueta-estado etiqueta-estado-inactivo">Inactivo</span></td>
+                            <td><a href="detalleFicha.html" class="boton-ver-mas">Ver mas</a></td>
+                        </tr>
+                        <tr>
+                            <td>301032</td>
+                            <td>Electromecánica</td>
+                            <td>Mañana</td>
+                            <td><span class="etiqueta-estado etiqueta-estado-activo">Activo</span></td>
+                            <td><a href="detalleFicha.html" class="boton-ver-mas">Ver mas</a></td>
+                        </tr>
+                        <tr>
+                            <td>246801</td>
+                            <td>Automatización Industrial</td>
+                            <td>Noche</td>
+                            <td><span class="etiqueta-estado etiqueta-estado-activo">Activo</span></td>
+                            <td><a href="detalleFicha.html" class="boton-ver-mas">Ver mas</a></td>
+                        </tr>
+                        <tr>
+                            <td>249102</td>
+                            <td>Gestión Empresarial</td>
+                            <td>Tarde</td>
+                            <td><span class="etiqueta-estado etiqueta-estado-inactivo">Inactivo</span></td>
+                            <td><a href="detalleFicha.html" class="boton-ver-mas">Ver mas</a></td>
+                        </tr>
+                        <tr>
+                            <td>253003</td>
+                            <td>Electromecánica</td>
+                            <td>Mañana</td>
+                            <td><span class="etiqueta-estado etiqueta-estado-activo">Activo</span></td>
+                            <td><a href="detalleFicha.html" class="boton-ver-mas">Ver mas</a></td>
+                        </tr>
+                        <tr>
+                            <td>255404</td>
+                            <td>Automatización Industrial</td>
+                            <td>Mañana</td>
+                            <td><span class="etiqueta-estado etiqueta-estado-inactivo">Inactivo</span></td>
+                            <td><a href="detalleFicha.html" class="boton-ver-mas">Ver mas</a></td>
+                        </tr>
+                        <tr>
+                            <td>3267541</td>
+                            <td>Análisis y Desarrollo de Software</td>
+                            <td>Mañana</td>
+                            <td><span class="etiqueta-estado etiqueta-estado-activo">Activo</span></td>
+                            <td><a href="detalleFicha.html" class="boton-ver-mas">Ver mas</a></td>
+                        </tr>
+                        <tr>
+                            <td>2639720</td>
+                            <td>Análisis y Desarrollo de Software</td>
+                            <td>Tarde</td>
+                            <td><span class="etiqueta-estado etiqueta-estado-activo">Activo</span></td>
+                            <td><a href="detalleFicha.html" class="boton-ver-mas">Ver mas</a></td>
+                        </tr>
+                        <tr>
+                            <td>301109</td>
+                            <td>Mantenimiento Electrónico</td>
+                            <td>Noche</td>
+                            <td><span class="etiqueta-estado etiqueta-estado-activo">Activo</span></td>
+                            <td><a href="detalleFicha.html" class="boton-ver-mas">Ver mas</a></td>
+                        </tr>
+                        <tr>
+                            <td>301074</td>
+                            <td>Seguridad y Salud en el Trabajo</td>
+                            <td>Mañana</td>
+                            <td><span class="etiqueta-estado etiqueta-estado-inactivo">Inactivo</span></td>
+                            <td><a href="detalleFicha.html" class="boton-ver-mas">Ver mas</a></td>
+                        </tr>
+                        <tr>
+                            <td>301233</td>
+                            <td>Producción Multimedia</td>
+                            <td>Tarde</td>
+                            <td><span class="etiqueta-estado etiqueta-estado-activo">Activo</span></td>
+                            <td><a href="detalleFicha.html" class="boton-ver-mas">Ver mas</a></td>
+                        </tr>
+                        <tr>
+                            <td>301145</td>
+                            <td>Análisis y Desarrollo de Software</td>
+                            <td>Noche</td>
+                            <td><span class="etiqueta-estado etiqueta-estado-activo">Activo</span></td>
+                            <td><a href="detalleFicha.html" class="boton-ver-mas">Ver mas</a></td>
+                        </tr>
+                        <tr>
+                            <td>301210</td>
+                            <td>Gestión de Sistemas de Información</td>
+                            <td>Mañana</td>
+                            <td><span class="etiqueta-estado etiqueta-estado-inactivo">Inactivo</span></td>
+                            <td><a href="detalleFicha.html" class="boton-ver-mas">Ver mas</a></td>
+                        </tr>
+                        <tr>
+                            <td>301188</td>
+                            <td>Automatización Industrial</td>
+                            <td>Tarde</td>
+                            <td><span class="etiqueta-estado etiqueta-estado-activo">Activo</span></td>
+                            <td><a href="detalleFicha.html" class="boton-ver-mas">Ver mas</a></td>
+                        </tr>
+                        <tr>
+                            <td>301099</td>
+                            <td>Electrónica Industrial</td>
+                            <td>Noche</td>
+                            <td><span class="etiqueta-estado etiqueta-estado-inactivo">Inactivo</span></td>
+                            <td><a href="detalleFicha.html" class="boton-ver-mas">Ver mas</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+                </div>
+
+                <div class="pie-listado">
+                    <div class="fila-superior-pie">
+                        <p class="texto-conteo-listado">Mostrando 17 fichas de 54 Fichas</p>
+
+                        <nav class="paginacion" aria-label="Paginación de fichas">
+                            <button type="button" class="boton-pagina boton-pagina-activo">1</button>
+                            <button type="button" class="boton-pagina">2</button>
+                            <button type="button" class="boton-pagina">3</button>
+                            <button type="button" class="boton-pagina-siguiente" aria-label="Página siguiente">
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </button>
+                        </nav>
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+        <!-- Pie de página (componente compartido, replicado estáticamente) -->
+        <footer class="pie-dashboard">
+            <div class="marca-pie">
+                <img src="../../../src/assets/img/LogoNegativo/negativo_con_eslogan_transparente.png" alt="Logo PuntualiX" class="logo-puntualix-pie" />
+                <div class="texto-marca-pie">
+                    <p>Desarrollado en el marco del proyecto de formación SENA · 2026</p>
+                    <p class="copyright-pie">
+                        <i class="fa-regular fa-copyright" aria-hidden="true"></i>
+                        2026 Puntualix. Todos los derechos reservados
+                    </p>
+                </div>
+            </div>
+
+            <div class="info-programa-pie">
+                <img src="../../../src/assets/img/LogoSena/SenaSobreVerde.png" alt="SENA" class="logo-sena-pie" />
+                <p>
+                    Programa: Análisis y desarrollo de Software<br />
+                    Ficha: 3267541
+                </p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="../../../src/js/main.js"></script>
+</body>
+</html>

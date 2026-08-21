@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PuntualiX | Perfil de Instructor</title>
+
+    <link rel="icon" type="image/png" href="../../../src/assets/img/favico/favicon_positivo.png">
+
+    <link rel="stylesheet" href="../../../src/styles/base.css">
+    <link rel="stylesheet" href="../../../src/styles/tokens.css">
+    <link rel="stylesheet" href="../../../src/styles/fonts.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../../../src/styles/estilos.css">
+</head>
+<body>
+    <div class="pantalla-dashboard-admin">
+
+        <!-- Barra de navegación (idéntica a panel.html, con "Instructores" activo) -->
+        <header class="barra-navegacion">
+            <div class="marca-navegacion">
+                <img src="../../../src/assets/img/LogoNegativo/negativo_sin_eslogan_transparente.png" alt="Logo Puntualix">
+            </div>
+
+            <nav class="menu-navegacion">
+                <a href="../dashboard.html" class="enlace-nav" data-pagina="dashboard" data-roles="administrador,instructor,aprendiz">
+                    <i class="fa-solid fa-house"></i> Dashboard
+                </a>
+                <a href="../fichas/fichas.html" class="enlace-nav" data-pagina="fichas" data-roles="administrador,instructor">
+                    <i class="fa-solid fa-file-lines"></i> Fichas
+                </a>
+                <a href="panel.html" class="enlace-nav enlace-nav-activo" data-pagina="panel" data-roles="administrador,instructor">
+                    <i class="fa-solid fa-chalkboard-user"></i> Instructores
+                </a>
+                <a href="../bitacora/bitacora.html" class="enlace-nav" data-pagina="bitacora" data-roles="administrador">
+                    <i class="fa-solid fa-clock-rotate-left"></i> Bitácora
+                </a>
+                <a href="../estadisticas/estadisticas.html" class="enlace-nav" data-pagina="estadisticas" data-roles="administrador">
+                    <i class="fa-solid fa-chart-line"></i> Estadísticas
+                </a>
+                <a href="" class="enlace-nav" data-pagina="reportes" data-roles="administrador,instructor">
+                    <i class="fa-solid fa-chart-bar"></i> Reportes
+                </a>
+            </nav>
+
+            <div class="area-usuario">
+                <span class="separador-nav" aria-hidden="true"></span>
+
+                <button type="button" class="boton-notificaciones" aria-label="Notificaciones">
+                    <i class="fa-solid fa-bell"></i>
+                </button>
+
+                <div class="tarjeta-usuario" id="boton-menu-usuario">
+                    <div class="avatar-usuario" aria-hidden="true"></div>
+                    <div class="datos-usuario">
+                        <span class="nombre-usuario">Andres Ramirez</span>
+                        <span class="rol-usuario">Administrador</span>
+                    </div>
+                    <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+                </div>
+
+                <div class="menu-desplegable-usuario oculto" id="menu-usuario">
+                    <a href="" class="item-menu-usuario" data-roles="administrador,instructor,aprendiz">
+                        <i class="fa-solid fa-circle-user"></i> Ver perfil
+                    </a>
+                    <a href="" class="item-menu-usuario" data-roles="administrador,instructor,aprendiz">
+                        <i class="fa-solid fa-bookmark"></i> Ver competencias
+                    </a>
+                    <a href="" class="item-menu-usuario" data-roles="administrador,instructor,aprendiz">
+                        <i class="fa-solid fa-file-circle-check"></i> Ver justificaciones
+                    </a>
+                    <a href="../estadisticas/estadisticas.html" class="item-menu-usuario" data-roles="administrador">
+                        <i class="fa-solid fa-chart-line"></i> Ver estadísticas
+                    </a>
+                    <a href="../../InicioSesion.html" class="item-menu-usuario item-menu-cerrar-sesion" data-roles="administrador,instructor,aprendiz">
+                        <i class="fa-solid fa-right-from-bracket"></i> Cerrar sesión
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <main class="contenido-dashboard">
+
+            <nav class="migas-pan" aria-label="Ruta de navegación">
+                <a href="../dashboard.html">Inicio</a>
+                <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+                <a href="panel.html">Instructores</a>
+                <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+                <span>Perfil de Instructor</span>
+            </nav>
+
+            <div class="encabezado-detalle-ficha">
+                <h1 class="titulo-pagina" style="margin-bottom: 0">Perfil de Instructor</h1>
+                <a href="" class="boton-reporte-perfil">
+                    <i class="fa-solid fa-file-lines" aria-hidden="true"></i>
+                    Generar reporte
+                </a>
+            </div>
+
+            <div class="distribucion-perfil-instructor">
+
+                <!-- Tarjeta de información general: nombre + info personal + resumen de desempeño -->
+                <aside class="panel-informacion-personal">
+
+                    <div class="cabecera-perfil-instructor-completo">
+                        <div class="avatar-instructor avatar-perfil-completo" aria-hidden="true">AR</div>
+                        <div class="datos-nombre-perfil">
+                            <h1 class="titulo-pagina" style="margin-bottom: 4px">Andres Ramirez</h1>
+                            <p class="rol-perfil-instructor">Instructor · Área de Sistemas</p>
+                        </div>
+                    </div>
+
+                    <h2 class="titulo-seccion-perfil">Información personal</h2>
+
+                    <div class="item-info-personal">
+                        <i class="fa-solid fa-id-card" aria-hidden="true"></i>
+                        <div>
+                            <span class="etiqueta-info-personal">Cédula</span>
+                            <span class="valor-info-personal">1.024.556.789</span>
+                        </div>
+                    </div>
+
+                    <div class="item-info-personal">
+                        <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+                        <div>
+                            <span class="etiqueta-info-personal">Correo electrónico</span>
+                            <span class="valor-info-personal">aramirez@sena.edu.co</span>
+                        </div>
+                    </div>
+
+                    <div class="item-info-personal">
+                        <i class="fa-solid fa-phone" aria-hidden="true"></i>
+                        <div>
+                            <span class="etiqueta-info-personal">Teléfono</span>
+                            <span class="valor-info-personal">+57 310 555 8877</span>
+                        </div>
+                    </div>
+
+                    <div class="item-info-personal item-asignar-rol">
+                        <i class="fa-solid fa-user-tag" aria-hidden="true"></i>
+                        <div class="contenido-asignar-rol">
+                            <span class="etiqueta-info-personal">Rol asignado</span>
+                            <div class="control-asignar-rol">
+                                <div class="contenedor-dato-actualizar">
+                                    <select id="campo-rol-perfil">
+                                        <option selected>Instructor</option>
+                                        <option>Instructor líder</option>
+                                    </select>
+                                    <i class="fa-solid fa-chevron-down icono-indicador-actualizar" aria-hidden="true"></i>
+                                </div>
+                                <button type="button" class="boton-guardar-rol">Guardar</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="item-info-personal">
+                        <i class="fa-solid fa-calendar-check" aria-hidden="true"></i>
+                        <div>
+                            <span class="etiqueta-info-personal">Antigüedad</span>
+                            <span class="valor-info-personal">Desde 2022</span>
+                        </div>
+                    </div>
+
+                    <div class="item-info-personal">
+                        <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+                        <div>
+                            <span class="etiqueta-info-personal">Sede</span>
+                            <span class="valor-info-personal">Casa de la Convención</span>
+                        </div>
+                    </div>
+                </aside>
+
+                <!-- Fichas asignadas + historial -->
+                <div class="contenido-principal-perfil">
+
+                    <!-- Resumen general de desempeño y rendimiento -->
+                    <section class="panel-listado">
+                        <div class="pie-listado">
+                            <h2 class="titulo-seccion-perfil" style="margin-bottom: 0">Resumen general de desempeño y rendimiento</h2>
+                        </div>
+
+                        <div class="distribucion-resumen-desempeno">
+                            <div class="dona-desempeno" role="img" aria-label="Distribución del desempeño: alto 75%, medio 16%, bajo 9%">
+                                <div class="anillo-dona-desempeno">
+                                    <div class="centro-dona-desempeno">
+                                        <span class="valor-dona-desempeno">96%</span>
+                                        <span class="etiqueta-dona-desempeno">Desempeño</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="leyenda-dona-desempeno">
+                                <div class="item-leyenda">
+                                    <span class="color-leyenda color-leyenda-alto" aria-hidden="true"></span>
+                                    <span>Alto desempeño</span>
+                                    <strong>75%</strong>
+                                </div>
+                                <div class="item-leyenda">
+                                    <span class="color-leyenda color-leyenda-medio" aria-hidden="true"></span>
+                                    <span>Rendimiento medio</span>
+                                    <strong>16%</strong>
+                                </div>
+                                <div class="item-leyenda">
+                                    <span class="color-leyenda color-leyenda-bajo" aria-hidden="true"></span>
+                                    <span>Rendimiento bajo</span>
+                                    <strong>9%</strong>
+                                </div>
+                            </div>
+
+                            <div class="metricas-resumen-desempeno">
+                                <div class="dato-global-perfil">
+                                    <span class="detalle-desempeno-valor">96%</span>
+                                    <span class="detalle-desempeno-etiqueta">Tasa de cumplimiento</span>
+                                </div>
+                                <div class="dato-global-perfil">
+                                    <span class="detalle-desempeno-valor">91%</span>
+                                    <span class="detalle-desempeno-etiqueta">Asistencia de alumnos</span>
+                                </div>
+                                <div class="dato-global-perfil">
+                                    <span class="detalle-desempeno-valor">2</span>
+                                    <span class="detalle-desempeno-etiqueta">Fichas asignadas</span>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="panel-listado">
+                        <div class="pie-listado">
+                            <h2 class="titulo-seccion-perfil" style="margin-bottom: 0">Fichas asignadas</h2>
+                        </div>
+
+                        <div class="contenido-resumen-instructor">
+
+                            <div class="item-ficha-asignada">
+                                <div class="fila-dato-instructor">
+                                    <span><strong>Ficha 301002</strong></span>
+                                    <span class="etiqueta-estado etiqueta-estado-activo">98%</span>
+                                </div>
+                                <div class="fila-dato-instructor">
+                                    <span>Tasa de cumplimiento</span>
+                                    <div class="barra-progreso">
+                                        <div class="relleno-progreso relleno-bajo" style="width: 98%"></div>
+                                    </div>
+                                    <span>98%</span>
+                                </div>
+                                <div class="fila-dato-instructor">
+                                    <span>Tasa de aprendices que asisten</span>
+                                    <div class="barra-progreso">
+                                        <div class="relleno-progreso relleno-bajo" style="width: 93%"></div>
+                                    </div>
+                                    <span>93%</span>
+                                </div>
+                            </div>
+
+                            <div class="item-ficha-asignada">
+                                <div class="fila-dato-instructor">
+                                    <span><strong>Ficha 301010</strong></span>
+                                    <span class="etiqueta-estado etiqueta-estado-activo">94%</span>
+                                </div>
+                                <div class="fila-dato-instructor">
+                                    <span>Tasa de cumplimiento</span>
+                                    <div class="barra-progreso">
+                                        <div class="relleno-progreso relleno-bajo" style="width: 94%"></div>
+                                    </div>
+                                    <span>94%</span>
+                                </div>
+                                <div class="fila-dato-instructor">
+                                    <span>Tasa de aprendices que asisten</span>
+                                    <div class="barra-progreso">
+                                        <div class="relleno-progreso relleno-bajo" style="width: 89%"></div>
+                                    </div>
+                                    <span>89%</span>
+                                </div>
+                            </div>
+
+                        </div>
+                    </section>
+
+                </div>
+            </div>
+
+            <!-- Cumplimiento mes a mes -->
+            <section class="panel-listado">
+                <div class="pie-listado">
+                    <h2 class="titulo-seccion-perfil" style="margin-bottom: 0">Cumplimiento mes a mes</h2>
+                </div>
+
+                <svg class="grafico-linea-mensual" viewBox="0 0 600 240" role="img" aria-label="Cumplimiento mensual: enero 78%, febrero 82%, marzo 85%, abril 80%, mayo 88%, junio 92%, julio 94%, agosto 96%">
+                    <!-- Cuadrícula horizontal -->
+                    <line class="cuadricula-grafico-mensual" x1="40" y1="20" x2="580" y2="20" />
+                    <line class="cuadricula-grafico-mensual" x1="40" y1="60" x2="580" y2="60" />
+                    <line class="cuadricula-grafico-mensual" x1="40" y1="100" x2="580" y2="100" />
+                    <line class="cuadricula-grafico-mensual" x1="40" y1="140" x2="580" y2="140" />
+
+                    <!-- Ejes -->
+                    <line class="eje-grafico-mensual" x1="40" y1="20" x2="40" y2="180" />
+                    <line class="eje-grafico-mensual" x1="40" y1="180" x2="580" y2="180" />
+
+                    <!-- Etiquetas eje Y -->
+                    <text class="etiqueta-eje-mensual" x="32" y="24" text-anchor="end">100%</text>
+                    <text class="etiqueta-eje-mensual" x="32" y="64" text-anchor="end">75%</text>
+                    <text class="etiqueta-eje-mensual" x="32" y="104" text-anchor="end">50%</text>
+                    <text class="etiqueta-eje-mensual" x="32" y="144" text-anchor="end">25%</text>
+                    <text class="etiqueta-eje-mensual" x="32" y="184" text-anchor="end">0%</text>
+
+                    <!-- Línea de cumplimiento -->
+                    <polyline class="linea-cumplimiento-mensual" points="40,55.2 117.1,48.8 194.3,44 271.4,52 348.6,39.2 425.7,32.8 502.9,29.6 580,26.4" />
+
+                    <!-- Puntos por mes -->
+                    <circle class="punto-cumplimiento-mensual" cx="40" cy="55.2" r="4" />
+                    <circle class="punto-cumplimiento-mensual" cx="117.1" cy="48.8" r="4" />
+                    <circle class="punto-cumplimiento-mensual" cx="194.3" cy="44" r="4" />
+                    <circle class="punto-cumplimiento-mensual" cx="271.4" cy="52" r="4" />
+                    <circle class="punto-cumplimiento-mensual" cx="348.6" cy="39.2" r="4" />
+                    <circle class="punto-cumplimiento-mensual" cx="425.7" cy="32.8" r="4" />
+                    <circle class="punto-cumplimiento-mensual" cx="502.9" cy="29.6" r="4" />
+                    <circle class="punto-cumplimiento-mensual" cx="580" cy="26.4" r="4" />
+
+                    <!-- Etiquetas eje X (meses) -->
+                    <text class="etiqueta-eje-mensual" x="40" y="200" text-anchor="middle">Ene</text>
+                    <text class="etiqueta-eje-mensual" x="117.1" y="200" text-anchor="middle">Feb</text>
+                    <text class="etiqueta-eje-mensual" x="194.3" y="200" text-anchor="middle">Mar</text>
+                    <text class="etiqueta-eje-mensual" x="271.4" y="200" text-anchor="middle">Abr</text>
+                    <text class="etiqueta-eje-mensual" x="348.6" y="200" text-anchor="middle">May</text>
+                    <text class="etiqueta-eje-mensual" x="425.7" y="200" text-anchor="middle">Jun</text>
+                    <text class="etiqueta-eje-mensual" x="502.9" y="200" text-anchor="middle">Jul</text>
+                    <text class="etiqueta-eje-mensual" x="580" y="200" text-anchor="middle">Ago</text>
+
+                    <!-- Título del eje X -->
+                    <text class="etiqueta-titulo-eje-mensual" x="310" y="228" text-anchor="middle">Meses</text>
+                </svg>
+            </section>
+
+            <!-- Historial de reportes (ancho completo, debajo de las dos columnas) -->
+            <section class="panel-listado">
+                <div class="pie-listado">
+                    <h2 class="titulo-seccion-perfil" style="margin-bottom: 0">Historial de reportes</h2>
+                </div>
+
+                <div class="contenedor-tabla-listado">
+                    <table class="tabla-listado-fichas">
+                        <thead>
+                            <tr>
+                                <th>Fecha</th>
+                                <th>Ficha</th>
+                                <th>Reporte</th>
+                                <th>Estado</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>18/08/2026</td>
+                                <td>301002</td>
+                                <td>Registro de asistencia diaria</td>
+                                <td><span class="etiqueta-estado etiqueta-estado-activo">Al día</span></td>
+                            </tr>
+                            <tr>
+                                <td>17/08/2026</td>
+                                <td>301010</td>
+                                <td>Registro de asistencia diaria</td>
+                                <td><span class="etiqueta-estado etiqueta-estado-activo">Al día</span></td>
+                            </tr>
+                            <tr>
+                                <td>16/08/2026</td>
+                                <td>301002</td>
+                                <td>Justificación de ausencias</td>
+                                <td><span class="etiqueta-estado etiqueta-estado-pendiente">Pendiente</span></td>
+                            </tr>
+                            <tr>
+                                <td>15/08/2026</td>
+                                <td>301010</td>
+                                <td>Registro de asistencia diaria</td>
+                                <td><span class="etiqueta-estado etiqueta-estado-activo">Al día</span></td>
+                            </tr>
+                            <tr>
+                                <td>14/08/2026</td>
+                                <td>301002</td>
+                                <td>Reporte de novedades</td>
+                                <td><span class="etiqueta-estado etiqueta-estado-activo">Al día</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+        </main>
+
+        <footer class="pie-dashboard">
+            <div class="marca-pie">
+                <img src="../../../src/assets/img/LogoNegativo/negativo_con_eslogan_transparente.png" alt="Logo PuntualiX" class="logo-puntualix-pie" />
+                <div class="texto-marca-pie">
+                    <p>Desarrollado en el marco del proyecto de formación SENA · 2026</p>
+                    <p class="copyright-pie">
+                        <i class="fa-regular fa-copyright" aria-hidden="true"></i>
+                        2026 Puntualix. Todos los derechos reservados
+                    </p>
+                </div>
+            </div>
+
+            <div class="info-programa-pie">
+                <img src="../../../src/assets/img/LogoSena/SenaSobreVerde.png" alt="SENA" class="logo-sena-pie" />
+                <p>
+                    Programa: Análisis y desarrollo de Software<br />
+                    Ficha: 3267541
+                </p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="../../../src/js/main.js"></script>
+</body>
+</html>

@@ -1,86 +1,13 @@
 // src/js/main.js
+// ==========================================================
+// FASE ACTUAL: HTML/CSS sin dependencia de JavaScript.
+// ÚNICAMENTE se conserva la autenticación simulada del login.
+// Todo el comportamiento dinámico anterior (inyección de
+// componentes, pestañas, overlay) quedó retirado de esta fase
+// y se retomará cuando se implemente la fase de JS.
+// ==========================================================
 
 document.addEventListener('DOMContentLoaded', function () {
-
-    // ==========================================================
-    // COMPONENTES COMPARTIDOS — Navbar y pie de página
-    // Inyectados desde frontend/componentes/
-    // Requiere servir el sitio con un servidor local
-    // ==========================================================
-
-    const contenedorNavbar = document.querySelector('#barra-navegacion');
-
-    if (contenedorNavbar) {
-        const paginaActiva = contenedorNavbar.dataset.paginaActiva;
-
-        fetch('../../componentes/navbar.html')
-            .then(function (respuesta) { return respuesta.text(); })
-            .then(function (html) {
-                contenedorNavbar.outerHTML = html;
-
-                document.querySelectorAll('.enlace-nav[data-pagina]').forEach(function (enlace) {
-                    if (enlace.dataset.pagina === paginaActiva) {
-                        enlace.classList.add('enlace-nav-activo');
-                    }
-                });
-
-                // ==================================================
-                // Datos del usuario de la página (luego vendrán de
-                // la sesión/backend). Quedan los valores del
-                // componente si la página no los define.
-                // ==================================================
-                const nombreUsuario = document.querySelector('.nombre-usuario');
-                const rolUsuarioPagina = contenedorNavbar.dataset.usuarioRol;
-
-                if (nombreUsuario && contenedorNavbar.dataset.usuarioNombre) {
-                    nombreUsuario.textContent = contenedorNavbar.dataset.usuarioNombre;
-                }
-
-                const rolUsuarioTexto = document.querySelector('.rol-usuario');
-                if (rolUsuarioTexto && contenedorNavbar.dataset.usuarioRol) {
-                    rolUsuarioTexto.textContent = contenedorNavbar.dataset.usuarioRol;
-                }
-
-                // ==================================================
-                // Filtro por rol: oculta enlaces y opciones del menú
-                // marcados con data-roles que no incluyan el rol de
-                // la página actual
-                // ==================================================
-                if (rolUsuarioPagina) {
-                    document.querySelectorAll('[data-roles]').forEach(function (elemento) {
-                        const rolesPermitidos = elemento.dataset.roles.split(',').map(function (rol) {
-                            return rol.trim().toLowerCase();
-                        });
-
-                        if (!rolesPermitidos.includes(rolUsuarioPagina.toLowerCase())) {
-                            elemento.classList.add('oculto');
-                        }
-                    });
-                }
-
-                // ==================================================
-                // Menú desplegable del usuario
-                // (Por ahora solo queda oculto vía CSS. La lógica de
-                // mostrar/ocultar se implementa en la fase de JS.)
-                // ==================================================
-            })
-            .catch(function () {
-                console.error('No se pudo cargar el navbar. Abre el sitio con un servidor local.');
-            });
-    }
-
-    const contenedorPiePagina = document.querySelector('#pie-dashboard');
-
-    if (contenedorPiePagina) {
-        fetch('../../componentes/footer.html')
-            .then(function (respuesta) { return respuesta.text(); })
-            .then(function (html) {
-                contenedorPiePagina.outerHTML = html;
-            })
-            .catch(function () {
-                console.error('No se pudo cargar el pie de página. Abre el sitio con un servidor local.');
-            });
-    }
 
     // ==========================================================
     // LOGIN — Simulación temporal de "base de datos"
@@ -137,7 +64,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
             // FA01.1.4 - Cuenta desactivada
             if (!usuarioPrueba.activo) {
-                modalDesactivada.classList.remove('oculto');
+                if (modalDesactivada) {
+                    modalDesactivada.classList.remove('oculto');
+                }
                 return;
             }
 
@@ -149,8 +78,18 @@ document.addEventListener('DOMContentLoaded', function () {
             }
 
             // Todo correcto -> redirige al dashboard
-            window.location.href = 'admin/dashboard.html';
+            window.location.href = 'Admin/dashboard.html';
         });
     }
 
-}); // fin DOMContentLoaded
+    // -------------------------------------------------------------
+    // Bloques retirado en esta sesion, se retomaran en fase de JS:
+    //   - Inyección de componentes compartidos (navbar y footer)
+    //   - Marcado del enlace activo y filtro por rol en el navbar
+    //   - Menú desplegable del usuario
+    //   - Pestañas de detalle de ficha
+    //   - Overlay "Actualizar ficha"
+    //   - Listado de instructores: revelar tarjetas extra al hacer scroll
+    // --------------------------------------------------------------
+
+});
