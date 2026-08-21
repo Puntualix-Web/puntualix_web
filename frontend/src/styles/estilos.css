@@ -895,7 +895,7 @@ html {
     display: inline-block;
     width: 80px;
     height: 6px;
-    background-color: var(--color-fondo-tarjeta-suave);
+    background-color: var(--color-borde);
     border-radius: 4px;
     overflow: hidden;
     vertical-align: middle;
@@ -1124,6 +1124,71 @@ html {
 /* ==========================================================
    PANTALLA — LISTADO DE FICHAS
    ========================================================== */
+
+.franja-resumen {
+    display: flex;
+    align-items: center;
+    background-color: var(--color-blanco);
+    border-radius: 16px;
+    padding: 20px 24px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.dato-resumen {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex: 1;
+    min-width: 160px;
+}
+
+.dato-resumen i {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-fondo-seccion-alterna);
+    color: var(--color-primario);
+    font-size: 16px;
+    flex-shrink: 0;
+}
+
+.dato-resumen .info-resumen {
+    display: flex;
+    flex-direction: column;
+}
+
+.valor-resumen {
+    font-size: var(--texto-h3);
+    font-weight: var(--peso-bold);
+    color: var(--color-texto-principal);
+    line-height: 1.1;
+}
+
+.valor-resumen-positivo { color: var(--color-confirmacion); }
+.valor-resumen-negativo { color: var(--color-alerta-critica); }
+.valor-resumen-alerta { color: var(--color-advertencia); }
+
+.etiqueta-resumen {
+    font-size: var(--texto-caption);
+    color: var(--color-texto-secundario);
+}
+
+.divisor-resumen {
+    width: 1px;
+    align-self: stretch;
+    background-color: var(--color-borde);
+}
+
+@media (max-width: 900px) {
+    .divisor-resumen {
+        display: none;
+    }
+}
 
 .migas-pan {
     display: flex;
@@ -2264,13 +2329,386 @@ html {
     fill: var(--color-primario);
 }
 
+/* ==========================================================
+   PANTALLAS — REGISTRAR NUEVA FICHA / REGISTRAR INSTRUCTOR
+   ========================================================== */
+
+.distribucion-registro {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 20px;
+    align-items: start;
+}
+
+.distribucion-registro-instructor {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 20px;
+    align-items: start;
+}
+
+.columnas-formulario-instructor {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 20px;
+}
+
+.tarjeta-formulario-registro {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    background-color: var(--color-blanco);
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+}
+
+.cuadricula-registro-ficha {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px 20px;
+    margin-bottom: 24px;
+}
+
+.cuadricula-registro-instructor {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.acciones-formulario-registro {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 24px;
+}
+
+/* Panel de guía: consejos previos al registro (estado normal, antes de guardar) */
+
+.panel-guia-registro {
+    background-color: var(--color-blanco);
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+    border-top: 4px solid var(--color-informacion);
+}
+
+.icono-guia-registro {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: rgba(25, 118, 210, 0.12);
+    color: var(--color-informacion);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    margin-bottom: 16px;
+}
+
+.titulo-guia-registro {
+    font-size: var(--texto-label);
+    font-weight: var(--peso-semibold);
+    color: var(--color-texto-principal);
+    margin-bottom: 16px;
+}
+
+.lista-guia-registro {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.lista-guia-registro li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: var(--texto-caption);
+    color: var(--color-texto-apoyo);
+    line-height: 1.5;
+}
+
+.lista-guia-registro i {
+    color: var(--color-informacion);
+    margin-top: 3px;
+    flex-shrink: 0;
+}
+
+/* Columna de resultado: panel de éxito/error + nota informativa */
+
+.columna-resultado-registro {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* Ola decorativa de cierre, en flujo normal (no overlay) */
+
+.ola-cierre-pagina {
+    width: 100%;
+    line-height: 0;
+}
+
+.ola-cierre-pagina svg {
+    width: 100%;
+    height: 100px;
+    display: block;
+}
+
+.ola-cierre-pagina path {
+    fill: var(--color-primario);
+}
+
+@media (max-width: 900px) {
+    .distribucion-registro,
+    .distribucion-registro-instructor {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 640px) {
+    .columnas-formulario-instructor {
+        grid-template-columns: 1fr;
+    }
+
+    .cuadricula-registro-ficha {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* ---------- Panel de instructores: franja de alertas + fila desempeño/ranking ---------- */
+
+.franja-alertas-instructor {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+    background-color: var(--color-blanco);
+    border-radius: 16px;
+    padding: 16px 20px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+}
+
+.chip-alerta-instructor {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 14px;
+    border-radius: 999px;
+    font-size: var(--texto-caption);
+    font-weight: var(--peso-semibold);
+}
+
+.chip-alerta-critica {
+    background-color: var(--color-alerta-critica);
+    color: var(--color-blanco);
+}
+
+.chip-alerta-advertencia {
+    background-color: var(--color-advertencia);
+    color: var(--color-blanco);
+}
+
+.chip-alerta-informativa {
+    background-color: var(--color-confirmacion);
+    color: var(--color-blanco);
+}
+
+.franja-alertas-instructor .enlace-ver-mas {
+    margin-left: auto;
+    white-space: nowrap;
+}
+
+.fila-desempeno-ranking {
+    display: grid;
+    grid-template-columns: 260px auto 1fr;
+    gap: 28px;
+}
+
+.divisor-vertical-panel {
+    width: 1px;
+    background-color: var(--color-borde);
+}
+
+.columna-distribucion-desempeno {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    text-align: center;
+}
+
+.columna-distribucion-desempeno .dona-desempeno {
+    margin-top: 4px;
+}
+
+.columna-distribucion-desempeno .leyenda-dona-desempeno {
+    width: 100%;
+    text-align: left;
+}
+
+.columna-tabla-cumplimiento {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+@media (max-width: 900px) {
+    .fila-desempeno-ranking {
+        grid-template-columns: 1fr;
+    }
+
+    .divisor-vertical-panel {
+        display: none;
+    }
+}
+
 /* ---------- Instructores: grid de tarjetas (panel) ---------- */
+
+/* Tarjeta destacada de desempeño general con línea de tendencia */
+
+.tarjeta-desempeno-general {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 24px;
+    align-items: center;
+    background-color: var(--color-blanco);
+    border-top: 4px solid var(--color-primario);
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.datos-desempeno-general .titulo-indicador {
+    color: var(--color-texto-secundario);
+}
+
+.valor-desempeno-general {
+    font-size: 52px;
+    font-weight: var(--peso-bold);
+    line-height: 1.1;
+    color: var(--color-primario);
+}
+
+.variacion-desempeno-general {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 8px;
+    font-size: var(--texto-caption);
+    font-weight: var(--peso-semibold);
+    color: var(--color-confirmacion);
+}
+
+.detalles-desempeno-general {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid var(--color-borde);
+}
+
+.detalle-desempeno {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.detalle-desempeno-valor-advertencia {
+    color: var(--color-advertencia);
+}
+
+.detalle-desempeno-valor-critico {
+    color: var(--color-alerta-critica);
+}
+
+.detalle-desempeno-valor {
+    font-size: var(--texto-h3);
+    font-weight: var(--peso-bold);
+    color: var(--color-texto-principal);
+}
+
+.detalle-desempeno-etiqueta {
+    font-size: var(--texto-caption);
+    color: var(--color-texto-apoyo);
+}
+
+.grafico-barras-desempeno {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 16px;
+    height: 100%;
+    padding: 8px 0 0;
+}
+
+.columna-barra-desempeno {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+}
+
+.barra-desempeno {
+    width: 100%;
+    max-width: 56px;
+    height: 130px;
+    background-color: var(--color-fondo-seccion-alterna);
+    border-radius: 8px 8px 0 0;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+}
+
+.relleno-desempeno {
+    width: 100%;
+    border-radius: 8px 8px 0 0;
+}
+
+.relleno-desempeno-alto {
+    background-color: var(--color-confirmacion);
+}
+
+.relleno-desempeno-medio {
+    background-color: var(--color-advertencia);
+}
+
+.relleno-desempeno-bajo {
+    background-color: var(--color-alerta-critica);
+}
+
+.relleno-desempeno-actual {
+    outline: 2px solid var(--color-primario);
+    outline-offset: -2px;
+}
+
+.barra-valor-desempeno {
+    font-size: var(--texto-caption);
+    font-weight: var(--peso-semibold);
+    color: var(--color-texto-principal);
+}
+
+.etiqueta-mes-desempeno {
+    font-size: var(--texto-caption);
+    color: var(--color-texto-apoyo);
+}
+
+.etiqueta-mes-actual {
+    color: #1e5f24;
+    font-weight: var(--peso-bold);
+}
 
 .grid-tarjetas-instructor {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    padding: 20px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+    padding: 16px;
 }
 
 .tarjeta-instructor-enlace {
@@ -2282,12 +2720,40 @@ html {
     gap: 10px;
     text-decoration: none;
     color: inherit;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .tarjeta-instructor-enlace:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* Versión destacado crítico: instructores con prioridad de atención */
+
+.tarjeta-instructor-destacado-critico {
+    border: 2px solid var(--color-alerta-critica);
+    background-color: #FDECEA;
+}
+
+.tarjeta-instructor-destacado-critico:hover {
+    box-shadow: 0 10px 20px rgba(211, 47, 47, 0.25);
+}
+
+.enlace-tarjeta-instructor {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    text-decoration: none;
+    color: inherit;
+}
+
+.enlace-tarjeta-instructor:hover .nombre-tarjeta-instructor {
+    color: var(--color-primario);
+}
+
+.tarjeta-instructor-enlace .boton-ver-perfil {
+    margin-top: auto;
 }
 
 .cabecera-tarjeta-instructor {
@@ -2346,16 +2812,19 @@ html {
 /* ---------- Instructores: tarjetas detalladas con gráfico (listado) ---------- */
 
 .grid-tarjetas-instructor-detallado {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 16px;
 }
 
 .tarjeta-instructor-detallada {
     background-color: var(--color-blanco);
-    border-radius: 16px;
+    border-radius: 12px;
     padding: 20px;
     display: flex;
     flex-direction: column;
     gap: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
@@ -2364,39 +2833,87 @@ html {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
 }
 
+.tarjeta-instructor-extra {
+    display: none;
+}
+
 .cabecera-tarjeta-instructor-detallada {
     display: flex;
     align-items: center;
-    gap: 14px;
+    gap: 10px;
 }
 
 .cabecera-tarjeta-instructor-detallada .etiqueta-estado {
     margin-left: auto;
-    font-size: 13px;
-    padding: 5px 12px;
+    font-size: 14px;
+    padding: 4px 10px;
 }
 
-/* Mini gráfico de barras con CSS puro: columnas con altura según % */
+.tarjeta-instructor-detallada .avatar-instructor {
+    width: 36px;
+    height: 36px;
+    font-size: 14px;
+}
 
-.grafico-mini-instructor {
-    display: flex;
-    align-items: flex-end;
-    gap: 8px;
-    height: 70px;
-    padding: 8px 4px 0;
+/* Línea de tendencia por instructor: SVG con curva y área degradada */
+
+.contenedor-grafico-tendencia {
+    position: relative;
+}
+
+.grafico-tendencia-instructor {
+    display: block;
+    width: 100%;
+    height: 90px;
     background-color: var(--color-fondo-seccion-alterna);
-    border-radius: 10px;
+    border-radius: 8px;
 }
 
-.barra-mini-grafico {
-    flex: 1;
-    border-radius: 4px 4px 0 0;
-    min-height: 4px;
+.punto-tendencia-final {
+    position: absolute;
+    right: -2px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: var(--color-blanco);
+    border: 3px solid;
+    transform: translateY(-50%);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
 }
 
-.barra-mini-grafico-bajo { background-color: var(--color-confirmacion); }
-.barra-mini-grafico-moderado { background-color: var(--color-advertencia); }
-.barra-mini-grafico-critico { background-color: var(--color-alerta-critica); }
+.punto-tendencia-final-verde { border-color: var(--color-confirmacion); }
+.punto-tendencia-final-amarilla { border-color: var(--color-advertencia); }
+.punto-tendencia-final-roja { border-color: var(--color-alerta-critica); }
+
+.linea-tendencia {
+    fill: none;
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.18));
+}
+
+.area-tendencia {
+    fill-opacity: 1;
+}
+
+.linea-tendencia-verde { stroke: var(--color-confirmacion); }
+.area-tendencia-verde { fill: url(#gradiente-tendencia-verde); }
+
+.linea-tendencia-amarilla { stroke: var(--color-advertencia); }
+.area-tendencia-amarilla { fill: url(#gradiente-tendencia-amarilla); }
+
+.linea-tendencia-roja { stroke: var(--color-alerta-critica); }
+.area-tendencia-roja { fill: url(#gradiente-tendencia-roja); }
+
+.periodo-tendencia-instructor {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    font-weight: var(--peso-semibold);
+    color: var(--color-texto-secundario);
+    margin-top: -6px;
+}
 
 /* Detalle desplegable por instructor: fichas asignadas + cumplimiento */
 
@@ -2450,20 +2967,56 @@ html {
     width: auto;
 }
 
-/* Selector de ficha destacado en el panel */
+/* Tarjeta única: filtro por ficha + instructores en una sola tarjeta blanca */
 
-.seccion-resumen-instructores {
+.tarjeta-instructores-ficha {
     background-color: var(--color-blanco);
     border-radius: 16px;
     padding: 24px;
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
-.seccion-resumen-instructores h2 {
+.encabezado-instructores-ficha {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.encabezado-instructores-ficha h2 {
     font-size: var(--texto-label);
     color: var(--color-texto-principal);
+}
+
+.divisor-sutil {
+    height: 1px;
+    background-color: var(--color-borde);
+    width: 100%;
+}
+
+.pie-tarjeta-instructores-ficha {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.boton-ver-todos-instructores {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border-radius: 8px;
+    background-color: var(--color-primario);
+    color: var(--color-blanco);
+    font-size: var(--texto-caption);
+    font-weight: var(--peso-semibold);
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+}
+
+.boton-ver-todos-instructores:hover {
+    background-color: var(--color-primario-hover, var(--color-primario));
 }
 
 .chips-ficha {
@@ -2611,8 +3164,374 @@ html {
     transition: background-color 0.2s ease;
 }
 
+.boton-reporte-perfil {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border-radius: 8px;
+    background-color: var(--color-primario);
+    color: var(--color-blanco);
+    font-size: var(--texto-caption);
+    font-weight: var(--peso-semibold);
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+}
+
+.boton-reporte-perfil:hover {
+    background-color: var(--color-primario-oscuro, #174f38);
+}
+
 .boton-ver-perfil:hover {
     background-color: #1e5f24;
+}
+
+/* Tarjeta de asistencia general de aprendices */
+
+.tarjeta-asistencia-aprendices {
+    background-color: var(--color-blanco);
+    border-top: 4px solid var(--color-informacion);
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.cabecera-asistencia-aprendices {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.valor-asistencia-general {
+    font-size: 40px;
+    font-weight: var(--peso-bold);
+    color: var(--color-informacion);
+    line-height: 1;
+}
+
+.grupos-asistencia-aprendices {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.grupo-asistencia-aprendices {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: var(--color-blanco);
+    border-top: 4px solid var(--color-informacion);
+    border-radius: 12px;
+    padding: 16px;
+    min-height: 220px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.grupo-asistencia-aprendices:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+}
+
+.grupo-asistencia-aprendices:nth-child(2) {
+    border-top-color: var(--color-confirmacion);
+}
+
+.grupo-asistencia-aprendices:nth-child(3) {
+    border-top-color: var(--color-advertencia);
+}
+
+.etiqueta-grupo-asistencia {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: var(--texto-label);
+    font-weight: var(--peso-semibold);
+    color: var(--color-texto-principal);
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--color-borde);
+}
+
+.grupo-asistencia-aprendices:nth-child(1) .etiqueta-grupo-asistencia i { color: var(--color-informacion); }
+.grupo-asistencia-aprendices:nth-child(2) .etiqueta-grupo-asistencia i { color: var(--color-confirmacion); }
+.grupo-asistencia-aprendices:nth-child(3) .etiqueta-grupo-asistencia i { color: var(--color-advertencia); }
+
+.item-asistencia-aprendices {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.grupo-valor-asistencia {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.tendencia-asistencia {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    font-size: 11px;
+    font-weight: var(--peso-semibold);
+    padding: 2px 6px;
+    border-radius: 10px;
+}
+
+.tendencia-positiva {
+    color: var(--color-confirmacion);
+    background-color: rgba(46, 125, 50, 0.12);
+}
+
+.tendencia-negativa {
+    color: var(--color-alerta-critica);
+    background-color: rgba(211, 47, 47, 0.12);
+}
+
+/* ---------- Perfil de instructor ---------- */
+
+.cabecera-perfil-instructor-completo {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 14px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--color-borde);
+}
+
+.logo-perfil-instructor {
+    width: 52px;
+    height: 52px;
+    flex-shrink: 0;
+    object-fit: contain;
+}
+
+.avatar-perfil-completo {
+    width: 52px;
+    height: 52px;
+    flex-shrink: 0;
+}
+
+.datos-nombre-perfil {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    text-align: left;
+    flex: 1;
+    min-width: 180px;
+}
+
+.datos-globales-perfil {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    margin-left: auto;
+}
+
+.dato-global-perfil {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    align-items: center;
+}
+
+.distribucion-perfil-instructor {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 20px;
+    align-items: start;
+}
+
+.panel-informacion-personal {
+    background-color: var(--color-blanco);
+    border-radius: 16px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.item-info-personal {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--color-borde);
+}
+
+.item-info-personal:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.item-info-personal i {
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    background-color: var(--color-fondo-seccion-alterna);
+    color: var(--color-primario);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.item-info-personal > div {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.etiqueta-info-personal {
+    font-size: var(--texto-caption);
+    color: var(--color-texto-apoyo);
+}
+
+.valor-info-personal {
+    font-size: var(--texto-cuerpo);
+    font-weight: var(--peso-semibold);
+    color: var(--color-texto-principal);
+    overflow-wrap: anywhere;
+}
+
+.contenido-principal-perfil {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Resumen general de desempeño con gráfico de dona (CSS puro) */
+
+.distribucion-resumen-desempeno {
+    display: grid;
+    grid-template-columns: auto 1fr 1fr;
+    gap: 24px;
+    align-items: center;
+    padding-top: 8px;
+}
+
+.dona-desempeno {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.anillo-dona-desempeno {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    background: conic-gradient(
+        var(--color-confirmacion) 0% 75%,
+        var(--color-advertencia) 75% 91%,
+        var(--color-alerta-critica) 91% 100%
+    );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.centro-dona-desempeno {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: var(--color-blanco);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+}
+
+.valor-dona-desempeno {
+    font-size: var(--texto-h3);
+    font-weight: var(--peso-bold);
+    color: var(--color-texto-principal);
+}
+
+.etiqueta-dona-desempeno {
+    font-size: var(--texto-caption);
+    color: var(--color-texto-apoyo);
+}
+
+.leyenda-dona-desempeno {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.leyenda-dona-desempeno .item-leyenda {
+    justify-content: space-between;
+}
+
+.color-leyenda {
+    width: 14px;
+    height: 14px;
+    border-radius: 4px;
+    flex-shrink: 0;
+}
+
+.color-leyenda-alto { background-color: var(--color-confirmacion); }
+.color-leyenda-medio { background-color: var(--color-advertencia); }
+.color-leyenda-bajo { background-color: var(--color-alerta-critica); }
+
+/* Gráfico de línea con ejes: cumplimiento mes a mes (perfil de instructor) */
+
+.grafico-linea-mensual {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin-top: 8px;
+}
+
+.eje-grafico-mensual {
+    stroke: var(--color-texto-secundario);
+    stroke-width: 1.5;
+}
+
+.cuadricula-grafico-mensual {
+    stroke: var(--color-borde);
+    stroke-width: 1;
+    stroke-dasharray: 3 3;
+}
+
+.etiqueta-eje-mensual {
+    font-family: var(--fuente-contenido);
+    font-size: 11px;
+    fill: var(--color-texto-secundario);
+}
+
+.etiqueta-titulo-eje-mensual {
+    font-family: var(--fuente-contenido);
+    font-size: 13px;
+    font-weight: var(--peso-semibold);
+    fill: var(--color-texto-principal);
+}
+
+.linea-cumplimiento-mensual {
+    fill: none;
+    stroke: var(--color-primario);
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.punto-cumplimiento-mensual {
+    fill: var(--color-primario);
+    stroke: var(--color-blanco);
+    stroke-width: 2;
+}
+
+.metricas-resumen-desempeno {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding-left: 24px;
+    border-left: 1px solid var(--color-borde);
 }
 
 /* Tarjeta detallada clickeable que abre el perfil */
@@ -2729,6 +3648,47 @@ html {
     .grupo-marca-footer {
         margin-right: 0;
     }
+
+    .copyright small {
+        white-space: normal;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 420px) {
+    .pantalla-inicio-sesion,
+    .pantalla-olvido-password {
+        padding: 32px 20px 140px;
+    }
+
+    .tarjeta-flotante {
+        padding: 24px 18px;
+    }
+
+    .icono-candado,
+    .icono-marca {
+        width: 52px;
+        height: 52px;
+    }
+
+    .hero .logo-puntualix {
+        width: 200px;
+    }
+
+    .hero h1 {
+        font-size: 24px;
+    }
+
+    .boton-iniciar-sesion,
+    .boton-enviar-recuperacion,
+    .boton-establecer-password {
+        padding: 12px;
+    }
+
+    .copyright img {
+        height: 20px;
+    }
 }
 
 @media (min-width: 1441px) {
@@ -2789,18 +3749,51 @@ html {
         grid-template-columns: 1fr 1fr;
     }
 
-    .grid-tarjetas-instructor {
+    .grid-tarjetas-instructor,
+    .grid-tarjetas-instructor-detallado {
         grid-template-columns: repeat(2, 1fr);
+    }
+
+    .grupos-asistencia-aprendices {
+        grid-template-columns: 1fr;
+    }
+
+    .distribucion-perfil-instructor {
+        grid-template-columns: 1fr;
+    }
+
+    .distribucion-resumen-desempeno {
+        grid-template-columns: 1fr;
+    }
+
+    .metricas-resumen-desempeno {
+        padding-left: 0;
+        border-left: none;
     }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1300px) {
     .barra-navegacion {
         flex-wrap: wrap;
         gap: 16px;
         padding: 16px 24px;
     }
 
+    .menu-navegacion {
+        order: 3;
+        width: 100%;
+        margin: 0;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 16px;
+    }
+
+    .separador-nav {
+        display: none;
+    }
+}
+
+@media (max-width: 900px) {
     .panel-listado {
         height: auto;
     }
@@ -2844,19 +3837,6 @@ html {
     }
 
     .onda-decorativa-ficha {
-        display: none;
-    }
-
-    .menu-navegacion {
-        order: 3;
-        width: 100%;
-        margin: 0;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 16px;
-    }
-
-    .separador-nav {
         display: none;
     }
 
@@ -2952,6 +3932,23 @@ html {
     .contenedor-indicadores-panel {
         grid-template-columns: 1fr;
     }
+
+    .tarjeta-desempeno-general {
+        grid-template-columns: 1fr;
+    }
+
+    .cabecera-perfil-instructor-completo {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .datos-globales-perfil {
+        margin-left: 0;
+    }
+
+    .datos-globales-perfil .dato-global-perfil {
+        align-items: flex-start;
+    }
 }
 
 @media (min-width: 1800px) {
@@ -2965,5 +3962,59 @@ html {
 
     .tarjeta-saludo h1 {
         font-size: 44px;
+    }
+}
+
+
+/* ==========================================================
+   RESPONSIVE — COMPONENTES NUEVOS
+   (franjas de resumen, registrar ficha/instructor, tendencias)
+   ========================================================== */
+
+.cabecera-asistencia-aprendices {
+    flex-wrap: wrap;
+}
+
+.franja-alertas-instructor .enlace-ver-mas {
+    white-space: normal;
+}
+
+@media (max-width: 900px) {
+    .dato-resumen {
+        min-width: 45%;
+    }
+
+    .franja-alertas-instructor {
+        justify-content: flex-start;
+    }
+
+    .franja-alertas-instructor .enlace-ver-mas {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .acciones-formulario-registro button {
+        flex: 1;
+    }
+}
+
+@media (max-width: 640px) {
+    .dato-resumen {
+        min-width: 100%;
+    }
+
+    .tarjeta-formulario-registro {
+        padding: 20px 16px;
+    }
+
+    .cabecera-tarjeta-instructor-detallada,
+    .cabecera-tarjeta-instructor {
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 480px) {
+    .cuadricula-registro-ficha {
+        grid-template-columns: 1fr;
     }
 }
