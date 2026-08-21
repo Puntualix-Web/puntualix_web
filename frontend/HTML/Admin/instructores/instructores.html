@@ -53,11 +53,11 @@
                 <a href="../bitacora/bitacora.html" class="enlace-nav" data-pagina="bitacora" data-roles="administrador">
                     <i class="fa-solid fa-clock-rotate-left"></i> Bitácora
                 </a>
+                <a href="../estadisticas/estadisticas.html" class="enlace-nav" data-pagina="estadisticas" data-roles="administrador">
+                    <i class="fa-solid fa-chart-line"></i> Estadísticas
+                </a>
                 <a href="" class="enlace-nav" data-pagina="reportes" data-roles="administrador,instructor">
                     <i class="fa-solid fa-chart-bar"></i> Reportes
-                </a>
-                <a href="" class="enlace-nav" data-pagina="estadisticas" data-roles="administrador">
-                    <i class="fa-solid fa-chart-line"></i> Estadísticas
                 </a>
             </nav>
 
@@ -87,7 +87,7 @@
                     <a href="" class="item-menu-usuario" data-roles="administrador,instructor,aprendiz">
                         <i class="fa-solid fa-file-circle-check"></i> Ver justificaciones
                     </a>
-                    <a href="" class="item-menu-usuario" data-roles="administrador">
+                    <a href="../estadisticas/estadisticas.html" class="item-menu-usuario" data-roles="administrador">
                         <i class="fa-solid fa-chart-line"></i> Ver estadísticas
                     </a>
                     <a href="../../InicioSesion.html" class="item-menu-usuario item-menu-cerrar-sesion" data-roles="administrador,instructor,aprendiz">
@@ -131,7 +131,7 @@
 
                 <span class="divisor-resumen" aria-hidden="true"></span>
 
-                <div class="dato-resumen">
+                <div class="dato-resumen dato-resumen-negativo">
                     <i class="fa-solid fa-shield-halved" aria-hidden="true"></i>
                     <div class="info-resumen">
                         <span class="valor-resumen valor-resumen-negativo">3</span>
@@ -163,9 +163,8 @@
                             <label for="filtro-sede-listado">Sede</label>
                             <select id="filtro-sede-listado" class="selector-filtro">
                                 <option value="todas">Todas</option>
-                                <option value="centro">Centro de Sistemas</option>
-                                <option value="norte">Sede Norte</option>
-                                <option value="sur">Sede Sur</option>
+                                <option value="principal">Casa de la Convención</option>
+                                <option value="industria">CIAA</option>
                             </select>
                         </div>
 
@@ -202,6 +201,11 @@
                                 <option value="bajo">Bajo (menor a 70%)</option>
                             </select>
                         </div>
+
+                        <button type="button" class="boton-limpiar-filtros">
+                            <i class="fa-solid fa-broom" aria-hidden="true"></i>
+                            Limpiar filtros
+                        </button>
 
                         <div class="grupo-busqueda">
                             <input type="text" placeholder="Buscar instructor" class="campo-busqueda-ficha" />

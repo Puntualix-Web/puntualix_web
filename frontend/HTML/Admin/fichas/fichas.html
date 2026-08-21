@@ -35,11 +35,11 @@
                 <a href="../bitacora/bitacora.html" class="enlace-nav" data-pagina="bitacora" data-roles="administrador">
                     <i class="fa-solid fa-clock-rotate-left"></i> Bitácora
                 </a>
+                <a href="../estadisticas/estadisticas.html" class="enlace-nav" data-pagina="estadisticas" data-roles="administrador">
+                    <i class="fa-solid fa-chart-line"></i> Estadísticas
+                </a>
                 <a href="" class="enlace-nav" data-pagina="reportes" data-roles="administrador,instructor">
                     <i class="fa-solid fa-chart-bar"></i> Reportes
-                </a>
-                <a href="" class="enlace-nav" data-pagina="estadisticas" data-roles="administrador">
-                    <i class="fa-solid fa-chart-line"></i> Estadísticas
                 </a>
             </nav>
 
@@ -69,7 +69,7 @@
                     <a href="" class="item-menu-usuario" data-roles="administrador,instructor,aprendiz">
                         <i class="fa-solid fa-file-circle-check"></i> Ver justificaciones
                     </a>
-                    <a href="" class="item-menu-usuario" data-roles="administrador">
+                    <a href="../estadisticas/estadisticas.html" class="item-menu-usuario" data-roles="administrador">
                         <i class="fa-solid fa-chart-line"></i> Ver estadísticas
                     </a>
                     <a href="../../InicioSesion.html" class="item-menu-usuario item-menu-cerrar-sesion" data-roles="administrador,instructor,aprendiz">
@@ -102,7 +102,7 @@
 
                 <span class="divisor-resumen" aria-hidden="true"></span>
 
-                <div class="dato-resumen">
+                <div class="dato-resumen dato-resumen-positivo">
                     <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
                     <div class="info-resumen">
                         <span class="valor-resumen valor-resumen-positivo">39</span>
@@ -112,7 +112,7 @@
 
                 <span class="divisor-resumen" aria-hidden="true"></span>
 
-                <div class="dato-resumen">
+                <div class="dato-resumen dato-resumen-negativo">
                     <i class="fa-solid fa-circle-xmark" aria-hidden="true"></i>
                     <div class="info-resumen">
                         <span class="valor-resumen valor-resumen-negativo">15</span>
@@ -145,8 +145,8 @@
                             <label for="filtro-sede">Sede</label>
                             <select id="filtro-sede" class="selector-filtro">
                                 <option value="todos">Todas</option>
-                                <option value="cinaf">CINAF</option>
-                                <option value="ciaa">CIAA-Zona Franca</option>
+                                <option value="principal">Casa de la Convención</option>
+                                <option value="industria">CIAA</option>
                             </select>
                         </div>
 
@@ -179,6 +179,11 @@
                                 <option value="inactiva">Inactiva</option>
                             </select>
                         </div>
+
+                        <button type="button" class="boton-limpiar-filtros">
+                            <i class="fa-solid fa-broom" aria-hidden="true"></i>
+                            Limpiar filtros
+                        </button>
 
                         <div class="grupo-busqueda">
                             <input type="text" placeholder="Buscar ficha" class="campo-busqueda-ficha" />

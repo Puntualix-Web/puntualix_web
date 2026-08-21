@@ -83,44 +83,13 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // -------------------------------------------------------------
-    // LISTADO DE INSTRUCTORES — Mostrar más tarjetas al hacer scroll
-    // Fase temporal sin backend: revela las tarjetas ocultas.
-    // -------------------------------------------------------------
-    const tarjetasExtra = document.querySelectorAll('.tarjeta-instructor-extra');
-    const pieListado = document.querySelector('.pie-listado .texto-conteo-listado');
-
-    if (tarjetasExtra.length > 0) {
-        const revelarExtras = function () {
-            tarjetasExtra.forEach(function (tarjeta) {
-                tarjeta.style.display = 'flex';
-            });
-            if (pieListado) {
-                pieListado.textContent = 'Mostrando 12 instructores de 24';
-            }
-        };
-
-        const comprobarScroll = function () {
-            const puntoRevelacion = window.innerHeight + window.scrollY;
-            const ultimaTarjeta = tarjetasExtra[tarjetasExtra.length - 1];
-            const ultimaPosicion = ultimaTarjeta.getBoundingClientRect().top + window.scrollY;
-
-            if (puntoRevelacion >= ultimaPosicion) {
-                revelarExtras();
-                window.removeEventListener('scroll', comprobarScroll);
-            }
-        };
-
-        window.addEventListener('scroll', comprobarScroll);
-        comprobarScroll();
-    }
-
-    // -------------------------------------------------------------
     // Bloques retirado en esta sesion, se retomaran en fase de JS:
     //   - Inyección de componentes compartidos (navbar y footer)
     //   - Marcado del enlace activo y filtro por rol en el navbar
     //   - Menú desplegable del usuario
     //   - Pestañas de detalle de ficha
     //   - Overlay "Actualizar ficha"
+    //   - Listado de instructores: revelar tarjetas extra al hacer scroll
     // --------------------------------------------------------------
 
 });

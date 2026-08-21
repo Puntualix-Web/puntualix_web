@@ -35,11 +35,11 @@
                 <a href="bitacora.html" class="enlace-nav enlace-nav-activo" data-pagina="bitacora" data-roles="administrador">
                     <i class="fa-solid fa-clock-rotate-left"></i> Bitácora
                 </a>
+                <a href="../estadisticas/estadisticas.html" class="enlace-nav" data-pagina="estadisticas" data-roles="administrador">
+                    <i class="fa-solid fa-chart-line"></i> Estadísticas
+                </a>
                 <a href="" class="enlace-nav" data-pagina="reportes" data-roles="administrador,instructor">
                     <i class="fa-solid fa-chart-bar"></i> Reportes
-                </a>
-                <a href="" class="enlace-nav" data-pagina="estadisticas" data-roles="administrador">
-                    <i class="fa-solid fa-chart-line"></i> Estadísticas
                 </a>
             </nav>
 
@@ -69,7 +69,7 @@
                     <a href="" class="item-menu-usuario" data-roles="administrador,instructor,aprendiz">
                         <i class="fa-solid fa-file-circle-check"></i> Ver justificaciones
                     </a>
-                    <a href="" class="item-menu-usuario" data-roles="administrador">
+                    <a href="../estadisticas/estadisticas.html" class="item-menu-usuario" data-roles="administrador">
                         <i class="fa-solid fa-chart-line"></i> Ver estadísticas
                     </a>
                     <a href="../../InicioSesion.html" class="item-menu-usuario item-menu-cerrar-sesion" data-roles="administrador,instructor,aprendiz">
@@ -102,7 +102,7 @@
 
                 <span class="divisor-resumen" aria-hidden="true"></span>
 
-                <div class="dato-resumen">
+                <div class="dato-resumen dato-resumen-positivo">
                     <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
                     <div class="info-resumen">
                         <span class="valor-resumen valor-resumen-positivo">211</span>
@@ -112,7 +112,7 @@
 
                 <span class="divisor-resumen" aria-hidden="true"></span>
 
-                <div class="dato-resumen">
+                <div class="dato-resumen dato-resumen-alerta">
                     <i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>
                     <div class="info-resumen">
                         <span class="valor-resumen valor-resumen-alerta">19</span>
@@ -122,7 +122,7 @@
 
                 <span class="divisor-resumen" aria-hidden="true"></span>
 
-                <div class="dato-resumen">
+                <div class="dato-resumen dato-resumen-negativo">
                     <i class="fa-solid fa-circle-xmark" aria-hidden="true"></i>
                     <div class="info-resumen">
                         <span class="valor-resumen valor-resumen-negativo">8</span>
@@ -137,49 +137,79 @@
                 <div class="barra-herramientas-listado">
                     <div class="grupo-herramientas-busqueda">
                         <div class="grupo-filtro">
-                            <label for="filtro-fecha-desde">Desde</label>
-                            <input type="date" id="filtro-fecha-desde" class="selector-filtro" value="2026-08-01">
-                        </div>
-
-                        <div class="grupo-filtro">
-                            <label for="filtro-fecha-hasta">Hasta</label>
-                            <input type="date" id="filtro-fecha-hasta" class="selector-filtro" value="2026-08-20">
-                        </div>
-
-                        <div class="grupo-filtro">
-                            <label for="filtro-modulo-bitacora">Módulo</label>
-                            <select id="filtro-modulo-bitacora" class="selector-filtro">
-                                <option value="todos">Todos</option>
-                                <option value="acceso">Acceso y autenticación</option>
-                                <option value="usuarios">Gestión de usuarios</option>
-                                <option value="asistencias">Asistencias</option>
-                                <option value="fichas">Gestión de fichas</option>
-                                <option value="justificaciones">Justificaciones</option>
-                                <option value="material">Material de apoyo</option>
-                                <option value="reportes">Reportes y descargas</option>
-                                <option value="alertas">Alertas</option>
+                            <label for="filtro-sede-bitacora">Sede</label>
+                            <select id="filtro-sede-bitacora" class="selector-filtro">
+                                <option value="todas">Todas</option>
+                                <option value="principal">Casa de la Convención</option>
+                                <option value="industria">CIAA</option>
                             </select>
                         </div>
 
                         <div class="grupo-filtro">
-                            <label for="filtro-rol-bitacora">Rol</label>
-                            <select id="filtro-rol-bitacora" class="selector-filtro">
-                                <option value="todos">Todos</option>
-                                <option value="admin">Administrador</option>
-                                <option value="instructor">Instructor</option>
-                                <option value="aprendiz">Aprendiz</option>
+                            <label for="filtro-area-bitacora">Área</label>
+                            <select id="filtro-area-bitacora" class="selector-filtro">
+                                <option value="todas">Todas</option>
+                                <option value="sistemas">Sistemas</option>
+                                <option value="diseno">Diseño</option>
+                                <option value="administrativa">Administrativa</option>
+                                <option value="electromecanica">Electromecánica</option>
                             </select>
                         </div>
 
-                        <div class="grupo-filtro">
-                            <label for="filtro-resultado-bitacora">Resultado</label>
-                            <select id="filtro-resultado-bitacora" class="selector-filtro">
-                                <option value="todos">Todos</option>
-                                <option value="exito">Éxito</option>
-                                <option value="alerta">Alerta</option>
-                                <option value="error">Error</option>
-                            </select>
-                        </div>
+                        <details class="menu-filtros-adicionales">
+                            <summary class="boton-mas-filtros">
+                                <i class="fa-solid fa-sliders" aria-hidden="true"></i>
+                                Más filtros
+                            </summary>
+                            <div class="panel-filtros-adicionales">
+                                <div class="grupo-filtro">
+                                    <label for="filtro-fecha-desde">Desde</label>
+                                    <input type="date" id="filtro-fecha-desde" class="selector-filtro" value="2026-08-01">
+                                </div>
+
+                                <div class="grupo-filtro">
+                                    <label for="filtro-fecha-hasta">Hasta</label>
+                                    <input type="date" id="filtro-fecha-hasta" class="selector-filtro" value="2026-08-20">
+                                </div>
+
+                                <div class="grupo-filtro">
+                                    <label for="filtro-modulo-bitacora">Módulo</label>
+                                    <select id="filtro-modulo-bitacora" class="selector-filtro">
+                                        <option value="todos">Todos</option>
+                                        <option value="acceso">Acceso y autenticación</option>
+                                        <option value="usuarios">Gestión de usuarios</option>
+                                        <option value="asistencias">Asistencias</option>
+                                        <option value="fichas">Gestión de fichas</option>
+                                        <option value="material">Material de apoyo</option>
+                                        <option value="reportes">Reportes y descargas</option>
+                                    </select>
+                                </div>
+
+                                <div class="grupo-filtro">
+                                    <label for="filtro-rol-bitacora">Rol</label>
+                                    <select id="filtro-rol-bitacora" class="selector-filtro">
+                                        <option value="todos">Todos</option>
+                                        <option value="admin">Administrador</option>
+                                        <option value="instructor">Instructor</option>
+                                    </select>
+                                </div>
+
+                                <div class="grupo-filtro">
+                                    <label for="filtro-resultado-bitacora">Resultado</label>
+                                    <select id="filtro-resultado-bitacora" class="selector-filtro">
+                                        <option value="todos">Todos</option>
+                                        <option value="exito">Éxito</option>
+                                        <option value="alerta">Alerta</option>
+                                        <option value="error">Error</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </details>
+
+                        <button type="button" class="boton-limpiar-filtros">
+                            <i class="fa-solid fa-broom" aria-hidden="true"></i>
+                            Limpiar filtros
+                        </button>
 
                         <div class="grupo-busqueda">
                             <input type="text" placeholder="Buscar usuario o acción" class="campo-busqueda-ficha" />
@@ -191,7 +221,17 @@
                 </div>
 
                 <div class="contenedor-tabla-listado">
-                    <table class="tabla-listado-fichas">
+                    <table class="tabla-listado-fichas tabla-bitacora">
+                    <colgroup>
+                        <col style="width: 12%">
+                        <col style="width: 11%">
+                        <col style="width: 9%">
+                        <col style="width: 11%">
+                        <col style="width: 13%">
+                        <col style="width: 28%">
+                        <col style="width: 9%">
+                        <col style="width: 7%">
+                    </colgroup>
                     <thead>
                         <tr>
                             <th>Fecha y hora</th>
@@ -201,18 +241,10 @@
                             <th>Acción</th>
                             <th>Detalle</th>
                             <th>Resultado</th>
+                            <th>Acciones</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>20/08/2026 07:52</td>
-                            <td>Andres Ramirez</td>
-                            <td>Administrador</td>
-                            <td>Acceso y autenticación</td>
-                            <td>Inicio de sesión</td>
-                            <td>Autenticación exitosa desde el panel administrativo</td>
-                            <td><span class="etiqueta-estado etiqueta-estado-activo">Éxito</span></td>
-                        </tr>
                         <tr>
                             <td>20/08/2026 08:15</td>
                             <td>Jorge Perez</td>
@@ -221,24 +253,7 @@
                             <td>Registro de asistencia</td>
                             <td>Ficha 301004 — Competencia "Análisis de requisitos"</td>
                             <td><span class="etiqueta-estado etiqueta-estado-activo">Éxito</span></td>
-                        </tr>
-                        <tr>
-                            <td>20/08/2026 08:41</td>
-                            <td>Maria Gonzales</td>
-                            <td>Instructor</td>
-                            <td>Justificaciones</td>
-                            <td>Aprobar justificación</td>
-                            <td>Justificación de inasistencia aprobada — Aprendiz Laura Torres</td>
-                            <td><span class="etiqueta-estado etiqueta-estado-activo">Éxito</span></td>
-                        </tr>
-                        <tr>
-                            <td>20/08/2026 09:03</td>
-                            <td>Sofia Vargas</td>
-                            <td>Aprendiz</td>
-                            <td>Acceso y autenticación</td>
-                            <td>Intento de inicio de sesión</td>
-                            <td>Contraseña incorrecta, tercer intento consecutivo</td>
-                            <td><span class="etiqueta-estado etiqueta-estado-atrasado">Error</span></td>
+                            <td><a href="#detalle-2" class="icono-contacto-ficha" title="Ver detalle" aria-label="Ver detalle"><i class="fa-solid fa-eye"></i></a></td>
                         </tr>
                         <tr>
                             <td>20/08/2026 09:20</td>
@@ -248,15 +263,7 @@
                             <td>Registro de instructor</td>
                             <td>Nuevo instructor registrado: Diego Medina</td>
                             <td><span class="etiqueta-estado etiqueta-estado-activo">Éxito</span></td>
-                        </tr>
-                        <tr>
-                            <td>20/08/2026 09:47</td>
-                            <td>Sistema</td>
-                            <td>—</td>
-                            <td>Alertas</td>
-                            <td>Alerta de inasistencias</td>
-                            <td>Aprendiz Pedro Ramirez superó el umbral de inasistencias — Ficha 301005</td>
-                            <td><span class="etiqueta-estado etiqueta-estado-pendiente">Alerta</span></td>
+                            <td><a href="#detalle-5" class="icono-contacto-ficha" title="Ver detalle" aria-label="Ver detalle"><i class="fa-solid fa-eye"></i></a></td>
                         </tr>
                         <tr>
                             <td>20/08/2026 10:12</td>
@@ -266,6 +273,7 @@
                             <td>Asignar instructor a ficha</td>
                             <td>Carlos Ruiz asignado a la ficha 301007</td>
                             <td><span class="etiqueta-estado etiqueta-estado-activo">Éxito</span></td>
+                            <td><a href="#detalle-7" class="icono-contacto-ficha" title="Ver detalle" aria-label="Ver detalle"><i class="fa-solid fa-eye"></i></a></td>
                         </tr>
                         <tr>
                             <td>20/08/2026 10:34</td>
@@ -275,15 +283,7 @@
                             <td>Subir material de apoyo</td>
                             <td>Guía "Fundamentos de bases de datos" publicada — Ficha 301006</td>
                             <td><span class="etiqueta-estado etiqueta-estado-activo">Éxito</span></td>
-                        </tr>
-                        <tr>
-                            <td>20/08/2026 11:02</td>
-                            <td>Ricardo Alvarez</td>
-                            <td>Instructor</td>
-                            <td>Gestión de usuarios</td>
-                            <td>Desactivar registro</td>
-                            <td>Aprendiz retirado del programa — Ficha 301011</td>
-                            <td><span class="etiqueta-estado etiqueta-estado-activo">Éxito</span></td>
+                            <td><a href="#detalle-8" class="icono-contacto-ficha" title="Ver detalle" aria-label="Ver detalle"><i class="fa-solid fa-eye"></i></a></td>
                         </tr>
                         <tr>
                             <td>20/08/2026 11:28</td>
@@ -293,6 +293,7 @@
                             <td>Generar reporte</td>
                             <td>Error al consolidar el reporte de desempeño — Ficha 301012</td>
                             <td><span class="etiqueta-estado etiqueta-estado-atrasado">Error</span></td>
+                            <td><a href="#detalle-10" class="icono-contacto-ficha" title="Ver detalle" aria-label="Ver detalle"><i class="fa-solid fa-eye"></i></a></td>
                         </tr>
                         <tr>
                             <td>20/08/2026 12:05</td>
@@ -302,6 +303,7 @@
                             <td>Modificar estado de asistencia</td>
                             <td>Corrección de inasistencia a justificada — Ficha 301010</td>
                             <td><span class="etiqueta-estado etiqueta-estado-activo">Éxito</span></td>
+                            <td><a href="#detalle-11" class="icono-contacto-ficha" title="Ver detalle" aria-label="Ver detalle"><i class="fa-solid fa-eye"></i></a></td>
                         </tr>
                         <tr>
                             <td>20/08/2026 12:47</td>
@@ -311,15 +313,7 @@
                             <td>Registrar nueva ficha</td>
                             <td>Ficha 301240 — Análisis y Desarrollo de Software</td>
                             <td><span class="etiqueta-estado etiqueta-estado-activo">Éxito</span></td>
-                        </tr>
-                        <tr>
-                            <td>20/08/2026 13:16</td>
-                            <td>Diego Medina</td>
-                            <td>Instructor</td>
-                            <td>Justificaciones</td>
-                            <td>Rechazar justificación</td>
-                            <td>Documento de soporte no válido — Aprendiz Sofia Vargas</td>
-                            <td><span class="etiqueta-estado etiqueta-estado-pendiente">Alerta</span></td>
+                            <td><a href="#detalle-12" class="icono-contacto-ficha" title="Ver detalle" aria-label="Ver detalle"><i class="fa-solid fa-eye"></i></a></td>
                         </tr>
                         <tr>
                             <td>20/08/2026 13:58</td>
@@ -329,6 +323,27 @@
                             <td>Asignar rol</td>
                             <td>Rol de instructor líder asignado a Maria Gonzales — Ficha 301003</td>
                             <td><span class="etiqueta-estado etiqueta-estado-activo">Éxito</span></td>
+                            <td><a href="#detalle-14" class="icono-contacto-ficha" title="Ver detalle" aria-label="Ver detalle"><i class="fa-solid fa-eye"></i></a></td>
+                        </tr>
+                        <tr>
+                            <td>20/08/2026 14:22</td>
+                            <td>Andres Ramirez</td>
+                            <td>Administrador</td>
+                            <td>Gestión de fichas</td>
+                            <td>Actualizar ficha</td>
+                            <td>Jornada modificada de Mañana a Noche — Ficha 301006</td>
+                            <td><span class="etiqueta-estado etiqueta-estado-activo">Éxito</span></td>
+                            <td><a href="#detalle-15" class="icono-contacto-ficha" title="Ver detalle" aria-label="Ver detalle"><i class="fa-solid fa-eye"></i></a></td>
+                        </tr>
+                        <tr>
+                            <td>20/08/2026 14:47</td>
+                            <td>Andres Ramirez</td>
+                            <td>Administrador</td>
+                            <td>Gestión de fichas</td>
+                            <td>Desactivar ficha</td>
+                            <td>Ficha 301099 pasa a estado Inactiva — programa finalizado</td>
+                            <td><span class="etiqueta-estado etiqueta-estado-activo">Éxito</span></td>
+                            <td><a href="#detalle-16" class="icono-contacto-ficha" title="Ver detalle" aria-label="Ver detalle"><i class="fa-solid fa-eye"></i></a></td>
                         </tr>
                     </tbody>
                 </table>
@@ -336,7 +351,7 @@
 
                 <div class="pie-listado">
                     <div class="fila-superior-pie">
-                        <p class="texto-conteo-listado">Mostrando 14 registros de 238</p>
+                        <p class="texto-conteo-listado">Mostrando 10 registros de 238</p>
 
                         <nav class="paginacion" aria-label="Paginación de la bitácora">
                             <button type="button" class="boton-pagina boton-pagina-activo">1</button>
@@ -350,6 +365,228 @@
                 </div>
 
             </section>
+
+            <!-- Modales de detalle de actividad (CSS puro con :target, sin JS) -->
+
+            <div class="overlay-detalle-actividad" id="detalle-2">
+                <a href="bitacora.html" class="fondo-detalle-actividad" aria-label="Cerrar detalle"></a>
+                <div class="tarjeta-detalle-actividad">
+                    <a href="bitacora.html" class="boton-cerrar-detalle-actividad" aria-label="Cerrar"><i class="fa-solid fa-xmark"></i></a>
+                    <div class="cabecera-detalle-actividad">
+                        <div class="icono-detalle-actividad icono-detalle-actividad-exito" aria-hidden="true"><i class="fa-solid fa-user-check"></i></div>
+                        <div>
+                            <p class="titulo-detalle-actividad">Registro de asistencia</p>
+                            <p class="subtitulo-detalle-actividad">Asistencias · Instructor</p>
+                        </div>
+                    </div>
+                    <div class="lista-detalle-actividad">
+                        <div class="fila-detalle-actividad"><span>ID de evento</span><span>EVT-100522</span></div>
+                        <div class="fila-detalle-actividad"><span>Fecha y hora</span><span>20/08/2026 08:15:03</span></div>
+                        <div class="fila-detalle-actividad"><span>Usuario</span><span>Jorge Perez</span></div>
+                        <div class="fila-detalle-actividad"><span>IP</span><span>190.85.14.09</span></div>
+                        <div class="fila-detalle-actividad"><span>Dispositivo</span><span>Chrome · Android</span></div>
+                    </div>
+                    <p class="descripcion-detalle-actividad">Ficha 301004 — Competencia "Análisis de requisitos".</p>
+                </div>
+            </div>
+
+            <div class="overlay-detalle-actividad" id="detalle-5">
+                <a href="bitacora.html" class="fondo-detalle-actividad" aria-label="Cerrar detalle"></a>
+                <div class="tarjeta-detalle-actividad">
+                    <a href="bitacora.html" class="boton-cerrar-detalle-actividad" aria-label="Cerrar"><i class="fa-solid fa-xmark"></i></a>
+                    <div class="cabecera-detalle-actividad">
+                        <div class="icono-detalle-actividad icono-detalle-actividad-exito" aria-hidden="true"><i class="fa-solid fa-user-plus"></i></div>
+                        <div>
+                            <p class="titulo-detalle-actividad">Registro de instructor</p>
+                            <p class="subtitulo-detalle-actividad">Gestión de usuarios · Administrador</p>
+                        </div>
+                    </div>
+                    <div class="lista-detalle-actividad">
+                        <div class="fila-detalle-actividad"><span>ID de evento</span><span>EVT-100525</span></div>
+                        <div class="fila-detalle-actividad"><span>Fecha y hora</span><span>20/08/2026 09:20:08</span></div>
+                        <div class="fila-detalle-actividad"><span>Usuario</span><span>Andres Ramirez</span></div>
+                        <div class="fila-detalle-actividad"><span>IP</span><span>190.85.12.44</span></div>
+                        <div class="fila-detalle-actividad"><span>Dispositivo</span><span>Chrome · Windows 11</span></div>
+                    </div>
+                    <p class="descripcion-detalle-actividad">Nuevo instructor registrado: Diego Medina.</p>
+                </div>
+            </div>
+
+            <div class="overlay-detalle-actividad" id="detalle-7">
+                <a href="bitacora.html" class="fondo-detalle-actividad" aria-label="Cerrar detalle"></a>
+                <div class="tarjeta-detalle-actividad">
+                    <a href="bitacora.html" class="boton-cerrar-detalle-actividad" aria-label="Cerrar"><i class="fa-solid fa-xmark"></i></a>
+                    <div class="cabecera-detalle-actividad">
+                        <div class="icono-detalle-actividad icono-detalle-actividad-exito" aria-hidden="true"><i class="fa-solid fa-user-tag"></i></div>
+                        <div>
+                            <p class="titulo-detalle-actividad">Asignar instructor a ficha</p>
+                            <p class="subtitulo-detalle-actividad">Gestión de fichas · Administrador</p>
+                        </div>
+                    </div>
+                    <div class="lista-detalle-actividad">
+                        <div class="fila-detalle-actividad"><span>ID de evento</span><span>EVT-100527</span></div>
+                        <div class="fila-detalle-actividad"><span>Fecha y hora</span><span>20/08/2026 10:12:44</span></div>
+                        <div class="fila-detalle-actividad"><span>Usuario</span><span>Andres Ramirez</span></div>
+                        <div class="fila-detalle-actividad"><span>IP</span><span>190.85.12.44</span></div>
+                        <div class="fila-detalle-actividad"><span>Dispositivo</span><span>Chrome · Windows 11</span></div>
+                    </div>
+                    <p class="descripcion-detalle-actividad">Carlos Ruiz asignado a la ficha 301007.</p>
+                </div>
+            </div>
+
+            <div class="overlay-detalle-actividad" id="detalle-8">
+                <a href="bitacora.html" class="fondo-detalle-actividad" aria-label="Cerrar detalle"></a>
+                <div class="tarjeta-detalle-actividad">
+                    <a href="bitacora.html" class="boton-cerrar-detalle-actividad" aria-label="Cerrar"><i class="fa-solid fa-xmark"></i></a>
+                    <div class="cabecera-detalle-actividad">
+                        <div class="icono-detalle-actividad icono-detalle-actividad-exito" aria-hidden="true"><i class="fa-solid fa-file-arrow-up"></i></div>
+                        <div>
+                            <p class="titulo-detalle-actividad">Subir material de apoyo</p>
+                            <p class="subtitulo-detalle-actividad">Material de apoyo · Instructor</p>
+                        </div>
+                    </div>
+                    <div class="lista-detalle-actividad">
+                        <div class="fila-detalle-actividad"><span>ID de evento</span><span>EVT-100528</span></div>
+                        <div class="fila-detalle-actividad"><span>Fecha y hora</span><span>20/08/2026 10:34:19</span></div>
+                        <div class="fila-detalle-actividad"><span>Usuario</span><span>Laura Torres</span></div>
+                        <div class="fila-detalle-actividad"><span>IP</span><span>190.85.14.31</span></div>
+                        <div class="fila-detalle-actividad"><span>Dispositivo</span><span>Firefox · Windows 10</span></div>
+                    </div>
+                    <p class="descripcion-detalle-actividad">Guía "Fundamentos de bases de datos" publicada — Ficha 301006.</p>
+                </div>
+            </div>
+
+            <div class="overlay-detalle-actividad" id="detalle-10">
+                <a href="bitacora.html" class="fondo-detalle-actividad" aria-label="Cerrar detalle"></a>
+                <div class="tarjeta-detalle-actividad">
+                    <a href="bitacora.html" class="boton-cerrar-detalle-actividad" aria-label="Cerrar"><i class="fa-solid fa-xmark"></i></a>
+                    <div class="cabecera-detalle-actividad">
+                        <div class="icono-detalle-actividad icono-detalle-actividad-error" aria-hidden="true"><i class="fa-solid fa-file-circle-exclamation"></i></div>
+                        <div>
+                            <p class="titulo-detalle-actividad">Generar reporte</p>
+                            <p class="subtitulo-detalle-actividad">Reportes y descargas · Instructor</p>
+                        </div>
+                    </div>
+                    <div class="lista-detalle-actividad">
+                        <div class="fila-detalle-actividad"><span>ID de evento</span><span>EVT-100530</span></div>
+                        <div class="fila-detalle-actividad"><span>Fecha y hora</span><span>20/08/2026 11:28:52</span></div>
+                        <div class="fila-detalle-actividad"><span>Usuario</span><span>Paula Castro</span></div>
+                        <div class="fila-detalle-actividad"><span>IP</span><span>190.85.16.73</span></div>
+                        <div class="fila-detalle-actividad"><span>Dispositivo</span><span>Chrome · macOS</span></div>
+                    </div>
+                    <p class="descripcion-detalle-actividad">Error al consolidar el reporte de desempeño — Ficha 301012.</p>
+                </div>
+            </div>
+
+            <div class="overlay-detalle-actividad" id="detalle-11">
+                <a href="bitacora.html" class="fondo-detalle-actividad" aria-label="Cerrar detalle"></a>
+                <div class="tarjeta-detalle-actividad">
+                    <a href="bitacora.html" class="boton-cerrar-detalle-actividad" aria-label="Cerrar"><i class="fa-solid fa-xmark"></i></a>
+                    <div class="cabecera-detalle-actividad">
+                        <div class="icono-detalle-actividad icono-detalle-actividad-exito" aria-hidden="true"><i class="fa-solid fa-pen-to-square"></i></div>
+                        <div>
+                            <p class="titulo-detalle-actividad">Modificar estado de asistencia</p>
+                            <p class="subtitulo-detalle-actividad">Asistencias · Instructor</p>
+                        </div>
+                    </div>
+                    <div class="lista-detalle-actividad">
+                        <div class="fila-detalle-actividad"><span>ID de evento</span><span>EVT-100531</span></div>
+                        <div class="fila-detalle-actividad"><span>Fecha y hora</span><span>20/08/2026 12:05:16</span></div>
+                        <div class="fila-detalle-actividad"><span>Usuario</span><span>Natalia Moreno</span></div>
+                        <div class="fila-detalle-actividad"><span>IP</span><span>190.85.14.55</span></div>
+                        <div class="fila-detalle-actividad"><span>Dispositivo</span><span>Chrome · Windows 11</span></div>
+                    </div>
+                    <p class="descripcion-detalle-actividad">Corrección de inasistencia a justificada — Ficha 301010.</p>
+                </div>
+            </div>
+
+            <div class="overlay-detalle-actividad" id="detalle-12">
+                <a href="bitacora.html" class="fondo-detalle-actividad" aria-label="Cerrar detalle"></a>
+                <div class="tarjeta-detalle-actividad">
+                    <a href="bitacora.html" class="boton-cerrar-detalle-actividad" aria-label="Cerrar"><i class="fa-solid fa-xmark"></i></a>
+                    <div class="cabecera-detalle-actividad">
+                        <div class="icono-detalle-actividad icono-detalle-actividad-exito" aria-hidden="true"><i class="fa-solid fa-file-circle-plus"></i></div>
+                        <div>
+                            <p class="titulo-detalle-actividad">Registrar nueva ficha</p>
+                            <p class="subtitulo-detalle-actividad">Gestión de fichas · Administrador</p>
+                        </div>
+                    </div>
+                    <div class="lista-detalle-actividad">
+                        <div class="fila-detalle-actividad"><span>ID de evento</span><span>EVT-100532</span></div>
+                        <div class="fila-detalle-actividad"><span>Fecha y hora</span><span>20/08/2026 12:47:39</span></div>
+                        <div class="fila-detalle-actividad"><span>Usuario</span><span>Andres Ramirez</span></div>
+                        <div class="fila-detalle-actividad"><span>IP</span><span>190.85.12.44</span></div>
+                        <div class="fila-detalle-actividad"><span>Dispositivo</span><span>Chrome · Windows 11</span></div>
+                    </div>
+                    <p class="descripcion-detalle-actividad">Ficha 301240 — Análisis y Desarrollo de Software.</p>
+                </div>
+            </div>
+
+            <div class="overlay-detalle-actividad" id="detalle-14">
+                <a href="bitacora.html" class="fondo-detalle-actividad" aria-label="Cerrar detalle"></a>
+                <div class="tarjeta-detalle-actividad">
+                    <a href="bitacora.html" class="boton-cerrar-detalle-actividad" aria-label="Cerrar"><i class="fa-solid fa-xmark"></i></a>
+                    <div class="cabecera-detalle-actividad">
+                        <div class="icono-detalle-actividad icono-detalle-actividad-exito" aria-hidden="true"><i class="fa-solid fa-user-gear"></i></div>
+                        <div>
+                            <p class="titulo-detalle-actividad">Asignar rol</p>
+                            <p class="subtitulo-detalle-actividad">Gestión de usuarios · Administrador</p>
+                        </div>
+                    </div>
+                    <div class="lista-detalle-actividad">
+                        <div class="fila-detalle-actividad"><span>ID de evento</span><span>EVT-100534</span></div>
+                        <div class="fila-detalle-actividad"><span>Fecha y hora</span><span>20/08/2026 13:58:21</span></div>
+                        <div class="fila-detalle-actividad"><span>Usuario</span><span>Andres Ramirez</span></div>
+                        <div class="fila-detalle-actividad"><span>IP</span><span>190.85.12.44</span></div>
+                        <div class="fila-detalle-actividad"><span>Dispositivo</span><span>Chrome · Windows 11</span></div>
+                    </div>
+                    <p class="descripcion-detalle-actividad">Rol de instructor líder asignado a Maria Gonzales — Ficha 301003.</p>
+                </div>
+            </div>
+
+            <div class="overlay-detalle-actividad" id="detalle-15">
+                <a href="bitacora.html" class="fondo-detalle-actividad" aria-label="Cerrar detalle"></a>
+                <div class="tarjeta-detalle-actividad">
+                    <a href="bitacora.html" class="boton-cerrar-detalle-actividad" aria-label="Cerrar"><i class="fa-solid fa-xmark"></i></a>
+                    <div class="cabecera-detalle-actividad">
+                        <div class="icono-detalle-actividad icono-detalle-actividad-exito" aria-hidden="true"><i class="fa-solid fa-pen-to-square"></i></div>
+                        <div>
+                            <p class="titulo-detalle-actividad">Actualizar ficha</p>
+                            <p class="subtitulo-detalle-actividad">Gestión de fichas · Administrador</p>
+                        </div>
+                    </div>
+                    <div class="lista-detalle-actividad">
+                        <div class="fila-detalle-actividad"><span>ID de evento</span><span>EVT-100535</span></div>
+                        <div class="fila-detalle-actividad"><span>Fecha y hora</span><span>20/08/2026 14:22:37</span></div>
+                        <div class="fila-detalle-actividad"><span>Usuario</span><span>Andres Ramirez</span></div>
+                        <div class="fila-detalle-actividad"><span>Ficha</span><span>301006</span></div>
+                        <div class="fila-detalle-actividad"><span>IP</span><span>190.85.12.44</span></div>
+                    </div>
+                    <p class="descripcion-detalle-actividad">Jornada modificada de Mañana a Noche — Ficha 301006.</p>
+                </div>
+            </div>
+
+            <div class="overlay-detalle-actividad" id="detalle-16">
+                <a href="bitacora.html" class="fondo-detalle-actividad" aria-label="Cerrar detalle"></a>
+                <div class="tarjeta-detalle-actividad">
+                    <a href="bitacora.html" class="boton-cerrar-detalle-actividad" aria-label="Cerrar"><i class="fa-solid fa-xmark"></i></a>
+                    <div class="cabecera-detalle-actividad">
+                        <div class="icono-detalle-actividad icono-detalle-actividad-exito" aria-hidden="true"><i class="fa-solid fa-file-circle-minus"></i></div>
+                        <div>
+                            <p class="titulo-detalle-actividad">Desactivar ficha</p>
+                            <p class="subtitulo-detalle-actividad">Gestión de fichas · Administrador</p>
+                        </div>
+                    </div>
+                    <div class="lista-detalle-actividad">
+                        <div class="fila-detalle-actividad"><span>ID de evento</span><span>EVT-100536</span></div>
+                        <div class="fila-detalle-actividad"><span>Fecha y hora</span><span>20/08/2026 14:47:02</span></div>
+                        <div class="fila-detalle-actividad"><span>Usuario</span><span>Andres Ramirez</span></div>
+                        <div class="fila-detalle-actividad"><span>Ficha</span><span>301099</span></div>
+                        <div class="fila-detalle-actividad"><span>IP</span><span>190.85.12.44</span></div>
+                    </div>
+                    <p class="descripcion-detalle-actividad">Ficha 301099 pasa a estado Inactiva — programa finalizado.</p>
+                </div>
+            </div>
 
         </main>
 
