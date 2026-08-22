@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PuntualiX | Reporte de Ficha</title>
+
+    <link rel="icon" type="image/png" href="../../../src/assets/img/favico/favicon_positivo.png">
+
+    <link rel="stylesheet" href="../../../src/styles/tokens.css">
+    <link rel="stylesheet" href="../../../src/styles/fonts.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            padding: 40px 20px;
+            background-color: var(--color-fondo-seccion-alterna);
+            font-family: var(--fuente-contenido);
+            color: var(--color-texto-cuerpo);
+        }
+
+        .barra-volver-reporte {
+            max-width: 800px;
+            margin: 0 auto 16px;
+        }
+
+        .barra-volver-reporte a {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--color-texto-secundario);
+            text-decoration: none;
+            font-size: var(--texto-caption);
+            font-weight: var(--peso-semibold);
+        }
+
+        .barra-volver-reporte a:hover {
+            color: var(--color-primario);
+        }
+
+        .hoja-reporte {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: var(--color-blanco);
+            padding: 48px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .encabezado-reporte {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 20px;
+            padding-bottom: 24px;
+            border-bottom: 3px solid var(--color-primario);
+            margin-bottom: 28px;
+        }
+
+        .encabezado-reporte img {
+            height: 44px;
+        }
+
+        .meta-reporte {
+            text-align: right;
+            font-size: var(--texto-caption);
+            color: var(--color-texto-secundario);
+        }
+
+        .titulo-hoja-reporte {
+            font-family: var(--fuente-titulos);
+            font-size: 26px;
+            font-weight: var(--peso-bold);
+            color: var(--color-texto-principal);
+            margin: 0 0 4px;
+        }
+
+        .subtitulo-hoja-reporte {
+            font-size: var(--texto-label);
+            color: var(--color-texto-secundario);
+            margin: 0;
+        }
+
+        .seccion-reporte {
+            margin-bottom: 28px;
+        }
+
+        .titulo-seccion-reporte {
+            font-family: var(--fuente-titulos);
+            font-size: var(--texto-h3);
+            font-weight: var(--peso-semibold);
+            color: var(--color-texto-principal);
+            margin: 0 0 14px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--color-borde);
+        }
+
+        .grid-datos-reporte {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px 24px;
+        }
+
+        .dato-reporte span {
+            display: block;
+        }
+
+        .etiqueta-dato-reporte {
+            font-size: 12px;
+            color: var(--color-texto-secundario);
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
+
+        .valor-dato-reporte {
+            font-size: var(--texto-label);
+            font-weight: var(--peso-semibold);
+            color: var(--color-texto-principal);
+        }
+
+        .grid-metricas-reporte {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+
+        .tarjeta-metrica-reporte {
+            background-color: var(--color-fondo-seccion-alterna);
+            border-radius: 10px;
+            padding: 16px;
+            text-align: center;
+        }
+
+        .valor-metrica-reporte {
+            display: block;
+            font-family: var(--fuente-titulos);
+            font-size: 28px;
+            font-weight: var(--peso-bold);
+            color: var(--color-primario);
+        }
+
+        .etiqueta-metrica-reporte {
+            font-size: 12px;
+            color: var(--color-texto-secundario);
+        }
+
+        table.tabla-reporte {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: var(--texto-caption);
+        }
+
+        table.tabla-reporte th,
+        table.tabla-reporte td {
+            text-align: left;
+            padding: 10px 12px;
+            border-bottom: 1px solid var(--color-borde);
+        }
+
+        table.tabla-reporte th {
+            background-color: var(--color-fondo-seccion-alterna);
+            font-weight: var(--peso-semibold);
+            color: var(--color-texto-principal);
+        }
+
+        .pie-hoja-reporte {
+            margin-top: 32px;
+            padding-top: 16px;
+            border-top: 1px solid var(--color-borde);
+            font-size: 12px;
+            color: var(--color-texto-secundario);
+            text-align: center;
+        }
+
+        @media print {
+            body { background-color: var(--color-blanco); padding: 0; }
+            .barra-volver-reporte { display: none; }
+            .hoja-reporte { box-shadow: none; border-radius: 0; max-width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="barra-volver-reporte">
+        <a href="reportes.html"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Volver a Reportes</a>
+    </div>
+
+    <div class="hoja-reporte">
+
+        <div class="encabezado-reporte">
+            <div>
+                <img src="../../../src/assets/img/LogoNegativo/negativo_sin_eslogan_fondo_verde.png" alt="Logo PuntualiX">
+                <h1 class="titulo-hoja-reporte">Reporte de ficha</h1>
+                <p class="subtitulo-hoja-reporte">Período consultado: 01/08/2026 — 21/08/2026</p>
+            </div>
+            <div class="meta-reporte">
+                <p>Generado por: <strong>Andres Ramirez</strong></p>
+                <p>Rol: Administrador</p>
+                <p>Fecha de generación: 22/08/2026</p>
+            </div>
+        </div>
+
+        <div class="seccion-reporte">
+            <h2 class="titulo-seccion-reporte">Datos de la ficha</h2>
+            <div class="grid-datos-reporte">
+                <div class="dato-reporte">
+                    <span class="etiqueta-dato-reporte">Número de ficha</span>
+                    <span class="valor-dato-reporte">301002</span>
+                </div>
+                <div class="dato-reporte">
+                    <span class="etiqueta-dato-reporte">Programa</span>
+                    <span class="valor-dato-reporte">Análisis y Desarrollo de Software</span>
+                </div>
+                <div class="dato-reporte">
+                    <span class="etiqueta-dato-reporte">Sede</span>
+                    <span class="valor-dato-reporte">CIAA</span>
+                </div>
+                <div class="dato-reporte">
+                    <span class="etiqueta-dato-reporte">Ambiente</span>
+                    <span class="valor-dato-reporte">Electromecánica-2</span>
+                </div>
+                <div class="dato-reporte">
+                    <span class="etiqueta-dato-reporte">Jornada</span>
+                    <span class="valor-dato-reporte">Mañana</span>
+                </div>
+                <div class="dato-reporte">
+                    <span class="etiqueta-dato-reporte">Modalidad</span>
+                    <span class="valor-dato-reporte">Presencial</span>
+                </div>
+                <div class="dato-reporte">
+                    <span class="etiqueta-dato-reporte">Instructor líder</span>
+                    <span class="valor-dato-reporte">Maria Torres</span>
+                </div>
+                <div class="dato-reporte">
+                    <span class="etiqueta-dato-reporte">Vocero</span>
+                    <span class="valor-dato-reporte">Luisa Martinez</span>
+                </div>
+                <div class="dato-reporte">
+                    <span class="etiqueta-dato-reporte">Fecha de inicio</span>
+                    <span class="valor-dato-reporte">10/03/2026</span>
+                </div>
+                <div class="dato-reporte">
+                    <span class="etiqueta-dato-reporte">Fecha fin</span>
+                    <span class="valor-dato-reporte">10/02/2027</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="seccion-reporte">
+            <h2 class="titulo-seccion-reporte">Resumen de asistencia</h2>
+            <div class="grid-metricas-reporte">
+                <div class="tarjeta-metrica-reporte">
+                    <span class="valor-metrica-reporte">88%</span>
+                    <span class="etiqueta-metrica-reporte">Asistencia</span>
+                </div>
+                <div class="tarjeta-metrica-reporte">
+                    <span class="valor-metrica-reporte">5%</span>
+                    <span class="etiqueta-metrica-reporte">Inasistencia justificada</span>
+                </div>
+                <div class="tarjeta-metrica-reporte">
+                    <span class="valor-metrica-reporte">7%</span>
+                    <span class="etiqueta-metrica-reporte">Inasistencia sin justificar</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="seccion-reporte">
+            <h2 class="titulo-seccion-reporte">Competencias en curso</h2>
+            <table class="tabla-reporte">
+                <thead>
+                    <tr>
+                        <th>Competencia</th>
+                        <th>Instructor</th>
+                        <th>Inicio</th>
+                        <th>Fin</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Análisis y diseño de sistemas de información</td>
+                        <td>Maria Torres</td>
+                        <td>10/03/2026</td>
+                        <td>10/02/2027</td>
+                    </tr>
+                    <tr>
+                        <td>Construcción de bases de datos</td>
+                        <td>Jorge Castro</td>
+                        <td>10/03/2026</td>
+                        <td>10/02/2027</td>
+                    </tr>
+                    <tr>
+                        <td>Desarrollo de software en entorno web</td>
+                        <td>Mariana Rios</td>
+                        <td>10/03/2026</td>
+                        <td>10/02/2027</td>
+                    </tr>
+                    <tr>
+                        <td>Implementación de servicios web</td>
+                        <td>Pedro Salazar</td>
+                        <td>10/03/2026</td>
+                        <td>10/02/2027</td>
+                    </tr>
+                    <tr>
+                        <td>Pruebas de software</td>
+                        <td>Carlos Gomez</td>
+                        <td>10/03/2026</td>
+                        <td>10/02/2027</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="pie-hoja-reporte">
+            <p>Documento generado automáticamente por PuntualiX · Programa de formación SENA · 2026</p>
+        </div>
+
+    </div>
+
+</body>
+</html>

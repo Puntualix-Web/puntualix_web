@@ -63,14 +63,8 @@
                     <a href="" class="item-menu-usuario" data-roles="administrador,instructor,aprendiz">
                         <i class="fa-solid fa-circle-user"></i> Ver perfil
                     </a>
-                    <a href="" class="item-menu-usuario" data-roles="administrador,instructor,aprendiz">
-                        <i class="fa-solid fa-bookmark"></i> Ver competencias
-                    </a>
-                    <a href="" class="item-menu-usuario" data-roles="administrador,instructor,aprendiz">
-                        <i class="fa-solid fa-file-circle-check"></i> Ver justificaciones
-                    </a>
-                    <a href="../estadisticas/estadisticas.html" class="item-menu-usuario" data-roles="administrador">
-                        <i class="fa-solid fa-chart-line"></i> Ver estadísticas
+                    <a href="../usuarios/usuarios.html" class="item-menu-usuario" data-roles="administrador">
+                        <i class="fa-solid fa-users"></i> Ver usuarios
                     </a>
                     <a href="../../InicioSesion.html" class="item-menu-usuario item-menu-cerrar-sesion" data-roles="administrador,instructor,aprendiz">
                         <i class="fa-solid fa-right-from-bracket"></i> Cerrar sesión
@@ -118,8 +112,10 @@
                             </button>
                         </div>
                     </details>
-                    <button type="button" class="boton-modificar-ficha">Modificar Información</button>
-                    <button type="button" class="boton-desactivar-ficha">Desactivar ficha</button>
+                    <a href="../reportes/historialReportesFicha.html" class="boton-secundario">
+                        <i class="fa-solid fa-chart-bar" aria-hidden="true"></i>
+                        Ver reportes
+                    </a>
                 </div>
             </div>
 
@@ -765,6 +761,11 @@
                                 fill="none"
                             />
                         </svg>
+                    </div>
+
+                    <div class="acciones-panel-estadisticas-ficha">
+                        <button type="button" class="boton-modificar-ficha">Modificar Información</button>
+                        <button type="button" class="boton-desactivar-ficha">Desactivar ficha</button>
                     </div>
                 </aside>
 

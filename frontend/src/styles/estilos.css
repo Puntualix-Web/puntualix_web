@@ -1626,7 +1626,9 @@ html {
 .acciones-detalle-ficha {
     display: flex;
     align-items: center;
+    justify-content: flex-end;
     gap: 12px;
+    flex-wrap: wrap;
 }
 
 .boton-modificar-ficha,
@@ -1726,8 +1728,18 @@ html {
     gap: 16px;
     background-color: var(--color-fondo-tarjeta);
     border-radius: 16px;
-    padding: 24px 24px 260px;
+    padding: 24px;
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+}
+
+.acciones-panel-estadisticas-ficha {
+    display: flex;
+    gap: 10px;
+}
+
+.acciones-panel-estadisticas-ficha button {
+    flex: 1;
+    text-align: center;
 }
 
 .subtitulo-panel-estadisticas {
@@ -2149,11 +2161,9 @@ html {
 }
 
 .onda-decorativa-ficha {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 240px;
+    width: calc(100% + 48px);
+    margin: 0 -24px;
+    height: 160px;
     overflow: hidden;
 }
 
@@ -3262,6 +3272,62 @@ html {
     border-top: 1px solid var(--color-borde);
 }
 
+/* Gestión de usuarios: activar/desactivar en la tabla y cambio de rol en el modal */
+
+.acciones-usuario {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.boton-ver-mas-usuario {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 14px;
+    border-radius: 8px;
+    border: 1px solid var(--color-borde);
+    background-color: var(--color-blanco);
+    color: var(--color-texto-cuerpo);
+    font-family: var(--fuente-contenido);
+    font-size: 12px;
+    font-weight: var(--peso-semibold);
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.boton-ver-mas-usuario:hover {
+    background-color: var(--color-fondo-seccion-alterna);
+}
+
+.boton-activar-usuario,
+.boton-desactivar-usuario {
+    padding: 6px 14px;
+    border-radius: 8px;
+    border: none;
+    font-family: var(--fuente-contenido);
+    font-size: 12px;
+    font-weight: var(--peso-semibold);
+    color: var(--color-blanco);
+    cursor: pointer;
+}
+
+.boton-activar-usuario {
+    background-color: var(--color-confirmacion);
+}
+
+.boton-activar-usuario:hover {
+    background-color: #1e5f24;
+}
+
+.boton-desactivar-usuario {
+    background-color: var(--color-alerta-critica);
+}
+
+.boton-desactivar-usuario:hover {
+    background-color: #b0231f;
+}
+
 /* ---------- Tarjeta de perfil de instructor (modal CSS puro con :target) ---------- */
 
 .perfil-instructor-overlay {
@@ -3395,6 +3461,98 @@ html {
 
 .boton-reporte-perfil:hover {
     background-color: var(--color-primario-oscuro, #174f38);
+}
+
+.boton-secundario {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: 1px solid var(--color-borde);
+    background-color: var(--color-blanco);
+    color: var(--color-texto-cuerpo);
+    font-family: var(--fuente-contenido);
+    font-size: var(--texto-caption);
+    font-weight: var(--peso-semibold);
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.boton-secundario:hover {
+    background-color: var(--color-fondo-seccion-alterna);
+}
+
+/* Tarjeta de resultado tras generar un reporte */
+
+.tarjeta-resultado-reporte {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    padding: 20px 24px;
+    background-color: var(--color-fondo-seccion-alterna);
+    border: 1px solid var(--color-borde);
+    border-radius: 12px;
+}
+
+.info-resultado-reporte {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.icono-resultado-reporte {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background-color: var(--color-confirmacion);
+    color: var(--color-blanco);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+}
+
+.titulo-resultado-reporte {
+    font-weight: var(--peso-semibold);
+    color: var(--color-texto-principal);
+}
+
+.subtitulo-resultado-reporte {
+    font-size: var(--texto-caption);
+    color: var(--color-texto-secundario);
+}
+
+.acciones-resultado-reporte {
+    display: flex;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+.boton-descargar-reporte {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    border-radius: 8px;
+    border: 1px solid var(--color-borde);
+    background-color: var(--color-blanco);
+    color: var(--color-texto-cuerpo);
+    font-family: var(--fuente-contenido);
+    font-size: var(--texto-caption);
+    font-weight: var(--peso-semibold);
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.boton-descargar-reporte:hover {
+    background-color: var(--color-fondo-principal);
 }
 
 .menu-generar-reporte {
