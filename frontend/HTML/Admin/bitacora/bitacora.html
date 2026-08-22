@@ -35,10 +35,13 @@
                 <a href="bitacora.html" class="enlace-nav enlace-nav-activo" data-pagina="bitacora" data-roles="administrador">
                     <i class="fa-solid fa-clock-rotate-left"></i> Bitácora
                 </a>
+                <a href="../alertas/alertas.html" class="enlace-nav" data-pagina="alertas" data-roles="administrador,instructor">
+                    <i class="fa-solid fa-triangle-exclamation"></i> Alertas
+                </a>
                 <a href="../estadisticas/estadisticas.html" class="enlace-nav" data-pagina="estadisticas" data-roles="administrador">
                     <i class="fa-solid fa-chart-line"></i> Estadísticas
                 </a>
-                <a href="" class="enlace-nav" data-pagina="reportes" data-roles="administrador,instructor">
+                <a href="../reportes/reportes.html" class="enlace-nav" data-pagina="reportes" data-roles="administrador,instructor">
                     <i class="fa-solid fa-chart-bar"></i> Reportes
                 </a>
             </nav>
@@ -46,9 +49,9 @@
             <div class="area-usuario">
                 <span class="separador-nav" aria-hidden="true"></span>
 
-                <button type="button" class="boton-notificaciones" aria-label="Notificaciones">
+                <a href="../alertas/alertas.html" class="boton-notificaciones" aria-label="Alertas">
                     <i class="fa-solid fa-bell"></i>
-                </button>
+                </a>
 
                 <div class="tarjeta-usuario" id="boton-menu-usuario">
                     <div class="avatar-usuario" aria-hidden="true"></div>
@@ -136,6 +139,7 @@
 
                 <div class="barra-herramientas-listado">
                     <div class="grupo-herramientas-busqueda">
+                        <div class="grupo-filtros-activos">
                         <div class="grupo-filtro">
                             <label for="filtro-sede-bitacora">Sede</label>
                             <select id="filtro-sede-bitacora" class="selector-filtro">
@@ -210,6 +214,7 @@
                             <i class="fa-solid fa-broom" aria-hidden="true"></i>
                             Limpiar filtros
                         </button>
+                        </div>
 
                         <div class="grupo-busqueda">
                             <input type="text" placeholder="Buscar usuario o acción" class="campo-busqueda-ficha" />

@@ -37,10 +37,13 @@
                 <a href="bitacora/bitacora.html" class="enlace-nav" data-pagina="bitacora" data-roles="administrador">
                     <i class="fa-solid fa-clock-rotate-left"></i> Bitácora
                 </a>
+                <a href="alertas/alertas.html" class="enlace-nav" data-pagina="alertas" data-roles="administrador,instructor">
+                    <i class="fa-solid fa-triangle-exclamation"></i> Alertas
+                </a>
                 <a href="estadisticas/estadisticas.html" class="enlace-nav" data-pagina="estadisticas" data-roles="administrador">
                     <i class="fa-solid fa-chart-line"></i> Estadísticas
                 </a>
-                <a href="" class="enlace-nav" data-pagina="reportes" data-roles="administrador,instructor">
+                <a href="reportes/reportes.html" class="enlace-nav" data-pagina="reportes" data-roles="administrador,instructor">
                     <i class="fa-solid fa-chart-bar"></i> Reportes
                 </a>
             </nav>
@@ -48,9 +51,9 @@
             <div class="area-usuario">
                 <span class="separador-nav" aria-hidden="true"></span>
 
-                <button type="button" class="boton-notificaciones" aria-label="Notificaciones">
+                <a href="alertas/alertas.html" class="boton-notificaciones" aria-label="Alertas">
                     <i class="fa-solid fa-bell"></i>
-                </button>
+                </a>
 
                 <div class="tarjeta-usuario" id="boton-menu-usuario">
                     <div class="avatar-usuario" aria-hidden="true"></div>
@@ -187,12 +190,12 @@
                     <ul class="lista-alertas">
                         <li class="item-alerta item-alerta-critica">
                             <div class="icono-alerta" aria-hidden="true">
-                                <i class="fa-solid fa-shield-halved"></i>
+                                <i class="fa-solid fa-triangle-exclamation"></i>
                             </div>
                             <div class="detalle-alerta">
-                                <p class="titulo-alerta">Riesgo crítico alcanzado</p>
+                                <p class="titulo-alerta">Límite crítico superado</p>
                                 <p class="descripcion-alerta">
-                                    El aprendiz Jorge Perez ha alcanzado el 20% de inasistencia
+                                    Ficha 301005 alcanzó el 35% de inasistencias, sobre el límite crítico
                                 </p>
                             </div>
                             <span class="tiempo-alerta">Hace 15 minutos</span>
@@ -203,9 +206,9 @@
                                 <i class="fa-solid fa-triangle-exclamation"></i>
                             </div>
                             <div class="detalle-alerta">
-                                <p class="titulo-alerta">Justificación pendiente</p>
+                                <p class="titulo-alerta">Cerca del límite establecido</p>
                                 <p class="descripcion-alerta">
-                                    Maria Gonzales tiene una justificación pendiente por revisar
+                                    Ficha 301002 se acerca al límite de inasistencias (22%)
                                 </p>
                             </div>
                             <span class="tiempo-alerta">Hace 40 minutos</span>
@@ -213,19 +216,19 @@
 
                         <li class="item-alerta item-alerta-informativa">
                             <div class="icono-alerta" aria-hidden="true">
-                                <i class="fa-solid fa-circle-check"></i>
+                                <i class="fa-solid fa-circle-info"></i>
                             </div>
                             <div class="detalle-alerta">
-                                <p class="titulo-alerta">Nueva justificación enviada</p>
+                                <p class="titulo-alerta">Sin instructor líder asignado</p>
                                 <p class="descripcion-alerta">
-                                    Pedro Ramirez envió una justificación
+                                    Ficha 301009 generó una alerta y no tiene instructor líder asociado
                                 </p>
                             </div>
                             <span class="tiempo-alerta">Hace 1 hora</span>
                         </li>
                     </ul>
 
-                    <a href="" class="enlace-ver-mas">Ver todas las alertas</a>
+                    <a href="alertas/alertas.html" class="enlace-ver-mas">Ver todas las alertas</a>
                 </article>
 
                 <article class="panel-riesgo-desercion">

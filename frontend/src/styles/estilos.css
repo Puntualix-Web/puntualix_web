@@ -1246,8 +1246,24 @@ html {
 .grupo-herramientas-busqueda {
     display: flex;
     align-items: flex-end;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
+    flex: 1 1 auto;
+}
+
+/* Cluster de selects/Más filtros/Limpiar filtros, agrupados a la izquierda */
+.grupo-filtros-activos {
+    display: flex;
+    align-items: flex-end;
     gap: 16px;
     flex-wrap: wrap;
+}
+
+/* Fila propia para el botón de acción principal (Registrar...), sobre los filtros */
+.fila-accion-principal {
+    display: flex;
+    justify-content: flex-start;
 }
 
 .grupo-filtro,
@@ -3121,34 +3137,6 @@ html {
     background-color: var(--color-primario-hover, var(--color-primario));
 }
 
-.chips-ficha {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-
-.chip-ficha {
-    padding: 8px 16px;
-    border-radius: 999px;
-    background-color: var(--color-fondo-seccion-alterna);
-    color: var(--color-texto-secundario);
-    font-size: var(--texto-caption);
-    font-weight: var(--peso-semibold);
-    border: 1px solid var(--color-borde);
-    cursor: pointer;
-    transition: background-color 0.2s ease, color 0.2s ease;
-}
-
-.chip-ficha:hover {
-    background-color: var(--color-primario);
-    color: var(--color-blanco);
-}
-
-.chip-ficha-activo {
-    background-color: var(--color-primario);
-    color: var(--color-blanco);
-}
-
 /* ---------- Detalle de actividad de bitácora (modal CSS puro con :target) ---------- */
 
 .overlay-detalle-actividad {
@@ -3409,6 +3397,48 @@ html {
     background-color: var(--color-primario-oscuro, #174f38);
 }
 
+.menu-generar-reporte {
+    position: relative;
+}
+
+.menu-generar-reporte > summary.boton-reporte-perfil {
+    cursor: pointer;
+}
+
+.menu-generar-reporte > summary.boton-reporte-perfil::-webkit-details-marker {
+    display: none;
+}
+
+.menu-generar-reporte[open] > summary.boton-reporte-perfil {
+    background-color: var(--color-primario-oscuro, #174f38);
+}
+
+.panel-generar-reporte {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    z-index: 20;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 260px;
+    background-color: var(--color-blanco);
+    border: 1px solid var(--color-borde);
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+}
+
+.panel-generar-reporte .grupo-filtro,
+.panel-generar-reporte .selector-filtro {
+    width: 100%;
+}
+
+.panel-generar-reporte .boton-nuevo-usuario {
+    width: 100%;
+    justify-content: center;
+}
+
 .boton-ver-perfil:hover {
     background-color: #1e5f24;
 }
@@ -3559,6 +3589,32 @@ html {
 }
 
 #modo-comparar:checked ~ .contenido-modo-comparar {
+    display: block;
+}
+
+/* Conmutador de tipo de reporte (Ficha / Instructor / Estadísticas) en Reportes */
+#modo-reporte-ficha:checked ~ .selector-modo-estadisticas label[for="modo-reporte-ficha"],
+#modo-reporte-instructor:checked ~ .selector-modo-estadisticas label[for="modo-reporte-instructor"],
+#modo-reporte-estadisticas:checked ~ .selector-modo-estadisticas label[for="modo-reporte-estadisticas"] {
+    background-color: var(--color-primario);
+    color: var(--color-blanco);
+}
+
+.contenido-reporte-ficha,
+.contenido-reporte-instructor,
+.contenido-reporte-estadisticas {
+    display: none;
+}
+
+#modo-reporte-ficha:checked ~ .contenido-reporte-ficha {
+    display: block;
+}
+
+#modo-reporte-instructor:checked ~ .contenido-reporte-instructor {
+    display: block;
+}
+
+#modo-reporte-estadisticas:checked ~ .contenido-reporte-estadisticas {
     display: block;
 }
 
@@ -4321,6 +4377,11 @@ html {
 
     .grupo-herramientas-busqueda {
         width: 100%;
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .grupo-filtros-activos {
         align-items: stretch;
         flex-direction: column;
     }

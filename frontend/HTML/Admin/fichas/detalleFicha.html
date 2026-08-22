@@ -35,10 +35,13 @@
                 <a href="../bitacora/bitacora.html" class="enlace-nav" data-pagina="bitacora" data-roles="administrador">
                     <i class="fa-solid fa-clock-rotate-left"></i> Bitácora
                 </a>
+                <a href="../alertas/alertas.html" class="enlace-nav" data-pagina="alertas" data-roles="administrador,instructor">
+                    <i class="fa-solid fa-triangle-exclamation"></i> Alertas
+                </a>
                 <a href="../estadisticas/estadisticas.html" class="enlace-nav" data-pagina="estadisticas" data-roles="administrador">
                     <i class="fa-solid fa-chart-line"></i> Estadísticas
                 </a>
-                <a href="" class="enlace-nav" data-pagina="reportes" data-roles="administrador,instructor">
+                <a href="../reportes/reportes.html" class="enlace-nav" data-pagina="reportes" data-roles="administrador,instructor">
                     <i class="fa-solid fa-chart-bar"></i> Reportes
                 </a>
             </nav>
@@ -46,9 +49,9 @@
             <div class="area-usuario">
                 <span class="separador-nav" aria-hidden="true"></span>
 
-                <button type="button" class="boton-notificaciones" aria-label="Notificaciones">
+                <a href="../alertas/alertas.html" class="boton-notificaciones" aria-label="Alertas">
                     <i class="fa-solid fa-bell"></i>
-                </button>
+                </a>
 
                 <div class="tarjeta-usuario" id="boton-menu-usuario">
                     <div class="avatar-usuario" aria-hidden="true"></div>
@@ -98,6 +101,26 @@
                 </div>
 
                 <div class="acciones-detalle-ficha">
+                    <details class="menu-generar-reporte">
+                        <summary class="boton-reporte-perfil">
+                            <i class="fa-solid fa-file-lines" aria-hidden="true"></i>
+                            Generar reporte
+                        </summary>
+                        <div class="panel-generar-reporte">
+                            <div class="grupo-filtro">
+                                <label for="reporte-ficha-detalle-desde">Desde</label>
+                                <input type="date" id="reporte-ficha-detalle-desde" class="selector-filtro" value="2026-08-01">
+                            </div>
+                            <div class="grupo-filtro">
+                                <label for="reporte-ficha-detalle-hasta">Hasta</label>
+                                <input type="date" id="reporte-ficha-detalle-hasta" class="selector-filtro" value="2026-08-21">
+                            </div>
+                            <button type="button" class="boton-nuevo-usuario">
+                                <i class="fa-solid fa-file-lines"></i>
+                                Generar
+                            </button>
+                        </div>
+                    </details>
                     <button type="button" class="boton-modificar-ficha">Modificar Información</button>
                     <button type="button" class="boton-desactivar-ficha">Desactivar ficha</button>
                 </div>
