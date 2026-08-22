@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PuntualiX | Reportes</title>
+
+    <link rel="icon" type="image/png" href="../../../src/assets/img/favico/favicon_positivo.png">
+
+    <link rel="stylesheet" href="../../../src/styles/base.css">
+    <link rel="stylesheet" href="../../../src/styles/tokens.css">
+    <link rel="stylesheet" href="../../../src/styles/fonts.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../../../src/styles/estilos.css">
+</head>
+<body>
+    <div class="pantalla-dashboard-admin">
+
+        <!-- Barra de navegación superior (componente compartido, replicado estáticamente) -->
+        <header class="barra-navegacion">
+            <div class="marca-navegacion">
+                <img src="../../../src/assets/img/LogoNegativo/negativo_sin_eslogan_transparente.png" alt="Logo Puntualix">
+            </div>
+
+            <nav class="menu-navegacion">
+                <a href="../dashboard.html" class="enlace-nav" data-pagina="dashboard" data-roles="administrador,instructor,aprendiz">
+                    <i class="fa-solid fa-house"></i> Dashboard
+                </a>
+                <a href="../fichas/fichas.html" class="enlace-nav" data-pagina="fichas" data-roles="administrador,instructor">
+                    <i class="fa-solid fa-file-lines"></i> Fichas
+                </a>
+                <a href="../instructores/panel.html" class="enlace-nav" data-pagina="panel" data-roles="administrador,instructor">
+                    <i class="fa-solid fa-chalkboard-user"></i> Instructores
+                </a>
+                <a href="../bitacora/bitacora.html" class="enlace-nav" data-pagina="bitacora" data-roles="administrador">
+                    <i class="fa-solid fa-clock-rotate-left"></i> Bitácora
+                </a>
+                <a href="../alertas/alertas.html" class="enlace-nav" data-pagina="alertas" data-roles="administrador,instructor">
+                    <i class="fa-solid fa-triangle-exclamation"></i> Alertas
+                </a>
+                <a href="../estadisticas/estadisticas.html" class="enlace-nav" data-pagina="estadisticas" data-roles="administrador">
+                    <i class="fa-solid fa-chart-line"></i> Estadísticas
+                </a>
+                <a href="reportes.html" class="enlace-nav enlace-nav-activo" data-pagina="reportes" data-roles="administrador,instructor">
+                    <i class="fa-solid fa-chart-bar"></i> Reportes
+                </a>
+            </nav>
+
+            <div class="area-usuario">
+                <span class="separador-nav" aria-hidden="true"></span>
+
+                <a href="../alertas/alertas.html" class="boton-notificaciones" aria-label="Alertas">
+                    <i class="fa-solid fa-bell"></i>
+                </a>
+
+                <div class="tarjeta-usuario" id="boton-menu-usuario">
+                    <div class="avatar-usuario" aria-hidden="true"></div>
+                    <div class="datos-usuario">
+                        <span class="nombre-usuario">Andres Ramirez</span>
+                        <span class="rol-usuario">Administrador</span>
+                    </div>
+                    <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+                </div>
+
+                <div class="menu-desplegable-usuario oculto" id="menu-usuario">
+                    <a href="" class="item-menu-usuario" data-roles="administrador,instructor,aprendiz">
+                        <i class="fa-solid fa-circle-user"></i> Ver perfil
+                    </a>
+                    <a href="" class="item-menu-usuario" data-roles="administrador,instructor,aprendiz">
+                        <i class="fa-solid fa-bookmark"></i> Ver competencias
+                    </a>
+                    <a href="" class="item-menu-usuario" data-roles="administrador,instructor,aprendiz">
+                        <i class="fa-solid fa-file-circle-check"></i> Ver justificaciones
+                    </a>
+                    <a href="../estadisticas/estadisticas.html" class="item-menu-usuario" data-roles="administrador">
+                        <i class="fa-solid fa-chart-line"></i> Ver estadísticas
+                    </a>
+                    <a href="../../InicioSesion.html" class="item-menu-usuario item-menu-cerrar-sesion" data-roles="administrador,instructor,aprendiz">
+                        <i class="fa-solid fa-right-from-bracket"></i> Cerrar sesión
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <main class="contenido-dashboard">
+
+            <!-- Migas de pan -->
+            <nav class="migas-pan" aria-label="Ruta de navegación">
+                <a href="../dashboard.html">Inicio</a>
+                <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+                <span>Reportes</span>
+            </nav>
+
+            <h1 class="titulo-pagina">Reportes</h1>
+
+            <!-- Franja de resumen -->
+            <div class="franja-resumen">
+                <div class="dato-resumen">
+                    <i class="fa-solid fa-file-lines" aria-hidden="true"></i>
+                    <div class="info-resumen">
+                        <span class="valor-resumen">34</span>
+                        <span class="etiqueta-resumen">Reportes generados este mes</span>
+                    </div>
+                </div>
+
+                <span class="divisor-resumen" aria-hidden="true"></span>
+
+                <div class="dato-resumen">
+                    <i class="fa-solid fa-file-lines" aria-hidden="true"></i>
+                    <div class="info-resumen">
+                        <span class="valor-resumen">28 de 54</span>
+                        <span class="etiqueta-resumen">Fichas con reporte generado</span>
+                    </div>
+                </div>
+
+                <span class="divisor-resumen" aria-hidden="true"></span>
+
+                <div class="dato-resumen">
+                    <i class="fa-solid fa-chalkboard-user" aria-hidden="true"></i>
+                    <div class="info-resumen">
+                        <span class="valor-resumen">9 de 15</span>
+                        <span class="etiqueta-resumen">Instructores con reporte generado</span>
+                    </div>
+                </div>
+
+                <span class="divisor-resumen" aria-hidden="true"></span>
+
+                <div class="dato-resumen">
+                    <i class="fa-solid fa-clock" aria-hidden="true"></i>
+                    <div class="info-resumen">
+                        <span class="valor-resumen">Hace 2 horas</span>
+                        <span class="etiqueta-resumen">Último reporte generado</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Generar reporte (CU05.1, CU05.4, CU05.5) -->
+            <section class="panel-listado">
+                <div class="encabezado-instructores-ficha">
+                    <h2>Generar reporte</h2>
+                    <p class="texto-conteo-listado">Elige qué tipo de reporte quieres generar</p>
+                </div>
+
+                <input type="radio" name="modo-reporte" id="modo-reporte-ficha" class="input-modo-estadisticas" checked>
+                <input type="radio" name="modo-reporte" id="modo-reporte-instructor" class="input-modo-estadisticas">
+                <input type="radio" name="modo-reporte" id="modo-reporte-estadisticas" class="input-modo-estadisticas">
+
+                <div class="selector-modo-estadisticas">
+                    <label for="modo-reporte-ficha" class="boton-modo-estadisticas">
+                        <i class="fa-solid fa-file-lines" aria-hidden="true"></i> Ficha
+                    </label>
+                    <label for="modo-reporte-instructor" class="boton-modo-estadisticas">
+                        <i class="fa-solid fa-chalkboard-user" aria-hidden="true"></i> Instructor
+                    </label>
+                    <label for="modo-reporte-estadisticas" class="boton-modo-estadisticas">
+                        <i class="fa-solid fa-chart-line" aria-hidden="true"></i> Estadísticas
+                    </label>
+                </div>
+
+                <!-- Reporte de ficha (CU05.1) -->
+                <div class="contenido-reporte-ficha">
+                    <div class="barra-herramientas-listado barra-herramientas-comparar barra-herramientas-apilada">
+                        <div class="fila-filtros-comparar">
+                            <div class="grupo-herramientas-busqueda grupo-herramientas-comparar">
+                                <div class="grupo-filtros-activos">
+                                <div class="grupo-filtro">
+                                    <label for="reporte-ficha-desde">Desde</label>
+                                    <input type="date" id="reporte-ficha-desde" class="selector-filtro" value="2026-08-01">
+                                </div>
+
+                                <div class="grupo-filtro">
+                                    <label for="reporte-ficha-hasta">Hasta</label>
+                                    <input type="date" id="reporte-ficha-hasta" class="selector-filtro" value="2026-08-21">
+                                </div>
+
+                                <details class="menu-filtros-adicionales">
+                                    <summary class="boton-mas-filtros">
+                                        <i class="fa-solid fa-sliders" aria-hidden="true"></i>
+                                        Más filtros
+                                    </summary>
+                                    <div class="panel-filtros-adicionales">
+                                        <div class="grupo-filtro">
+                                            <label for="reporte-ficha-filtro-sede">Sede</label>
+                                            <select id="reporte-ficha-filtro-sede" class="selector-filtro">
+                                                <option value="todas">Todas</option>
+                                                <option value="principal">Casa de la Convención</option>
+                                                <option value="industria">CIAA</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="grupo-filtro">
+                                            <label for="reporte-ficha-filtro-area">Área</label>
+                                            <select id="reporte-ficha-filtro-area" class="selector-filtro">
+                                                <option value="todas">Todas</option>
+                                                <option value="sistemas">Sistemas</option>
+                                                <option value="diseno">Diseño</option>
+                                                <option value="administrativa">Administrativa</option>
+                                                <option value="electromecanica">Electromecánica</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="grupo-filtro">
+                                            <label for="reporte-ficha-filtro-programa">Programa</label>
+                                            <select id="reporte-ficha-filtro-programa" class="selector-filtro">
+                                                <option value="todos">Todos</option>
+                                                <option value="ads">Análisis y Desarrollo de Software</option>
+                                                <option value="electromecanica">Electromecánica</option>
+                                                <option value="gestion">Gestión Administrativa</option>
+                                                <option value="redes">Redes y Telecomunicaciones</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="grupo-filtro">
+                                            <label for="reporte-ficha-filtro-jornada">Jornada</label>
+                                            <select id="reporte-ficha-filtro-jornada" class="selector-filtro">
+                                                <option value="todas">Todas</option>
+                                                <option value="manana">Mañana</option>
+                                                <option value="tarde">Tarde</option>
+                                                <option value="noche">Noche</option>
+                                            </select>
+                                        </div>
+
+                                    </div>
+                                </details>
+                                </div>
+
+                                <div class="grupo-busqueda">
+                                    <input type="text" placeholder="Buscar ficha por número" class="campo-busqueda-ficha" />
+                                    <button type="button" class="boton-buscar-ficha" aria-label="Buscar ficha">
+                                        <i class="fa-solid fa-magnifying-glass"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <button type="button" class="boton-nuevo-usuario">
+                                <i class="fa-solid fa-file-lines"></i>
+                                Generar reporte
+                            </button>
+                        </div>
+
+                        <div class="fila-elementos-comparar">
+                            <div class="grupo-filtro">
+                                <label for="selector-ficha-reporte">Ficha</label>
+                                <select id="selector-ficha-reporte" class="selector-filtro">
+                                    <option value="301002" selected>301002 — Análisis y Desarrollo de Software</option>
+                                    <option value="301003">301003 — Gestión Administrativa</option>
+                                    <option value="301004">301004 — Análisis y Desarrollo de Software</option>
+                                    <option value="301005">301005 — Redes y Telecomunicaciones</option>
+                                    <option value="301006">301006 — Electromecánica</option>
+                                    <option value="301007">301007 — Mercadeo Técnica</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="texto-ayuda-comparacion">
+                        <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
+                        Genera el reporte de desempeño general de la ficha seleccionada: asistencia, permanencia y cantidad de aprendices activos.
+                    </p>
+                </div>
+
+                <!-- Reporte de instructor (CU05.4) -->
+                <div class="contenido-reporte-instructor">
+                    <div class="barra-herramientas-listado barra-herramientas-comparar barra-herramientas-apilada">
+                        <div class="fila-filtros-comparar">
+                            <div class="grupo-herramientas-busqueda grupo-herramientas-comparar">
+                                <div class="grupo-filtros-activos">
+                                <div class="grupo-filtro">
+                                    <label for="reporte-instructor-desde">Desde</label>
+                                    <input type="date" id="reporte-instructor-desde" class="selector-filtro" value="2026-08-01">
+                                </div>
+
+                                <div class="grupo-filtro">
+                                    <label for="reporte-instructor-hasta">Hasta</label>
+                                    <input type="date" id="reporte-instructor-hasta" class="selector-filtro" value="2026-08-21">
+                                </div>
+
+                                <details class="menu-filtros-adicionales">
+                                    <summary class="boton-mas-filtros">
+                                        <i class="fa-solid fa-sliders" aria-hidden="true"></i>
+                                        Más filtros
+                                    </summary>
+                                    <div class="panel-filtros-adicionales">
+                                        <div class="grupo-filtro">
+                                            <label for="reporte-instructor-filtro-sede">Sede</label>
+                                            <select id="reporte-instructor-filtro-sede" class="selector-filtro">
+                                                <option value="todas">Todas</option>
+                                                <option value="principal">Casa de la Convención</option>
+                                                <option value="industria">CIAA</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="grupo-filtro">
+                                            <label for="reporte-instructor-filtro-area">Área</label>
+                                            <select id="reporte-instructor-filtro-area" class="selector-filtro">
+                                                <option value="todas">Todas</option>
+                                                <option value="sistemas">Sistemas</option>
+                                                <option value="diseno">Diseño</option>
+                                                <option value="administrativa">Administrativa</option>
+                                                <option value="electromecanica">Electromecánica</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="grupo-filtro">
+                                            <label for="reporte-instructor-filtro-cumplimiento">Nivel de cumplimiento</label>
+                                            <select id="reporte-instructor-filtro-cumplimiento" class="selector-filtro">
+                                                <option value="todos">Todos</option>
+                                                <option value="alto">Alto (80%+)</option>
+                                                <option value="moderado">Moderado (70–79%)</option>
+                                                <option value="bajo">Bajo (menor a 70%)</option>
+                                            </select>
+                                        </div>
+
+                                    </div>
+                                </details>
+                                </div>
+
+                                <div class="grupo-busqueda">
+                                    <input type="text" placeholder="Buscar instructor" class="campo-busqueda-ficha" />
+                                    <button type="button" class="boton-buscar-ficha" aria-label="Buscar instructor">
+                                        <i class="fa-solid fa-magnifying-glass"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <button type="button" class="boton-nuevo-usuario">
+                                <i class="fa-solid fa-file-lines"></i>
+                                Generar reporte
+                            </button>
+                        </div>
+
+                        <div class="fila-elementos-comparar">
+                            <div class="grupo-filtro">
+                                <label for="selector-instructor-reporte">Instructor</label>
+                                <select id="selector-instructor-reporte" class="selector-filtro">
+                                    <option value="andres" selected>Andres Ramirez</option>
+                                    <option value="jorge">Jorge Perez</option>
+                                    <option value="maria">Maria Gonzales</option>
+                                    <option value="laura">Laura Torres</option>
+                                    <option value="natalia">Natalia Moreno</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="texto-ayuda-comparacion">
+                        <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
+                        Genera el reporte de desempeño del instructor seleccionado: cumplimiento, fichas asignadas y tendencia en el tiempo.
+                    </p>
+                </div>
+
+                <!-- Reporte de estadísticas (CU05.5) -->
+                <div class="contenido-reporte-estadisticas">
+                    <div class="barra-herramientas-listado barra-herramientas-comparar">
+                        <div class="grupo-herramientas-busqueda">
+                            <div class="grupo-filtros-activos">
+                            <div class="grupo-filtro">
+                                <label for="selector-tipo-estadistica-reporte">Tipo de estadística</label>
+                                <select id="selector-tipo-estadistica-reporte" class="selector-filtro">
+                                    <optgroup label="Asistencia por dimensión">
+                                        <option value="sede" selected>Por sede</option>
+                                        <option value="area">Por área</option>
+                                        <option value="programa">Por programa</option>
+                                        <option value="jornada">Por jornada</option>
+                                    </optgroup>
+                                    <optgroup label="Indicadores generales">
+                                        <option value="desercion">Deserción de aprendices</option>
+                                        <option value="cumplimiento">Cumplimiento de instructores</option>
+                                    </optgroup>
+                                </select>
+                            </div>
+
+                            <div class="grupo-filtro">
+                                <label for="reporte-fecha-desde">Desde</label>
+                                <input type="date" id="reporte-fecha-desde" class="selector-filtro" value="2026-08-01">
+                            </div>
+
+                            <div class="grupo-filtro">
+                                <label for="reporte-fecha-hasta">Hasta</label>
+                                <input type="date" id="reporte-fecha-hasta" class="selector-filtro" value="2026-08-21">
+                            </div>
+                            </div>
+                        </div>
+
+                        <button type="button" class="boton-nuevo-usuario">
+                            <i class="fa-solid fa-file-lines"></i>
+                            Generar reporte
+                        </button>
+                    </div>
+                    <p class="texto-ayuda-comparacion">
+                        <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
+                        Genera un reporte con los indicadores generales del módulo de Estadísticas para el tipo y periodo seleccionado.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Historial de reportes (CU05.3) -->
+            <section class="panel-listado">
+                <div class="encabezado-instructores-ficha">
+                    <h2>Historial de reportes</h2>
+                    <p class="texto-conteo-listado">Consulta los reportes generados previamente</p>
+                </div>
+
+                <div class="barra-herramientas-listado">
+                    <div class="grupo-herramientas-busqueda">
+                        <div class="grupo-filtros-activos">
+                            <div class="grupo-filtro">
+                                <label for="filtro-tipo-reporte">Tipo de reporte</label>
+                                <select id="filtro-tipo-reporte" class="selector-filtro">
+                                    <option value="todos">Todos</option>
+                                    <option value="ficha">Ficha</option>
+                                    <option value="instructor">Instructor</option>
+                                    <option value="estadisticas">Estadísticas</option>
+                                </select>
+                            </div>
+
+                            <div class="grupo-filtro">
+                                <label for="filtro-reporte-desde">Desde</label>
+                                <input type="date" id="filtro-reporte-desde" class="selector-filtro" value="2026-08-01">
+                            </div>
+
+                            <div class="grupo-filtro">
+                                <label for="filtro-reporte-hasta">Hasta</label>
+                                <input type="date" id="filtro-reporte-hasta" class="selector-filtro" value="2026-08-21">
+                            </div>
+
+                            <button type="button" class="boton-limpiar-filtros">
+                                <i class="fa-solid fa-broom" aria-hidden="true"></i>
+                                Limpiar filtros
+                            </button>
+                        </div>
+
+                        <div class="grupo-busqueda">
+                            <input type="text" placeholder="Buscar reporte" class="campo-busqueda-ficha" />
+                            <button type="button" class="boton-buscar-ficha" aria-label="Buscar">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contenedor-tabla-listado">
+                    <table class="tabla-listado-fichas">
+                    <colgroup>
+                        <col style="width: 14%">
+                        <col style="width: 32%">
+                        <col style="width: 20%">
+                        <col style="width: 20%">
+                        <col style="width: 14%">
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th>Tipo</th>
+                            <th>Referencia</th>
+                            <th>Generado por</th>
+                            <th>Fecha</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Ficha</td>
+                            <td>301002 — Análisis y Desarrollo de Software</td>
+                            <td>Andres Ramirez</td>
+                            <td>20/08/2026 09:15</td>
+                            <td>
+                                <a href="" class="icono-contacto-ficha" title="Ver" aria-label="Ver reporte"><i class="fa-solid fa-eye"></i></a>
+                                <a href="" class="icono-contacto-ficha" title="Descargar" aria-label="Descargar reporte"><i class="fa-solid fa-download"></i></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Instructor</td>
+                            <td>Jorge Perez</td>
+                            <td>Andres Ramirez</td>
+                            <td>19/08/2026 14:30</td>
+                            <td>
+                                <a href="" class="icono-contacto-ficha" title="Ver" aria-label="Ver reporte"><i class="fa-solid fa-eye"></i></a>
+                                <a href="" class="icono-contacto-ficha" title="Descargar" aria-label="Descargar reporte"><i class="fa-solid fa-download"></i></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Estadísticas</td>
+                            <td>Cumplimiento de instructores</td>
+                            <td>Andres Ramirez</td>
+                            <td>18/08/2026 10:00</td>
+                            <td>
+                                <a href="" class="icono-contacto-ficha" title="Ver" aria-label="Ver reporte"><i class="fa-solid fa-eye"></i></a>
+                                <a href="" class="icono-contacto-ficha" title="Descargar" aria-label="Descargar reporte"><i class="fa-solid fa-download"></i></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Ficha</td>
+                            <td>301005 — Redes y Telecomunicaciones</td>
+                            <td>Andres Ramirez</td>
+                            <td>17/08/2026 16:45</td>
+                            <td>
+                                <a href="" class="icono-contacto-ficha" title="Ver" aria-label="Ver reporte"><i class="fa-solid fa-eye"></i></a>
+                                <a href="" class="icono-contacto-ficha" title="Descargar" aria-label="Descargar reporte"><i class="fa-solid fa-download"></i></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Instructor</td>
+                            <td>Maria Gonzales</td>
+                            <td>Andres Ramirez</td>
+                            <td>16/08/2026 11:20</td>
+                            <td>
+                                <a href="" class="icono-contacto-ficha" title="Ver" aria-label="Ver reporte"><i class="fa-solid fa-eye"></i></a>
+                                <a href="" class="icono-contacto-ficha" title="Descargar" aria-label="Descargar reporte"><i class="fa-solid fa-download"></i></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Estadísticas</td>
+                            <td>Deserción de aprendices</td>
+                            <td>Andres Ramirez</td>
+                            <td>15/08/2026 08:50</td>
+                            <td>
+                                <a href="" class="icono-contacto-ficha" title="Ver" aria-label="Ver reporte"><i class="fa-solid fa-eye"></i></a>
+                                <a href="" class="icono-contacto-ficha" title="Descargar" aria-label="Descargar reporte"><i class="fa-solid fa-download"></i></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Ficha</td>
+                            <td>301006 — Electromecánica</td>
+                            <td>Andres Ramirez</td>
+                            <td>14/08/2026 13:10</td>
+                            <td>
+                                <a href="" class="icono-contacto-ficha" title="Ver" aria-label="Ver reporte"><i class="fa-solid fa-eye"></i></a>
+                                <a href="" class="icono-contacto-ficha" title="Descargar" aria-label="Descargar reporte"><i class="fa-solid fa-download"></i></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Instructor</td>
+                            <td>Laura Torres</td>
+                            <td>Andres Ramirez</td>
+                            <td>13/08/2026 09:40</td>
+                            <td>
+                                <a href="" class="icono-contacto-ficha" title="Ver" aria-label="Ver reporte"><i class="fa-solid fa-eye"></i></a>
+                                <a href="" class="icono-contacto-ficha" title="Descargar" aria-label="Descargar reporte"><i class="fa-solid fa-download"></i></a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                </div>
+
+                <div class="pie-listado">
+                    <p class="texto-conteo-listado">Mostrando 8 reportes de 34</p>
+
+                    <nav class="paginacion" aria-label="Paginación de reportes">
+                        <button type="button" class="boton-pagina boton-pagina-activo">1</button>
+                        <button type="button" class="boton-pagina">2</button>
+                        <button type="button" class="boton-pagina">3</button>
+                        <button type="button" class="boton-pagina-siguiente" aria-label="Página siguiente">
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </button>
+                    </nav>
+                </div>
+
+            </section>
+
+        </main>
+
+        <!-- Pie de página (componente compartido, replicado estáticamente) -->
+        <footer class="pie-dashboard">
+            <div class="marca-pie">
+                <img src="../../../src/assets/img/LogoNegativo/negativo_con_eslogan_transparente.png" alt="Logo PuntualiX" class="logo-puntualix-pie" />
+                <div class="texto-marca-pie">
+                    <p>Desarrollado en el marco del proyecto de formación SENA · 2026</p>
+                    <p class="copyright-pie">
+                        <i class="fa-regular fa-copyright" aria-hidden="true"></i>
+                        2026 Puntualix. Todos los derechos reservados
+                    </p>
+                </div>
+            </div>
+
+            <div class="info-programa-pie">
+                <img src="../../../src/assets/img/LogoSena/SenaSobreVerde.png" alt="SENA" class="logo-sena-pie" />
+                <p>
+                    Programa: Análisis y desarrollo de Software<br />
+                    Ficha: 3267541
+                </p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="../../../src/js/main.js"></script>
+</body>
+</html>

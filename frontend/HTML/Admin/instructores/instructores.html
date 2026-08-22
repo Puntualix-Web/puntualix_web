@@ -53,10 +53,13 @@
                 <a href="../bitacora/bitacora.html" class="enlace-nav" data-pagina="bitacora" data-roles="administrador">
                     <i class="fa-solid fa-clock-rotate-left"></i> Bitácora
                 </a>
+                <a href="../alertas/alertas.html" class="enlace-nav" data-pagina="alertas" data-roles="administrador,instructor">
+                    <i class="fa-solid fa-triangle-exclamation"></i> Alertas
+                </a>
                 <a href="../estadisticas/estadisticas.html" class="enlace-nav" data-pagina="estadisticas" data-roles="administrador">
                     <i class="fa-solid fa-chart-line"></i> Estadísticas
                 </a>
-                <a href="" class="enlace-nav" data-pagina="reportes" data-roles="administrador,instructor">
+                <a href="../reportes/reportes.html" class="enlace-nav" data-pagina="reportes" data-roles="administrador,instructor">
                     <i class="fa-solid fa-chart-bar"></i> Reportes
                 </a>
             </nav>
@@ -64,9 +67,9 @@
             <div class="area-usuario">
                 <span class="separador-nav" aria-hidden="true"></span>
 
-                <button type="button" class="boton-notificaciones" aria-label="Notificaciones">
+                <a href="../alertas/alertas.html" class="boton-notificaciones" aria-label="Alertas">
                     <i class="fa-solid fa-bell"></i>
-                </button>
+                </a>
 
                 <div class="tarjeta-usuario" id="boton-menu-usuario">
                     <div class="avatar-usuario" aria-hidden="true"></div>
@@ -152,13 +155,16 @@
 
             <section class="panel-listado">
 
-                <div class="barra-herramientas-listado">
-                    <a href="registrarInstructor.html" class="boton-nuevo-usuario">
-                        <i class="fa-solid fa-plus"></i>
-                        Registrar nuevo instructor
-                    </a>
+                <div class="barra-herramientas-listado barra-herramientas-apilada">
+                    <div class="fila-accion-principal">
+                        <a href="registrarInstructor.html" class="boton-nuevo-usuario">
+                            <i class="fa-solid fa-plus"></i>
+                            Registrar nuevo instructor
+                        </a>
+                    </div>
 
                     <div class="grupo-herramientas-busqueda">
+                        <div class="grupo-filtros-activos">
                         <div class="grupo-filtro">
                             <label for="filtro-sede-listado">Sede</label>
                             <select id="filtro-sede-listado" class="selector-filtro">
@@ -206,6 +212,7 @@
                             <i class="fa-solid fa-broom" aria-hidden="true"></i>
                             Limpiar filtros
                         </button>
+                        </div>
 
                         <div class="grupo-busqueda">
                             <input type="text" placeholder="Buscar instructor" class="campo-busqueda-ficha" />

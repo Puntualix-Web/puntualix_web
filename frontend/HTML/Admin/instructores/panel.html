@@ -53,10 +53,13 @@
                 <a href="../bitacora/bitacora.html" class="enlace-nav" data-pagina="bitacora" data-roles="administrador">
                     <i class="fa-solid fa-clock-rotate-left"></i> Bitácora
                 </a>
+                <a href="../alertas/alertas.html" class="enlace-nav" data-pagina="alertas" data-roles="administrador,instructor">
+                    <i class="fa-solid fa-triangle-exclamation"></i> Alertas
+                </a>
                 <a href="../estadisticas/estadisticas.html" class="enlace-nav" data-pagina="estadisticas" data-roles="administrador">
                     <i class="fa-solid fa-chart-line"></i> Estadísticas
                 </a>
-                <a href="" class="enlace-nav" data-pagina="reportes" data-roles="administrador,instructor">
+                <a href="../reportes/reportes.html" class="enlace-nav" data-pagina="reportes" data-roles="administrador,instructor">
                     <i class="fa-solid fa-chart-bar"></i> Reportes
                 </a>
             </nav>
@@ -64,9 +67,9 @@
             <div class="area-usuario">
                 <span class="separador-nav" aria-hidden="true"></span>
 
-                <button type="button" class="boton-notificaciones" aria-label="Notificaciones">
+                <a href="../alertas/alertas.html" class="boton-notificaciones" aria-label="Alertas">
                     <i class="fa-solid fa-bell"></i>
-                </button>
+                </a>
 
                 <div class="tarjeta-usuario" id="boton-menu-usuario">
                     <div class="avatar-usuario" aria-hidden="true"></div>
@@ -289,11 +292,61 @@
                     <p class="texto-conteo-listado">Instructores con cumplimiento bajo, prioridad de atención.</p>
                 </div>
 
-                <div class="chips-ficha">
-                    <button type="button" class="chip-ficha chip-ficha-activo">Todas las fichas</button>
-                    <button type="button" class="chip-ficha">301004</button>
-                    <button type="button" class="chip-ficha">301005</button>
-                    <button type="button" class="chip-ficha">301007</button>
+                <div class="barra-herramientas-listado">
+                    <div class="grupo-herramientas-busqueda">
+                        <div class="grupo-filtros-activos">
+                            <div class="grupo-filtro">
+                                <label for="filtro-sede-criticos">Sede</label>
+                                <select id="filtro-sede-criticos" class="selector-filtro">
+                                    <option value="todas">Todas</option>
+                                    <option value="principal">Casa de la Convención</option>
+                                    <option value="industria">CIAA</option>
+                                </select>
+                            </div>
+
+                            <div class="grupo-filtro">
+                                <label for="filtro-area-criticos">Área</label>
+                                <select id="filtro-area-criticos" class="selector-filtro">
+                                    <option value="todas">Todas</option>
+                                    <option value="sistemas">Sistemas</option>
+                                    <option value="diseno">Diseño</option>
+                                    <option value="administrativa">Administrativa</option>
+                                    <option value="electromecanica">Electromecánica</option>
+                                </select>
+                            </div>
+
+                            <div class="grupo-filtro">
+                                <label for="filtro-ficha-criticos">Ficha</label>
+                                <select id="filtro-ficha-criticos" class="selector-filtro">
+                                    <option value="todas">Todas las fichas</option>
+                                    <option value="301004">301004</option>
+                                    <option value="301005">301005</option>
+                                    <option value="301007">301007</option>
+                                </select>
+                            </div>
+
+                            <div class="grupo-filtro">
+                                <label for="filtro-nivel-criticos">Nivel de criticidad</label>
+                                <select id="filtro-nivel-criticos" class="selector-filtro">
+                                    <option value="todos">Todos</option>
+                                    <option value="critico">Crítico (menor a 60%)</option>
+                                    <option value="seguimiento">En seguimiento (60–79%)</option>
+                                </select>
+                            </div>
+
+                            <button type="button" class="boton-limpiar-filtros">
+                                <i class="fa-solid fa-broom" aria-hidden="true"></i>
+                                Limpiar filtros
+                            </button>
+                        </div>
+
+                        <div class="grupo-busqueda">
+                            <input type="text" placeholder="Buscar instructor" class="campo-busqueda-ficha" />
+                            <button type="button" class="boton-buscar-ficha" aria-label="Buscar">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </button>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="divisor-sutil" aria-hidden="true"></div>

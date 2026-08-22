@@ -1,7 +1,7 @@
 // src/js/main.js
 // ==========================================================
 // FASE ACTUAL: HTML/CSS sin dependencia de JavaScript.
-// ÚNICAMENTE se conserva la autenticación simulada del login.
+// ÚNICAMENTE se conserva la autenticación simulada del login
 // Todo el comportamiento dinámico anterior (inyección de
 // componentes, pestañas, overlay) quedó retirado de esta fase
 // y se retomará cuando se implemente la fase de JS.
