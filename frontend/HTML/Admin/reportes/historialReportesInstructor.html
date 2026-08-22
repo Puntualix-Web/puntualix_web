@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PuntualiX | Historial de reportes del instructor</title>
+
+    <link rel="icon" type="image/png" href="../../../src/assets/img/favico/favicon_positivo.png">
+
+    <link rel="stylesheet" href="../../../src/styles/base.css">
+    <link rel="stylesheet" href="../../../src/styles/tokens.css">
+    <link rel="stylesheet" href="../../../src/styles/fonts.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../../../src/styles/estilos.css">
+</head>
+<body>
+    <div class="pantalla-dashboard-admin">
+
+        <!-- Barra de navegación superior (componente compartido, replicado estáticamente) -->
+        <header class="barra-navegacion">
+            <div class="marca-navegacion">
+                <img src="../../../src/assets/img/LogoNegativo/negativo_sin_eslogan_transparente.png" alt="Logo Puntualix">
+            </div>
+
+            <nav class="menu-navegacion">
+                <a href="../dashboard.html" class="enlace-nav" data-pagina="dashboard" data-roles="administrador,instructor,aprendiz">
+                    <i class="fa-solid fa-house"></i> Dashboard
+                </a>
+                <a href="../fichas/fichas.html" class="enlace-nav" data-pagina="fichas" data-roles="administrador,instructor">
+                    <i class="fa-solid fa-file-lines"></i> Fichas
+                </a>
+                <a href="../instructores/panel.html" class="enlace-nav" data-pagina="panel" data-roles="administrador,instructor">
+                    <i class="fa-solid fa-chalkboard-user"></i> Instructores
+                </a>
+                <a href="../bitacora/bitacora.html" class="enlace-nav" data-pagina="bitacora" data-roles="administrador">
+                    <i class="fa-solid fa-clock-rotate-left"></i> Bitácora
+                </a>
+                <a href="../estadisticas/estadisticas.html" class="enlace-nav" data-pagina="estadisticas" data-roles="administrador">
+                    <i class="fa-solid fa-chart-line"></i> Estadísticas
+                </a>
+                <a href="reportes.html" class="enlace-nav enlace-nav-activo" data-pagina="reportes" data-roles="administrador,instructor">
+                    <i class="fa-solid fa-chart-bar"></i> Reportes
+                </a>
+            </nav>
+
+            <div class="area-usuario">
+                <span class="separador-nav" aria-hidden="true"></span>
+
+                <a href="../alertas/alertas.html" class="boton-notificaciones" aria-label="Alertas">
+                    <i class="fa-solid fa-bell"></i>
+                </a>
+
+                <div class="tarjeta-usuario" id="boton-menu-usuario">
+                    <div class="avatar-usuario" aria-hidden="true"></div>
+                    <div class="datos-usuario">
+                        <span class="nombre-usuario">Andres Ramirez</span>
+                        <span class="rol-usuario">Administrador</span>
+                    </div>
+                    <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+                </div>
+
+                <div class="menu-desplegable-usuario oculto" id="menu-usuario">
+                    <a href="" class="item-menu-usuario" data-roles="administrador,instructor,aprendiz">
+                        <i class="fa-solid fa-circle-user"></i> Ver perfil
+                    </a>
+                    <a href="../usuarios/usuarios.html" class="item-menu-usuario" data-roles="administrador">
+                        <i class="fa-solid fa-users"></i> Ver usuarios
+                    </a>
+                    <a href="../../InicioSesion.html" class="item-menu-usuario item-menu-cerrar-sesion" data-roles="administrador,instructor,aprendiz">
+                        <i class="fa-solid fa-right-from-bracket"></i> Cerrar sesión
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <main class="contenido-dashboard">
+
+            <!-- Migas de pan -->
+            <nav class="migas-pan" aria-label="Ruta de navegación">
+                <a href="../dashboard.html">Inicio</a>
+                <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+                <a href="../instructores/perfilInstructor.html">Andres Ramirez</a>
+                <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+                <span>Historial de reportes</span>
+            </nav>
+
+            <h1 class="titulo-pagina">Historial de reportes — Andres Ramirez</h1>
+
+            <!-- Historial de reportes (CU05.3), filtrado a un instructor en concreto -->
+            <section class="panel-listado">
+                <div class="encabezado-instructores-ficha">
+                    <h2>Reportes generados para este instructor</h2>
+                    <p class="texto-conteo-listado">Consulta los reportes generados previamente para Andres Ramirez</p>
+                </div>
+
+                <div class="barra-herramientas-listado">
+                    <div class="grupo-herramientas-busqueda">
+                        <div class="grupo-filtros-activos">
+                            <div class="grupo-filtro">
+                                <label for="filtro-historial-instructor-desde">Desde</label>
+                                <input type="date" id="filtro-historial-instructor-desde" class="selector-filtro" value="2026-07-01">
+                            </div>
+
+                            <div class="grupo-filtro">
+                                <label for="filtro-historial-instructor-hasta">Hasta</label>
+                                <input type="date" id="filtro-historial-instructor-hasta" class="selector-filtro" value="2026-08-21">
+                            </div>
+
+                            <button type="button" class="boton-limpiar-filtros">
+                                <i class="fa-solid fa-broom" aria-hidden="true"></i>
+                                Limpiar filtros
+                            </button>
+                        </div>
+
+                        <div class="grupo-busqueda">
+                            <input type="text" placeholder="Buscar reporte" class="campo-busqueda-ficha" />
+                            <button type="button" class="boton-buscar-ficha" aria-label="Buscar">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contenedor-tabla-listado">
+                    <table class="tabla-listado-fichas">
+                    <colgroup>
+                        <col style="width: 46%">
+                        <col style="width: 30%">
+                        <col style="width: 24%">
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th>Fecha de generación</th>
+                            <th>Generado por</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>19/08/2026 15:05</td>
+                            <td>Andres Ramirez</td>
+                            <td>
+                                <a href="reporte-instructor-ejemplo.html" class="icono-contacto-ficha" title="Ver" aria-label="Ver reporte"><i class="fa-solid fa-eye"></i></a>
+                                <a href="reporte-instructor-ejemplo.html" class="icono-contacto-ficha" title="Descargar" aria-label="Descargar reporte"><i class="fa-solid fa-download"></i></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>04/08/2026 10:40</td>
+                            <td>Andres Ramirez</td>
+                            <td>
+                                <a href="reporte-instructor-ejemplo.html" class="icono-contacto-ficha" title="Ver" aria-label="Ver reporte"><i class="fa-solid fa-eye"></i></a>
+                                <a href="reporte-instructor-ejemplo.html" class="icono-contacto-ficha" title="Descargar" aria-label="Descargar reporte"><i class="fa-solid fa-download"></i></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>21/07/2026 09:20</td>
+                            <td>Andres Ramirez</td>
+                            <td>
+                                <a href="reporte-instructor-ejemplo.html" class="icono-contacto-ficha" title="Ver" aria-label="Ver reporte"><i class="fa-solid fa-eye"></i></a>
+                                <a href="reporte-instructor-ejemplo.html" class="icono-contacto-ficha" title="Descargar" aria-label="Descargar reporte"><i class="fa-solid fa-download"></i></a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                </div>
+
+                <div class="pie-listado">
+                    <p class="texto-conteo-listado">Mostrando 3 reportes de 3</p>
+                </div>
+
+            </section>
+
+        </main>
+
+        <!-- Pie de página (componente compartido, replicado estáticamente) -->
+        <footer class="pie-dashboard">
+            <div class="marca-pie">
+                <img src="../../../src/assets/img/LogoNegativo/negativo_con_eslogan_transparente.png" alt="Logo PuntualiX" class="logo-puntualix-pie" />
+                <div class="texto-marca-pie">
+                    <p>Desarrollado en el marco del proyecto de formación SENA · 2026</p>
+                    <p class="copyright-pie">
+                        <i class="fa-regular fa-copyright" aria-hidden="true"></i>
+                        2026 Puntualix. Todos los derechos reservados
+                    </p>
+                </div>
+            </div>
+
+            <div class="info-programa-pie">
+                <img src="../../../src/assets/img/LogoSena/SenaSobreVerde.png" alt="SENA" class="logo-sena-pie" />
+                <p>
+                    Programa: Análisis y desarrollo de Software<br />
+                    Ficha: 3267541
+                </p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="../../../src/js/main.js"></script>
+</body>
+</html>
