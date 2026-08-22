@@ -37,9 +37,6 @@
                 <a href="bitacora/bitacora.html" class="enlace-nav" data-pagina="bitacora" data-roles="administrador">
                     <i class="fa-solid fa-clock-rotate-left"></i> Bitácora
                 </a>
-                <a href="alertas/alertas.html" class="enlace-nav" data-pagina="alertas" data-roles="administrador,instructor">
-                    <i class="fa-solid fa-triangle-exclamation"></i> Alertas
-                </a>
                 <a href="estadisticas/estadisticas.html" class="enlace-nav" data-pagina="estadisticas" data-roles="administrador">
                     <i class="fa-solid fa-chart-line"></i> Estadísticas
                 </a>
@@ -102,55 +99,55 @@
                 </article>
 
                 <div class="contenedor-indicadores">
-                    <article class="tarjeta-indicador">
+                    <a href="fichas/fichas.html" class="tarjeta-indicador">
                         <div class="icono-indicador icono-indicador-fichas" aria-hidden="true">
-                            <i class="fa-solid fa-users"></i>
+                            <i class="fa-solid fa-file-lines"></i>
                         </div>
-                        <p class="titulo-indicador">Fichas Registradas</p>
+                        <p class="titulo-indicador">Fichas registradas</p>
                         <p class="valor-indicador">54</p>
                         <p class="variacion-indicador">+12% respecto al mes anterior</p>
                         <div class="mini-grafico" aria-hidden="true"></div>
-                    </article>
+                    </a>
 
-                    <article class="tarjeta-indicador">
-                        <div class="icono-indicador icono-indicador-aprendices" aria-hidden="true">
-                            <i class="fa-solid fa-user"></i>
+                    <a href="instructores/panel.html" class="tarjeta-indicador">
+                        <div class="icono-indicador icono-indicador-instructores" aria-hidden="true">
+                            <i class="fa-solid fa-chalkboard-user"></i>
                         </div>
-                        <p class="titulo-indicador">Desempeño de instructores</p>
-                        <p class="valor-indicador">95%</p>
+                        <p class="titulo-indicador">Cumplimiento de instructores</p>
+                        <p class="valor-indicador">75%</p>
                         <p class="variacion-indicador">+8% respecto al mes anterior</p>
                         <div class="mini-grafico" aria-hidden="true"></div>
-                    </article>
+                    </a>
 
-                    <article class="tarjeta-indicador">
+                    <a href="estadisticas/estadisticas.html" class="tarjeta-indicador">
                         <div class="icono-indicador icono-indicador-asistencia" aria-hidden="true">
                             <i class="fa-solid fa-chart-pie"></i>
                         </div>
-                        <p class="titulo-indicador">Asistencias por Fichas</p>
-                        <p class="valor-indicador">90%</p>
+                        <p class="titulo-indicador">Asistencias por fichas</p>
+                        <p class="valor-indicador">84%</p>
                         <p class="variacion-indicador">Promedio general</p>
                         <div class="mini-grafico" aria-hidden="true"></div>
-                    </article>
+                    </a>
 
-                    <article class="tarjeta-indicador tarjeta-indicador-alerta">
+                    <a href="alertas/alertas.html" class="tarjeta-indicador tarjeta-indicador-alerta">
                         <div class="icono-indicador icono-indicador-riesgo-moderado" aria-hidden="true">
                             <i class="fa-solid fa-triangle-exclamation"></i>
                         </div>
-                        <p class="titulo-indicador">Riesgo moderado</p>
-                        <p class="valor-indicador">46</p>
-                        <p class="variacion-indicador">8.6% del total</p>
+                        <p class="titulo-indicador">Alertas prioridad media</p>
+                        <p class="valor-indicador">15</p>
+                        <p class="variacion-indicador">Fichas cerca del límite</p>
                         <div class="mini-grafico" aria-hidden="true"></div>
-                    </article>
+                    </a>
 
-                    <article class="tarjeta-indicador tarjeta-indicador-critica">
+                    <a href="alertas/alertas.html" class="tarjeta-indicador tarjeta-indicador-critica">
                         <div class="icono-indicador icono-indicador-riesgo-critico" aria-hidden="true">
                             <i class="fa-solid fa-shield-halved"></i>
                         </div>
-                        <p class="titulo-indicador">Riesgo crítico</p>
-                        <p class="valor-indicador">18</p>
-                        <p class="variacion-indicador">3.4% del total</p>
+                        <p class="titulo-indicador">Alertas prioridad alta</p>
+                        <p class="valor-indicador">12</p>
+                        <p class="variacion-indicador">Fichas sobre el límite crítico</p>
                         <div class="mini-grafico" aria-hidden="true"></div>
-                    </article>
+                    </a>
                 </div>
             </section>
 
@@ -182,6 +179,8 @@
                     <p class="total-registros">
                         Total registros: <strong>8956</strong>
                     </p>
+
+                    <a href="estadisticas/estadisticas.html" class="enlace-ver-mas">Ver estadísticas</a>
                 </article>
 
                 <article class="panel-alertas-recientes">
@@ -234,6 +233,29 @@
                 <article class="panel-riesgo-desercion">
                     <h2>Riesgo de deserción por ficha</h2>
 
+                    <div class="grafico-barras" aria-hidden="true">
+                        <div class="grupo-barra">
+                            <div class="barra barra-riesgo-moderado" style="height: 41%"></div>
+                            <span class="etiqueta-barra">301003</span>
+                        </div>
+                        <div class="grupo-barra">
+                            <div class="barra barra-riesgo-moderado" style="height: 48%"></div>
+                            <span class="etiqueta-barra">301004</span>
+                        </div>
+                        <div class="grupo-barra">
+                            <div class="barra barra-riesgo-alto" style="height: 65%"></div>
+                            <span class="etiqueta-barra">301005</span>
+                        </div>
+                        <div class="grupo-barra">
+                            <div class="barra barra-riesgo-alto" style="height: 70%"></div>
+                            <span class="etiqueta-barra">301006</span>
+                        </div>
+                        <div class="grupo-barra">
+                            <div class="barra barra-riesgo-alto" style="height: 82%"></div>
+                            <span class="etiqueta-barra">301007</span>
+                        </div>
+                    </div>
+
                     <ul class="leyenda-riesgo">
                         <li class="item-leyenda">
                             <span class="punto-leyenda punto-riesgo-moderado"></span>
@@ -244,6 +266,8 @@
                             Riesgo alto
                         </li>
                     </ul>
+
+                    <a href="estadisticas/estadisticas.html" class="enlace-ver-mas">Ver estadísticas</a>
                 </article>
             </section>
 
@@ -350,7 +374,7 @@
                         </tbody>
                     </table>
 
-                    <a href="" class="enlace-ver-mas">Ver todas las fichas</a>
+                    <a href="fichas/fichas.html" class="enlace-ver-mas">Ver todas las fichas</a>
                 </article>
 
                 <article class="panel-actividad-reciente">
@@ -359,22 +383,22 @@
                     <ul class="lista-actividad">
                         <li class="item-actividad">
                             <div class="icono-actividad icono-actividad-registro" aria-hidden="true">
-                                <i class="fa-solid fa-user-check"></i>
+                                <i class="fa-solid fa-user-tag"></i>
                             </div>
                             <div class="detalle-actividad">
-                                <p class="titulo-actividad">Registro de asistencia</p>
-                                <p class="descripcion-actividad">Carlos Martinez - Ficha 301002</p>
+                                <p class="titulo-actividad">Asignar instructor a ficha</p>
+                                <p class="descripcion-actividad">Carlos Ruiz asignado a la ficha 301007</p>
                             </div>
                             <span class="tiempo-actividad">Hace 5 minutos</span>
                         </li>
 
                         <li class="item-actividad">
                             <div class="icono-actividad icono-actividad-justificacion" aria-hidden="true">
-                                <i class="fa-solid fa-user"></i>
+                                <i class="fa-solid fa-file-circle-plus"></i>
                             </div>
                             <div class="detalle-actividad">
-                                <p class="titulo-actividad">Justificación aprobada</p>
-                                <p class="descripcion-actividad">Ana López - Ficha 301003</p>
+                                <p class="titulo-actividad">Registrar nueva ficha</p>
+                                <p class="descripcion-actividad">Ficha 301188 registrada por Andres Ramirez</p>
                             </div>
                             <span class="tiempo-actividad">Hace 40 minutos</span>
                         </li>
@@ -391,7 +415,7 @@
                         </li>
                     </ul>
 
-                    <a href="" class="enlace-ver-mas">Ver historial completo</a>
+                    <a href="bitacora/bitacora.html" class="enlace-ver-mas">Ver historial completo</a>
                 </article>
             </section>
 
@@ -400,7 +424,7 @@
                 <div class="encabezado-estadisticas">
                     <h2>Estadísticas generales</h2>
                     <button type="button" class="selector-mes">
-                        Junio 2026
+                        Agosto 2026
                         <i class="fa-solid fa-chevron-down"></i>
                     </button>
                 </div>
@@ -440,7 +464,7 @@
                     </div>
                 </div>
 
-                <a href="" class="enlace-ver-mas">Ver historial completo</a>
+                <a href="estadisticas/estadisticas.html" class="enlace-ver-mas">Ver estadísticas completas</a>
             </section>
 
         </main>

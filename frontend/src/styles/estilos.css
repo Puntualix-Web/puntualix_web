@@ -653,7 +653,7 @@ html {
 }
 
 .icono-indicador-fichas,
-.icono-indicador-aprendices,
+.icono-indicador-instructores,
 .icono-indicador-asistencia {
     background-color: var(--color-estado-activo);
 }
