@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PuntualiX | Registrar Aprendiz</title>
+    <link rel="icon" type="image/png" href="../../../src/assets/img/favico/favicon_positivo.png">
+
+    <link rel="stylesheet" href="../../../src/styles/base.css">
+    <link rel="stylesheet" href="../../../src/styles/tokens.css">
+    <link rel="stylesheet" href="../../../src/styles/fonts.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../../../src/styles/estilos.css">
+</head>
+<body>
+    <div class="pantalla-dashboard-admin">
+
+        <header class="barra-navegacion">
+            <div class="marca-navegacion">
+                <img src="../../../src/assets/img/LogoNegativo/negativo_sin_eslogan_transparente.png" alt="Logo Puntualix">
+            </div>
+
+            <nav class="menu-navegacion">
+                <a href="../dashboard.html" class="enlace-nav" data-pagina="dashboard" data-roles="instructor">
+                    <i class="fa-solid fa-house"></i> Dashboard
+                </a>
+                <a href="fichas.html" class="enlace-nav" data-pagina="fichas" data-roles="instructor">
+                    <i class="fa-solid fa-file-lines"></i> Fichas
+                </a>
+                <a href="../asistencia/asistencia.html" class="enlace-nav" data-pagina="asistencia" data-roles="instructor">
+                    <i class="fa-solid fa-clipboard-check"></i> Asistencia
+                </a>
+                <a href="../reportes/reportes.html" class="enlace-nav" data-pagina="reportes" data-roles="instructor">
+                    <i class="fa-solid fa-chart-bar"></i> Reportes
+                </a>
+                <a href="../material/subirMaterial.html" class="enlace-nav" data-pagina="material" data-roles="instructor">
+                    <i class="fa-solid fa-book"></i> Material
+                </a>
+            </nav>
+
+            <div class="area-usuario">
+                <span class="separador-nav" aria-hidden="true"></span>
+
+                <a href="../alertas/alertas.html" class="boton-notificaciones" aria-label="Alertas">
+                    <i class="fa-solid fa-bell"></i>
+                </a>
+
+                <div class="tarjeta-usuario" id="boton-menu-usuario">
+                    <div class="avatar-usuario" aria-hidden="true"></div>
+                    <div class="datos-usuario">
+                        <span class="nombre-usuario">Carlos Perez</span>
+                        <span class="rol-usuario">Instructor</span>
+                    </div>
+                    <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+                </div>
+
+                <div class="menu-desplegable-usuario oculto" id="menu-usuario">
+                    <a href="" class="item-menu-usuario" data-roles="instructor">
+                        <i class="fa-solid fa-circle-user"></i> Ver perfil
+                    </a>
+                    <a href="../../InicioSesion.html" class="item-menu-usuario item-menu-cerrar-sesion" data-roles="instructor">
+                        <i class="fa-solid fa-right-from-bracket"></i> Cerrar sesión
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <main class="contenido-dashboard">
+
+            <nav class="migas-pan" aria-label="Ruta de navegación">
+                <a href="../dashboard.html">Inicio</a>
+                <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+                <span>Registrar aprendiz</span>
+            </nav>
+
+            <h1 class="titulo-pagina">Registrar Aprendiz</h1>
+
+            <section class="panel-listado">
+
+                <div class="encabezado-instructores-ficha">
+                    <h2>Datos del aprendiz</h2>
+                    <p class="texto-conteo-listado">Completa los campos para registrar un nuevo aprendiz en el sistema</p>
+                </div>
+
+                <div class="barra-herramientas-listado barra-herramientas-apilada">
+                    <div class="grupo-filtros-activos">
+                        <div class="grupo-filtro">
+                            <label for="tipo-documento">Tipo de documento</label>
+                            <select id="tipo-documento" class="selector-filtro">
+                                <option value="cc">Cédula de Ciudadanía (CC)</option>
+                                <option value="ti">Tarjeta de Identidad (TI)</option>
+                            </select>
+                        </div>
+
+                        <div class="grupo-filtro">
+                            <label for="documento">Número de documento</label>
+                            <input id="documento" type="text" class="selector-filtro" placeholder="Ej: 1005234567" />
+                        </div>
+                    </div>
+
+                    <div class="grupo-filtros-activos">
+                        <div class="grupo-filtro">
+                            <label for="nombres">Nombres</label>
+                            <input id="nombres" type="text" class="selector-filtro" placeholder="Nombres completos" />
+                        </div>
+
+                        <div class="grupo-filtro">
+                            <label for="apellidos">Apellidos</label>
+                            <input id="apellidos" type="text" class="selector-filtro" placeholder="Apellidos completos" />
+                        </div>
+                    </div>
+
+                    <div class="grupo-filtros-activos">
+                        <div class="grupo-filtro">
+                            <label for="correo">Correo electrónico</label>
+                            <input id="correo" type="email" class="selector-filtro" placeholder="correo@ejemplo.com" />
+                        </div>
+
+                        <div class="grupo-filtro">
+                            <label for="telefono">Teléfono</label>
+                            <input id="telefono" type="tel" class="selector-filtro" placeholder="Ej: 3001234567" />
+                        </div>
+                    </div>
+
+                    <div class="divisor-sutil" aria-hidden="true"></div>
+
+                    <div class="encabezado-instructores-ficha">
+                        <h2>Asignación a ficha</h2>
+                        <p class="texto-conteo-listado">Selecciona la ficha y programa al que será asignado el aprendiz</p>
+                    </div>
+
+                    <div class="grupo-filtros-activos">
+                        <div class="grupo-filtro">
+                            <label for="ficha-aprendiz">Ficha</label>
+                            <select id="ficha-aprendiz" class="selector-filtro">
+                                <option value="">Seleccionar ficha</option>
+                                <option value="301002">301002 — Análisis y Desarrollo de Software</option>
+                                <option value="301003">301003 — Gestión Empresarial</option>
+                                <option value="301004">301004 — Análisis y Desarrollo de Software</option>
+                                <option value="301005">301005 — Diseño y Programación</option>
+                            </select>
+                        </div>
+
+                        <div class="grupo-filtro">
+                            <label for="programa-aprendiz">Programa</label>
+                            <select id="programa-aprendiz" class="selector-filtro">
+                                <option value="">Seleccionar programa</option>
+                                <option value="ads">Análisis y Desarrollo de Software</option>
+                                <option value="gestion">Gestión Empresarial</option>
+                                <option value="diseno">Diseño y Programación</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <p class="texto-ayuda-comparacion">
+                        <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
+                        Verifica que los datos sean correctos antes de registrar. El aprendiz recibirá una notificación de confirmación.
+                    </p>
+
+                    <div class="acciones-formulario-registro">
+                        <button type="reset" class="boton-limpiar-filtros">
+                            <i class="fa-solid fa-broom" aria-hidden="true"></i>
+                            Cancelar
+                        </button>
+                        <button type="submit" class="boton-nuevo-usuario">
+                            <i class="fa-solid fa-user-plus"></i>
+                            Registrar aprendiz
+                        </button>
+                    </div>
+                </div>
+
+            </section>
+
+            <section class="panel-listado panel-listado-separado">
+                <div class="encabezado-instructores-ficha">
+                    <h2>Flujo alterno · Aprendiz ya registrado</h2>
+                    <p class="texto-conteo-listado">Si el aprendiz ya existe en el sistema, se muestra el siguiente mensaje</p>
+                </div>
+
+                <div class="tarjeta-resultado-reporte">
+                    <div class="info-resultado-reporte">
+                        <div class="icono-resultado-reporte" aria-hidden="true"><i class="fa-solid fa-triangle-exclamation"></i></div>
+                        <div>
+                            <p class="titulo-resultado-reporte">Aprendiz ya registrado</p>
+                            <p class="subtitulo-resultado-reporte">El aprendiz que intenta registrar ya se encuentra registrado en el sistema.</p>
+                        </div>
+                    </div>
+                    <div class="acciones-resultado-reporte">
+                        <a href="fichas.html" class="boton-nuevo-usuario">
+                            <i class="fa-solid fa-eye"></i>
+                            Ver aprendiz
+                        </a>
+                        <button type="button" class="boton-descargar-reporte">
+                            <i class="fa-solid fa-xmark"></i>
+                            Cerrar
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <footer class="pie-dashboard">
+            <div class="marca-pie">
+                <img src="../../../src/assets/img/LogoNegativo/negativo_con_eslogan_transparente.png" alt="Logo PuntualiX" class="logo-puntualix-pie" />
+                <div class="texto-marca-pie">
+                    <p>Desarrollado en el marco del proyecto de formación SENA · 2026</p>
+                    <p class="copyright-pie">
+                        <i class="fa-regular fa-copyright" aria-hidden="true"></i>
+                        2026 Puntualix. Todos los derechos reservados
+                    </p>
+                </div>
+            </div>
+
+            <div class="info-programa-pie">
+                <img src="../../../src/assets/img/LogoSena/SenaSobreVerde.png" alt="SENA" class="logo-sena-pie" />
+                <p>
+                    Programa: Análisis y desarrollo de Software<br />
+                    Ficha: 3267541
+                </p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="../../../src/js/main.js"></script>
+</body>
+</html>

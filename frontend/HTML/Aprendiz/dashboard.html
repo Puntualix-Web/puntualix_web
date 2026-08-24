@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PuntualiX | Dashboard</title>
+
+    <link rel="icon" type="image/png" href="../../src/assets/img/favico/favicon_positivo.png">
+
+    <link rel="stylesheet" href="../../src/styles/base.css">
+    <link rel="stylesheet" href="../../src/styles/tokens.css">
+    <link rel="stylesheet" href="../../src/styles/fonts.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../../src/styles/estilos.css">
+</head>
+<body>
+    <div class="pantalla-dashboard-admin">
+
+        <!-- Barra de navegación superior (componente compartido, replicado estáticamente) -->
+        <header class="barra-navegacion">
+            <div class="marca-navegacion">
+                <img src="../../src/assets/img/LogoNegativo/negativo_sin_eslogan_transparente.png" alt="Logo Puntualix">
+            </div>
+
+            <nav class="menu-navegacion">
+                <a href="dashboard.html" class="enlace-nav enlace-nav-activo" data-pagina="dashboard" data-roles="administrador,instructor,aprendiz">
+                    <i class="fa-solid fa-house"></i> Dashboard
+                </a>
+                <a href="materialApoyo.html" class="enlace-nav" data-pagina="material" data-roles="aprendiz">
+                    <i class="fa-solid fa-file-lines"></i> Material de apoyo
+                </a>
+                <a href="justificaciones.html" class="enlace-nav" data-pagina="justificaciones" data-roles="aprendiz">
+                    <i class="fa-solid fa-file-circle-exclamation"></i> Justificaciones
+                </a>
+                <a href="historialAsistencias.html" class="enlace-nav" data-pagina="historial" data-roles="aprendiz">
+                    <i class="fa-solid fa-chart-column"></i> Seguimiento
+                </a>
+            </nav>
+
+            <div class="area-usuario">
+                <span class="separador-nav" aria-hidden="true"></span>
+
+                <button type="button" class="boton-notificaciones" aria-label="Notificaciones">
+                    <i class="fa-solid fa-bell"></i>
+                </button>
+
+                <div class="tarjeta-usuario" id="boton-menu-usuario">
+                    <div class="avatar-usuario" aria-hidden="true"></div>
+                    <div class="datos-usuario">
+                        <span class="nombre-usuario">Juan Perez</span>
+                        <span class="rol-usuario">Aprendiz</span>
+                    </div>
+                    <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+                </div>
+
+                <div class="menu-desplegable-usuario oculto" id="menu-usuario">
+                    <a href="" class="item-menu-usuario" data-roles="administrador,instructor,aprendiz">
+                        <i class="fa-solid fa-circle-user"></i> Ver perfil
+                    </a>
+                    <a href="../InicioSesion.html" class="item-menu-usuario item-menu-cerrar-sesion" data-roles="administrador,instructor,aprendiz">
+                        <i class="fa-solid fa-right-from-bracket"></i> Cerrar sesión
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <main class="contenido-dashboard">
+
+            <h1 class="titulo-pagina">Aprendiz Juan Perez</h1>
+
+            <!-- Estadísticas generales -->
+            <div class="franja-resumen">
+                <div class="dato-resumen">
+                    <i class="fa-solid fa-calendar-check" aria-hidden="true"></i>
+                    <div class="info-resumen">
+                        <span class="valor-resumen">26</span>
+                        <span class="etiqueta-resumen">Sesiones programadas</span>
+                    </div>
+                </div>
+
+                <span class="divisor-resumen" aria-hidden="true"></span>
+
+                <div class="dato-resumen dato-resumen-positivo">
+                    <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
+                    <div class="info-resumen">
+                        <span class="valor-resumen valor-resumen-positivo">20</span>
+                        <span class="etiqueta-resumen">Asistencias</span>
+                    </div>
+                </div>
+
+                <span class="divisor-resumen" aria-hidden="true"></span>
+
+                <div class="dato-resumen dato-resumen-negativo">
+                    <i class="fa-solid fa-circle-xmark" aria-hidden="true"></i>
+                    <div class="info-resumen">
+                        <span class="valor-resumen valor-resumen-negativo">5</span>
+                        <span class="etiqueta-resumen">Inasistencias</span>
+                    </div>
+                </div>
+
+                <span class="divisor-resumen" aria-hidden="true"></span>
+
+                <div class="dato-resumen dato-resumen-alerta">
+                    <i class="fa-solid fa-file-circle-check" aria-hidden="true"></i>
+                    <div class="info-resumen">
+                        <span class="valor-resumen valor-resumen-alerta">3</span>
+                        <span class="etiqueta-resumen">Justificadas</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="fila-paneles-inicio">
+
+                <!-- Tarjeta de perfil: datos personales + estadísticas generales -->
+                <aside class="panel-informacion-personal">
+                    <div class="cabecera-perfil-instructor-completo">
+                        <div class="avatar-instructor avatar-perfil-completo" aria-hidden="true">JP</div>
+                        <div class="datos-nombre-perfil">
+                            <h1 class="titulo-pagina" style="margin-bottom: 4px">Juan Perez Ramírez</h1>
+                            <p class="rol-perfil-instructor">Ficha 301002 · Análisis y Desarrollo de Software</p>
+                        </div>
+                    </div>
+
+                    <h2 class="titulo-seccion-perfil">Información personal</h2>
+
+                    <div class="item-info-personal">
+                        <i class="fa-solid fa-user-tag" aria-hidden="true"></i>
+                        <div>
+                            <span class="etiqueta-info-personal">Rol</span>
+                            <span class="valor-info-personal">Aprendiz</span>
+                        </div>
+                    </div>
+
+                    <div class="item-info-personal">
+                        <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
+                        <div>
+                            <span class="etiqueta-info-personal">Estado</span>
+                            <span class="valor-info-personal"><span class="etiqueta-estado etiqueta-estado-activo">Activo</span></span>
+                        </div>
+                    </div>
+
+                    <div class="item-info-personal">
+                        <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+                        <div>
+                            <span class="etiqueta-info-personal">Correo electrónico</span>
+                            <span class="valor-info-personal">juanpr@gmail.com</span>
+                        </div>
+                    </div>
+
+                    <div class="item-info-personal">
+                        <i class="fa-solid fa-phone" aria-hidden="true"></i>
+                        <div>
+                            <span class="etiqueta-info-personal">Teléfono</span>
+                            <span class="valor-info-personal">320 782 9930</span>
+                        </div>
+                    </div>
+                </aside>
+
+                <!-- Dashboard personal: asistencia promedio, por competencia e historial de reportes -->
+                <article class="tarjeta-dashboard-personal">
+                    <h2>Dashboard personal</h2>
+
+                    <div class="bloque-asistencia-promedio">
+                        <div class="dona-desempeno" role="img" aria-label="Asistencia promedio: 95%">
+                            <div class="anillo-dona-desempeno">
+                                <div class="centro-dona-desempeno">
+                                    <span class="valor-dona-desempeno">95%</span>
+                                    <span class="etiqueta-dona-desempeno">Asistencia</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bloque-asistencia-competencia">
+                            <h3>Asistencia por competencia</h3>
+                            <ul class="lista-asistencia-competencia">
+                                <li class="item-asistencia-competencia">
+                                    <span class="nombre-competencia">Front-End</span>
+                                    <div class="barra-progreso">
+                                        <div class="relleno-progreso relleno-bajo" style="width: 98%"></div>
+                                    </div>
+                                    <span class="valor-porcentaje">98%</span>
+                                </li>
+                                <li class="item-asistencia-competencia">
+                                    <span class="nombre-competencia">Bases de datos</span>
+                                    <div class="barra-progreso">
+                                        <div class="relleno-progreso relleno-bajo" style="width: 100%"></div>
+                                    </div>
+                                    <span class="valor-porcentaje">100%</span>
+                                </li>
+                                <li class="item-asistencia-competencia">
+                                    <span class="nombre-competencia">Inglés</span>
+                                    <div class="barra-progreso">
+                                        <div class="relleno-progreso relleno-moderado" style="width: 89%"></div>
+                                    </div>
+                                    <span class="valor-porcentaje">89%</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <section class="bloque-historial-reportes">
+                        <h3>Historial de reportes</h3>
+
+                        <div class="contenedor-tabla-listado">
+                            <table class="tabla-listado-fichas">
+                                <colgroup>
+                                    <col style="width: 40%">
+                                    <col style="width: 40%">
+                                    <col style="width: 20%">
+                                </colgroup>
+                                <tbody>
+                                    <tr>
+                                        <td>Reporte 20/08/2026</td>
+                                        <td>Generado por: PuntualiX</td>
+                                        <td>
+                                            <a href="" class="icono-contacto-ficha" title="Ver" aria-label="Ver reporte"><i class="fa-solid fa-eye"></i></a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Reporte 12/08/2026</td>
+                                        <td>Generado por: Andres Ramirez</td>
+                                        <td>
+                                            <a href="" class="icono-contacto-ficha" title="Ver" aria-label="Ver reporte"><i class="fa-solid fa-eye"></i></a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Reporte 08/08/2026</td>
+                                        <td>Generado por: PuntualiX</td>
+                                        <td>
+                                            <a href="" class="icono-contacto-ficha" title="Ver" aria-label="Ver reporte"><i class="fa-solid fa-eye"></i></a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+                </article>
+
+            </div>
+        </main>
+
+        <!-- Pie de página (componente compartido, replicado estáticamente) -->
+        <footer class="pie-dashboard">
+            <div class="marca-pie">
+                <img src="../../src/assets/img/LogoNegativo/negativo_con_eslogan_transparente.png" alt="Logo PuntualiX" class="logo-puntualix-pie" />
+                <div class="texto-marca-pie">
+                    <p>Desarrollado en el marco del proyecto de formación SENA · 2026</p>
+                    <p class="copyright-pie">
+                        <i class="fa-regular fa-copyright" aria-hidden="true"></i>
+                        2026 Puntualix. Todos los derechos reservados
+                    </p>
+                </div>
+            </div>
+
+            <div class="info-programa-pie">
+                <img src="../../src/assets/img/LogoSena/SenaSobreVerde.png" alt="SENA" class="logo-sena-pie" />
+                <p>
+                    Programa: Análisis y desarrollo de Software<br />
+                    Ficha: 3267541
+                </p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="../../src/js/main.js"></script>
+</body>
+</html>

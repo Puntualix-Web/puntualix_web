@@ -13,11 +13,26 @@ document.addEventListener('DOMContentLoaded', function () {
     // LOGIN — Simulación temporal de "base de datos"
     // Se reemplaza cuando haya backend real conectado
     // ==========================================================
-    const usuarioPrueba = {
-        usuario: "admin@puntualix.com",
-        password: "12345678",
-        activo: true // cambia a false para probar el flujo de cuenta desactivada
-    };
+    const usuariosPrueba = [
+        {
+            usuario: "admin@puntualix.com",
+            password: "12345678",
+            activo: true, // cambia a false para probar el flujo de cuenta desactivada
+            redireccion: "Admin/dashboard.html"
+        },
+        {
+            usuario: "juan.perez@puntualix.com",
+            password: "12345678",
+            activo: true,
+            redireccion: "Aprendiz/dashboard.html"
+        },
+        {
+            usuario: "carlos.perez@puntualix.com",
+            password: "12345678",
+            activo: true,
+            redireccion: "Instructor/dashboard.html"
+        }
+    ];
 
     const formularioLogin = document.querySelector('#formulario-login');
 
@@ -55,15 +70,19 @@ document.addEventListener('DOMContentLoaded', function () {
                 return;
             }
 
+            const usuarioEncontrado = usuariosPrueba.find(function (u) {
+                return u.usuario === usuarioIngresado;
+            });
+
             // FA01.1.2 - Usuario no existe
-            if (usuarioIngresado !== usuarioPrueba.usuario) {
+            if (!usuarioEncontrado) {
                 errorUsuario.textContent = 'El usuario ingresado no existe en el sistema';
                 errorUsuario.classList.remove('oculto');
                 return;
             }
 
             // FA01.1.4 - Cuenta desactivada
-            if (!usuarioPrueba.activo) {
+            if (!usuarioEncontrado.activo) {
                 if (modalDesactivada) {
                     modalDesactivada.classList.remove('oculto');
                 }
@@ -71,14 +90,14 @@ document.addEventListener('DOMContentLoaded', function () {
             }
 
             // FA01.1.1 - Contraseña incorrecta
-            if (passwordIngresado !== usuarioPrueba.password) {
+            if (passwordIngresado !== usuarioEncontrado.password) {
                 errorPassword.textContent = 'Contraseña incorrecta, intente nuevamente';
                 errorPassword.classList.remove('oculto');
                 return;
             }
 
-            // Todo correcto -> redirige al dashboard
-            window.location.href = 'Admin/dashboard.html';
+            // Todo correcto -> redirige al dashboard según el rol
+            window.location.href = usuarioEncontrado.redireccion;
         });
     }
 
