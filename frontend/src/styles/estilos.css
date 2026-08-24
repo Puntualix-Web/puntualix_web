@@ -384,9 +384,9 @@ html {
     height: 32px;
 }
 
-/* ==========================================================
+/* ---------------------------------====
    PANTALLA DASHBOARD ADMIN
-   ========================================================== */
+   ---------------------------------==== */
 
 .pantalla-dashboard-admin {
     position: relative;
@@ -509,15 +509,12 @@ html {
     background-color: var(--color-blanco);
     border-radius: 12px;
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
-    width: 260px;
+    width: max-content;
+    min-width: 190px;
     padding: 12px;
     display: flex;
     flex-direction: column;
     gap: 4px;
-}
-
-.menu-desplegable-usuario.oculto {
-    display: none;
 }
 
 .item-menu-usuario {
@@ -1121,9 +1118,9 @@ html {
 }
 
 
-/* ==========================================================
+/* ---------------------------------====
    PANTALLA — LISTADO DE FICHAS
-   ========================================================== */
+   ---------------------------------==== */
 
 .franja-resumen {
     display: flex;
@@ -1601,9 +1598,9 @@ html {
 }
 
 
-/* ==========================================================
+/* ---------------------------------====
    PANTALLA — DETALLE DE FICHA
-   ========================================================== */
+   ---------------------------------==== */
 
 .encabezado-detalle-ficha {
     display: flex;
@@ -2183,10 +2180,10 @@ html {
     stroke-linecap: round;
 }
 
-/* ==========================================================
+/* ---------------------------------====
    OVERLAY: ACTUALIZAR FICHA
    Aparece al hacer clic en "Modificar Información".
-   ========================================================== */
+   ---------------------------------==== */
 
 .overlay-actualizar-ficha {
     position: fixed;
@@ -2457,9 +2454,9 @@ html {
     fill: var(--color-primario);
 }
 
-/* ==========================================================
+/* ---------------------------------====
    PANTALLAS — REGISTRAR NUEVA FICHA / REGISTRAR INSTRUCTOR
-   ========================================================== */
+   ---------------------------------==== */
 
 .distribucion-registro {
     display: grid;
@@ -4328,9 +4325,9 @@ html {
 }
 
 
-/* ==========================================================
+/* ---------------------------------====
    RESPONSIVE — LOGIN Y OLVIDO PASSWORD
-   ========================================================== */
+   ---------------------------------==== */
 
 @media (max-width: 900px) {
     .pantalla-inicio-sesion {
@@ -4462,9 +4459,9 @@ html {
 }
 
 
-/* ==========================================================
+/* ---------------------------------====
    RESPONSIVE — DASHBOARD ADMIN
-   ========================================================== */
+   ---------------------------------==== */
 
 @media (max-width: 1100px) {
     .resumen-bienvenida {
@@ -4733,10 +4730,10 @@ html {
 }
 
 
-/* ==========================================================
+/* ---------------------------------====
    RESPONSIVE — COMPONENTES NUEVOS
    (franjas de resumen, registrar ficha/instructor, tendencias)
-   ========================================================== */
+   ---------------------------------==== */
 
 .cabecera-asistencia-aprendices {
     flex-wrap: wrap;
@@ -4780,9 +4777,7 @@ html {
     }
 }
 
-/* ===========================
-   APRENDIZ
-   =========================== */
+/* --------------------------------- Aprendiz --------------------------------- */
 
 .fila-paneles-inicio {
     display: grid;
@@ -4880,12 +4875,14 @@ html {
     }
 }
 
-/* ==========================================================
-   PANTALLA — HISTORIAL DE ASISTENCIAS (APRENDIZ)
-   CU03.5 · CU04.2 · CU04.3
-   Reutiliza la franja-resumen, panel-listado, tabla-listado-fichas,
-   la dona de desempeño y el patrón de tarjetas-comparar (grid-comparar-fichas).
-   ========================================================== */
+/* -----------------------------------------------------------------------------
+    Pantalla - Historial de asistencias (aprendiz)
+    CU03.5 · CU04.2 · CU04.3
+
+
+    Reutiliza la franja-resumen, panel-listado, tabla-listado-fichas,
+    la dona de desempeño y el patrón de tarjetas-comparar (grid-comparar-fichas).
+  -------------------------------------------------------------------------------- */
 
 /* ---------- Cabecera de la pantalla ---------- */
 
@@ -5018,9 +5015,7 @@ html {
     }
 }
 
-/* ==========================================================
-   INSTRUCTOR — clases nuevas (dashboard, alertas, actividad, material)
-   ========================================================== */
+/* Instructor — clases nuevas (dashboard, alertas, actividad, material)  */
 
 .mini-grafico {
     height: 32px;
@@ -5075,4 +5070,47 @@ html {
 
 .enlace-ver-mas-centrado {
     margin: 0;
+}
+
+/* --- Justificaciones (Instructor): aprobar / rechazar en la tabla --- */
+.acciones-justificacion {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.enlace-documento-justificacion {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--color-informacion);
+    font-size: var(--texto-caption);
+    font-weight: var(--peso-semibold);
+}
+
+.boton-accion-tabla {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    font-size: var(--texto-cuerpo);
+    color: var(--color-blanco);
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+}
+
+.boton-accion-tabla:hover {
+    opacity: 0.85;
+}
+
+.boton-aprobar {
+    background-color: var(--color-confirmacion);
+}
+
+.boton-rechazar {
+    background-color: var(--color-alerta-critica);
 }
