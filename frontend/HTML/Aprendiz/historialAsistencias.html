@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PuntualiX | Seguimiento</title>
+
+    <link rel="icon" type="image/png" href="../../src/assets/img/favico/favicon_positivo.png">
+
+    <link rel="stylesheet" href="../../src/styles/base.css">
+    <link rel="stylesheet" href="../../src/styles/tokens.css">
+    <link rel="stylesheet" href="../../src/styles/fonts.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../../src/styles/estilos.css">
+</head>
+<body>
+    <div class="pantalla-dashboard-admin">
+
+        <!-- Barra de navegación superior (componente compartido, replicado estáticamente) -->
+        <header class="barra-navegacion">
+            <div class="marca-navegacion">
+                <img src="../../src/assets/img/LogoNegativo/negativo_sin_eslogan_transparente.png" alt="Logo Puntualix">
+            </div>
+
+            <nav class="menu-navegacion">
+                <a href="dashboard.html" class="enlace-nav" data-pagina="dashboard" data-roles="administrador,instructor,aprendiz">
+                    <i class="fa-solid fa-house"></i> Dashboard
+                </a>
+                <a href="materialApoyo.html" class="enlace-nav" data-pagina="material" data-roles="aprendiz">
+                    <i class="fa-solid fa-file-lines"></i> Material de apoyo
+                </a>
+                <a href="justificaciones.html" class="enlace-nav" data-pagina="justificaciones" data-roles="aprendiz">
+                    <i class="fa-solid fa-file-circle-exclamation"></i> Justificaciones
+                </a>
+                <a href="historialAsistencias.html" class="enlace-nav enlace-nav-activo" data-pagina="historial" data-roles="aprendiz">
+                    <i class="fa-solid fa-chart-column"></i> Seguimiento
+                </a>
+            </nav>
+
+            <div class="area-usuario">
+                <span class="separador-nav" aria-hidden="true"></span>
+
+                <button type="button" class="boton-notificaciones" aria-label="Notificaciones">
+                    <i class="fa-solid fa-bell"></i>
+                </button>
+
+                <div class="tarjeta-usuario" id="boton-menu-usuario">
+                    <div class="avatar-usuario" aria-hidden="true"></div>
+                    <div class="datos-usuario">
+                        <span class="nombre-usuario">Juan Perez</span>
+                        <span class="rol-usuario">Aprendiz</span>
+                    </div>
+                    <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+                </div>
+
+                <div class="menu-desplegable-usuario oculto" id="menu-usuario">
+                    <a href="" class="item-menu-usuario" data-roles="administrador,instructor,aprendiz">
+                        <i class="fa-solid fa-circle-user"></i> Ver perfil
+                    </a>
+                    <a href="../InicioSesion.html" class="item-menu-usuario item-menu-cerrar-sesion" data-roles="administrador,instructor,aprendiz">
+                        <i class="fa-solid fa-right-from-bracket"></i> Cerrar sesión
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <main class="contenido-dashboard">
+
+            <!-- Migas de pan -->
+            <nav class="migas-pan" aria-label="Ruta de navegación">
+                <a href="dashboard.html">Inicio</a>
+                <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+                <span>Seguimiento</span>
+            </nav>
+
+            <div class="encabezado-historial">
+                <h1 class="titulo-pagina">Seguimiento</h1>
+                <p class="subtitulo-pagina">Consulta tus sesiones registradas, tu asistencia general y compara tu desempeño entre competencias</p>
+            </div>
+
+            <!-- Franja resumen: totales generales del aprendiz -->
+            <div class="franja-resumen">
+                <div class="dato-resumen">
+                    <i class="fa-solid fa-calendar-check" aria-hidden="true"></i>
+                    <div class="info-resumen">
+                        <span class="valor-resumen">26</span>
+                        <span class="etiqueta-resumen">Sesiones programadas</span>
+                    </div>
+                </div>
+
+                <span class="divisor-resumen" aria-hidden="true"></span>
+
+                <div class="dato-resumen dato-resumen-positivo">
+                    <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
+                    <div class="info-resumen">
+                        <span class="valor-resumen valor-resumen-positivo">20</span>
+                        <span class="etiqueta-resumen">Asistencias</span>
+                    </div>
+                </div>
+
+                <span class="divisor-resumen" aria-hidden="true"></span>
+
+                <div class="dato-resumen dato-resumen-negativo">
+                    <i class="fa-solid fa-circle-xmark" aria-hidden="true"></i>
+                    <div class="info-resumen">
+                        <span class="valor-resumen valor-resumen-negativo">3</span>
+                        <span class="etiqueta-resumen">Inasistencias</span>
+                    </div>
+                </div>
+
+                <span class="divisor-resumen" aria-hidden="true"></span>
+
+                <div class="dato-resumen dato-resumen-alerta">
+                    <i class="fa-solid fa-file-circle-check" aria-hidden="true"></i>
+                    <div class="info-resumen">
+                        <span class="valor-resumen valor-resumen-alerta">3</span>
+                        <span class="etiqueta-resumen">Justificadas</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Conmutador de apartado: Historial de asistencia / Estadísticas / Historial de reportes -->
+            <input type="radio" name="vista-seccion-historial" id="vista-asistencia" class="input-modo-estadisticas" checked>
+            <input type="radio" name="vista-seccion-historial" id="vista-estadisticas" class="input-modo-estadisticas">
+            <input type="radio" name="vista-seccion-historial" id="vista-reportes" class="input-modo-estadisticas">
+
+            <div class="selector-modo-estadisticas selector-vista-historial">
+                <label for="vista-asistencia" class="boton-modo-estadisticas">
+                    <i class="fa-solid fa-calendar-days" aria-hidden="true"></i> Historial de asistencia
+                </label>
+                <label for="vista-estadisticas" class="boton-modo-estadisticas">
+                    <i class="fa-solid fa-chart-pie" aria-hidden="true"></i> Estadísticas
+                </label>
+                <label for="vista-reportes" class="boton-modo-estadisticas">
+                    <i class="fa-solid fa-file-lines" aria-hidden="true"></i> Historial de reportes
+                </label>
+            </div>
+
+            <!-- ================= APARTADO 1: HISTORIAL DE ASISTENCIA — CU03.5 ================= -->
+            <div class="contenido-vista-asistencia">
+
+                <section class="panel-listado">
+                    <div class="encabezado-instructores-ficha">
+                        <h2>Historial de asistencia</h2>
+                        <p class="texto-conteo-listado">Consulta el estado de cada sesión registrada por competencia</p>
+                    </div>
+
+                    <div class="barra-herramientas-listado">
+                        <div class="grupo-herramientas-busqueda">
+                            <div class="grupo-filtros-activos">
+                                <div class="grupo-filtro">
+                                    <label for="filtro-historial-competencia">Competencia</label>
+                                    <select id="filtro-historial-competencia" class="selector-filtro">
+                                        <option value="todas">Todas</option>
+                                        <option value="algoritmos">Algoritmos</option>
+                                        <option value="frontend">Front-End</option>
+                                        <option value="backend">Back-End</option>
+                                        <option value="ingles">Inglés</option>
+                                        <option value="calidad">Calidad de software</option>
+                                    </select>
+                                </div>
+
+                                <div class="grupo-filtro">
+                                    <label for="filtro-historial-estado">Estado</label>
+                                    <select id="filtro-historial-estado" class="selector-filtro">
+                                        <option value="todos">Todos</option>
+                                        <option value="asistio">Asistió</option>
+                                        <option value="justificada">Justificada</option>
+                                        <option value="inasistencia">Inasistencia</option>
+                                    </select>
+                                </div>
+
+                                <div class="grupo-filtro">
+                                    <label for="filtro-historial-desde">Desde</label>
+                                    <input type="date" id="filtro-historial-desde" class="selector-filtro" value="2026-03-01">
+                                </div>
+
+                                <div class="grupo-filtro">
+                                    <label for="filtro-historial-hasta">Hasta</label>
+                                    <input type="date" id="filtro-historial-hasta" class="selector-filtro" value="2026-08-22">
+                                </div>
+
+                                <button type="button" class="boton-limpiar-filtros">
+                                    <i class="fa-solid fa-broom" aria-hidden="true"></i>
+                                    Limpiar filtros
+                                </button>
+                            </div>
+
+                            <div class="grupo-busqueda">
+                                <input type="text" placeholder="Buscar sesión" class="campo-busqueda-ficha" />
+                                <button type="button" class="boton-buscar-ficha" aria-label="Buscar sesión">
+                                    <i class="fa-solid fa-magnifying-glass"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contenedor-tabla-listado">
+                        <table class="tabla-listado-fichas">
+                            <colgroup>
+                                <col style="width: 18%">
+                                <col style="width: 28%">
+                                <col style="width: 28%">
+                                <col style="width: 26%">
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th>Fecha</th>
+                                    <th>Competencia</th>
+                                    <th>Instructor</th>
+                                    <th>Estado</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>20/08/2026</td>
+                                    <td>Front-End</td>
+                                    <td>Alexander Patiño Londoño</td>
+                                    <td><span class="etiqueta-estado etiqueta-estado-asistio">Asistió</span></td>
+                                </tr>
+                                <tr>
+                                    <td>18/08/2026</td>
+                                    <td>Back-End</td>
+                                    <td>Alexander Patiño Londoño</td>
+                                    <td><span class="etiqueta-estado etiqueta-estado-asistio">Asistió</span></td>
+                                </tr>
+                                <tr>
+                                    <td>17/08/2026</td>
+                                    <td>Inglés</td>
+                                    <td>Lina Vanegas</td>
+                                    <td><span class="etiqueta-estado etiqueta-estado-justificada">Justificada</span></td>
+                                </tr>
+                                <tr>
+                                    <td>15/08/2026</td>
+                                    <td>Algoritmos</td>
+                                    <td>Alexander Patiño Londoño</td>
+                                    <td><span class="etiqueta-estado etiqueta-estado-asistio">Asistió</span></td>
+                                </tr>
+                                <tr>
+                                    <td>10/08/2026</td>
+                                    <td>Back-End</td>
+                                    <td>Alexander Patiño Londoño</td>
+                                    <td><span class="etiqueta-estado etiqueta-estado-inasistencia">Inasistencia</span></td>
+                                </tr>
+                                <tr>
+                                    <td>08/08/2026</td>
+                                    <td>Calidad de software</td>
+                                    <td>Mauricio Paez</td>
+                                    <td><span class="etiqueta-estado etiqueta-estado-asistio">Asistió</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="pie-listado">
+                        <p class="texto-conteo-listado">Mostrando 6 sesiones de 26</p>
+
+                        <nav class="paginacion" aria-label="Paginación de historial de asistencias">
+                            <button type="button" class="boton-pagina boton-pagina-activo">1</button>
+                            <button type="button" class="boton-pagina">2</button>
+                            <button type="button" class="boton-pagina">3</button>
+                            <button type="button" class="boton-pagina-siguiente" aria-label="Página siguiente">
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </button>
+                        </nav>
+                    </div>
+                </section>
+            </div>
+
+            <!-- ================= APARTADO 2: ESTADÍSTICAS — CU04.2 y CU04.3 ================= -->
+            <div class="contenido-vista-estadisticas">
+
+                <section class="panel-listado">
+                    <div class="encabezado-instructores-ficha">
+                        <h2>Estadísticas y comparación</h2>
+                        <p class="texto-conteo-listado">Consulta tu asistencia en detalle o compara varias competencias entre sí</p>
+                    </div>
+
+                    <!-- Conmutador interno: vista individual / comparar competencias -->
+                    <input type="radio" name="modo-historial-aprendiz" id="modo-individual" class="input-modo-estadisticas" checked>
+                    <input type="radio" name="modo-historial-aprendiz" id="modo-comparar" class="input-modo-estadisticas">
+
+                    <div class="selector-modo-estadisticas">
+                        <label for="modo-individual" class="boton-modo-estadisticas">
+                            <i class="fa-solid fa-eye" aria-hidden="true"></i> Ver mi asistencia
+                        </label>
+                        <label for="modo-comparar" class="boton-modo-estadisticas">
+                            <i class="fa-solid fa-code-compare" aria-hidden="true"></i> Comparar competencias
+                        </label>
+                    </div>
+
+                <!-- CU04.2: estadísticas individuales del aprendiz -->
+                <div class="contenido-modo-individual">
+                    <div class="barra-herramientas-listado barra-herramientas-comparar barra-herramientas-apilada">
+                        <div class="fila-filtros-comparar">
+                            <div class="grupo-filtros-activos">
+                                <div class="grupo-filtro">
+                                    <label for="individual-desde">Desde</label>
+                                    <input type="date" id="individual-desde" class="selector-filtro" value="2026-03-01">
+                                </div>
+
+                                <div class="grupo-filtro">
+                                    <label for="individual-hasta">Hasta</label>
+                                    <input type="date" id="individual-hasta" class="selector-filtro" value="2026-08-22">
+                                </div>
+                            </div>
+
+                            <button type="button" class="boton-nuevo-usuario">
+                                <i class="fa-solid fa-magnifying-glass-chart" aria-hidden="true"></i>
+                                Ver estadísticas
+                            </button>
+                        </div>
+
+                        <div class="fila-elementos-comparar">
+                            <div class="grupo-filtro">
+                                <label for="selector-competencia-individual">Competencia</label>
+                                <select id="selector-competencia-individual" class="selector-filtro">
+                                    <option selected>General (todas las competencias)</option>
+                                    <option>Algoritmos</option>
+                                    <option>Front-End</option>
+                                    <option>Back-End</option>
+                                    <option>Inglés</option>
+                                    <option>Calidad de software</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="divisor-sutil" aria-hidden="true"></div>
+
+                    <div class="fila-resumen-individual">
+
+                        <section class="panel-estadisticas-generales">
+                            <h2>Asistencia general</h2>
+                            <div class="distribucion-resumen-desempeno" style="grid-template-columns: auto 1fr;">
+                                <div class="dona-desempeno" role="img" aria-label="Asistencia general: 88%, justificadas 8%, inasistencias 4%">
+                                    <div class="anillo-dona-desempeno" style="background: conic-gradient(var(--color-confirmacion) 0% 88%, var(--color-advertencia) 88% 96%, var(--color-alerta-critica) 96% 100%);">
+                                        <div class="centro-dona-desempeno">
+                                            <span class="valor-dona-desempeno">88%</span>
+                                            <span class="etiqueta-dona-desempeno">Asistencia</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="leyenda-dona-desempeno">
+                                    <div class="item-leyenda">
+                                        <span class="color-leyenda color-leyenda-alto" aria-hidden="true"></span>
+                                        <span>Asistió</span>
+                                        <strong>88%</strong>
+                                    </div>
+                                    <div class="item-leyenda">
+                                        <span class="color-leyenda color-leyenda-medio" aria-hidden="true"></span>
+                                        <span>Justificadas</span>
+                                        <strong>8%</strong>
+                                    </div>
+                                    <div class="item-leyenda">
+                                        <span class="color-leyenda color-leyenda-bajo" aria-hidden="true"></span>
+                                        <span>Inasistencias</span>
+                                        <strong>4%</strong>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="metricas-resumen-desempeno metricas-resumen-desempeno-horizontal">
+                                <div class="dato-global-perfil">
+                                    <span class="detalle-desempeno-valor">26</span>
+                                    <span class="detalle-desempeno-etiqueta">Sesiones registradas</span>
+                                </div>
+                                <div class="dato-global-perfil">
+                                    <span class="detalle-desempeno-valor">Algoritmos — 96%</span>
+                                    <span class="detalle-desempeno-etiqueta">Tu competencia con mejor asistencia</span>
+                                </div>
+                                <div class="dato-global-perfil">
+                                    <span class="detalle-desempeno-valor detalle-desempeno-valor-critico">Inglés — 78%</span>
+                                    <span class="detalle-desempeno-etiqueta">La que más necesitas reforzar</span>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section class="panel-estadisticas-generales panel-tendencia-asistencia">
+                            <h2>Tendencia de asistencia</h2>
+                            <p class="periodo-tendencia-asistencia">Marzo — Agosto 2026</p>
+
+                            <svg class="grafico-linea-mensual" viewBox="0 0 600 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Tendencia de asistencia de marzo a agosto: 90%, 92%, 88%, 95%, 91%, 88%">
+                                <line class="cuadricula-grafico-mensual" x1="40" y1="20" x2="580" y2="20"></line>
+                                <line class="cuadricula-grafico-mensual" x1="40" y1="105" x2="580" y2="105"></line>
+                                <line class="cuadricula-grafico-mensual" x1="40" y1="190" x2="580" y2="190"></line>
+
+                                <line class="eje-grafico-mensual" x1="40" y1="20" x2="40" y2="190"></line>
+                                <line class="eje-grafico-mensual" x1="40" y1="190" x2="580" y2="190"></line>
+
+                                <text class="etiqueta-eje-mensual" x="10" y="24">100%</text>
+                                <text class="etiqueta-eje-mensual" x="14" y="109">90%</text>
+                                <text class="etiqueta-eje-mensual" x="14" y="194">80%</text>
+
+                                <path class="linea-cumplimiento-mensual" d="M40,105 L148,88 L256,122 L364,62.5 L472,96.5 L580,122"></path>
+
+                                <circle class="punto-cumplimiento-mensual" cx="40" cy="105" r="4"></circle>
+                                <circle class="punto-cumplimiento-mensual" cx="148" cy="88" r="4"></circle>
+                                <circle class="punto-cumplimiento-mensual" cx="256" cy="122" r="4"></circle>
+                                <circle class="punto-cumplimiento-mensual" cx="364" cy="62.5" r="4"></circle>
+                                <circle class="punto-cumplimiento-mensual" cx="472" cy="96.5" r="4"></circle>
+                                <circle class="punto-cumplimiento-mensual" cx="580" cy="122" r="4"></circle>
+
+                                <text class="etiqueta-eje-mensual" x="30" y="210">Mar</text>
+                                <text class="etiqueta-eje-mensual" x="136" y="210">Abr</text>
+                                <text class="etiqueta-eje-mensual" x="246" y="210">May</text>
+                                <text class="etiqueta-eje-mensual" x="354" y="210">Jun</text>
+                                <text class="etiqueta-eje-mensual" x="462" y="210">Jul</text>
+                                <text class="etiqueta-eje-mensual" x="570" y="210">Ago</text>
+                            </svg>
+                        </section>
+                    </div>
+
+                    <div class="resumen-comparacion">
+                        <p class="etiqueta-grupo-asistencia"><i class="fa-solid fa-magnifying-glass-chart" aria-hidden="true"></i> Resumen del período</p>
+
+                        <div class="franja-resumen franja-resumen-comparar">
+                            <div class="dato-resumen">
+                                <i class="fa-solid fa-chart-pie" aria-hidden="true"></i>
+                                <div class="info-resumen">
+                                    <span class="valor-resumen">91%</span>
+                                    <span class="etiqueta-resumen">Promedio marzo — agosto</span>
+                                </div>
+                            </div>
+
+                            <span class="divisor-resumen" aria-hidden="true"></span>
+
+                            <div class="dato-resumen dato-resumen-positivo">
+                                <i class="fa-solid fa-trophy" aria-hidden="true"></i>
+                                <div class="info-resumen">
+                                    <span class="valor-resumen valor-resumen-positivo">95%</span>
+                                    <span class="etiqueta-resumen">Mejor mes — Junio</span>
+                                </div>
+                            </div>
+
+                            <span class="divisor-resumen" aria-hidden="true"></span>
+
+                            <div class="dato-resumen dato-resumen-negativo">
+                                <i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>
+                                <div class="info-resumen">
+                                    <span class="valor-resumen valor-resumen-negativo">88%</span>
+                                    <span class="etiqueta-resumen">Mes con más inasistencias — Mayo</span>
+                                </div>
+                            </div>
+
+                            <span class="divisor-resumen" aria-hidden="true"></span>
+
+                            <div class="dato-resumen dato-resumen-alerta">
+                                <i class="fa-solid fa-arrow-trend-up" aria-hidden="true"></i>
+                                <div class="info-resumen">
+                                    <span class="valor-resumen valor-resumen-alerta">Estable</span>
+                                    <span class="etiqueta-resumen">Tendencia general del período</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CU04.3: comparar estadísticas por competencia -->
+                <div class="contenido-modo-comparar">
+
+                    <div class="barra-herramientas-listado barra-herramientas-comparar barra-herramientas-apilada">
+                        <div class="fila-filtros-comparar">
+                            <div class="grupo-filtros-activos">
+                                <div class="grupo-filtro">
+                                    <label for="comparar-desde">Desde</label>
+                                    <input type="date" id="comparar-desde" class="selector-filtro" value="2026-03-01">
+                                </div>
+
+                                <div class="grupo-filtro">
+                                    <label for="comparar-hasta">Hasta</label>
+                                    <input type="date" id="comparar-hasta" class="selector-filtro" value="2026-08-22">
+                                </div>
+                            </div>
+
+                            <details class="menu-filtros-adicionales">
+                                <summary class="boton-mas-filtros">
+                                    <i class="fa-solid fa-list-check" aria-hidden="true"></i>
+                                    Competencias (5 seleccionadas)
+                                </summary>
+                                <div class="panel-filtros-adicionales">
+                                    <label class="chip-seleccion-competencia">
+                                        <input type="checkbox" checked> Algoritmos
+                                    </label>
+                                    <label class="chip-seleccion-competencia">
+                                        <input type="checkbox" checked> Front-End
+                                    </label>
+                                    <label class="chip-seleccion-competencia">
+                                        <input type="checkbox" checked> Back-End
+                                    </label>
+                                    <label class="chip-seleccion-competencia">
+                                        <input type="checkbox" checked> Inglés
+                                    </label>
+                                    <label class="chip-seleccion-competencia">
+                                        <input type="checkbox" checked> Calidad de software
+                                    </label>
+                                </div>
+                            </details>
+
+                            <button type="button" class="boton-nuevo-usuario">
+                                <i class="fa-solid fa-code-compare" aria-hidden="true"></i>
+                                Comparar
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="divisor-sutil" aria-hidden="true"></div>
+
+                    <div class="grid-comparar-fichas" style="--columnas-comparar: 5;">
+
+                        <div class="tarjeta-comparar-ficha" style="--color-acento-comparar: var(--color-confirmacion);">
+                            <div class="cabecera-comparar-ficha">
+                                <h3>Algoritmos</h3>
+                                <span class="etiqueta-estado etiqueta-estado-activo">96%</span>
+                            </div>
+                            <div class="anillo-dona-desempeno" style="background: conic-gradient(var(--color-confirmacion) 0% 96%, var(--color-advertencia) 96% 98%, var(--color-alerta-critica) 98% 100%);">
+                                <div class="centro-dona-desempeno">
+                                    <span class="valor-dona-desempeno">96%</span>
+                                    <span class="etiqueta-dona-desempeno">Asistencia</span>
+                                </div>
+                            </div>
+                            <ul class="leyenda-dona-desempeno">
+                                <li class="item-leyenda"><span class="color-leyenda color-leyenda-alto" aria-hidden="true"></span><span>Asistió</span><strong>96%</strong></li>
+                                <li class="item-leyenda"><span class="color-leyenda color-leyenda-medio" aria-hidden="true"></span><span>Justificadas</span><strong>2%</strong></li>
+                                <li class="item-leyenda"><span class="color-leyenda color-leyenda-bajo" aria-hidden="true"></span><span>Inasistencias</span><strong>2%</strong></li>
+                            </ul>
+                        </div>
+
+                        <div class="tarjeta-comparar-ficha" style="--color-acento-comparar: var(--color-confirmacion);">
+                            <div class="cabecera-comparar-ficha">
+                                <h3>Front-End</h3>
+                                <span class="etiqueta-estado etiqueta-estado-activo">92%</span>
+                            </div>
+                            <div class="anillo-dona-desempeno" style="background: conic-gradient(var(--color-confirmacion) 0% 92%, var(--color-advertencia) 92% 97%, var(--color-alerta-critica) 97% 100%);">
+                                <div class="centro-dona-desempeno">
+                                    <span class="valor-dona-desempeno">92%</span>
+                                    <span class="etiqueta-dona-desempeno">Asistencia</span>
+                                </div>
+                            </div>
+                            <ul class="leyenda-dona-desempeno">
+                                <li class="item-leyenda"><span class="color-leyenda color-leyenda-alto" aria-hidden="true"></span><span>Asistió</span><strong>92%</strong></li>
+                                <li class="item-leyenda"><span class="color-leyenda color-leyenda-medio" aria-hidden="true"></span><span>Justificadas</span><strong>5%</strong></li>
+                                <li class="item-leyenda"><span class="color-leyenda color-leyenda-bajo" aria-hidden="true"></span><span>Inasistencias</span><strong>3%</strong></li>
+                            </ul>
+                        </div>
+
+                        <div class="tarjeta-comparar-ficha" style="--color-acento-comparar: var(--color-advertencia);">
+                            <div class="cabecera-comparar-ficha">
+                                <h3>Back-End</h3>
+                                <span class="etiqueta-estado etiqueta-estado-pendiente">85%</span>
+                            </div>
+                            <div class="anillo-dona-desempeno" style="background: conic-gradient(var(--color-confirmacion) 0% 85%, var(--color-advertencia) 85% 95%, var(--color-alerta-critica) 95% 100%);">
+                                <div class="centro-dona-desempeno">
+                                    <span class="valor-dona-desempeno">85%</span>
+                                    <span class="etiqueta-dona-desempeno">Asistencia</span>
+                                </div>
+                            </div>
+                            <ul class="leyenda-dona-desempeno">
+                                <li class="item-leyenda"><span class="color-leyenda color-leyenda-alto" aria-hidden="true"></span><span>Asistió</span><strong>85%</strong></li>
+                                <li class="item-leyenda"><span class="color-leyenda color-leyenda-medio" aria-hidden="true"></span><span>Justificadas</span><strong>10%</strong></li>
+                                <li class="item-leyenda"><span class="color-leyenda color-leyenda-bajo" aria-hidden="true"></span><span>Inasistencias</span><strong>5%</strong></li>
+                            </ul>
+                        </div>
+
+                        <div class="tarjeta-comparar-ficha" style="--color-acento-comparar: var(--color-alerta-critica);">
+                            <div class="cabecera-comparar-ficha">
+                                <h3>Inglés</h3>
+                                <span class="etiqueta-estado etiqueta-estado-atrasado">78%</span>
+                            </div>
+                            <div class="anillo-dona-desempeno" style="background: conic-gradient(var(--color-confirmacion) 0% 78%, var(--color-advertencia) 78% 90%, var(--color-alerta-critica) 90% 100%);">
+                                <div class="centro-dona-desempeno">
+                                    <span class="valor-dona-desempeno">78%</span>
+                                    <span class="etiqueta-dona-desempeno">Asistencia</span>
+                                </div>
+                            </div>
+                            <ul class="leyenda-dona-desempeno">
+                                <li class="item-leyenda"><span class="color-leyenda color-leyenda-alto" aria-hidden="true"></span><span>Asistió</span><strong>78%</strong></li>
+                                <li class="item-leyenda"><span class="color-leyenda color-leyenda-medio" aria-hidden="true"></span><span>Justificadas</span><strong>12%</strong></li>
+                                <li class="item-leyenda"><span class="color-leyenda color-leyenda-bajo" aria-hidden="true"></span><span>Inasistencias</span><strong>10%</strong></li>
+                            </ul>
+                        </div>
+
+                        <div class="tarjeta-comparar-ficha" style="--color-acento-comparar: var(--color-confirmacion);">
+                            <div class="cabecera-comparar-ficha">
+                                <h3>Calidad de software</h3>
+                                <span class="etiqueta-estado etiqueta-estado-activo">90%</span>
+                            </div>
+                            <div class="anillo-dona-desempeno" style="background: conic-gradient(var(--color-confirmacion) 0% 90%, var(--color-advertencia) 90% 96%, var(--color-alerta-critica) 96% 100%);">
+                                <div class="centro-dona-desempeno">
+                                    <span class="valor-dona-desempeno">90%</span>
+                                    <span class="etiqueta-dona-desempeno">Asistencia</span>
+                                </div>
+                            </div>
+                            <ul class="leyenda-dona-desempeno">
+                                <li class="item-leyenda"><span class="color-leyenda color-leyenda-alto" aria-hidden="true"></span><span>Asistió</span><strong>90%</strong></li>
+                                <li class="item-leyenda"><span class="color-leyenda color-leyenda-medio" aria-hidden="true"></span><span>Justificadas</span><strong>6%</strong></li>
+                                <li class="item-leyenda"><span class="color-leyenda color-leyenda-bajo" aria-hidden="true"></span><span>Inasistencias</span><strong>4%</strong></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="resumen-comparacion">
+                        <p class="etiqueta-grupo-asistencia"><i class="fa-solid fa-magnifying-glass-chart" aria-hidden="true"></i> Resumen de la comparación</p>
+
+                        <div class="franja-resumen franja-resumen-comparar">
+                            <div class="dato-resumen">
+                                <i class="fa-solid fa-chart-pie" aria-hidden="true"></i>
+                                <div class="info-resumen">
+                                    <span class="valor-resumen">88%</span>
+                                    <span class="etiqueta-resumen">Promedio entre las 5 competencias</span>
+                                </div>
+                            </div>
+
+                            <span class="divisor-resumen" aria-hidden="true"></span>
+
+                            <div class="dato-resumen dato-resumen-positivo">
+                                <i class="fa-solid fa-trophy" aria-hidden="true"></i>
+                                <div class="info-resumen">
+                                    <span class="valor-resumen valor-resumen-positivo">96%</span>
+                                    <span class="etiqueta-resumen">Mayor asistencia — Algoritmos</span>
+                                </div>
+                            </div>
+
+                            <span class="divisor-resumen" aria-hidden="true"></span>
+
+                            <div class="dato-resumen dato-resumen-negativo">
+                                <i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>
+                                <div class="info-resumen">
+                                    <span class="valor-resumen valor-resumen-negativo">78%</span>
+                                    <span class="etiqueta-resumen">Menor asistencia — Inglés</span>
+                                </div>
+                            </div>
+
+                            <span class="divisor-resumen" aria-hidden="true"></span>
+
+                            <div class="dato-resumen dato-resumen-alerta">
+                                <i class="fa-solid fa-arrows-left-right" aria-hidden="true"></i>
+                                <div class="info-resumen">
+                                    <span class="valor-resumen valor-resumen-alerta">18 pts</span>
+                                    <span class="etiqueta-resumen">Brecha entre la mayor y la menor</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <p class="descripcion-detalle-actividad">
+                            De las 5 competencias comparadas en el período consultado, tu asistencia promedio fue del 88%. <strong>Algoritmos</strong> es tu competencia más fuerte, con 96% de asistencia, mientras que <strong>Inglés</strong> es la que más necesita refuerzo: 78% de asistencia y un 10% de inasistencias sin justificar, la cifra más alta entre las cinco. En promedio, el 5% de tus inasistencias en este período quedaron sin justificar — vale la pena revisar si alguna de ellas todavía puede justificarse.
+                        </p>
+                    </div>
+                </div>
+                </section>
+            </div>
+
+            <!-- ================= APARTADO 3: HISTORIAL DE REPORTES — CU05.3 ================= -->
+            <div class="contenido-vista-reportes">
+
+                <section class="panel-listado">
+                    <div class="encabezado-instructores-ficha">
+                        <h2>Historial de reportes</h2>
+                        <p class="texto-conteo-listado">Consulta y descarga los reportes generados sobre tu asistencia y desempeño</p>
+                    </div>
+
+                    <div class="barra-herramientas-listado">
+                        <div class="grupo-herramientas-busqueda">
+                            <div class="grupo-filtros-activos">
+                                <div class="grupo-filtro">
+                                    <label for="filtro-reporte-tipo">Tipo de reporte</label>
+                                    <select id="filtro-reporte-tipo" class="selector-filtro">
+                                        <option value="todos">Todos</option>
+                                        <option value="individual">Individual</option>
+                                        <option value="ficha">General de ficha</option>
+                                    </select>
+                                </div>
+
+                                <div class="grupo-filtro">
+                                    <label for="filtro-reporte-generador">Generado por</label>
+                                    <select id="filtro-reporte-generador" class="selector-filtro">
+                                        <option value="todos">Todos</option>
+                                        <option value="puntualix">PuntualiX</option>
+                                        <option value="instructor">Instructor</option>
+                                    </select>
+                                </div>
+
+                                <div class="grupo-filtro">
+                                    <label for="filtro-reporte-desde">Desde</label>
+                                    <input type="date" id="filtro-reporte-desde" class="selector-filtro" value="2026-07-01">
+                                </div>
+
+                                <div class="grupo-filtro">
+                                    <label for="filtro-reporte-hasta">Hasta</label>
+                                    <input type="date" id="filtro-reporte-hasta" class="selector-filtro" value="2026-08-22">
+                                </div>
+
+                                <button type="button" class="boton-limpiar-filtros">
+                                    <i class="fa-solid fa-broom" aria-hidden="true"></i>
+                                    Limpiar filtros
+                                </button>
+                            </div>
+
+                            <div class="grupo-busqueda">
+                                <input type="text" placeholder="Buscar reporte" class="campo-busqueda-ficha" />
+                                <button type="button" class="boton-buscar-ficha" aria-label="Buscar reporte">
+                                    <i class="fa-solid fa-magnifying-glass"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contenedor-tabla-listado">
+                        <table class="tabla-listado-fichas">
+                            <colgroup>
+                                <col style="width: 16%">
+                                <col style="width: 22%">
+                                <col style="width: 26%">
+                                <col style="width: 18%">
+                                <col style="width: 18%">
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th>Fecha</th>
+                                    <th>Tipo de reporte</th>
+                                    <th>Generado por</th>
+                                    <th>Estado</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>20/08/2026</td>
+                                    <td>Individual</td>
+                                    <td>PuntualiX</td>
+                                    <td><span class="etiqueta-estado etiqueta-estado-activo">Disponible</span></td>
+                                    <td>
+                                        <div class="acciones-usuario">
+                                            <a href="#reporte-1" class="boton-ver-mas">Ver más</a>
+                                            <a href="" class="icono-contacto-ficha" title="Descargar" aria-label="Descargar reporte del 20 de agosto"><i class="fa-solid fa-download"></i></a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>12/08/2026</td>
+                                    <td>Individual</td>
+                                    <td>Andres Ramirez</td>
+                                    <td><span class="etiqueta-estado etiqueta-estado-activo">Disponible</span></td>
+                                    <td>
+                                        <div class="acciones-usuario">
+                                            <a href="#reporte-2" class="boton-ver-mas">Ver más</a>
+                                            <a href="" class="icono-contacto-ficha" title="Descargar" aria-label="Descargar reporte del 12 de agosto"><i class="fa-solid fa-download"></i></a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>08/08/2026</td>
+                                    <td>General de ficha</td>
+                                    <td>PuntualiX</td>
+                                    <td><span class="etiqueta-estado etiqueta-estado-activo">Disponible</span></td>
+                                    <td>
+                                        <div class="acciones-usuario">
+                                            <a href="#reporte-3" class="boton-ver-mas">Ver más</a>
+                                            <a href="" class="icono-contacto-ficha" title="Descargar" aria-label="Descargar reporte del 8 de agosto"><i class="fa-solid fa-download"></i></a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>30/07/2026</td>
+                                    <td>Individual</td>
+                                    <td>PuntualiX</td>
+                                    <td><span class="etiqueta-estado etiqueta-estado-activo">Disponible</span></td>
+                                    <td>
+                                        <div class="acciones-usuario">
+                                            <a href="#reporte-4" class="boton-ver-mas">Ver más</a>
+                                            <a href="" class="icono-contacto-ficha" title="Descargar" aria-label="Descargar reporte del 30 de julio"><i class="fa-solid fa-download"></i></a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <!-- FA05.3.2 - Reporte no disponible -->
+                                <tr class="fila-no-disponible">
+                                    <td>15/07/2026</td>
+                                    <td>General de ficha</td>
+                                    <td>Alexander Patiño Londoño</td>
+                                    <td><span class="etiqueta-estado etiqueta-estado-inactivo">No disponible</span></td>
+                                    <td>
+                                        <span class="texto-accion-deshabilitada" title="El reporte no puede ser consultado">No disponible</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>02/07/2026</td>
+                                    <td>Individual</td>
+                                    <td>PuntualiX</td>
+                                    <td><span class="etiqueta-estado etiqueta-estado-activo">Disponible</span></td>
+                                    <td>
+                                        <div class="acciones-usuario">
+                                            <a href="#reporte-6" class="boton-ver-mas">Ver más</a>
+                                            <a href="" class="icono-contacto-ficha" title="Descargar" aria-label="Descargar reporte del 2 de julio"><i class="fa-solid fa-download"></i></a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="pie-listado">
+                        <p class="texto-conteo-listado">Mostrando 6 reportes de 14</p>
+
+                        <nav class="paginacion" aria-label="Paginación de historial de reportes">
+                            <button type="button" class="boton-pagina boton-pagina-activo">1</button>
+                            <button type="button" class="boton-pagina">2</button>
+                            <button type="button" class="boton-pagina">3</button>
+                            <button type="button" class="boton-pagina-siguiente" aria-label="Página siguiente">
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </button>
+                        </nav>
+                    </div>
+                </section>
+
+                <!-- Modales de detalle de reporte (CSS puro con :target) -->
+
+                <div class="overlay-detalle-actividad" id="reporte-1">
+                    <a href="historialAsistencias.html" class="fondo-detalle-actividad" aria-label="Cerrar detalle"></a>
+                    <div class="tarjeta-detalle-actividad">
+                        <a href="historialAsistencias.html" class="boton-cerrar-detalle-actividad" aria-label="Cerrar"><i class="fa-solid fa-xmark"></i></a>
+                        <div class="cabecera-detalle-actividad">
+                            <div class="icono-detalle-actividad icono-detalle-actividad-exito" aria-hidden="true"><i class="fa-solid fa-file-lines"></i></div>
+                            <div>
+                                <p class="titulo-detalle-actividad">Reporte de asistencia</p>
+                                <p class="subtitulo-detalle-actividad">Individual · 20/08/2026</p>
+                            </div>
+                        </div>
+                        <div class="lista-detalle-actividad">
+                            <div class="fila-detalle-actividad"><span>Tipo de reporte</span><span>Individual</span></div>
+                            <div class="fila-detalle-actividad"><span>Generado por</span><span>PuntualiX</span></div>
+                            <div class="fila-detalle-actividad"><span>Fecha de generación</span><span>20/08/2026</span></div>
+                            <div class="fila-detalle-actividad"><span>Periodo cubierto</span><span>Marzo — Agosto 2026</span></div>
+                            <div class="fila-detalle-actividad"><span>Asistencia registrada</span><span>88%</span></div>
+                            <div class="fila-detalle-actividad"><span>Estado</span><span><span class="etiqueta-estado etiqueta-estado-activo">Disponible</span></span></div>
+                        </div>
+                        <p class="descripcion-detalle-actividad">Reporte consolidado con tus indicadores de asistencia, permanencia y justificaciones registradas en el periodo consultado.</p>
+                        <a href="" class="boton-descargar-reporte">
+                            <i class="fa-solid fa-download" aria-hidden="true"></i>
+                            Descargar PDF
+                        </a>
+                    </div>
+                </div>
+
+                <div class="overlay-detalle-actividad" id="reporte-2">
+                    <a href="historialAsistencias.html" class="fondo-detalle-actividad" aria-label="Cerrar detalle"></a>
+                    <div class="tarjeta-detalle-actividad">
+                        <a href="historialAsistencias.html" class="boton-cerrar-detalle-actividad" aria-label="Cerrar"><i class="fa-solid fa-xmark"></i></a>
+                        <div class="cabecera-detalle-actividad">
+                            <div class="icono-detalle-actividad icono-detalle-actividad-exito" aria-hidden="true"><i class="fa-solid fa-file-lines"></i></div>
+                            <div>
+                                <p class="titulo-detalle-actividad">Reporte de asistencia</p>
+                                <p class="subtitulo-detalle-actividad">Individual · 12/08/2026</p>
+                            </div>
+                        </div>
+                        <div class="lista-detalle-actividad">
+                            <div class="fila-detalle-actividad"><span>Tipo de reporte</span><span>Individual</span></div>
+                            <div class="fila-detalle-actividad"><span>Generado por</span><span>Andres Ramirez</span></div>
+                            <div class="fila-detalle-actividad"><span>Fecha de generación</span><span>12/08/2026</span></div>
+                            <div class="fila-detalle-actividad"><span>Periodo cubierto</span><span>Marzo — Julio 2026</span></div>
+                            <div class="fila-detalle-actividad"><span>Asistencia registrada</span><span>90%</span></div>
+                            <div class="fila-detalle-actividad"><span>Estado</span><span><span class="etiqueta-estado etiqueta-estado-activo">Disponible</span></span></div>
+                        </div>
+                        <p class="descripcion-detalle-actividad">Reporte solicitado por tu instructor para seguimiento de desempeño académico.</p>
+                        <a href="" class="boton-descargar-reporte">
+                            <i class="fa-solid fa-download" aria-hidden="true"></i>
+                            Descargar PDF
+                        </a>
+                    </div>
+                </div>
+
+                <div class="overlay-detalle-actividad" id="reporte-3">
+                    <a href="historialAsistencias.html" class="fondo-detalle-actividad" aria-label="Cerrar detalle"></a>
+                    <div class="tarjeta-detalle-actividad">
+                        <a href="historialAsistencias.html" class="boton-cerrar-detalle-actividad" aria-label="Cerrar"><i class="fa-solid fa-xmark"></i></a>
+                        <div class="cabecera-detalle-actividad">
+                            <div class="icono-detalle-actividad icono-detalle-actividad-exito" aria-hidden="true"><i class="fa-solid fa-file-lines"></i></div>
+                            <div>
+                                <p class="titulo-detalle-actividad">Reporte general de ficha</p>
+                                <p class="subtitulo-detalle-actividad">General de ficha · 08/08/2026</p>
+                            </div>
+                        </div>
+                        <div class="lista-detalle-actividad">
+                            <div class="fila-detalle-actividad"><span>Tipo de reporte</span><span>General de ficha</span></div>
+                            <div class="fila-detalle-actividad"><span>Generado por</span><span>PuntualiX</span></div>
+                            <div class="fila-detalle-actividad"><span>Fecha de generación</span><span>08/08/2026</span></div>
+                            <div class="fila-detalle-actividad"><span>Ficha</span><span>301002 · ADSO</span></div>
+                            <div class="fila-detalle-actividad"><span>Asistencia promedio de la ficha</span><span>91%</span></div>
+                            <div class="fila-detalle-actividad"><span>Estado</span><span><span class="etiqueta-estado etiqueta-estado-activo">Disponible</span></span></div>
+                        </div>
+                        <p class="descripcion-detalle-actividad">Reporte consolidado de la ficha, compartido con los aprendices para seguimiento general del grupo.</p>
+                        <a href="" class="boton-descargar-reporte">
+                            <i class="fa-solid fa-download" aria-hidden="true"></i>
+                            Descargar PDF
+                        </a>
+                    </div>
+                </div>
+
+                <div class="overlay-detalle-actividad" id="reporte-4">
+                    <a href="historialAsistencias.html" class="fondo-detalle-actividad" aria-label="Cerrar detalle"></a>
+                    <div class="tarjeta-detalle-actividad">
+                        <a href="historialAsistencias.html" class="boton-cerrar-detalle-actividad" aria-label="Cerrar"><i class="fa-solid fa-xmark"></i></a>
+                        <div class="cabecera-detalle-actividad">
+                            <div class="icono-detalle-actividad icono-detalle-actividad-exito" aria-hidden="true"><i class="fa-solid fa-file-lines"></i></div>
+                            <div>
+                                <p class="titulo-detalle-actividad">Reporte de asistencia</p>
+                                <p class="subtitulo-detalle-actividad">Individual · 30/07/2026</p>
+                            </div>
+                        </div>
+                        <div class="lista-detalle-actividad">
+                            <div class="fila-detalle-actividad"><span>Tipo de reporte</span><span>Individual</span></div>
+                            <div class="fila-detalle-actividad"><span>Generado por</span><span>PuntualiX</span></div>
+                            <div class="fila-detalle-actividad"><span>Fecha de generación</span><span>30/07/2026</span></div>
+                            <div class="fila-detalle-actividad"><span>Periodo cubierto</span><span>Marzo — Julio 2026</span></div>
+                            <div class="fila-detalle-actividad"><span>Asistencia registrada</span><span>87%</span></div>
+                            <div class="fila-detalle-actividad"><span>Estado</span><span><span class="etiqueta-estado etiqueta-estado-activo">Disponible</span></span></div>
+                        </div>
+                        <p class="descripcion-detalle-actividad">Reporte generado automáticamente al cierre del mes de julio.</p>
+                        <a href="" class="boton-descargar-reporte">
+                            <i class="fa-solid fa-download" aria-hidden="true"></i>
+                            Descargar PDF
+                        </a>
+                    </div>
+                </div>
+
+                <div class="overlay-detalle-actividad" id="reporte-6">
+                    <a href="historialAsistencias.html" class="fondo-detalle-actividad" aria-label="Cerrar detalle"></a>
+                    <div class="tarjeta-detalle-actividad">
+                        <a href="historialAsistencias.html" class="boton-cerrar-detalle-actividad" aria-label="Cerrar"><i class="fa-solid fa-xmark"></i></a>
+                        <div class="cabecera-detalle-actividad">
+                            <div class="icono-detalle-actividad icono-detalle-actividad-exito" aria-hidden="true"><i class="fa-solid fa-file-lines"></i></div>
+                            <div>
+                                <p class="titulo-detalle-actividad">Reporte de asistencia</p>
+                                <p class="subtitulo-detalle-actividad">Individual · 02/07/2026</p>
+                            </div>
+                        </div>
+                        <div class="lista-detalle-actividad">
+                            <div class="fila-detalle-actividad"><span>Tipo de reporte</span><span>Individual</span></div>
+                            <div class="fila-detalle-actividad"><span>Generado por</span><span>PuntualiX</span></div>
+                            <div class="fila-detalle-actividad"><span>Fecha de generación</span><span>02/07/2026</span></div>
+                            <div class="fila-detalle-actividad"><span>Periodo cubierto</span><span>Marzo — Junio 2026</span></div>
+                            <div class="fila-detalle-actividad"><span>Asistencia registrada</span><span>93%</span></div>
+                            <div class="fila-detalle-actividad"><span>Estado</span><span><span class="etiqueta-estado etiqueta-estado-activo">Disponible</span></span></div>
+                        </div>
+                        <p class="descripcion-detalle-actividad">Reporte generado automáticamente al cierre del mes de junio.</p>
+                        <a href="" class="boton-descargar-reporte">
+                            <i class="fa-solid fa-download" aria-hidden="true"></i>
+                            Descargar PDF
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+        </main>
+
+        <!-- Pie de página (componente compartido, replicado estáticamente) -->
+        <footer class="pie-dashboard">
+            <div class="marca-pie">
+                <img src="../../src/assets/img/LogoNegativo/negativo_con_eslogan_transparente.png" alt="Logo PuntualiX" class="logo-puntualix-pie" />
+                <div class="texto-marca-pie">
+                    <p>Desarrollado en el marco del proyecto de formación SENA · 2026</p>
+                    <p class="copyright-pie">
+                        <i class="fa-regular fa-copyright" aria-hidden="true"></i>
+                        2026 Puntualix. Todos los derechos reservados
+                    </p>
+                </div>
+            </div>
+
+            <div class="info-programa-pie">
+                <img src="../../src/assets/img/LogoSena/SenaSobreVerde.png" alt="SENA" class="logo-sena-pie" />
+                <p>
+                    Programa: Análisis y desarrollo de Software<br />
+                    Ficha: 3267541
+                </p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="../../src/js/main.js"></script>
+</body>
+</html>

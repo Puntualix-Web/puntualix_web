@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PuntualiX | Justificaciones</title>
+
+    <link rel="icon" type="image/png" href="../../src/assets/img/favico/favicon_positivo.png">
+
+    <link rel="stylesheet" href="../../src/styles/base.css">
+    <link rel="stylesheet" href="../../src/styles/tokens.css">
+    <link rel="stylesheet" href="../../src/styles/fonts.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../../src/styles/estilos.css">
+</head>
+<body>
+    <div class="pantalla-dashboard-admin">
+
+        <!-- Barra de navegación superior (componente compartido, replicado estáticamente) -->
+        <header class="barra-navegacion">
+            <div class="marca-navegacion">
+                <img src="../../src/assets/img/LogoNegativo/negativo_sin_eslogan_transparente.png" alt="Logo Puntualix">
+            </div>
+
+            <nav class="menu-navegacion">
+                <a href="dashboard.html" class="enlace-nav" data-pagina="dashboard" data-roles="administrador,instructor,aprendiz">
+                    <i class="fa-solid fa-house"></i> Dashboard
+                </a>
+                <a href="materialApoyo.html" class="enlace-nav" data-pagina="material" data-roles="aprendiz">
+                    <i class="fa-solid fa-file-lines"></i> Material de apoyo
+                </a>
+                <a href="justificaciones.html" class="enlace-nav enlace-nav-activo" data-pagina="justificaciones" data-roles="aprendiz">
+                    <i class="fa-solid fa-file-circle-exclamation"></i> Justificaciones
+                </a>
+                <a href="historialAsistencias.html" class="enlace-nav" data-pagina="historial" data-roles="aprendiz">
+                    <i class="fa-solid fa-chart-column"></i> Seguimiento
+                </a>
+            </nav>
+
+            <div class="area-usuario">
+                <span class="separador-nav" aria-hidden="true"></span>
+
+                <button type="button" class="boton-notificaciones" aria-label="Notificaciones">
+                    <i class="fa-solid fa-bell"></i>
+                </button>
+
+                <div class="tarjeta-usuario" id="boton-menu-usuario">
+                    <div class="avatar-usuario" aria-hidden="true"></div>
+                    <div class="datos-usuario">
+                        <span class="nombre-usuario">Juan Perez</span>
+                        <span class="rol-usuario">Aprendiz</span>
+                    </div>
+                    <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+                </div>
+
+                <div class="menu-desplegable-usuario oculto" id="menu-usuario">
+                    <a href="" class="item-menu-usuario" data-roles="administrador,instructor,aprendiz">
+                        <i class="fa-solid fa-circle-user"></i> Ver perfil
+                    </a>
+                    <a href="../InicioSesion.html" class="item-menu-usuario item-menu-cerrar-sesion" data-roles="administrador,instructor,aprendiz">
+                        <i class="fa-solid fa-right-from-bracket"></i> Cerrar sesión
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <main class="contenido-dashboard">
+
+            <!-- Migas de pan -->
+            <nav class="migas-pan" aria-label="Ruta de navegación">
+                <a href="dashboard.html">Inicio</a>
+                <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+                <span>Justificaciones</span>
+            </nav>
+
+            <!-- Encabezado: título + acción de subir justificación (CU08.1) -->
+            <div class="encabezado-detalle-ficha">
+                <h1 class="titulo-pagina" style="margin-bottom: 0">Justificaciones</h1>
+
+                <div class="acciones-detalle-ficha">
+                    <details class="menu-generar-reporte">
+                        <summary class="boton-reporte-perfil">
+                            <i class="fa-solid fa-file-circle-plus" aria-hidden="true"></i>
+                            Subir justificación
+                        </summary>
+                        <div class="panel-generar-reporte">
+                            <div class="grupo-filtro">
+                                <label for="justificacion-inasistencia">Inasistencia a justificar</label>
+                                <select id="justificacion-inasistencia" class="selector-filtro">
+                                    <option>15/08/2026 — Front end</option>
+                                    <option>10/08/2026 — Back end</option>
+                                </select>
+                            </div>
+                            <div class="grupo-filtro">
+                                <label for="justificacion-documento">Documento soporte</label>
+                                <input type="file" id="justificacion-documento" class="selector-filtro">
+                            </div>
+                            <div class="grupo-filtro">
+                                <label for="justificacion-comentario">Comentario</label>
+                                <textarea id="justificacion-comentario" class="selector-filtro" rows="3" placeholder="Describe el motivo de la inasistencia"></textarea>
+                            </div>
+                            <button type="button" class="boton-nuevo-usuario">
+                                <i class="fa-solid fa-paper-plane"></i>
+                                Enviar justificación
+                            </button>
+                        </div>
+                    </details>
+                </div>
+            </div>
+
+            <!-- Listado del estado de las justificaciones (CU08.6) -->
+            <section class="panel-listado">
+                <div class="encabezado-instructores-ficha">
+                    <h2>Mis justificaciones</h2>
+                    <p class="texto-conteo-listado">Consulta el estado de tus justificaciones e inasistencias</p>
+                </div>
+
+                <div class="barra-herramientas-listado">
+                    <div class="grupo-herramientas-busqueda">
+                        <div class="grupo-filtros-activos">
+                            <div class="grupo-filtro">
+                                <label for="filtro-justificacion-competencia">Competencia</label>
+                                <select id="filtro-justificacion-competencia" class="selector-filtro">
+                                    <option value="todas">Todas</option>
+                                    <option value="algoritmos">Algoritmos</option>
+                                    <option value="frontend">Front end</option>
+                                    <option value="backend">Back end</option>
+                                    <option value="ingles">Inglés</option>
+                                    <option value="calidad">Calidad de software</option>
+                                </select>
+                            </div>
+
+                            <div class="grupo-filtro">
+                                <label for="filtro-justificacion-estado">Estado</label>
+                                <select id="filtro-justificacion-estado" class="selector-filtro">
+                                    <option value="todos">Todos</option>
+                                    <option value="aprobada">Aprobada</option>
+                                    <option value="pendiente">Pendiente de revisión</option>
+                                    <option value="rechazada">Rechazado</option>
+                                </select>
+                            </div>
+
+                            <button type="button" class="boton-limpiar-filtros">
+                                <i class="fa-solid fa-broom" aria-hidden="true"></i>
+                                Limpiar filtros
+                            </button>
+                        </div>
+
+                        <div class="grupo-busqueda">
+                            <input type="text" placeholder="Buscar justificación" class="campo-busqueda-ficha" />
+                            <button type="button" class="boton-buscar-ficha" aria-label="Buscar justificación">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contenedor-tabla-listado">
+                    <table class="tabla-listado-fichas">
+                    <colgroup>
+                        <col style="width: 22%">
+                        <col style="width: 24%">
+                        <col style="width: 18%">
+                        <col style="width: 22%">
+                        <col style="width: 14%">
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th>Competencia</th>
+                            <th>Instructor encargado</th>
+                            <th>Fecha</th>
+                            <th>Estado</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Algoritmos</td>
+                            <td>Alexander Patiño</td>
+                            <td>02/05/2026</td>
+                            <td><span class="etiqueta-estado etiqueta-estado-aprobada">Aprobada</span></td>
+                            <td><a href="#justificacion-1" class="boton-ver-mas">Ver más</a></td>
+                        </tr>
+                        <tr>
+                            <td>Front end</td>
+                            <td>Alexander Patiño</td>
+                            <td>02/05/2026</td>
+                            <td><span class="etiqueta-estado etiqueta-estado-aprobada">Aprobada</span></td>
+                            <td><a href="#justificacion-2" class="boton-ver-mas">Ver más</a></td>
+                        </tr>
+                        <tr>
+                            <td>Back end</td>
+                            <td>Alexander Patiño</td>
+                            <td>02/05/2026</td>
+                            <td><span class="etiqueta-estado etiqueta-estado-pendiente">Pendiente de revisión</span></td>
+                            <td><a href="#justificacion-3" class="boton-ver-mas">Ver más</a></td>
+                        </tr>
+                        <tr>
+                            <td>Inglés</td>
+                            <td>Lina Vanegas</td>
+                            <td>02/05/2026</td>
+                            <td><span class="etiqueta-estado etiqueta-estado-rechazada">Rechazado</span></td>
+                            <td><a href="#justificacion-4" class="boton-ver-mas">Ver más</a></td>
+                        </tr>
+                        <tr>
+                            <td>Inglés</td>
+                            <td>Lina Vanegas</td>
+                            <td>02/05/2026</td>
+                            <td><span class="etiqueta-estado etiqueta-estado-pendiente">Pendiente de revisión</span></td>
+                            <td><a href="#justificacion-5" class="boton-ver-mas">Ver más</a></td>
+                        </tr>
+                        <tr>
+                            <td>Calidad de software</td>
+                            <td>Mauricio Paez</td>
+                            <td>02/05/2026</td>
+                            <td><span class="etiqueta-estado etiqueta-estado-rechazada">Rechazado</span></td>
+                            <td><a href="#justificacion-6" class="boton-ver-mas">Ver más</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+                </div>
+
+                <div class="pie-listado">
+                    <p class="texto-conteo-listado">Mostrando 6 justificaciones de 12</p>
+
+                    <nav class="paginacion" aria-label="Paginación de justificaciones">
+                        <button type="button" class="boton-pagina boton-pagina-activo">1</button>
+                        <button type="button" class="boton-pagina">2</button>
+                        <button type="button" class="boton-pagina-siguiente" aria-label="Página siguiente">
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </button>
+                    </nav>
+                </div>
+
+            </section>
+
+            <!-- Modales de detalle de justificación (CSS puro con :target) -->
+
+            <div class="overlay-detalle-actividad" id="justificacion-1">
+                <a href="justificaciones.html" class="fondo-detalle-actividad" aria-label="Cerrar detalle"></a>
+                <div class="tarjeta-detalle-actividad">
+                    <a href="justificaciones.html" class="boton-cerrar-detalle-actividad" aria-label="Cerrar"><i class="fa-solid fa-xmark"></i></a>
+                    <div class="cabecera-detalle-actividad">
+                        <div class="icono-detalle-actividad icono-detalle-actividad-exito" aria-hidden="true"><i class="fa-solid fa-file-circle-check"></i></div>
+                        <div>
+                            <p class="titulo-detalle-actividad">Justificación de inasistencia</p>
+                            <p class="subtitulo-detalle-actividad">Algoritmos · Aprobada</p>
+                        </div>
+                    </div>
+                    <div class="lista-detalle-actividad">
+                        <div class="fila-detalle-actividad"><span>Competencia</span><span>Algoritmos</span></div>
+                        <div class="fila-detalle-actividad"><span>Instructor encargado</span><span>Alexander Patiño</span></div>
+                        <div class="fila-detalle-actividad"><span>Fecha de la inasistencia</span><span>29/04/2026</span></div>
+                        <div class="fila-detalle-actividad"><span>Fecha de la justificación</span><span>02/05/2026</span></div>
+                        <div class="fila-detalle-actividad"><span>Documento adjunto</span><span>incapacidad_29abril.pdf</span></div>
+                        <div class="fila-detalle-actividad"><span>Estado</span><span><span class="etiqueta-estado etiqueta-estado-aprobada">Aprobada</span></span></div>
+                    </div>
+                    <p class="descripcion-detalle-actividad">Observación del instructor: incapacidad médica válida, se aprueba la justificación y se descuenta del conteo de inasistencias de la competencia.</p>
+                </div>
+            </div>
+
+            <div class="overlay-detalle-actividad" id="justificacion-2">
+                <a href="justificaciones.html" class="fondo-detalle-actividad" aria-label="Cerrar detalle"></a>
+                <div class="tarjeta-detalle-actividad">
+                    <a href="justificaciones.html" class="boton-cerrar-detalle-actividad" aria-label="Cerrar"><i class="fa-solid fa-xmark"></i></a>
+                    <div class="cabecera-detalle-actividad">
+                        <div class="icono-detalle-actividad icono-detalle-actividad-exito" aria-hidden="true"><i class="fa-solid fa-file-circle-check"></i></div>
+                        <div>
+                            <p class="titulo-detalle-actividad">Justificación de inasistencia</p>
+                            <p class="subtitulo-detalle-actividad">Front end · Aprobada</p>
+                        </div>
+                    </div>
+                    <div class="lista-detalle-actividad">
+                        <div class="fila-detalle-actividad"><span>Competencia</span><span>Front end</span></div>
+                        <div class="fila-detalle-actividad"><span>Instructor encargado</span><span>Alexander Patiño</span></div>
+                        <div class="fila-detalle-actividad"><span>Fecha de la inasistencia</span><span>29/04/2026</span></div>
+                        <div class="fila-detalle-actividad"><span>Fecha de la justificación</span><span>02/05/2026</span></div>
+                        <div class="fila-detalle-actividad"><span>Documento adjunto</span><span>incapacidad_29abril.pdf</span></div>
+                        <div class="fila-detalle-actividad"><span>Estado</span><span><span class="etiqueta-estado etiqueta-estado-aprobada">Aprobada</span></span></div>
+                    </div>
+                    <p class="descripcion-detalle-actividad">Observación del instructor: mismo soporte de incapacidad médica presentado para Algoritmos, se aprueba la justificación.</p>
+                </div>
+            </div>
+
+            <div class="overlay-detalle-actividad" id="justificacion-3">
+                <a href="justificaciones.html" class="fondo-detalle-actividad" aria-label="Cerrar detalle"></a>
+                <div class="tarjeta-detalle-actividad">
+                    <a href="justificaciones.html" class="boton-cerrar-detalle-actividad" aria-label="Cerrar"><i class="fa-solid fa-xmark"></i></a>
+                    <div class="cabecera-detalle-actividad">
+                        <div class="icono-detalle-actividad icono-detalle-actividad-alerta" aria-hidden="true"><i class="fa-solid fa-hourglass-half"></i></div>
+                        <div>
+                            <p class="titulo-detalle-actividad">Justificación de inasistencia</p>
+                            <p class="subtitulo-detalle-actividad">Back end · Pendiente de revisión</p>
+                        </div>
+                    </div>
+                    <div class="lista-detalle-actividad">
+                        <div class="fila-detalle-actividad"><span>Competencia</span><span>Back end</span></div>
+                        <div class="fila-detalle-actividad"><span>Instructor encargado</span><span>Alexander Patiño</span></div>
+                        <div class="fila-detalle-actividad"><span>Fecha de la inasistencia</span><span>29/04/2026</span></div>
+                        <div class="fila-detalle-actividad"><span>Fecha de la justificación</span><span>02/05/2026</span></div>
+                        <div class="fila-detalle-actividad"><span>Documento adjunto</span><span>cita_medica_29abril.pdf</span></div>
+                        <div class="fila-detalle-actividad"><span>Estado</span><span><span class="etiqueta-estado etiqueta-estado-pendiente">Pendiente de revisión</span></span></div>
+                    </div>
+                    <p class="descripcion-detalle-actividad">Aún no hay observación del instructor: la justificación se encuentra en revisión.</p>
+                </div>
+            </div>
+
+            <div class="overlay-detalle-actividad" id="justificacion-4">
+                <a href="justificaciones.html" class="fondo-detalle-actividad" aria-label="Cerrar detalle"></a>
+                <div class="tarjeta-detalle-actividad">
+                    <a href="justificaciones.html" class="boton-cerrar-detalle-actividad" aria-label="Cerrar"><i class="fa-solid fa-xmark"></i></a>
+                    <div class="cabecera-detalle-actividad">
+                        <div class="icono-detalle-actividad icono-detalle-actividad-error" aria-hidden="true"><i class="fa-solid fa-triangle-exclamation"></i></div>
+                        <div>
+                            <p class="titulo-detalle-actividad">Justificación de inasistencia</p>
+                            <p class="subtitulo-detalle-actividad">Inglés · Rechazado</p>
+                        </div>
+                    </div>
+                    <div class="lista-detalle-actividad">
+                        <div class="fila-detalle-actividad"><span>Competencia</span><span>Inglés</span></div>
+                        <div class="fila-detalle-actividad"><span>Instructor encargado</span><span>Lina Vanegas</span></div>
+                        <div class="fila-detalle-actividad"><span>Fecha de la inasistencia</span><span>27/04/2026</span></div>
+                        <div class="fila-detalle-actividad"><span>Fecha de la justificación</span><span>02/05/2026</span></div>
+                        <div class="fila-detalle-actividad"><span>Documento adjunto</span><span>soporte_27abril.jpg</span></div>
+                        <div class="fila-detalle-actividad"><span>Estado</span><span><span class="etiqueta-estado etiqueta-estado-rechazada">Rechazado</span></span></div>
+                    </div>
+                    <p class="descripcion-detalle-actividad">Observación del instructor: el documento adjunto no corresponde a un soporte válido según las políticas institucionales. Se recomienda volver a cargar la justificación con el soporte correcto.</p>
+                </div>
+            </div>
+
+            <div class="overlay-detalle-actividad" id="justificacion-5">
+                <a href="justificaciones.html" class="fondo-detalle-actividad" aria-label="Cerrar detalle"></a>
+                <div class="tarjeta-detalle-actividad">
+                    <a href="justificaciones.html" class="boton-cerrar-detalle-actividad" aria-label="Cerrar"><i class="fa-solid fa-xmark"></i></a>
+                    <div class="cabecera-detalle-actividad">
+                        <div class="icono-detalle-actividad icono-detalle-actividad-alerta" aria-hidden="true"><i class="fa-solid fa-hourglass-half"></i></div>
+                        <div>
+                            <p class="titulo-detalle-actividad">Justificación de inasistencia</p>
+                            <p class="subtitulo-detalle-actividad">Inglés · Pendiente de revisión</p>
+                        </div>
+                    </div>
+                    <div class="lista-detalle-actividad">
+                        <div class="fila-detalle-actividad"><span>Competencia</span><span>Inglés</span></div>
+                        <div class="fila-detalle-actividad"><span>Instructor encargado</span><span>Lina Vanegas</span></div>
+                        <div class="fila-detalle-actividad"><span>Fecha de la inasistencia</span><span>30/04/2026</span></div>
+                        <div class="fila-detalle-actividad"><span>Fecha de la justificación</span><span>02/05/2026</span></div>
+                        <div class="fila-detalle-actividad"><span>Documento adjunto</span><span>soporte_30abril.jpg</span></div>
+                        <div class="fila-detalle-actividad"><span>Estado</span><span><span class="etiqueta-estado etiqueta-estado-pendiente">Pendiente de revisión</span></span></div>
+                    </div>
+                    <p class="descripcion-detalle-actividad">Aún no hay observación del instructor: la justificación se encuentra en revisión.</p>
+                </div>
+            </div>
+
+            <div class="overlay-detalle-actividad" id="justificacion-6">
+                <a href="justificaciones.html" class="fondo-detalle-actividad" aria-label="Cerrar detalle"></a>
+                <div class="tarjeta-detalle-actividad">
+                    <a href="justificaciones.html" class="boton-cerrar-detalle-actividad" aria-label="Cerrar"><i class="fa-solid fa-xmark"></i></a>
+                    <div class="cabecera-detalle-actividad">
+                        <div class="icono-detalle-actividad icono-detalle-actividad-error" aria-hidden="true"><i class="fa-solid fa-triangle-exclamation"></i></div>
+                        <div>
+                            <p class="titulo-detalle-actividad">Justificación de inasistencia</p>
+                            <p class="subtitulo-detalle-actividad">Calidad de software · Rechazado</p>
+                        </div>
+                    </div>
+                    <div class="lista-detalle-actividad">
+                        <div class="fila-detalle-actividad"><span>Competencia</span><span>Calidad de software</span></div>
+                        <div class="fila-detalle-actividad"><span>Instructor encargado</span><span>Mauricio Paez</span></div>
+                        <div class="fila-detalle-actividad"><span>Fecha de la inasistencia</span><span>28/04/2026</span></div>
+                        <div class="fila-detalle-actividad"><span>Fecha de la justificación</span><span>02/05/2026</span></div>
+                        <div class="fila-detalle-actividad"><span>Documento adjunto</span><span>soporte_28abril.pdf</span></div>
+                        <div class="fila-detalle-actividad"><span>Estado</span><span><span class="etiqueta-estado etiqueta-estado-rechazada">Rechazado</span></span></div>
+                    </div>
+                    <p class="descripcion-detalle-actividad">Observación del instructor: la justificación fue radicada fuera del tiempo de vigencia establecido por las políticas institucionales.</p>
+                </div>
+            </div>
+
+        </main>
+
+        <!-- Pie de página (componente compartido, replicado estáticamente) -->
+        <footer class="pie-dashboard">
+            <div class="marca-pie">
+                <img src="../../src/assets/img/LogoNegativo/negativo_con_eslogan_transparente.png" alt="Logo PuntualiX" class="logo-puntualix-pie" />
+                <div class="texto-marca-pie">
+                    <p>Desarrollado en el marco del proyecto de formación SENA · 2026</p>
+                    <p class="copyright-pie">
+                        <i class="fa-regular fa-copyright" aria-hidden="true"></i>
+                        2026 Puntualix. Todos los derechos reservados
+                    </p>
+                </div>
+            </div>
+
+            <div class="info-programa-pie">
+                <img src="../../src/assets/img/LogoSena/SenaSobreVerde.png" alt="SENA" class="logo-sena-pie" />
+                <p>
+                    Programa: Análisis y desarrollo de Software<br />
+                    Ficha: 3267541
+                </p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="../../src/js/main.js"></script>
+</body>
+</html>

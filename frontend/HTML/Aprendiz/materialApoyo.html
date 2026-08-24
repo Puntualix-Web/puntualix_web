@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PuntualiX | Material de apoyo</title>
+
+    <link rel="icon" type="image/png" href="../../src/assets/img/favico/favicon_positivo.png">
+
+    <link rel="stylesheet" href="../../src/styles/base.css">
+    <link rel="stylesheet" href="../../src/styles/tokens.css">
+    <link rel="stylesheet" href="../../src/styles/fonts.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../../src/styles/estilos.css">
+</head>
+<body>
+    <div class="pantalla-dashboard-admin">
+
+        <!-- Barra de navegación superior (componente compartido, replicado estáticamente) -->
+        <header class="barra-navegacion">
+            <div class="marca-navegacion">
+                <img src="../../src/assets/img/LogoNegativo/negativo_sin_eslogan_transparente.png" alt="Logo Puntualix">
+            </div>
+
+            <nav class="menu-navegacion">
+                <a href="dashboard.html" class="enlace-nav" data-pagina="dashboard" data-roles="administrador,instructor,aprendiz">
+                    <i class="fa-solid fa-house"></i> Dashboard
+                </a>
+                <a href="materialApoyo.html" class="enlace-nav enlace-nav-activo" data-pagina="material" data-roles="aprendiz">
+                    <i class="fa-solid fa-file-lines"></i> Material de apoyo
+                </a>
+                <a href="justificaciones.html" class="enlace-nav" data-pagina="justificaciones" data-roles="aprendiz">
+                    <i class="fa-solid fa-file-circle-exclamation"></i> Justificaciones
+                </a>
+                <a href="historialAsistencias.html" class="enlace-nav" data-pagina="historial" data-roles="aprendiz">
+                    <i class="fa-solid fa-chart-column"></i> Seguimiento
+                </a>
+            </nav>
+
+            <div class="area-usuario">
+                <span class="separador-nav" aria-hidden="true"></span>
+
+                <button type="button" class="boton-notificaciones" aria-label="Notificaciones">
+                    <i class="fa-solid fa-bell"></i>
+                </button>
+
+                <div class="tarjeta-usuario" id="boton-menu-usuario">
+                    <div class="avatar-usuario" aria-hidden="true"></div>
+                    <div class="datos-usuario">
+                        <span class="nombre-usuario">Juan Perez</span>
+                        <span class="rol-usuario">Aprendiz</span>
+                    </div>
+                    <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+                </div>
+
+                <div class="menu-desplegable-usuario oculto" id="menu-usuario">
+                    <a href="" class="item-menu-usuario" data-roles="administrador,instructor,aprendiz">
+                        <i class="fa-solid fa-circle-user"></i> Ver perfil
+                    </a>
+                    <a href="../InicioSesion.html" class="item-menu-usuario item-menu-cerrar-sesion" data-roles="administrador,instructor,aprendiz">
+                        <i class="fa-solid fa-right-from-bracket"></i> Cerrar sesión
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <main class="contenido-dashboard">
+
+            <!-- Migas de pan -->
+            <nav class="migas-pan" aria-label="Ruta de navegación">
+                <a href="dashboard.html">Inicio</a>
+                <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+                <span>Material de apoyo</span>
+            </nav>
+
+            <h1 class="titulo-pagina">Material de apoyo</h1>
+
+            <!-- Listado de material de apoyo (CU07.2 / CU07.5) -->
+            <section class="panel-listado">
+                <div class="encabezado-instructores-ficha">
+                    <h2>Materiales disponibles</h2>
+                    <p class="texto-conteo-listado">Consulta y descarga el material publicado en tus competencias</p>
+                </div>
+
+                <div class="barra-herramientas-listado">
+                    <div class="grupo-herramientas-busqueda">
+                        <div class="grupo-filtros-activos">
+                            <div class="grupo-filtro">
+                                <label for="filtro-material-competencia">Competencia</label>
+                                <select id="filtro-material-competencia" class="selector-filtro">
+                                    <option value="todas">Todas</option>
+                                    <option value="algoritmos">Algoritmos</option>
+                                    <option value="frontend">Front end</option>
+                                    <option value="backend">Back end</option>
+                                    <option value="calidad">Calidad de software</option>
+                                </select>
+                            </div>
+
+                            <div class="grupo-filtro">
+                                <label for="filtro-material-desde">Desde</label>
+                                <input type="date" id="filtro-material-desde" class="selector-filtro" value="2026-05-03">
+                            </div>
+
+                            <div class="grupo-filtro">
+                                <label for="filtro-material-hasta">Hasta</label>
+                                <input type="date" id="filtro-material-hasta" class="selector-filtro" value="2027-03-03">
+                            </div>
+
+                            <button type="button" class="boton-limpiar-filtros">
+                                <i class="fa-solid fa-broom" aria-hidden="true"></i>
+                                Limpiar filtros
+                            </button>
+                        </div>
+
+                        <div class="grupo-busqueda">
+                            <input type="text" placeholder="Buscar material" class="campo-busqueda-ficha" />
+                            <button type="button" class="boton-buscar-ficha" aria-label="Buscar material">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contenedor-tabla-listado">
+                    <table class="tabla-listado-fichas">
+                    <colgroup>
+                        <col style="width: 24%">
+                        <col style="width: 30%">
+                        <col style="width: 16%">
+                        <col style="width: 16%">
+                        <col style="width: 14%">
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th>Competencia</th>
+                            <th>Instructor</th>
+                            <th>Fecha inicio</th>
+                            <th>Fecha fin</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Algoritmos</td>
+                            <td>Alexander Patiño Londoño</td>
+                            <td>03/05/2026</td>
+                            <td>12/08/2026</td>
+                            <td>
+                                <div class="acciones-usuario">
+                                    <a href="" class="boton-ver-mas">Ver más</a>
+                                    <a href="" class="icono-contacto-ficha" title="Descargar" aria-label="Descargar material de Algoritmos"><i class="fa-solid fa-download"></i></a>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Front end</td>
+                            <td>Alexander Patiño Londoño</td>
+                            <td>03/05/2026</td>
+                            <td>01/02/2027</td>
+                            <td>
+                                <div class="acciones-usuario">
+                                    <a href="" class="boton-ver-mas">Ver más</a>
+                                    <a href="" class="icono-contacto-ficha" title="Descargar" aria-label="Descargar material de Front end"><i class="fa-solid fa-download"></i></a>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Back end</td>
+                            <td>Alexander Patiño Londoño</td>
+                            <td>03/05/2026</td>
+                            <td>03/03/2027</td>
+                            <td>
+                                <div class="acciones-usuario">
+                                    <a href="" class="boton-ver-mas">Ver más</a>
+                                    <a href="" class="icono-contacto-ficha" title="Descargar" aria-label="Descargar material de Back end"><i class="fa-solid fa-download"></i></a>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Calidad de software</td>
+                            <td>Mauricio Paez</td>
+                            <td>03/05/2026</td>
+                            <td>27/11/2026</td>
+                            <td>
+                                <div class="acciones-usuario">
+                                    <a href="" class="boton-ver-mas">Ver más</a>
+                                    <a href="" class="icono-contacto-ficha" title="Descargar" aria-label="Descargar material de Calidad de software"><i class="fa-solid fa-download"></i></a>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                </div>
+
+                <div class="pie-listado">
+                    <p class="texto-conteo-listado">Mostrando 4 materiales de 12</p>
+
+                    <nav class="paginacion" aria-label="Paginación de material de apoyo">
+                        <button type="button" class="boton-pagina boton-pagina-activo">1</button>
+                        <button type="button" class="boton-pagina">2</button>
+                        <button type="button" class="boton-pagina">3</button>
+                        <button type="button" class="boton-pagina-siguiente" aria-label="Página siguiente">
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </button>
+                    </nav>
+                </div>
+
+            </section>
+
+        </main>
+
+        <!-- Pie de página (componente compartido, replicado estáticamente) -->
+        <footer class="pie-dashboard">
+            <div class="marca-pie">
+                <img src="../../src/assets/img/LogoNegativo/negativo_con_eslogan_transparente.png" alt="Logo PuntualiX" class="logo-puntualix-pie" />
+                <div class="texto-marca-pie">
+                    <p>Desarrollado en el marco del proyecto de formación SENA · 2026</p>
+                    <p class="copyright-pie">
+                        <i class="fa-regular fa-copyright" aria-hidden="true"></i>
+                        2026 Puntualix. Todos los derechos reservados
+                    </p>
+                </div>
+            </div>
+
+            <div class="info-programa-pie">
+                <img src="../../src/assets/img/LogoSena/SenaSobreVerde.png" alt="SENA" class="logo-sena-pie" />
+                <p>
+                    Programa: Análisis y desarrollo de Software<br />
+                    Ficha: 3267541
+                </p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="../../src/js/main.js"></script>
+</body>
+</html>

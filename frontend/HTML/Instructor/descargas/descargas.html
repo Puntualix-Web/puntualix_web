@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PuntualiX | Descargas</title>
+    <link rel="icon" type="image/png" href="../../../src/assets/img/favico/favicon_positivo.png">
+
+    <link rel="stylesheet" href="../../../src/styles/base.css">
+    <link rel="stylesheet" href="../../../src/styles/tokens.css">
+    <link rel="stylesheet" href="../../../src/styles/fonts.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../../../src/styles/estilos.css">
+</head>
+<body>
+    <div class="pantalla-dashboard-admin">
+
+        <header class="barra-navegacion">
+            <div class="marca-navegacion">
+                <img src="../../../src/assets/img/LogoNegativo/negativo_sin_eslogan_transparente.png" alt="Logo Puntualix">
+            </div>
+
+            <nav class="menu-navegacion">
+                <a href="../dashboard.html" class="enlace-nav" data-pagina="dashboard" data-roles="instructor">
+                    <i class="fa-solid fa-house"></i> Dashboard
+                </a>
+                <a href="../fichas/fichas.html" class="enlace-nav" data-pagina="fichas" data-roles="instructor">
+                    <i class="fa-solid fa-file-lines"></i> Fichas
+                </a>
+                <a href="../asistencia/asistencia.html" class="enlace-nav" data-pagina="asistencia" data-roles="instructor">
+                    <i class="fa-solid fa-clipboard-check"></i> Asistencia
+                </a>
+                <a href="../reportes/reportes.html" class="enlace-nav" data-pagina="reportes" data-roles="instructor">
+                    <i class="fa-solid fa-chart-bar"></i> Reportes
+                </a>
+                <a href="../material/subirMaterial.html" class="enlace-nav" data-pagina="material" data-roles="instructor">
+                    <i class="fa-solid fa-book"></i> Material
+                </a>
+            </nav>
+
+            <div class="area-usuario">
+                <span class="separador-nav" aria-hidden="true"></span>
+
+                <a href="../alertas/alertas.html" class="boton-notificaciones" aria-label="Alertas">
+                    <i class="fa-solid fa-bell"></i>
+                </a>
+
+                <div class="tarjeta-usuario" id="boton-menu-usuario">
+                    <div class="avatar-usuario" aria-hidden="true"></div>
+                    <div class="datos-usuario">
+                        <span class="nombre-usuario">Carlos Perez</span>
+                        <span class="rol-usuario">Instructor</span>
+                    </div>
+                    <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+                </div>
+
+                <div class="menu-desplegable-usuario oculto" id="menu-usuario">
+                    <a href="" class="item-menu-usuario" data-roles="instructor">
+                        <i class="fa-solid fa-circle-user"></i> Ver perfil
+                    </a>
+                    <a href="../../InicioSesion.html" class="item-menu-usuario item-menu-cerrar-sesion" data-roles="instructor">
+                        <i class="fa-solid fa-right-from-bracket"></i> Cerrar sesión
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <main class="contenido-dashboard">
+
+            <nav class="migas-pan" aria-label="Ruta de navegación">
+                <a href="../dashboard.html">Inicio</a>
+                <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+                <span>Descargas</span>
+            </nav>
+
+            <h1 class="titulo-pagina">Descargas</h1>
+
+            <div class="franja-resumen">
+                <div class="dato-resumen">
+                    <i class="fa-solid fa-download" aria-hidden="true"></i>
+                    <div class="info-resumen">
+                        <span class="valor-resumen">3</span>
+                        <span class="etiqueta-resumen">Archivos disponibles</span>
+                    </div>
+                </div>
+
+                <span class="divisor-resumen" aria-hidden="true"></span>
+
+                <div class="dato-resumen dato-resumen-positivo">
+                    <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
+                    <div class="info-resumen">
+                        <span class="valor-resumen valor-resumen-positivo">12</span>
+                        <span class="etiqueta-resumen">Descargas realizadas</span>
+                    </div>
+                </div>
+            </div>
+
+            <section class="panel-listado">
+
+                <div class="encabezado-instructores-ficha">
+                    <h2>Descargar información</h2>
+                    <p class="texto-conteo-listado">Selecciona el tipo de archivo que deseas descargar</p>
+                </div>
+
+                <div class="contenedor-tabla-listado">
+                    <div class="tarjeta-resultado-reporte">
+                        <div class="info-resultado-reporte">
+                            <div class="icono-resultado-reporte" aria-hidden="true"><i class="fa-solid fa-file-lines"></i></div>
+                            <div>
+                                <p class="titulo-resultado-reporte">Información de las fichas</p>
+                                <p class="subtitulo-resultado-reporte">Descarga la información relacionada con las fichas asignadas</p>
+                            </div>
+                        </div>
+                        <div class="acciones-resultado-reporte">
+                            <a href="#" class="boton-descargar-reporte">
+                                <i class="fa-solid fa-download"></i>
+                                Descargar
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="tarjeta-resultado-reporte">
+                        <div class="info-resultado-reporte">
+                            <div class="icono-resultado-reporte" aria-hidden="true"><i class="fa-solid fa-users"></i></div>
+                            <div>
+                                <p class="titulo-resultado-reporte">Información de aprendices</p>
+                                <p class="subtitulo-resultado-reporte">Descarga la información de los aprendices de tus fichas</p>
+                            </div>
+                        </div>
+                        <div class="acciones-resultado-reporte">
+                            <a href="#" class="boton-descargar-reporte">
+                                <i class="fa-solid fa-download"></i>
+                                Descargar
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="tarjeta-resultado-reporte">
+                        <div class="info-resultado-reporte">
+                            <div class="icono-resultado-reporte" aria-hidden="true"><i class="fa-solid fa-graduation-cap"></i></div>
+                            <div>
+                                <p class="titulo-resultado-reporte">Información de competencias</p>
+                                <p class="subtitulo-resultado-reporte">Descarga la información de competencias de tus fichas</p>
+                            </div>
+                        </div>
+                        <div class="acciones-resultado-reporte">
+                            <a href="#" class="boton-descargar-reporte">
+                                <i class="fa-solid fa-download"></i>
+                                Descargar
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <p class="texto-ayuda-comparacion">
+                    <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
+                    Los archivos se descargarán en formato CSV compatible con hojas de cálculo.
+                </p>
+
+            </section>
+
+        </main>
+
+        <footer class="pie-dashboard">
+            <div class="marca-pie">
+                <img src="../../../src/assets/img/LogoNegativo/negativo_con_eslogan_transparente.png" alt="Logo PuntualiX" class="logo-puntualix-pie" />
+                <div class="texto-marca-pie">
+                    <p>Desarrollado en el marco del proyecto de formación SENA · 2026</p>
+                    <p class="copyright-pie">
+                        <i class="fa-regular fa-copyright" aria-hidden="true"></i>
+                        2026 Puntualix. Todos los derechos reservados
+                    </p>
+                </div>
+            </div>
+
+            <div class="info-programa-pie">
+                <img src="../../../src/assets/img/LogoSena/SenaSobreVerde.png" alt="SENA" class="logo-sena-pie" />
+                <p>
+                    Programa: Análisis y desarrollo de Software<br />
+                    Ficha: 3267541
+                </p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="../../../src/js/main.js"></script>
+</body>
+</html>

@@ -4260,6 +4260,27 @@ html {
     border-left: 1px solid var(--color-borde);
 }
 
+.metricas-resumen-desempeno .dato-global-perfil {
+    align-items: flex-start;
+    text-align: left;
+}
+
+.metricas-resumen-desempeno-horizontal {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 28px;
+    padding-left: 0;
+    padding-top: 16px;
+    margin-top: 4px;
+    border-left: none;
+    border-top: 1px solid var(--color-borde);
+}
+
+.metricas-resumen-desempeno .detalle-desempeno-valor {
+    font-size: var(--texto-label);
+    font-weight: var(--peso-bold);
+}
+
 /* Tarjeta detallada clickeable que abre el perfil */
 
 .enlace-abrir-perfil {
@@ -4486,6 +4507,14 @@ html {
 
     .distribucion-perfil-instructor {
         grid-template-columns: 1fr;
+    }
+
+    .fila-paneles-inicio {
+        grid-template-columns: 1fr;
+    }
+
+    .bloque-asistencia-promedio {
+        flex-direction: column;
     }
 
     .distribucion-resumen-desempeno {
@@ -4751,8 +4780,299 @@ html {
     }
 }
 
+/* ===========================
+   APRENDIZ
+   =========================== */
+
+.fila-paneles-inicio {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 20px;
+    align-items: start;
+}
+
+.tarjeta-dashboard-personal {
+    background-color: var(--color-blanco);
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.tarjeta-dashboard-personal h2 {
+    font-size: var(--texto-h3);
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--color-borde);
+}
+
+.bloque-asistencia-promedio {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    padding-bottom: 24px;
+    margin-bottom: 24px;
+    border-bottom: 1px solid var(--color-borde);
+}
+
+.bloque-asistencia-competencia {
+    flex: 1;
+}
+
+.bloque-asistencia-competencia h3,
+.bloque-historial-reportes h3 {
+    font-size: var(--texto-label);
+    font-weight: var(--peso-semibold);
+    color: var(--color-texto-principal);
+    margin-bottom: 14px;
+}
+
+.lista-asistencia-competencia {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.item-asistencia-competencia {
+    display: grid;
+    grid-template-columns: 120px 1fr 40px;
+    align-items: center;
+    gap: 12px;
+}
+
+.nombre-competencia {
+    font-size: var(--texto-caption);
+    color: var(--color-texto-apoyo);
+    font-weight: var(--peso-medium);
+}
+
+.item-asistencia-competencia .barra-progreso {
+    width: 100%;
+}
+
+.valor-porcentaje {
+    font-size: var(--texto-caption);
+    font-weight: var(--peso-semibold);
+    color: var(--color-texto-principal);
+    text-align: right;
+}
+
+.etiqueta-estado-aprobada {
+    background-color: var(--color-confirmacion);
+    color: var(--color-blanco);
+}
+
+.etiqueta-estado-rechazada {
+    background-color: var(--color-alerta-critica);
+    color: var(--color-blanco);
+}
+
+.panel-generar-reporte textarea.selector-filtro {
+    width: 100%;
+    min-width: 0;
+    cursor: text;
+    resize: vertical;
+    font-family: var(--fuente-contenido);
+}
+
 @media (max-width: 480px) {
     .cuadricula-registro-ficha {
         grid-template-columns: 1fr;
     }
+}
+
+/* ==========================================================
+   PANTALLA — HISTORIAL DE ASISTENCIAS (APRENDIZ)
+   CU03.5 · CU04.2 · CU04.3
+   Reutiliza la franja-resumen, panel-listado, tabla-listado-fichas,
+   la dona de desempeño y el patrón de tarjetas-comparar (grid-comparar-fichas).
+   ========================================================== */
+
+/* ---------- Cabecera de la pantalla ---------- */
+
+.encabezado-historial {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.subtitulo-pagina {
+    font-size: var(--texto-cuerpo);
+    color: var(--color-texto-secundario);
+}
+
+/* ---------- Fila superior en modo individual: dona + tendencia ---------- */
+
+.fila-resumen-individual {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 20px;
+}
+
+.panel-tendencia-asistencia h2 {
+    margin-bottom: 4px;
+}
+
+.periodo-tendencia-asistencia {
+    font-size: var(--texto-caption);
+    color: var(--color-texto-secundario);
+    margin-bottom: 16px;
+}
+
+/* ---------- Etiquetas de estado de la sesión (tabla historial CU03.5) ---------- */
+
+.etiqueta-estado-asistio {
+    background-color: var(--color-confirmacion);
+    color: var(--color-blanco);
+}
+
+.etiqueta-estado-inasistencia {
+    background-color: var(--color-alerta-critica);
+    color: var(--color-blanco);
+}
+
+.etiqueta-estado-justificada {
+    background-color: var(--color-advertencia);
+    color: var(--color-blanco);
+}
+
+/* ---------- Comparar por competencia (CU04.3) ---------- */
+
+.chip-seleccion-competencia {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    border: 1px solid var(--color-borde);
+    border-radius: 999px;
+    background-color: var(--color-fondo-principal);
+    font-size: var(--texto-caption);
+    font-weight: var(--peso-medium);
+    color: var(--color-texto-cuerpo);
+    cursor: pointer;
+    user-select: none;
+}
+
+.chip-seleccion-competencia input {
+    accent-color: var(--color-primario);
+    cursor: pointer;
+}
+
+.panel-filtros-adicionales .chip-seleccion-competencia {
+    width: 100%;
+    border-radius: 8px;
+    white-space: nowrap;
+}
+
+.chip-seleccion-competencia:has(input:checked) {
+    background-color: var(--color-primario);
+    border-color: var(--color-primario);
+    color: var(--color-blanco);
+}
+
+.tarjeta-comparar-ficha .leyenda-dona-desempeno .item-leyenda {
+    font-size: var(--texto-caption);
+}
+
+/* ---------- Pestañas de sección (Historial asistencia / Estadísticas / Historial reportes) ---------- */
+/* Reutiliza el look de .selector-modo-estadisticas / .boton-modo-estadisticas ya definido arriba,
+   sólo se agregan las reglas de estado activo para los nuevos ids. */
+
+#vista-asistencia:checked ~ .selector-vista-historial label[for="vista-asistencia"],
+#vista-estadisticas:checked ~ .selector-vista-historial label[for="vista-estadisticas"],
+#vista-reportes:checked ~ .selector-vista-historial label[for="vista-reportes"] {
+    background-color: var(--color-primario);
+    color: var(--color-blanco);
+}
+
+.contenido-vista-asistencia,
+.contenido-vista-estadisticas,
+.contenido-vista-reportes {
+    display: none;
+    flex-direction: column;
+    gap: 24px;
+}
+
+#vista-asistencia:checked ~ .contenido-vista-asistencia,
+#vista-estadisticas:checked ~ .contenido-vista-estadisticas,
+#vista-reportes:checked ~ .contenido-vista-reportes {
+    display: flex;
+}
+
+/* ---------- Historial de reportes (CU05.3) ---------- */
+
+.fila-no-disponible {
+    opacity: 0.6;
+}
+
+.texto-accion-deshabilitada {
+    font-size: var(--texto-caption);
+    color: var(--color-texto-deshabilitado);
+    font-style: italic;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 900px) {
+    .fila-resumen-individual {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ==========================================================
+   INSTRUCTOR — clases nuevas (dashboard, alertas, actividad, material)
+   ========================================================== */
+
+.mini-grafico {
+    height: 32px;
+    margin-top: 4px;
+    border-radius: 4px;
+    background-color: var(--color-fondo-seccion-alterna);
+}
+
+.detalle-alerta {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0;
+}
+
+.detalle-actividad {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0;
+}
+
+.icono-actividad-registro {
+    background-color: var(--color-confirmacion);
+}
+
+.icono-actividad-justificacion {
+    background-color: var(--color-informacion);
+}
+
+.icono-actividad-reporte {
+    background-color: var(--color-texto-secundario);
+}
+
+.area-grafico-tendencia {
+    height: 120px;
+    border-radius: 8px;
+    background-color: var(--color-fondo-seccion-alterna);
+}
+
+.grupo-filtro-completo {
+    flex-basis: 100%;
+}
+
+.campo-archivo {
+    padding: 0.6rem;
+}
+
+.panel-listado-separado {
+    margin-top: 24px;
+}
+
+.enlace-ver-mas-centrado {
+    margin: 0;
 }

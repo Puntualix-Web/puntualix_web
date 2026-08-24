@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PuntualiX | Alertas</title>
+    <link rel="icon" type="image/png" href="../../../src/assets/img/favico/favicon_positivo.png">
+
+    <link rel="stylesheet" href="../../../src/styles/base.css">
+    <link rel="stylesheet" href="../../../src/styles/tokens.css">
+    <link rel="stylesheet" href="../../../src/styles/fonts.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../../../src/styles/estilos.css">
+</head>
+<body>
+    <div class="pantalla-dashboard-admin">
+
+        <header class="barra-navegacion">
+            <div class="marca-navegacion">
+                <img src="../../../src/assets/img/LogoNegativo/negativo_sin_eslogan_transparente.png" alt="Logo Puntualix">
+            </div>
+
+            <nav class="menu-navegacion">
+                <a href="../dashboard.html" class="enlace-nav" data-pagina="dashboard" data-roles="instructor">
+                    <i class="fa-solid fa-house"></i> Dashboard
+                </a>
+                <a href="../fichas/fichas.html" class="enlace-nav" data-pagina="fichas" data-roles="instructor">
+                    <i class="fa-solid fa-file-lines"></i> Fichas
+                </a>
+                <a href="../asistencia/asistencia.html" class="enlace-nav" data-pagina="asistencia" data-roles="instructor">
+                    <i class="fa-solid fa-clipboard-check"></i> Asistencia
+                </a>
+                <a href="../reportes/reportes.html" class="enlace-nav" data-pagina="reportes" data-roles="instructor">
+                    <i class="fa-solid fa-chart-bar"></i> Reportes
+                </a>
+                <a href="../material/subirMaterial.html" class="enlace-nav" data-pagina="material" data-roles="instructor">
+                    <i class="fa-solid fa-book"></i> Material
+                </a>
+            </nav>
+
+            <div class="area-usuario">
+                <span class="separador-nav" aria-hidden="true"></span>
+
+                <a href="alertas.html" class="boton-notificaciones enlace-nav-activo" aria-label="Alertas">
+                    <i class="fa-solid fa-bell"></i>
+                </a>
+
+                <div class="tarjeta-usuario" id="boton-menu-usuario">
+                    <div class="avatar-usuario" aria-hidden="true"></div>
+                    <div class="datos-usuario">
+                        <span class="nombre-usuario">Carlos Perez</span>
+                        <span class="rol-usuario">Instructor</span>
+                    </div>
+                    <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+                </div>
+
+                <div class="menu-desplegable-usuario oculto" id="menu-usuario">
+                    <a href="" class="item-menu-usuario" data-roles="instructor">
+                        <i class="fa-solid fa-circle-user"></i> Ver perfil
+                    </a>
+                    <a href="../../InicioSesion.html" class="item-menu-usuario item-menu-cerrar-sesion" data-roles="instructor">
+                        <i class="fa-solid fa-right-from-bracket"></i> Cerrar sesión
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <main class="contenido-dashboard">
+
+            <nav class="migas-pan" aria-label="Ruta de navegación">
+                <a href="../dashboard.html">Inicio</a>
+                <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+                <span>Alertas</span>
+            </nav>
+
+            <h1 class="titulo-pagina">Alertas</h1>
+
+            <div class="franja-resumen">
+                <div class="dato-resumen">
+                    <i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>
+                    <div class="info-resumen">
+                        <span class="valor-resumen">34</span>
+                        <span class="etiqueta-resumen">Alertas activas</span>
+                    </div>
+                </div>
+
+                <span class="divisor-resumen" aria-hidden="true"></span>
+
+                <div class="dato-resumen dato-resumen-negativo">
+                    <i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i>
+                    <div class="info-resumen">
+                        <span class="valor-resumen valor-resumen-negativo">12</span>
+                        <span class="etiqueta-resumen">Prioridad alta</span>
+                    </div>
+                </div>
+
+                <span class="divisor-resumen" aria-hidden="true"></span>
+
+                <div class="dato-resumen dato-resumen-alerta">
+                    <i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i>
+                    <div class="info-resumen">
+                        <span class="valor-resumen valor-resumen-alerta">15</span>
+                        <span class="etiqueta-resumen">Prioridad media</span>
+                    </div>
+                </div>
+
+                <span class="divisor-resumen" aria-hidden="true"></span>
+
+                <div class="dato-resumen dato-resumen-positivo">
+                    <i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i>
+                    <div class="info-resumen">
+                        <span class="valor-resumen valor-resumen-positivo">7</span>
+                        <span class="etiqueta-resumen">Prioridad baja</span>
+                    </div>
+                </div>
+            </div>
+
+            <section class="panel-listado">
+
+                <div class="encabezado-instructores-ficha">
+                    <h2>Listado de alertas</h2>
+                    <p class="texto-conteo-listado">Alertas de inasistencias por ficha que requieren seguimiento</p>
+                </div>
+
+                <div class="barra-herramientas-listado">
+                    <div class="grupo-herramientas-busqueda">
+                        <div class="grupo-filtros-activos">
+                            <div class="grupo-filtro">
+                                <label for="filtro-prioridad-alertas">Prioridad</label>
+                                <select id="filtro-prioridad-alertas" class="selector-filtro">
+                                    <option value="todas">Todas</option>
+                                    <option value="alta">Alta</option>
+                                    <option value="media">Media</option>
+                                    <option value="baja">Baja</option>
+                                </select>
+                            </div>
+
+                            <details class="menu-filtros-adicionales">
+                                <summary class="boton-mas-filtros">
+                                    <i class="fa-solid fa-sliders" aria-hidden="true"></i>
+                                    Más filtros
+                                </summary>
+                                <div class="panel-filtros-adicionales">
+                                    <div class="grupo-filtro">
+                                        <label for="filtro-ficha-alertas">Ficha</label>
+                                        <select id="filtro-ficha-alertas" class="selector-filtro">
+                                            <option value="todas">Todas</option>
+                                            <option value="301002">301002</option>
+                                            <option value="301003">301003</option>
+                                            <option value="301004">301004</option>
+                                            <option value="301005">301005</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="grupo-filtro">
+                                        <label for="filtro-alertas-desde">Desde</label>
+                                        <input type="date" id="filtro-alertas-desde" class="selector-filtro" value="2026-08-01">
+                                    </div>
+
+                                    <div class="grupo-filtro">
+                                        <label for="filtro-alertas-hasta">Hasta</label>
+                                        <input type="date" id="filtro-alertas-hasta" class="selector-filtro" value="2026-08-22">
+                                    </div>
+                                </div>
+                            </details>
+
+                            <button type="button" class="boton-limpiar-filtros">
+                                <i class="fa-solid fa-broom" aria-hidden="true"></i>
+                                Limpiar filtros
+                            </button>
+                        </div>
+
+                        <div class="grupo-busqueda">
+                            <input type="text" placeholder="Buscar por ficha" class="campo-busqueda-ficha" />
+                            <button type="button" class="boton-buscar-ficha" aria-label="Buscar">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contenedor-tabla-listado">
+                    <table class="tabla-listado-fichas">
+                    <colgroup>
+                        <col style="width: 10%">
+                        <col style="width: 33%">
+                        <col style="width: 10%">
+                        <col style="width: 20%">
+                        <col style="width: 17%">
+                        <col style="width: 10%">
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th>Prioridad</th>
+                            <th>Descripción</th>
+                            <th>Ficha</th>
+                            <th>Instructor líder</th>
+                            <th>Fecha de generación</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="etiqueta-riesgo etiqueta-riesgo-critico">Alta</span></td>
+                            <td>El porcentaje de inasistencias de la ficha superó el límite crítico (35%).</td>
+                            <td>301004</td>
+                            <td>Carlos Perez</td>
+                            <td>22/08/2026 07:45</td>
+                            <td><a href="#alerta-1" class="icono-contacto-ficha" title="Ver detalle" aria-label="Ver detalle"><i class="fa-solid fa-eye"></i></a></td>
+                        </tr>
+                        <tr>
+                            <td><span class="etiqueta-riesgo etiqueta-riesgo-moderado">Media</span></td>
+                            <td>El porcentaje de inasistencias se acerca al límite establecido (22%).</td>
+                            <td>301002</td>
+                            <td>Carlos Perez</td>
+                            <td>20/08/2026 09:10</td>
+                            <td><a href="#alerta-2" class="icono-contacto-ficha" title="Ver detalle" aria-label="Ver detalle"><i class="fa-solid fa-eye"></i></a></td>
+                        </tr>
+                        <tr>
+                            <td><span class="etiqueta-riesgo etiqueta-riesgo-bajo">Baja</span></td>
+                            <td>El porcentaje de inasistencias muestra una tendencia al alza (14%).</td>
+                            <td>301003</td>
+                            <td>Carlos Perez</td>
+                            <td>18/08/2026 10:05</td>
+                            <td><a href="#alerta-3" class="icono-contacto-ficha" title="Ver detalle" aria-label="Ver detalle"><i class="fa-solid fa-eye"></i></a></td>
+                        </tr>
+                    </tbody>
+                </table>
+                </div>
+
+                <div class="pie-listado">
+                    <p class="texto-conteo-listado">Mostrando 3 alertas de 34</p>
+
+                    <nav class="paginacion" aria-label="Paginación de alertas">
+                        <button type="button" class="boton-pagina boton-pagina-activo">1</button>
+                        <button type="button" class="boton-pagina">2</button>
+                        <button type="button" class="boton-pagina">3</button>
+                        <button type="button" class="boton-pagina-siguiente" aria-label="Página siguiente">
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </button>
+                    </nav>
+                </div>
+
+            </section>
+
+            <div class="overlay-detalle-actividad" id="alerta-1">
+                <a href="alertas.html" class="fondo-detalle-actividad" aria-label="Cerrar detalle"></a>
+                <div class="tarjeta-detalle-actividad">
+                    <a href="alertas.html" class="boton-cerrar-detalle-actividad" aria-label="Cerrar"><i class="fa-solid fa-xmark"></i></a>
+                    <div class="cabecera-detalle-actividad">
+                        <div class="icono-detalle-actividad icono-detalle-actividad-error" aria-hidden="true"><i class="fa-solid fa-triangle-exclamation"></i></div>
+                        <div>
+                            <p class="titulo-detalle-actividad">Alerta de inasistencias por ficha</p>
+                            <p class="subtitulo-detalle-actividad">Prioridad alta · Ficha 301004</p>
+                        </div>
+                    </div>
+                    <div class="lista-detalle-actividad">
+                        <div class="fila-detalle-actividad"><span>Ficha</span><span>301004 — Análisis y Desarrollo de Software</span></div>
+                        <div class="fila-detalle-actividad"><span>Instructor líder</span><span>Carlos Perez</span></div>
+                        <div class="fila-detalle-actividad"><span>Límite configurado</span><span>30%</span></div>
+                        <div class="fila-detalle-actividad"><span>Porcentaje detectado</span><span>35%</span></div>
+                        <div class="fila-detalle-actividad"><span>Fecha de generación</span><span>22/08/2026 07:45</span></div>
+                    </div>
+                    <p class="descripcion-detalle-actividad">El porcentaje global de inasistencias de la ficha 301004 alcanzó el 35%, superando el límite crítico institucional del 30%. Se requiere seguimiento académico inmediato.</p>
+                </div>
+            </div>
+
+            <div class="overlay-detalle-actividad" id="alerta-2">
+                <a href="alertas.html" class="fondo-detalle-actividad" aria-label="Cerrar detalle"></a>
+                <div class="tarjeta-detalle-actividad">
+                    <a href="alertas.html" class="boton-cerrar-detalle-actividad" aria-label="Cerrar"><i class="fa-solid fa-xmark"></i></a>
+                    <div class="cabecera-detalle-actividad">
+                        <div class="icono-detalle-actividad icono-detalle-actividad-alerta" aria-hidden="true"><i class="fa-solid fa-triangle-exclamation"></i></div>
+                        <div>
+                            <p class="titulo-detalle-actividad">Alerta de inasistencias por ficha</p>
+                            <p class="subtitulo-detalle-actividad">Prioridad media · Ficha 301002</p>
+                        </div>
+                    </div>
+                    <div class="lista-detalle-actividad">
+                        <div class="fila-detalle-actividad"><span>Ficha</span><span>301002 — Análisis y Desarrollo de Software</span></div>
+                        <div class="fila-detalle-actividad"><span>Instructor líder</span><span>Carlos Perez</span></div>
+                        <div class="fila-detalle-actividad"><span>Límite configurado</span><span>30%</span></div>
+                        <div class="fila-detalle-actividad"><span>Porcentaje detectado</span><span>22%</span></div>
+                        <div class="fila-detalle-actividad"><span>Fecha de generación</span><span>20/08/2026 09:10</span></div>
+                    </div>
+                    <p class="descripcion-detalle-actividad">El porcentaje de inasistencias de la ficha 301002 se acerca al límite institucional. Se recomienda monitoreo preventivo.</p>
+                </div>
+            </div>
+
+            <div class="overlay-detalle-actividad" id="alerta-3">
+                <a href="alertas.html" class="fondo-detalle-actividad" aria-label="Cerrar detalle"></a>
+                <div class="tarjeta-detalle-actividad">
+                    <a href="alertas.html" class="boton-cerrar-detalle-actividad" aria-label="Cerrar"><i class="fa-solid fa-xmark"></i></a>
+                    <div class="cabecera-detalle-actividad">
+                        <div class="icono-detalle-actividad icono-detalle-actividad-exito" aria-hidden="true"><i class="fa-solid fa-triangle-exclamation"></i></div>
+                        <div>
+                            <p class="titulo-detalle-actividad">Alerta de inasistencias por ficha</p>
+                            <p class="subtitulo-detalle-actividad">Prioridad baja · Ficha 301003</p>
+                        </div>
+                    </div>
+                    <div class="lista-detalle-actividad">
+                        <div class="fila-detalle-actividad"><span>Ficha</span><span>301003 — Gestión Empresarial</span></div>
+                        <div class="fila-detalle-actividad"><span>Instructor líder</span><span>Carlos Perez</span></div>
+                        <div class="fila-detalle-actividad"><span>Límite configurado</span><span>30%</span></div>
+                        <div class="fila-detalle-actividad"><span>Porcentaje detectado</span><span>14%</span></div>
+                        <div class="fila-detalle-actividad"><span>Fecha de generación</span><span>18/08/2026 10:05</span></div>
+                    </div>
+                    <p class="descripcion-detalle-actividad">El porcentaje de inasistencias de la ficha 301003 muestra una tendencia al alza. Se registra como seguimiento preventivo.</p>
+                </div>
+            </div>
+
+        </main>
+
+        <footer class="pie-dashboard">
+            <div class="marca-pie">
+                <img src="../../../src/assets/img/LogoNegativo/negativo_con_eslogan_transparente.png" alt="Logo PuntualiX" class="logo-puntualix-pie" />
+                <div class="texto-marca-pie">
+                    <p>Desarrollado en el marco del proyecto de formación SENA · 2026</p>
+                    <p class="copyright-pie">
+                        <i class="fa-regular fa-copyright" aria-hidden="true"></i>
+                        2026 Puntualix. Todos los derechos reservados
+                    </p>
+                </div>
+            </div>
+
+            <div class="info-programa-pie">
+                <img src="../../../src/assets/img/LogoSena/SenaSobreVerde.png" alt="SENA" class="logo-sena-pie" />
+                <p>
+                    Programa: Análisis y desarrollo de Software<br />
+                    Ficha: 3267541
+                </p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="../../../src/js/main.js"></script>
+</body>
+</html>
