@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PuntualiX | Fichas Asignadas</title>
+    <title>PuntualiX | Justificaciones</title>
     <link rel="icon" type="image/png" href="../../../src/assets/img/favico/favicon_positivo.png">
 
     <link rel="stylesheet" href="../../../src/styles/base.css">
@@ -24,13 +24,13 @@
                 <a href="../dashboard.html" class="enlace-nav" data-pagina="dashboard" data-roles="instructor">
                     <i class="fa-solid fa-house"></i> Dashboard
                 </a>
-                <a href="fichas.html" class="enlace-nav enlace-nav-activo" data-pagina="fichas" data-roles="instructor">
+                <a href="../fichas/fichas.html" class="enlace-nav" data-pagina="fichas" data-roles="instructor">
                     <i class="fa-solid fa-file-lines"></i> Fichas
                 </a>
                 <a href="../asistencia/asistencia.html" class="enlace-nav" data-pagina="asistencia" data-roles="instructor">
                     <i class="fa-solid fa-clipboard-check"></i> Asistencia
                 </a>
-                <a href="../justificaciones/justificaciones.html" class="enlace-nav" data-pagina="justificaciones" data-roles="instructor">
+                <a href="justificaciones.html" class="enlace-nav enlace-nav-activo" data-pagina="justificaciones" data-roles="instructor">
                     <i class="fa-solid fa-file-circle-exclamation"></i> Justificaciones
                 </a>
                 <a href="../reportes/reportes.html" class="enlace-nav" data-pagina="reportes" data-roles="instructor">
@@ -73,17 +73,17 @@
             <nav class="migas-pan" aria-label="Ruta de navegación">
                 <a href="../dashboard.html">Inicio</a>
                 <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
-                <span>Fichas</span>
+                <span>Justificaciones</span>
             </nav>
 
-            <h1 class="titulo-pagina">Fichas Asignadas</h1>
+            <h1 class="titulo-pagina">Justificaciones</h1>
 
             <div class="franja-resumen">
-                <div class="dato-resumen">
-                    <i class="fa-solid fa-file-lines" aria-hidden="true"></i>
+                <div class="dato-resumen dato-resumen-alerta">
+                    <i class="fa-solid fa-clock" aria-hidden="true"></i>
                     <div class="info-resumen">
-                        <span class="valor-resumen">24</span>
-                        <span class="etiqueta-resumen">Fichas asignadas</span>
+                        <span class="valor-resumen valor-resumen-alerta">4</span>
+                        <span class="etiqueta-resumen">Pendientes</span>
                     </div>
                 </div>
 
@@ -92,8 +92,8 @@
                 <div class="dato-resumen dato-resumen-positivo">
                     <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
                     <div class="info-resumen">
-                        <span class="valor-resumen valor-resumen-positivo">20</span>
-                        <span class="etiqueta-resumen">Activas</span>
+                        <span class="valor-resumen valor-resumen-positivo">12</span>
+                        <span class="etiqueta-resumen">Aprobadas</span>
                     </div>
                 </div>
 
@@ -102,18 +102,18 @@
                 <div class="dato-resumen dato-resumen-negativo">
                     <i class="fa-solid fa-circle-xmark" aria-hidden="true"></i>
                     <div class="info-resumen">
-                        <span class="valor-resumen valor-resumen-negativo">4</span>
-                        <span class="etiqueta-resumen">Inactivas</span>
+                        <span class="valor-resumen valor-resumen-negativo">2</span>
+                        <span class="etiqueta-resumen">Rechazadas</span>
                     </div>
                 </div>
 
                 <span class="divisor-resumen" aria-hidden="true"></span>
 
                 <div class="dato-resumen">
-                    <i class="fa-solid fa-users" aria-hidden="true"></i>
+                    <i class="fa-solid fa-list-check" aria-hidden="true"></i>
                     <div class="info-resumen">
-                        <span class="valor-resumen">532</span>
-                        <span class="etiqueta-resumen">Total aprendices</span>
+                        <span class="valor-resumen">18</span>
+                        <span class="etiqueta-resumen">Total registros</span>
                     </div>
                 </div>
             </div>
@@ -121,32 +121,31 @@
             <section class="panel-listado">
 
                 <div class="encabezado-instructores-ficha">
-                    <h2>Fichas asignadas</h2>
-                    <a href="registrarAprendiz.html" class="boton-nuevo-usuario">
-                        <i class="fa-solid fa-user-plus"></i>
-                        Registrar aprendiz
-                    </a>
+                    <h2>Justificaciones pendientes</h2>
+                    <p class="texto-conteo-listado">Revisa y gestiona las justificaciones de inasistencia</p>
                 </div>
 
-                <form class="barra-herramientas-listado" role="search" aria-label="Buscar y filtrar fichas">
+                <form class="barra-herramientas-listado" role="search" aria-label="Buscar y filtrar justificaciones">
                     <div class="grupo-herramientas-busqueda">
                         <div class="grupo-filtros-activos">
                             <div class="grupo-filtro">
-                                <label for="filtro-programa">Programa</label>
-                                <select id="filtro-programa" class="selector-filtro">
+                                <label for="filtro-estado-justificacion">Estado</label>
+                                <select id="filtro-estado-justificacion" class="selector-filtro">
                                     <option value="todos">Todos</option>
-                                    <option value="ads">Análisis y Desarrollo de Software</option>
-                                    <option value="gestion">Gestión Empresarial</option>
-                                    <option value="diseno">Diseño y Programación</option>
+                                    <option value="pendiente">Pendiente</option>
+                                    <option value="aprobada">Aprobada</option>
+                                    <option value="rechazada">Rechazada</option>
                                 </select>
                             </div>
 
                             <div class="grupo-filtro">
-                                <label for="filtro-estado">Estado</label>
-                                <select id="filtro-estado" class="selector-filtro">
-                                    <option value="todos">Todos</option>
-                                    <option value="activa">Activa</option>
-                                    <option value="inactiva">Inactiva</option>
+                                <label for="filtro-ficha-justificacion">Ficha</label>
+                                <select id="filtro-ficha-justificacion" class="selector-filtro">
+                                    <option value="todos">Todas</option>
+                                    <option value="301002">301002</option>
+                                    <option value="301003">301003</option>
+                                    <option value="301004">301004</option>
+                                    <option value="301005">301005</option>
                                 </select>
                             </div>
 
@@ -157,7 +156,7 @@
                         </div>
 
                         <div class="grupo-busqueda">
-                            <input type="search" placeholder="Buscar ficha" class="campo-busqueda-ficha" aria-label="Buscar ficha" />
+                            <input type="search" placeholder="Buscar aprendiz" class="campo-busqueda-ficha" aria-label="Buscar aprendiz" />
                             <button type="submit" class="boton-buscar-ficha" aria-label="Buscar">
                                 <i class="fa-solid fa-magnifying-glass"></i>
                             </button>
@@ -167,52 +166,87 @@
 
                 <div class="contenedor-tabla-listado">
                     <table class="tabla-listado-fichas">
+                    <colgroup>
+                        <col style="width: 5%">
+                        <col style="width: 20%">
+                        <col style="width: 10%">
+                        <col style="width: 15%">
+                        <col style="width: 15%">
+                        <col style="width: 12%">
+                        <col style="width: 23%">
+                    </colgroup>
                     <thead>
                         <tr>
-                            <th>Número</th>
-                            <th>Programa</th>
+                            <th>#</th>
+                            <th>Aprendiz</th>
+                            <th>Ficha</th>
+                            <th>Fecha inasistencia</th>
+                            <th>Documento</th>
                             <th>Estado</th>
-                            <th>Aprendices</th>
                             <th>Acciones</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
+                            <td>1</td>
+                            <td>Juan Perez</td>
                             <td>301002</td>
-                            <td>Análisis y Desarrollo de Software</td>
-                            <td><span class="etiqueta-estado etiqueta-estado-activo">Activa</span></td>
-                            <td>24</td>
-                            <td><a href="../asistencia/asistencia.html" class="boton-ver-mas">Asistencia</a></td>
+                            <td>12/06/2026</td>
+                            <td><a href="#" class="enlace-documento-justificacion" title="Ver documento" aria-label="Ver documento"><i class="fa-solid fa-file-pdf"></i> PDF</a></td>
+                            <td><span class="etiqueta-estado etiqueta-estado-pendiente">Pendiente</span></td>
+                            <td class="acciones-justificacion">
+                                <a href="#" class="icono-contacto-ficha" title="Ver detalle" aria-label="Ver justificación"><i class="fa-solid fa-eye"></i></a>
+                                <button type="button" class="boton-accion-tabla boton-aprobar" aria-label="Aprobar justificación"><i class="fa-solid fa-check"></i></button>
+                                <button type="button" class="boton-accion-tabla boton-rechazar" aria-label="Rechazar justificación"><i class="fa-solid fa-xmark"></i></button>
+                            </td>
                         </tr>
                         <tr>
+                            <td>2</td>
+                            <td>Maria González</td>
+                            <td>301002</td>
+                            <td>29/06/2026</td>
+                            <td><a href="#" class="enlace-documento-justificacion" title="Ver documento" aria-label="Ver documento"><i class="fa-solid fa-file-pdf"></i> PDF</a></td>
+                            <td><span class="etiqueta-estado etiqueta-estado-pendiente">Pendiente</span></td>
+                            <td class="acciones-justificacion">
+                                <a href="#" class="icono-contacto-ficha" title="Ver detalle" aria-label="Ver justificación"><i class="fa-solid fa-eye"></i></a>
+                                <button type="button" class="boton-accion-tabla boton-aprobar" aria-label="Aprobar justificación"><i class="fa-solid fa-check"></i></button>
+                                <button type="button" class="boton-accion-tabla boton-rechazar" aria-label="Rechazar justificación"><i class="fa-solid fa-xmark"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Pedro Ramirez Mendez</td>
+                            <td>301001</td>
+                            <td>26/06/2026</td>
+                            <td><a href="#" class="enlace-documento-justificacion" title="Ver documento" aria-label="Ver documento"><i class="fa-solid fa-file-pdf"></i> PDF</a></td>
+                            <td><span class="etiqueta-estado etiqueta-estado-pendiente">Pendiente</span></td>
+                            <td class="acciones-justificacion">
+                                <a href="#" class="icono-contacto-ficha" title="Ver detalle" aria-label="Ver justificación"><i class="fa-solid fa-eye"></i></a>
+                                <button type="button" class="boton-accion-tabla boton-aprobar" aria-label="Aprobar justificación"><i class="fa-solid fa-check"></i></button>
+                                <button type="button" class="boton-accion-tabla boton-rechazar" aria-label="Rechazar justificación"><i class="fa-solid fa-xmark"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>Laura Gomez</td>
                             <td>301003</td>
-                            <td>Gestión Empresarial</td>
-                            <td><span class="etiqueta-estado etiqueta-estado-activo">Activa</span></td>
-                            <td>12</td>
-                            <td><a href="../asistencia/asistencia.html" class="boton-ver-mas">Asistencia</a></td>
-                        </tr>
-                        <tr>
-                            <td>301004</td>
-                            <td>Análisis y Desarrollo de Software</td>
-                            <td><span class="etiqueta-estado etiqueta-estado-inactivo">Inactiva</span></td>
-                            <td>18</td>
-                            <td><a href="../asistencia/asistencia.html" class="boton-ver-mas">Asistencia</a></td>
-                        </tr>
-                        <tr>
-                            <td>301005</td>
-                            <td>Diseño y Programación</td>
-                            <td><span class="etiqueta-estado etiqueta-estado-activo">Activa</span></td>
-                            <td>17</td>
-                            <td><a href="../asistencia/asistencia.html" class="boton-ver-mas">Asistencia</a></td>
+                            <td>27/06/2026</td>
+                            <td><a href="#" class="enlace-documento-justificacion" title="Ver documento" aria-label="Ver documento"><i class="fa-solid fa-file-pdf"></i> PDF</a></td>
+                            <td><span class="etiqueta-estado etiqueta-estado-pendiente">Pendiente</span></td>
+                            <td class="acciones-justificacion">
+                                <a href="#" class="icono-contacto-ficha" title="Ver detalle" aria-label="Ver justificación"><i class="fa-solid fa-eye"></i></a>
+                                <button type="button" class="boton-accion-tabla boton-aprobar" aria-label="Aprobar justificación"><i class="fa-solid fa-check"></i></button>
+                                <button type="button" class="boton-accion-tabla boton-rechazar" aria-label="Rechazar justificación"><i class="fa-solid fa-xmark"></i></button>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
                 </div>
 
                 <div class="pie-listado">
-                    <p class="texto-conteo-listado">Mostrando 4 fichas de 24</p>
+                    <p class="texto-conteo-listado">Mostrando 4 registros de 18</p>
 
-                    <nav class="paginacion" aria-label="Paginación de fichas">
+                    <nav class="paginacion" aria-label="Paginación de justificaciones">
                         <button type="button" class="boton-pagina boton-pagina-activo">1</button>
                         <button type="button" class="boton-pagina">2</button>
                         <button type="button" class="boton-pagina">3</button>
